@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3061748922A02DC800CE1A8A /* FileUploadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3061748422A02DC700CE1A8A /* FileUploadViewController.xib */; };
-		3061748A22A02DC800CE1A8A /* FileUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3061748622A02DC800CE1A8A /* FileUploadViewController.m */; };
-		3061748B22A02DC800CE1A8A /* FTPFileUploder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3061748722A02DC800CE1A8A /* FTPFileUploder.m */; };
+		B6309C5A22B256FF007A2942 /* AudioPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6309C5822B256FF007A2942 /* AudioPlayerView.m */; };
+		B6309C5B22B256FF007A2942 /* SampleQueueId.m in Sources */ = {isa = PBXBuildFile; fileRef = B6309C5922B256FF007A2942 /* SampleQueueId.m */; };
 		B636AA30215E704F00C755CB /* SongInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B636AA2F215E704F00C755CB /* SongInfo.m */; };
 		B636AA33215E70CC00C755CB /* SongItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B636AA32215E70CC00C755CB /* SongItem.m */; };
 		B636AA36215E711C00C755CB /* TimeLine.m in Sources */ = {isa = PBXBuildFile; fileRef = B636AA35215E711C00C755CB /* TimeLine.m */; };
@@ -20,8 +19,6 @@
 		B63AC0BD213AA7F200C45F83 /* GroupInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B63AC0BC213AA7F200C45F83 /* GroupInfo.m */; };
 		B63AC0C0213AA80600C45F83 /* GroupItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B63AC0BF213AA80600C45F83 /* GroupItem.m */; };
 		B63AC0C3213AA81900C45F83 /* ProjectInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B63AC0C2213AA81900C45F83 /* ProjectInfo.m */; };
-		B63AC0C7213ABDB600C45F83 /* ProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B63AC0C5213ABDB600C45F83 /* ProjectViewController.m */; };
-		B63AC0C8213ABDB600C45F83 /* ProjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B63AC0C6213ABDB600C45F83 /* ProjectViewController.xib */; };
 		B63AC0CB213DFD6500C45F83 /* KeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B63AC0CA213DFD6500C45F83 /* KeyboardManager.m */; };
 		B63AC0CE213DFD9D00C45F83 /* UIView+FirstResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = B63AC0CD213DFD9D00C45F83 /* UIView+FirstResponder.m */; };
 		B63AC0D1213E0FD300C45F83 /* BFPaperTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B63AC0D0213E0FD300C45F83 /* BFPaperTabBarController.m */; };
@@ -37,15 +34,11 @@
 		B63AC137213E7C5F00C45F83 /* STKDataSourceWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = B63AC12B213E7C5F00C45F83 /* STKDataSourceWrapper.m */; };
 		B63AC138213E7C5F00C45F83 /* STKDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B63AC12D213E7C5F00C45F83 /* STKDataSource.m */; };
 		B63AC139213E7C5F00C45F83 /* NSMutableArray+STKAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B63AC12F213E7C5F00C45F83 /* NSMutableArray+STKAudioPlayer.m */; };
-		B63AC145213E7EDA00C45F83 /* AudioPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B63AC143213E7EDA00C45F83 /* AudioPlayerViewController.m */; };
-		B63AC146213E7EDA00C45F83 /* AudioPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B63AC144213E7EDA00C45F83 /* AudioPlayerViewController.xib */; };
 		B63AC14F213E812F00C45F83 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63AC14E213E812F00C45F83 /* AudioToolbox.framework */; };
 		B63AC151213E813900C45F83 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63AC150213E813900C45F83 /* SystemConfiguration.framework */; };
 		B63AC153213E814800C45F83 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63AC152213E814700C45F83 /* CoreGraphics.framework */; };
 		B63AC156213E9E5A00C45F83 /* AudioUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = B63AC155213E9E5A00C45F83 /* AudioUtil.m */; };
 		B63AC158213EA37F00C45F83 /* ManInTheMirror.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B63AC157213EA37E00C45F83 /* ManInTheMirror.mp3 */; };
-		B63AC15C213F4D4700C45F83 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B63AC15A213F4D4700C45F83 /* SearchViewController.m */; };
-		B63AC15D213F4D4700C45F83 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B63AC15B213F4D4700C45F83 /* SearchViewController.xib */; };
 		B643EC82212FC01000963B98 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B643EC81212FC01000963B98 /* AppDelegate.m */; };
 		B643EC88212FC01000963B98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B643EC86212FC01000963B98 /* Main.storyboard */; };
 		B643EC8A212FC01200963B98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B643EC89212FC01200963B98 /* Assets.xcassets */; };
@@ -53,15 +46,6 @@
 		B643EC90212FC01200963B98 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B643EC8F212FC01200963B98 /* main.m */; };
 		B643EC9A212FC01200963B98 /* MuffinTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B643EC99212FC01200963B98 /* MuffinTests.m */; };
 		B643ECA5212FC01200963B98 /* MuffinUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = B643ECA4212FC01200963B98 /* MuffinUITests.m */; };
-		B643ECDF212FC87500963B98 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B643ECCD212FC87500963B98 /* MainViewController.m */; };
-		B643ECE0212FC87500963B98 /* ChooseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B643ECD1212FC87500963B98 /* ChooseNavigationController.m */; };
-		B643ECE1212FC87500963B98 /* RightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B643ECD2212FC87500963B98 /* RightViewController.m */; };
-		B643ECE2212FC87500963B98 /* LeftViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B643ECD3212FC87500963B98 /* LeftViewCell.m */; };
-		B643ECE3212FC87500963B98 /* RightViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B643ECD6212FC87500963B98 /* RightViewCell.m */; };
-		B643ECE4212FC87500963B98 /* OtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B643ECDA212FC87500963B98 /* OtherViewController.m */; };
-		B643ECE5212FC87500963B98 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B643ECDB212FC87500963B98 /* LeftViewController.m */; };
-		B643ECE6212FC87500963B98 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B643ECDC212FC87500963B98 /* NavigationController.m */; };
-		B643ECE7212FC87500963B98 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B643ECDD212FC87500963B98 /* TableViewController.m */; };
 		B643ED12212FC8AE00963B98 /* AFHTTPRequestOperation+ResponseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B643ECEA212FC8AE00963B98 /* AFHTTPRequestOperation+ResponseObject.m */; };
 		B643ED13212FC8AE00963B98 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B643ECED212FC8AE00963B98 /* AFImageRequestOperation.m */; };
 		B643ED14212FC8AE00963B98 /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = B643ECEE212FC8AE00963B98 /* AFPropertyListRequestOperation.m */; };
@@ -85,7 +69,6 @@
 		B643ED2C212FC94400963B98 /* imageRight.png in Resources */ = {isa = PBXBuildFile; fileRef = B643ED29212FC94300963B98 /* imageRight.png */; };
 		B643ED2D212FC94400963B98 /* imageLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = B643ED2A212FC94300963B98 /* imageLeft.png */; };
 		B643ED2E212FC94400963B98 /* imageRoot.png in Resources */ = {isa = PBXBuildFile; fileRef = B643ED2B212FC94300963B98 /* imageRoot.png */; };
-		B643ED31212FCA5B00963B98 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B643ED2F212FCA5B00963B98 /* RootViewController.m */; };
 		B643ED36212FCFEB00963B98 /* CommonFileUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = B643ED34212FCFE900963B98 /* CommonFileUtil.m */; };
 		B643ED41212FD03A00963B98 /* unzip.c in Sources */ = {isa = PBXBuildFile; fileRef = B643ED38212FD03A00963B98 /* unzip.c */; };
 		B643ED42212FD03A00963B98 /* zip.c in Sources */ = {isa = PBXBuildFile; fileRef = B643ED39212FD03A00963B98 /* zip.c */; };
@@ -179,25 +162,14 @@
 		B6B356222162034C006FC18C /* list_btn_do.png in Resources */ = {isa = PBXBuildFile; fileRef = B6B355ED2162034B006FC18C /* list_btn_do.png */; };
 		B6B356232162034C006FC18C /* muffin_logo_l.png in Resources */ = {isa = PBXBuildFile; fileRef = B6B355EE2162034B006FC18C /* muffin_logo_l.png */; };
 		B6B356242162034C006FC18C /* st_03_off.png in Resources */ = {isa = PBXBuildFile; fileRef = B6B355EF2162034B006FC18C /* st_03_off.png */; };
-		B6B356282163076B006FC18C /* StartupPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6B356262163076B006FC18C /* StartupPopupView.m */; };
-		B6B356292163076B006FC18C /* StartupPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6B356272163076B006FC18C /* StartupPopupView.xib */; };
-		B6BDD3C8213A88600037CACF /* MainScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BDD3C6213A88600037CACF /* MainScreenViewController.m */; };
-		B6BDD3C9213A88600037CACF /* MainScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6BDD3C7213A88600037CACF /* MainScreenViewController.xib */; };
 		B6BDD3CD213A88E40037CACF /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B6BDD3CC213A88E40037CACF /* UserInfo.m */; };
 		B6C60C5621424B140033B7B3 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6C60C5321424B140033B7B3 /* FBSDKCoreKit.framework */; };
 		B6C60C5721424B140033B7B3 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6C60C5421424B140033B7B3 /* Bolts.framework */; };
 		B6C60C5821424B140033B7B3 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6C60C5521424B140033B7B3 /* FBSDKLoginKit.framework */; };
-		B6C8B71C2184456D00D821C9 /* ProjectMakeController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C8B71A2184456D00D821C9 /* ProjectMakeController.m */; };
-		B6C8B71D2184456D00D821C9 /* ProjectMakeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6C8B71B2184456D00D821C9 /* ProjectMakeController.xib */; };
 		B6C8B7202185844A00D821C9 /* EDTagListView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C8B71F2185844A00D821C9 /* EDTagListView.m */; };
 		B6C8B72321858AC700D821C9 /* ZFTokenField.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C8B72121858AC600D821C9 /* ZFTokenField.m */; };
 		B6D61EFC217C368600613612 /* ico_tit_back_o.png in Resources */ = {isa = PBXBuildFile; fileRef = B6D61EFA217C368600613612 /* ico_tit_back_o.png */; };
 		B6D61EFD217C368600613612 /* ico_tit_back_n.png in Resources */ = {isa = PBXBuildFile; fileRef = B6D61EFB217C368600613612 /* ico_tit_back_n.png */; };
-		B6E0E57C212FF4BB0065E395 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E0E57A212FF4BB0065E395 /* UserInfoViewController.m */; };
-		B6E0E57D212FF4BB0065E395 /* UserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6E0E57B212FF4BB0065E395 /* UserInfoViewController.xib */; };
-		B6E0E581212FFEA50065E395 /* PopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E0E580212FFEA50065E395 /* PopupViewController.m */; };
-		B6E0E585212FFECC0065E395 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E0E583212FFECC0065E395 /* LoginViewController.m */; };
-		B6E0E586212FFECC0065E395 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6E0E584212FFECC0065E395 /* LoginViewController.xib */; };
 		B6E0E58A213003470065E395 /* EDRoundView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E0E589213003470065E395 /* EDRoundView.m */; };
 		B6E0E58D213009810065E395 /* EDRoundTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E0E58C213009810065E395 /* EDRoundTableView.m */; };
 		B6E0E5952130102F0065E395 /* IMG_0697.png in Resources */ = {isa = PBXBuildFile; fileRef = B6E0E58E213010230065E395 /* IMG_0697.png */; };
@@ -208,24 +180,10 @@
 		B6E0E59A2130102F0065E395 /* IMG_0689.png in Resources */ = {isa = PBXBuildFile; fileRef = B6E0E5932130102D0065E395 /* IMG_0689.png */; };
 		B6E0E59B2130102F0065E395 /* IMG_0694.png in Resources */ = {isa = PBXBuildFile; fileRef = B6E0E5942130102F0065E395 /* IMG_0694.png */; };
 		B6E0E59E213152BB0065E395 /* EDRoundButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E0E59D213152BB0065E395 /* EDRoundButton.m */; };
-		B6E0E5A22131632E0065E395 /* EDBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E0E5A12131632E0065E395 /* EDBaseViewController.m */; };
-		B6E0E5AE213165380065E395 /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E0E5AC213165380065E395 /* UserViewController.m */; };
-		B6E0E5AF213165380065E395 /* UserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6E0E5AD213165380065E395 /* UserViewController.xib */; };
 		B6E0E5C02133D0F00065E395 /* EDHttpTransManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E0E5BF2133D0F00065E395 /* EDHttpTransManager.m */; };
-		B6E0E5C42135270F0065E395 /* UserListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E0E5C22135270F0065E395 /* UserListViewController.m */; };
-		B6E0E5C52135270F0065E395 /* UserListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6E0E5C32135270F0065E395 /* UserListViewController.xib */; };
-		B6E6C3532196BB3600AC6A3C /* UserOtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E6C3512196BB3600AC6A3C /* UserOtherViewController.m */; };
-		B6E6C3542196BB3600AC6A3C /* UserOtherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6E6C3522196BB3600AC6A3C /* UserOtherViewController.xib */; };
-		B6E6C3582196D42A00AC6A3C /* BannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E6C3562196D42A00AC6A3C /* BannerViewController.m */; };
-		B6E6C3592196D42A00AC6A3C /* BannerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6E6C3572196D42A00AC6A3C /* BannerViewController.xib */; };
 		B6E6C35C2196D4F200AC6A3C /* BannerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E6C35B2196D4F200AC6A3C /* BannerItem.m */; };
-		B6E6C3602196DB4600AC6A3C /* BannerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E6C35E2196DB4600AC6A3C /* BannerTableViewCell.m */; };
-		B6E6C3612196DB4600AC6A3C /* BannerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6E6C35F2196DB4600AC6A3C /* BannerTableViewCell.xib */; };
-		B6E6C3652197CF0400AC6A3C /* TagCollectonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E6C3632197CF0400AC6A3C /* TagCollectonViewController.m */; };
-		B6E6C3662197CF0400AC6A3C /* TagCollectonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6E6C3642197CF0400AC6A3C /* TagCollectonViewController.xib */; };
 		B6F3023021CE0A5C0053E734 /* EDTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F3022F21CE0A5C0053E734 /* EDTextField.m */; };
 		B6F3023321CE0A710053E734 /* EDTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F3023221CE0A710053E734 /* EDTextView.m */; };
-		B6F7AA0422B108600043483F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA0322B108600043483F /* ViewController.m */; };
 		B6F7AA1F22B109280043483F /* LGAlertViewTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA0622B109280043483F /* LGAlertViewTextField.m */; };
 		B6F7AA2022B109280043483F /* LGAlertViewWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA0922B109280043483F /* LGAlertViewWindow.m */; };
 		B6F7AA2122B109280043483F /* LGAlertViewWindowContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA0D22B109280043483F /* LGAlertViewWindowContainer.m */; };
@@ -240,10 +198,52 @@
 		B6F7AA2A22B109280043483F /* UIWindow+LGAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA1E22B109280043483F /* UIWindow+LGAlertView.m */; };
 		B6F7AA3022B1096A0043483F /* TONavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA2D22B1096A0043483F /* TONavigationBar.m */; };
 		B6F7AA3122B1096A0043483F /* TOHeaderImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA2E22B1096A0043483F /* TOHeaderImageView.m */; };
-		B6F7AA3622B10A340043483F /* AudioPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA3222B10A330043483F /* AudioPlayerView.m */; };
-		B6F7AA3722B10A340043483F /* SampleQueueId.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA3522B10A330043483F /* SampleQueueId.m */; };
 		B6F7AA3A22B10AAB0043483F /* airplane.aac in Resources */ = {isa = PBXBuildFile; fileRef = B6F7AA3822B10AAB0043483F /* airplane.aac */; };
 		B6F7AA3B22B10AAB0043483F /* sample.m4a in Resources */ = {isa = PBXBuildFile; fileRef = B6F7AA3922B10AAB0043483F /* sample.m4a */; };
+		B6F7AA8F22B255F90043483F /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA4222B255F90043483F /* MainViewController.m */; };
+		B6F7AA9022B255F90043483F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA4722B255F90043483F /* LoginViewController.m */; };
+		B6F7AA9122B255F90043483F /* StartupPopupView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA4822B255F90043483F /* StartupPopupView.m */; };
+		B6F7AA9222B255F90043483F /* PopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA4922B255F90043483F /* PopupViewController.m */; };
+		B6F7AA9322B255F90043483F /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6F7AA4A22B255F90043483F /* LoginViewController.xib */; };
+		B6F7AA9422B255F90043483F /* StartupPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6F7AA4C22B255F90043483F /* StartupPopupView.xib */; };
+		B6F7AA9522B255F90043483F /* BannerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6F7AA4E22B255F90043483F /* BannerViewController.xib */; };
+		B6F7AA9622B255F90043483F /* ProjectMakeController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA5222B255F90043483F /* ProjectMakeController.m */; };
+		B6F7AA9722B255F90043483F /* MainScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6F7AA5322B255F90043483F /* MainScreenViewController.xib */; };
+		B6F7AA9822B255F90043483F /* FTPFileUploder.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA5522B255F90043483F /* FTPFileUploder.m */; };
+		B6F7AA9922B255F90043483F /* TagCollectonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6F7AA5622B255F90043483F /* TagCollectonViewController.xib */; };
+		B6F7AA9A22B255F90043483F /* TagCollectonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA5722B255F90043483F /* TagCollectonViewController.m */; };
+		B6F7AA9B22B255F90043483F /* BannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA5822B255F90043483F /* BannerViewController.m */; };
+		B6F7AA9C22B255F90043483F /* BannerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA5922B255F90043483F /* BannerTableViewCell.m */; };
+		B6F7AA9D22B255F90043483F /* UserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6F7AA5A22B255F90043483F /* UserViewController.xib */; };
+		B6F7AA9E22B255F90043483F /* FileUploadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6F7AA5B22B255F90043483F /* FileUploadViewController.xib */; };
+		B6F7AA9F22B255F90043483F /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA5C22B255F90043483F /* SearchViewController.m */; };
+		B6F7AAA022B255F90043483F /* UserOtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA5D22B255F90043483F /* UserOtherViewController.m */; };
+		B6F7AAA122B255F90043483F /* BannerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6F7AA5F22B255F90043483F /* BannerTableViewCell.xib */; };
+		B6F7AAA222B255F90043483F /* ProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA6022B255F90043483F /* ProjectViewController.m */; };
+		B6F7AAA322B255F90043483F /* FileUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA6222B255F90043483F /* FileUploadViewController.m */; };
+		B6F7AAA422B255F90043483F /* MainScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA6322B255F90043483F /* MainScreenViewController.m */; };
+		B6F7AAA522B255F90043483F /* UserListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6F7AA6422B255F90043483F /* UserListViewController.xib */; };
+		B6F7AAA622B255F90043483F /* ProjectMakeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6F7AA6522B255F90043483F /* ProjectMakeController.xib */; };
+		B6F7AAA722B255F90043483F /* UserListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA6622B255F90043483F /* UserListViewController.m */; };
+		B6F7AAA822B255F90043483F /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6F7AA6722B255F90043483F /* SearchViewController.xib */; };
+		B6F7AAA922B255F90043483F /* ProjectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6F7AA6822B255F90043483F /* ProjectViewController.xib */; };
+		B6F7AAAA22B255F90043483F /* UserOtherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6F7AA6922B255F90043483F /* UserOtherViewController.xib */; };
+		B6F7AAAB22B255F90043483F /* AudioPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA6B22B255F90043483F /* AudioPlayerViewController.m */; };
+		B6F7AAAC22B255F90043483F /* AudioPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6F7AA6F22B255F90043483F /* AudioPlayerViewController.xib */; };
+		B6F7AAAD22B255F90043483F /* UserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA7122B255F90043483F /* UserViewController.m */; };
+		B6F7AAAE22B255F90043483F /* ChooseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA7722B255F90043483F /* ChooseNavigationController.m */; };
+		B6F7AAAF22B255F90043483F /* RightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA7822B255F90043483F /* RightViewController.m */; };
+		B6F7AAB022B255F90043483F /* LeftViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA7922B255F90043483F /* LeftViewCell.m */; };
+		B6F7AAB122B255F90043483F /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA7A22B255F90043483F /* RootViewController.m */; };
+		B6F7AAB222B255F90043483F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA7F22B255F90043483F /* ViewController.m */; };
+		B6F7AAB322B255F90043483F /* RightViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA8022B255F90043483F /* RightViewCell.m */; };
+		B6F7AAB422B255F90043483F /* UserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6F7AA8122B255F90043483F /* UserInfoViewController.xib */; };
+		B6F7AAB522B255F90043483F /* OtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA8522B255F90043483F /* OtherViewController.m */; };
+		B6F7AAB622B255F90043483F /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA8622B255F90043483F /* LeftViewController.m */; };
+		B6F7AAB722B255F90043483F /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA8722B255F90043483F /* NavigationController.m */; };
+		B6F7AAB822B255F90043483F /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA8822B255F90043483F /* UserInfoViewController.m */; };
+		B6F7AAB922B255F90043483F /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA8A22B255F90043483F /* TableViewController.m */; };
+		B6F7AABA22B255F90043483F /* EDBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA8D22B255F90043483F /* EDBaseViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -264,11 +264,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3061748422A02DC700CE1A8A /* FileUploadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FileUploadViewController.xib; sourceTree = "<group>"; };
-		3061748522A02DC700CE1A8A /* FileUploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUploadViewController.h; sourceTree = "<group>"; };
-		3061748622A02DC800CE1A8A /* FileUploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileUploadViewController.m; sourceTree = "<group>"; };
-		3061748722A02DC800CE1A8A /* FTPFileUploder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTPFileUploder.m; sourceTree = "<group>"; };
-		3061748822A02DC800CE1A8A /* FTPFileUploder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPFileUploder.h; sourceTree = "<group>"; };
+		B6309C5622B256FF007A2942 /* SampleQueueId.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleQueueId.h; sourceTree = "<group>"; };
+		B6309C5722B256FF007A2942 /* AudioPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayerView.h; sourceTree = "<group>"; };
+		B6309C5822B256FF007A2942 /* AudioPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayerView.m; sourceTree = "<group>"; };
+		B6309C5922B256FF007A2942 /* SampleQueueId.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleQueueId.m; sourceTree = "<group>"; };
 		B636AA2E215E704F00C755CB /* SongInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SongInfo.h; sourceTree = "<group>"; };
 		B636AA2F215E704F00C755CB /* SongInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SongInfo.m; sourceTree = "<group>"; };
 		B636AA31215E70CC00C755CB /* SongItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SongItem.h; sourceTree = "<group>"; };
@@ -289,9 +288,6 @@
 		B63AC0BF213AA80600C45F83 /* GroupItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GroupItem.m; sourceTree = "<group>"; };
 		B63AC0C1213AA81900C45F83 /* ProjectInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectInfo.h; sourceTree = "<group>"; };
 		B63AC0C2213AA81900C45F83 /* ProjectInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectInfo.m; sourceTree = "<group>"; };
-		B63AC0C4213ABDB600C45F83 /* ProjectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectViewController.h; sourceTree = "<group>"; };
-		B63AC0C5213ABDB600C45F83 /* ProjectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectViewController.m; sourceTree = "<group>"; };
-		B63AC0C6213ABDB600C45F83 /* ProjectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectViewController.xib; sourceTree = "<group>"; };
 		B63AC0C9213DFD6300C45F83 /* KeyboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardManager.h; sourceTree = "<group>"; };
 		B63AC0CA213DFD6500C45F83 /* KeyboardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeyboardManager.m; sourceTree = "<group>"; };
 		B63AC0CC213DFD9B00C45F83 /* UIView+FirstResponder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+FirstResponder.h"; sourceTree = "<group>"; };
@@ -321,18 +317,12 @@
 		B63AC12E213E7C5F00C45F83 /* STKCoreFoundationDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STKCoreFoundationDataSource.h; sourceTree = "<group>"; };
 		B63AC12F213E7C5F00C45F83 /* NSMutableArray+STKAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+STKAudioPlayer.m"; sourceTree = "<group>"; };
 		B63AC130213E7C5F00C45F83 /* StreamingKit-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "StreamingKit-Prefix.pch"; sourceTree = "<group>"; };
-		B63AC142213E7EDA00C45F83 /* AudioPlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioPlayerViewController.h; sourceTree = "<group>"; };
-		B63AC143213E7EDA00C45F83 /* AudioPlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioPlayerViewController.m; sourceTree = "<group>"; };
-		B63AC144213E7EDA00C45F83 /* AudioPlayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioPlayerViewController.xib; sourceTree = "<group>"; };
 		B63AC14E213E812F00C45F83 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		B63AC150213E813900C45F83 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B63AC152213E814700C45F83 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B63AC154213E9E5A00C45F83 /* AudioUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioUtil.h; sourceTree = "<group>"; };
 		B63AC155213E9E5A00C45F83 /* AudioUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioUtil.m; sourceTree = "<group>"; };
 		B63AC157213EA37E00C45F83 /* ManInTheMirror.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ManInTheMirror.mp3; sourceTree = "<group>"; };
-		B63AC159213F4D4700C45F83 /* SearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
-		B63AC15A213F4D4700C45F83 /* SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
-		B63AC15B213F4D4700C45F83 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		B643EC7D212FC01000963B98 /* Muffin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Muffin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B643EC80212FC01000963B98 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B643EC81212FC01000963B98 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -347,24 +337,6 @@
 		B643ECA0212FC01200963B98 /* MuffinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MuffinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B643ECA4212FC01200963B98 /* MuffinUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MuffinUITests.m; sourceTree = "<group>"; };
 		B643ECA6212FC01200963B98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B643ECCC212FC87500963B98 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = Muffin/Source/MainViewController.h; sourceTree = SOURCE_ROOT; };
-		B643ECCD212FC87500963B98 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = Muffin/Source/MainViewController.m; sourceTree = SOURCE_ROOT; };
-		B643ECCF212FC87500963B98 /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
-		B643ECD0212FC87500963B98 /* OtherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherViewController.h; sourceTree = "<group>"; };
-		B643ECD1212FC87500963B98 /* ChooseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseNavigationController.m; sourceTree = "<group>"; };
-		B643ECD2212FC87500963B98 /* RightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightViewController.m; sourceTree = "<group>"; };
-		B643ECD3212FC87500963B98 /* LeftViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewCell.m; sourceTree = "<group>"; };
-		B643ECD4212FC87500963B98 /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
-		B643ECD5212FC87500963B98 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
-		B643ECD6212FC87500963B98 /* RightViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightViewCell.m; sourceTree = "<group>"; };
-		B643ECD7212FC87500963B98 /* LeftViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewCell.h; sourceTree = "<group>"; };
-		B643ECD8212FC87500963B98 /* RightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightViewController.h; sourceTree = "<group>"; };
-		B643ECD9212FC87500963B98 /* ChooseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseNavigationController.h; sourceTree = "<group>"; };
-		B643ECDA212FC87500963B98 /* OtherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherViewController.m; sourceTree = "<group>"; };
-		B643ECDB212FC87500963B98 /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
-		B643ECDC212FC87500963B98 /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
-		B643ECDD212FC87500963B98 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
-		B643ECDE212FC87500963B98 /* RightViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightViewCell.h; sourceTree = "<group>"; };
 		B643ECEA212FC8AE00963B98 /* AFHTTPRequestOperation+ResponseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AFHTTPRequestOperation+ResponseObject.m"; sourceTree = "<group>"; };
 		B643ECEB212FC8AE00963B98 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		B643ECEC212FC8AE00963B98 /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
@@ -409,8 +381,6 @@
 		B643ED29212FC94300963B98 /* imageRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageRight.png; sourceTree = "<group>"; };
 		B643ED2A212FC94300963B98 /* imageLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageLeft.png; sourceTree = "<group>"; };
 		B643ED2B212FC94300963B98 /* imageRoot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imageRoot.png; sourceTree = "<group>"; };
-		B643ED2F212FCA5B00963B98 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootViewController.m; path = Muffin/Source/Main/View/RootViewController.m; sourceTree = SOURCE_ROOT; };
-		B643ED30212FCA5B00963B98 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = Muffin/Source/Main/View/RootViewController.h; sourceTree = SOURCE_ROOT; };
 		B643ED34212FCFE900963B98 /* CommonFileUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonFileUtil.m; sourceTree = "<group>"; };
 		B643ED35212FCFEB00963B98 /* CommonFileUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonFileUtil.h; sourceTree = "<group>"; };
 		B643ED38212FD03A00963B98 /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
@@ -549,35 +519,18 @@
 		B6B355ED2162034B006FC18C /* list_btn_do.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = list_btn_do.png; path = Muffin/Resource/img/list_btn_do.png; sourceTree = SOURCE_ROOT; };
 		B6B355EE2162034B006FC18C /* muffin_logo_l.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = muffin_logo_l.png; path = Muffin/Resource/img/muffin_logo_l.png; sourceTree = SOURCE_ROOT; };
 		B6B355EF2162034B006FC18C /* st_03_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = st_03_off.png; path = Muffin/Resource/img/st_03_off.png; sourceTree = SOURCE_ROOT; };
-		B6B356252163076B006FC18C /* StartupPopupView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StartupPopupView.h; sourceTree = "<group>"; };
-		B6B356262163076B006FC18C /* StartupPopupView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StartupPopupView.m; sourceTree = "<group>"; };
-		B6B356272163076B006FC18C /* StartupPopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartupPopupView.xib; sourceTree = "<group>"; };
-		B6BDD3C5213A88600037CACF /* MainScreenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainScreenViewController.h; sourceTree = "<group>"; };
-		B6BDD3C6213A88600037CACF /* MainScreenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainScreenViewController.m; sourceTree = "<group>"; };
-		B6BDD3C7213A88600037CACF /* MainScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainScreenViewController.xib; sourceTree = "<group>"; };
 		B6BDD3CB213A88E40037CACF /* UserInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
 		B6BDD3CC213A88E40037CACF /* UserInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
 		B6BDD3CE213A8AC00037CACF /* ConstDef.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConstDef.h; sourceTree = "<group>"; };
 		B6C60C5321424B140033B7B3 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		B6C60C5421424B140033B7B3 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		B6C60C5521424B140033B7B3 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		B6C8B7192184456D00D821C9 /* ProjectMakeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProjectMakeController.h; sourceTree = "<group>"; };
-		B6C8B71A2184456D00D821C9 /* ProjectMakeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProjectMakeController.m; sourceTree = "<group>"; };
-		B6C8B71B2184456D00D821C9 /* ProjectMakeController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectMakeController.xib; sourceTree = "<group>"; };
 		B6C8B71E2185844A00D821C9 /* EDTagListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDTagListView.h; sourceTree = "<group>"; };
 		B6C8B71F2185844A00D821C9 /* EDTagListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDTagListView.m; sourceTree = "<group>"; };
 		B6C8B72121858AC600D821C9 /* ZFTokenField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFTokenField.m; sourceTree = "<group>"; };
 		B6C8B72221858AC600D821C9 /* ZFTokenField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFTokenField.h; sourceTree = "<group>"; };
 		B6D61EFA217C368600613612 /* ico_tit_back_o.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ico_tit_back_o.png; path = Muffin/Resource/img/ico_tit_back_o.png; sourceTree = SOURCE_ROOT; };
 		B6D61EFB217C368600613612 /* ico_tit_back_n.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ico_tit_back_n.png; path = Muffin/Resource/img/ico_tit_back_n.png; sourceTree = SOURCE_ROOT; };
-		B6E0E579212FF4BB0065E395 /* UserInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
-		B6E0E57A212FF4BB0065E395 /* UserInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
-		B6E0E57B212FF4BB0065E395 /* UserInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoViewController.xib; sourceTree = "<group>"; };
-		B6E0E57F212FFEA50065E395 /* PopupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopupViewController.h; sourceTree = "<group>"; };
-		B6E0E580212FFEA50065E395 /* PopupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopupViewController.m; sourceTree = "<group>"; };
-		B6E0E582212FFECC0065E395 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		B6E0E583212FFECC0065E395 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		B6E0E584212FFECC0065E395 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		B6E0E588213003470065E395 /* EDRoundView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDRoundView.h; sourceTree = "<group>"; };
 		B6E0E589213003470065E395 /* EDRoundView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDRoundView.m; sourceTree = "<group>"; };
 		B6E0E58B213009810065E395 /* EDRoundTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDRoundTableView.h; sourceTree = "<group>"; };
@@ -591,36 +544,14 @@
 		B6E0E5942130102F0065E395 /* IMG_0694.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_0694.png; sourceTree = "<group>"; };
 		B6E0E59C213152BB0065E395 /* EDRoundButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDRoundButton.h; sourceTree = "<group>"; };
 		B6E0E59D213152BB0065E395 /* EDRoundButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDRoundButton.m; sourceTree = "<group>"; };
-		B6E0E5A02131632E0065E395 /* EDBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDBaseViewController.h; sourceTree = "<group>"; };
-		B6E0E5A12131632E0065E395 /* EDBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDBaseViewController.m; sourceTree = "<group>"; };
-		B6E0E5AB213165380065E395 /* UserViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
-		B6E0E5AC213165380065E395 /* UserViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
-		B6E0E5AD213165380065E395 /* UserViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserViewController.xib; sourceTree = "<group>"; };
 		B6E0E5BE2133D0F00065E395 /* EDHttpTransManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDHttpTransManager.h; sourceTree = "<group>"; };
 		B6E0E5BF2133D0F00065E395 /* EDHttpTransManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDHttpTransManager.m; sourceTree = "<group>"; };
-		B6E0E5C12135270F0065E395 /* UserListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserListViewController.h; sourceTree = "<group>"; };
-		B6E0E5C22135270F0065E395 /* UserListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserListViewController.m; sourceTree = "<group>"; };
-		B6E0E5C32135270F0065E395 /* UserListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserListViewController.xib; sourceTree = "<group>"; };
-		B6E6C3502196BB3600AC6A3C /* UserOtherViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserOtherViewController.h; sourceTree = "<group>"; };
-		B6E6C3512196BB3600AC6A3C /* UserOtherViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserOtherViewController.m; sourceTree = "<group>"; };
-		B6E6C3522196BB3600AC6A3C /* UserOtherViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserOtherViewController.xib; sourceTree = "<group>"; };
-		B6E6C3552196D42A00AC6A3C /* BannerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BannerViewController.h; sourceTree = "<group>"; };
-		B6E6C3562196D42A00AC6A3C /* BannerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BannerViewController.m; sourceTree = "<group>"; };
-		B6E6C3572196D42A00AC6A3C /* BannerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannerViewController.xib; sourceTree = "<group>"; };
 		B6E6C35A2196D4F200AC6A3C /* BannerItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BannerItem.h; sourceTree = "<group>"; };
 		B6E6C35B2196D4F200AC6A3C /* BannerItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BannerItem.m; sourceTree = "<group>"; };
-		B6E6C35D2196DB4600AC6A3C /* BannerTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BannerTableViewCell.h; sourceTree = "<group>"; };
-		B6E6C35E2196DB4600AC6A3C /* BannerTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BannerTableViewCell.m; sourceTree = "<group>"; };
-		B6E6C35F2196DB4600AC6A3C /* BannerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannerTableViewCell.xib; sourceTree = "<group>"; };
-		B6E6C3622197CF0300AC6A3C /* TagCollectonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagCollectonViewController.h; sourceTree = "<group>"; };
-		B6E6C3632197CF0400AC6A3C /* TagCollectonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagCollectonViewController.m; sourceTree = "<group>"; };
-		B6E6C3642197CF0400AC6A3C /* TagCollectonViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagCollectonViewController.xib; sourceTree = "<group>"; };
 		B6F3022E21CE0A5C0053E734 /* EDTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDTextField.h; sourceTree = "<group>"; };
 		B6F3022F21CE0A5C0053E734 /* EDTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDTextField.m; sourceTree = "<group>"; };
 		B6F3023121CE0A710053E734 /* EDTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDTextView.h; sourceTree = "<group>"; };
 		B6F3023221CE0A710053E734 /* EDTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDTextView.m; sourceTree = "<group>"; };
-		B6F7AA0222B108600043483F /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B6F7AA0322B108600043483F /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		B6F7AA0622B109280043483F /* LGAlertViewTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LGAlertViewTextField.m; sourceTree = "<group>"; };
 		B6F7AA0722B109280043483F /* LGAlertViewWindowsObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGAlertViewWindowsObserver.h; sourceTree = "<group>"; };
 		B6F7AA0822B109280043483F /* LGAlertViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LGAlertViewCell.h; sourceTree = "<group>"; };
@@ -650,12 +581,81 @@
 		B6F7AA2D22B1096A0043483F /* TONavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TONavigationBar.m; sourceTree = "<group>"; };
 		B6F7AA2E22B1096A0043483F /* TOHeaderImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOHeaderImageView.m; sourceTree = "<group>"; };
 		B6F7AA2F22B1096A0043483F /* TONavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TONavigationBar.h; sourceTree = "<group>"; };
-		B6F7AA3222B10A330043483F /* AudioPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioPlayerView.m; path = Muffin/Library/ExtLib/AudioPlayerView.m; sourceTree = SOURCE_ROOT; };
-		B6F7AA3322B10A330043483F /* AudioPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioPlayerView.h; path = Muffin/Library/ExtLib/AudioPlayerView.h; sourceTree = SOURCE_ROOT; };
-		B6F7AA3422B10A330043483F /* SampleQueueId.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SampleQueueId.h; path = Muffin/Library/ExtLib/SampleQueueId.h; sourceTree = SOURCE_ROOT; };
-		B6F7AA3522B10A330043483F /* SampleQueueId.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SampleQueueId.m; path = Muffin/Library/ExtLib/SampleQueueId.m; sourceTree = SOURCE_ROOT; };
 		B6F7AA3822B10AAB0043483F /* airplane.aac */ = {isa = PBXFileReference; lastKnownFileType = file; path = airplane.aac; sourceTree = "<group>"; };
 		B6F7AA3922B10AAB0043483F /* sample.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample.m4a; sourceTree = "<group>"; };
+		B6F7AA4222B255F90043483F /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		B6F7AA4522B255F90043483F /* PopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupViewController.h; sourceTree = "<group>"; };
+		B6F7AA4622B255F90043483F /* StartupPopupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartupPopupView.h; sourceTree = "<group>"; };
+		B6F7AA4722B255F90043483F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		B6F7AA4822B255F90043483F /* StartupPopupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartupPopupView.m; sourceTree = "<group>"; };
+		B6F7AA4922B255F90043483F /* PopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupViewController.m; sourceTree = "<group>"; };
+		B6F7AA4A22B255F90043483F /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		B6F7AA4B22B255F90043483F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		B6F7AA4C22B255F90043483F /* StartupPopupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StartupPopupView.xib; sourceTree = "<group>"; };
+		B6F7AA4E22B255F90043483F /* BannerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BannerViewController.xib; sourceTree = "<group>"; };
+		B6F7AA4F22B255F90043483F /* UserListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserListViewController.h; sourceTree = "<group>"; };
+		B6F7AA5022B255F90043483F /* MainScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScreenViewController.h; sourceTree = "<group>"; };
+		B6F7AA5122B255F90043483F /* FileUploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUploadViewController.h; sourceTree = "<group>"; };
+		B6F7AA5222B255F90043483F /* ProjectMakeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectMakeController.m; sourceTree = "<group>"; };
+		B6F7AA5322B255F90043483F /* MainScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainScreenViewController.xib; sourceTree = "<group>"; };
+		B6F7AA5422B255F90043483F /* AudioPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayerViewController.h; sourceTree = "<group>"; };
+		B6F7AA5522B255F90043483F /* FTPFileUploder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTPFileUploder.m; sourceTree = "<group>"; };
+		B6F7AA5622B255F90043483F /* TagCollectonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TagCollectonViewController.xib; sourceTree = "<group>"; };
+		B6F7AA5722B255F90043483F /* TagCollectonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagCollectonViewController.m; sourceTree = "<group>"; };
+		B6F7AA5822B255F90043483F /* BannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerViewController.m; sourceTree = "<group>"; };
+		B6F7AA5922B255F90043483F /* BannerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerTableViewCell.m; sourceTree = "<group>"; };
+		B6F7AA5A22B255F90043483F /* UserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserViewController.xib; sourceTree = "<group>"; };
+		B6F7AA5B22B255F90043483F /* FileUploadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FileUploadViewController.xib; sourceTree = "<group>"; };
+		B6F7AA5C22B255F90043483F /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		B6F7AA5D22B255F90043483F /* UserOtherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserOtherViewController.m; sourceTree = "<group>"; };
+		B6F7AA5E22B255F90043483F /* UserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserViewController.h; sourceTree = "<group>"; };
+		B6F7AA5F22B255F90043483F /* BannerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BannerTableViewCell.xib; sourceTree = "<group>"; };
+		B6F7AA6022B255F90043483F /* ProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectViewController.m; sourceTree = "<group>"; };
+		B6F7AA6122B255F90043483F /* ProjectMakeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectMakeController.h; sourceTree = "<group>"; };
+		B6F7AA6222B255F90043483F /* FileUploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileUploadViewController.m; sourceTree = "<group>"; };
+		B6F7AA6322B255F90043483F /* MainScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreenViewController.m; sourceTree = "<group>"; };
+		B6F7AA6422B255F90043483F /* UserListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserListViewController.xib; sourceTree = "<group>"; };
+		B6F7AA6522B255F90043483F /* ProjectMakeController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectMakeController.xib; sourceTree = "<group>"; };
+		B6F7AA6622B255F90043483F /* UserListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserListViewController.m; sourceTree = "<group>"; };
+		B6F7AA6722B255F90043483F /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		B6F7AA6822B255F90043483F /* ProjectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectViewController.xib; sourceTree = "<group>"; };
+		B6F7AA6922B255F90043483F /* UserOtherViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserOtherViewController.xib; sourceTree = "<group>"; };
+		B6F7AA6A22B255F90043483F /* FTPFileUploder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTPFileUploder.h; sourceTree = "<group>"; };
+		B6F7AA6B22B255F90043483F /* AudioPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayerViewController.m; sourceTree = "<group>"; };
+		B6F7AA6C22B255F90043483F /* BannerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerTableViewCell.h; sourceTree = "<group>"; };
+		B6F7AA6D22B255F90043483F /* BannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerViewController.h; sourceTree = "<group>"; };
+		B6F7AA6E22B255F90043483F /* TagCollectonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagCollectonViewController.h; sourceTree = "<group>"; };
+		B6F7AA6F22B255F90043483F /* AudioPlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioPlayerViewController.xib; sourceTree = "<group>"; };
+		B6F7AA7022B255F90043483F /* ProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectViewController.h; sourceTree = "<group>"; };
+		B6F7AA7122B255F90043483F /* UserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserViewController.m; sourceTree = "<group>"; };
+		B6F7AA7222B255F90043483F /* UserOtherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserOtherViewController.h; sourceTree = "<group>"; };
+		B6F7AA7322B255F90043483F /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		B6F7AA7522B255F90043483F /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
+		B6F7AA7622B255F90043483F /* OtherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherViewController.h; sourceTree = "<group>"; };
+		B6F7AA7722B255F90043483F /* ChooseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseNavigationController.m; sourceTree = "<group>"; };
+		B6F7AA7822B255F90043483F /* RightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightViewController.m; sourceTree = "<group>"; };
+		B6F7AA7922B255F90043483F /* LeftViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewCell.m; sourceTree = "<group>"; };
+		B6F7AA7A22B255F90043483F /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		B6F7AA7B22B255F90043483F /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
+		B6F7AA7C22B255F90043483F /* NavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
+		B6F7AA7D22B255F90043483F /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		B6F7AA7E22B255F90043483F /* EDBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDBaseViewController.h; sourceTree = "<group>"; };
+		B6F7AA7F22B255F90043483F /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B6F7AA8022B255F90043483F /* RightViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightViewCell.m; sourceTree = "<group>"; };
+		B6F7AA8122B255F90043483F /* UserInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserInfoViewController.xib; sourceTree = "<group>"; };
+		B6F7AA8222B255F90043483F /* LeftViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewCell.h; sourceTree = "<group>"; };
+		B6F7AA8322B255F90043483F /* RightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightViewController.h; sourceTree = "<group>"; };
+		B6F7AA8422B255F90043483F /* ChooseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseNavigationController.h; sourceTree = "<group>"; };
+		B6F7AA8522B255F90043483F /* OtherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherViewController.m; sourceTree = "<group>"; };
+		B6F7AA8622B255F90043483F /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
+		B6F7AA8722B255F90043483F /* NavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationController.m; sourceTree = "<group>"; };
+		B6F7AA8822B255F90043483F /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
+		B6F7AA8922B255F90043483F /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		B6F7AA8A22B255F90043483F /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		B6F7AA8B22B255F90043483F /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		B6F7AA8C22B255F90043483F /* RightViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightViewCell.h; sourceTree = "<group>"; };
+		B6F7AA8D22B255F90043483F /* EDBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDBaseViewController.m; sourceTree = "<group>"; };
+		B6F7AA8E22B255F90043483F /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -693,6 +693,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B6309C5522B256FF007A2942 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B6309C5622B256FF007A2942 /* SampleQueueId.h */,
+				B6309C5722B256FF007A2942 /* AudioPlayerView.h */,
+				B6309C5822B256FF007A2942 /* AudioPlayerView.m */,
+				B6309C5922B256FF007A2942 /* SampleQueueId.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		B63AC11D213E7C5F00C45F83 /* StreamingKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -743,10 +754,10 @@
 		B643EC7F212FC01000963B98 /* Muffin */ = {
 			isa = PBXGroup;
 			children = (
+				B6F7AA4122B255F90043483F /* Source */,
 				B643ED82212FDC2800963B98 /* Framework */,
 				B643ED28212FC94300963B98 /* Resource */,
 				B643ECE8212FC8AE00963B98 /* Lib */,
-				B643ECB2212FC61E00963B98 /* Source */,
 				B643EC80212FC01000963B98 /* AppDelegate.h */,
 				B643EC81212FC01000963B98 /* AppDelegate.m */,
 				B643EDA9212FDD0B00963B98 /* Muffin_Prefix.pch */,
@@ -776,28 +787,6 @@
 			);
 			path = MuffinUITests;
 			sourceTree = "<group>";
-		};
-		B643ECB2212FC61E00963B98 /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				B643ECCE212FC87500963B98 /* Main */,
-				B643ECCC212FC87500963B98 /* MainViewController.h */,
-				B643ECCD212FC87500963B98 /* MainViewController.m */,
-			);
-			name = Source;
-			path = "New Group";
-			sourceTree = "<group>";
-		};
-		B643ECCE212FC87500963B98 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				B6E0E59F213162F10065E395 /* Screen */,
-				B6E0E57E212FFE730065E395 /* Popup */,
-				B643ED32212FCD7F00963B98 /* View */,
-			);
-			name = Main;
-			path = Muffin/Source/Main;
-			sourceTree = SOURCE_ROOT;
 		};
 		B643ECE8212FC8AE00963B98 /* Lib */ = {
 			isa = PBXGroup;
@@ -898,38 +887,6 @@
 				B643ED2B212FC94300963B98 /* imageRoot.png */,
 			);
 			path = Resource;
-			sourceTree = "<group>";
-		};
-		B643ED32212FCD7F00963B98 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				B6F7AA0222B108600043483F /* ViewController.h */,
-				B6F7AA0322B108600043483F /* ViewController.m */,
-				B643ED30212FCA5B00963B98 /* RootViewController.h */,
-				B643ED2F212FCA5B00963B98 /* RootViewController.m */,
-				B643ECCF212FC87500963B98 /* LeftViewController.h */,
-				B643ECDB212FC87500963B98 /* LeftViewController.m */,
-				B643ECD0212FC87500963B98 /* OtherViewController.h */,
-				B643ECDA212FC87500963B98 /* OtherViewController.m */,
-				B643ECD9212FC87500963B98 /* ChooseNavigationController.h */,
-				B643ECD1212FC87500963B98 /* ChooseNavigationController.m */,
-				B643ECD8212FC87500963B98 /* RightViewController.h */,
-				B643ECD2212FC87500963B98 /* RightViewController.m */,
-				B643ECD7212FC87500963B98 /* LeftViewCell.h */,
-				B643ECD3212FC87500963B98 /* LeftViewCell.m */,
-				B643ECD4212FC87500963B98 /* NavigationController.h */,
-				B643ECDC212FC87500963B98 /* NavigationController.m */,
-				B643ECD5212FC87500963B98 /* TableViewController.h */,
-				B643ECDD212FC87500963B98 /* TableViewController.m */,
-				B643ECDE212FC87500963B98 /* RightViewCell.h */,
-				B643ECD6212FC87500963B98 /* RightViewCell.m */,
-				B6E0E579212FF4BB0065E395 /* UserInfoViewController.h */,
-				B6E0E57A212FF4BB0065E395 /* UserInfoViewController.m */,
-				B6E0E57B212FF4BB0065E395 /* UserInfoViewController.xib */,
-				B6E0E5A02131632E0065E395 /* EDBaseViewController.h */,
-				B6E0E5A12131632E0065E395 /* EDBaseViewController.m */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		B643ED33212FCFD900963B98 /* Util */ = {
@@ -1168,21 +1125,6 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
-		B6E0E57E212FFE730065E395 /* Popup */ = {
-			isa = PBXGroup;
-			children = (
-				B6E0E57F212FFEA50065E395 /* PopupViewController.h */,
-				B6E0E580212FFEA50065E395 /* PopupViewController.m */,
-				B6E0E582212FFECC0065E395 /* LoginViewController.h */,
-				B6E0E583212FFECC0065E395 /* LoginViewController.m */,
-				B6E0E584212FFECC0065E395 /* LoginViewController.xib */,
-				B6B356252163076B006FC18C /* StartupPopupView.h */,
-				B6B356262163076B006FC18C /* StartupPopupView.m */,
-				B6B356272163076B006FC18C /* StartupPopupView.xib */,
-			);
-			path = Popup;
-			sourceTree = "<group>";
-		};
 		B6E0E587213003260065E395 /* Control */ = {
 			isa = PBXGroup;
 			children = (
@@ -1208,55 +1150,6 @@
 				B6F3023221CE0A710053E734 /* EDTextView.m */,
 			);
 			path = Control;
-			sourceTree = "<group>";
-		};
-		B6E0E59F213162F10065E395 /* Screen */ = {
-			isa = PBXGroup;
-			children = (
-				B6F7AA3322B10A330043483F /* AudioPlayerView.h */,
-				B6F7AA3222B10A330043483F /* AudioPlayerView.m */,
-				B6F7AA3422B10A330043483F /* SampleQueueId.h */,
-				B6F7AA3522B10A330043483F /* SampleQueueId.m */,
-				B6E0E5AB213165380065E395 /* UserViewController.h */,
-				B6E0E5AC213165380065E395 /* UserViewController.m */,
-				B6E0E5AD213165380065E395 /* UserViewController.xib */,
-				B6E0E5C12135270F0065E395 /* UserListViewController.h */,
-				B6E0E5C22135270F0065E395 /* UserListViewController.m */,
-				B6E0E5C32135270F0065E395 /* UserListViewController.xib */,
-				3061748522A02DC700CE1A8A /* FileUploadViewController.h */,
-				3061748622A02DC800CE1A8A /* FileUploadViewController.m */,
-				3061748422A02DC700CE1A8A /* FileUploadViewController.xib */,
-				3061748822A02DC800CE1A8A /* FTPFileUploder.h */,
-				3061748722A02DC800CE1A8A /* FTPFileUploder.m */,
-				B6BDD3C5213A88600037CACF /* MainScreenViewController.h */,
-				B6BDD3C6213A88600037CACF /* MainScreenViewController.m */,
-				B6BDD3C7213A88600037CACF /* MainScreenViewController.xib */,
-				B63AC0C4213ABDB600C45F83 /* ProjectViewController.h */,
-				B63AC0C5213ABDB600C45F83 /* ProjectViewController.m */,
-				B63AC0C6213ABDB600C45F83 /* ProjectViewController.xib */,
-				B63AC142213E7EDA00C45F83 /* AudioPlayerViewController.h */,
-				B63AC143213E7EDA00C45F83 /* AudioPlayerViewController.m */,
-				B63AC144213E7EDA00C45F83 /* AudioPlayerViewController.xib */,
-				B63AC159213F4D4700C45F83 /* SearchViewController.h */,
-				B63AC15A213F4D4700C45F83 /* SearchViewController.m */,
-				B63AC15B213F4D4700C45F83 /* SearchViewController.xib */,
-				B6C8B7192184456D00D821C9 /* ProjectMakeController.h */,
-				B6C8B71A2184456D00D821C9 /* ProjectMakeController.m */,
-				B6C8B71B2184456D00D821C9 /* ProjectMakeController.xib */,
-				B6E6C3502196BB3600AC6A3C /* UserOtherViewController.h */,
-				B6E6C3512196BB3600AC6A3C /* UserOtherViewController.m */,
-				B6E6C3522196BB3600AC6A3C /* UserOtherViewController.xib */,
-				B6E6C3552196D42A00AC6A3C /* BannerViewController.h */,
-				B6E6C3562196D42A00AC6A3C /* BannerViewController.m */,
-				B6E6C3572196D42A00AC6A3C /* BannerViewController.xib */,
-				B6E6C35D2196DB4600AC6A3C /* BannerTableViewCell.h */,
-				B6E6C35E2196DB4600AC6A3C /* BannerTableViewCell.m */,
-				B6E6C35F2196DB4600AC6A3C /* BannerTableViewCell.xib */,
-				B6E6C3622197CF0300AC6A3C /* TagCollectonViewController.h */,
-				B6E6C3632197CF0400AC6A3C /* TagCollectonViewController.m */,
-				B6E6C3642197CF0400AC6A3C /* TagCollectonViewController.xib */,
-			);
-			path = Screen;
 			sourceTree = "<group>";
 		};
 		B6E0E5BD2133D0840065E395 /* Net */ = {
@@ -1312,6 +1205,119 @@
 			name = TONavigationBar;
 			path = Muffin/Library/ExtLib/TONavigationBar;
 			sourceTree = SOURCE_ROOT;
+		};
+		B6F7AA4122B255F90043483F /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				B6309C5522B256FF007A2942 /* Utils */,
+				B6F7AA4222B255F90043483F /* MainViewController.m */,
+				B6F7AA4322B255F90043483F /* Main */,
+				B6F7AA8E22B255F90043483F /* MainViewController.h */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		B6F7AA4322B255F90043483F /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				B6F7AA4422B255F90043483F /* Popup */,
+				B6F7AA4D22B255F90043483F /* Screen */,
+				B6F7AA7422B255F90043483F /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		B6F7AA4422B255F90043483F /* Popup */ = {
+			isa = PBXGroup;
+			children = (
+				B6F7AA4522B255F90043483F /* PopupViewController.h */,
+				B6F7AA4622B255F90043483F /* StartupPopupView.h */,
+				B6F7AA4722B255F90043483F /* LoginViewController.m */,
+				B6F7AA4822B255F90043483F /* StartupPopupView.m */,
+				B6F7AA4922B255F90043483F /* PopupViewController.m */,
+				B6F7AA4A22B255F90043483F /* LoginViewController.xib */,
+				B6F7AA4B22B255F90043483F /* LoginViewController.h */,
+				B6F7AA4C22B255F90043483F /* StartupPopupView.xib */,
+			);
+			path = Popup;
+			sourceTree = "<group>";
+		};
+		B6F7AA4D22B255F90043483F /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				B6F7AA4E22B255F90043483F /* BannerViewController.xib */,
+				B6F7AA4F22B255F90043483F /* UserListViewController.h */,
+				B6F7AA5022B255F90043483F /* MainScreenViewController.h */,
+				B6F7AA5122B255F90043483F /* FileUploadViewController.h */,
+				B6F7AA5222B255F90043483F /* ProjectMakeController.m */,
+				B6F7AA5322B255F90043483F /* MainScreenViewController.xib */,
+				B6F7AA5422B255F90043483F /* AudioPlayerViewController.h */,
+				B6F7AA5522B255F90043483F /* FTPFileUploder.m */,
+				B6F7AA5622B255F90043483F /* TagCollectonViewController.xib */,
+				B6F7AA5722B255F90043483F /* TagCollectonViewController.m */,
+				B6F7AA5822B255F90043483F /* BannerViewController.m */,
+				B6F7AA5922B255F90043483F /* BannerTableViewCell.m */,
+				B6F7AA5A22B255F90043483F /* UserViewController.xib */,
+				B6F7AA5B22B255F90043483F /* FileUploadViewController.xib */,
+				B6F7AA5C22B255F90043483F /* SearchViewController.m */,
+				B6F7AA5D22B255F90043483F /* UserOtherViewController.m */,
+				B6F7AA5E22B255F90043483F /* UserViewController.h */,
+				B6F7AA5F22B255F90043483F /* BannerTableViewCell.xib */,
+				B6F7AA6022B255F90043483F /* ProjectViewController.m */,
+				B6F7AA6122B255F90043483F /* ProjectMakeController.h */,
+				B6F7AA6222B255F90043483F /* FileUploadViewController.m */,
+				B6F7AA6322B255F90043483F /* MainScreenViewController.m */,
+				B6F7AA6422B255F90043483F /* UserListViewController.xib */,
+				B6F7AA6522B255F90043483F /* ProjectMakeController.xib */,
+				B6F7AA6622B255F90043483F /* UserListViewController.m */,
+				B6F7AA6722B255F90043483F /* SearchViewController.xib */,
+				B6F7AA6822B255F90043483F /* ProjectViewController.xib */,
+				B6F7AA6922B255F90043483F /* UserOtherViewController.xib */,
+				B6F7AA6A22B255F90043483F /* FTPFileUploder.h */,
+				B6F7AA6B22B255F90043483F /* AudioPlayerViewController.m */,
+				B6F7AA6C22B255F90043483F /* BannerTableViewCell.h */,
+				B6F7AA6D22B255F90043483F /* BannerViewController.h */,
+				B6F7AA6E22B255F90043483F /* TagCollectonViewController.h */,
+				B6F7AA6F22B255F90043483F /* AudioPlayerViewController.xib */,
+				B6F7AA7022B255F90043483F /* ProjectViewController.h */,
+				B6F7AA7122B255F90043483F /* UserViewController.m */,
+				B6F7AA7222B255F90043483F /* UserOtherViewController.h */,
+				B6F7AA7322B255F90043483F /* SearchViewController.h */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		B6F7AA7422B255F90043483F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B6F7AA7522B255F90043483F /* LeftViewController.h */,
+				B6F7AA7622B255F90043483F /* OtherViewController.h */,
+				B6F7AA7722B255F90043483F /* ChooseNavigationController.m */,
+				B6F7AA7822B255F90043483F /* RightViewController.m */,
+				B6F7AA7922B255F90043483F /* LeftViewCell.m */,
+				B6F7AA7A22B255F90043483F /* RootViewController.m */,
+				B6F7AA7B22B255F90043483F /* UserInfoViewController.h */,
+				B6F7AA7C22B255F90043483F /* NavigationController.h */,
+				B6F7AA7D22B255F90043483F /* TableViewController.h */,
+				B6F7AA7E22B255F90043483F /* EDBaseViewController.h */,
+				B6F7AA7F22B255F90043483F /* ViewController.m */,
+				B6F7AA8022B255F90043483F /* RightViewCell.m */,
+				B6F7AA8122B255F90043483F /* UserInfoViewController.xib */,
+				B6F7AA8222B255F90043483F /* LeftViewCell.h */,
+				B6F7AA8322B255F90043483F /* RightViewController.h */,
+				B6F7AA8422B255F90043483F /* ChooseNavigationController.h */,
+				B6F7AA8522B255F90043483F /* OtherViewController.m */,
+				B6F7AA8622B255F90043483F /* LeftViewController.m */,
+				B6F7AA8722B255F90043483F /* NavigationController.m */,
+				B6F7AA8822B255F90043483F /* UserInfoViewController.m */,
+				B6F7AA8922B255F90043483F /* RootViewController.h */,
+				B6F7AA8A22B255F90043483F /* TableViewController.m */,
+				B6F7AA8B22B255F90043483F /* ViewController.h */,
+				B6F7AA8C22B255F90043483F /* RightViewCell.h */,
+				B6F7AA8D22B255F90043483F /* EDBaseViewController.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -1423,6 +1429,7 @@
 				B6B355F52162034B006FC18C /* util_icon_login.png in Resources */,
 				B6B356232162034C006FC18C /* muffin_logo_l.png in Resources */,
 				B6E0E5952130102F0065E395 /* IMG_0697.png in Resources */,
+				B6F7AAAA22B255F90043483F /* UserOtherViewController.xib in Resources */,
 				B6F7AA3B22B10AAB0043483F /* sample.m4a in Resources */,
 				B6B355FE2162034C006FC18C /* btn_on.png in Resources */,
 				B63AC158213EA37F00C45F83 /* ManInTheMirror.mp3 in Resources */,
@@ -1430,7 +1437,6 @@
 				B6B3560E2162034C006FC18C /* m_open_bg.png in Resources */,
 				B6B3561B2162034C006FC18C /* btn_m_play.png in Resources */,
 				B643EC8D212FC01200963B98 /* LaunchScreen.storyboard in Resources */,
-				B6B356292163076B006FC18C /* StartupPopupView.xib in Resources */,
 				B6B356162162034C006FC18C /* btn_fb_j_main.png in Resources */,
 				B6B355F12162034B006FC18C /* icon_sett.png in Resources */,
 				B6B355F72162034B006FC18C /* l_icon_03.png in Resources */,
@@ -1440,24 +1446,19 @@
 				B6B355FB2162034C006FC18C /* util_open_menu_b.png in Resources */,
 				B6B356122162034C006FC18C /* banner_smp_01.png in Resources */,
 				B6B3561A2162034C006FC18C /* muffin_logo_s_g.png in Resources */,
-				B63AC15D213F4D4700C45F83 /* SearchViewController.xib in Resources */,
 				B6B356222162034C006FC18C /* list_btn_do.png in Resources */,
 				B6B355F32162034B006FC18C /* util_icon_sh.png in Resources */,
-				B6E6C3612196DB4600AC6A3C /* BannerTableViewCell.xib in Resources */,
 				B6B3561C2162034C006FC18C /* l_icon_01.png in Resources */,
 				B6B3560A2162034C006FC18C /* st_02_on.png in Resources */,
-				B6BDD3C9213A88600037CACF /* MainScreenViewController.xib in Resources */,
 				B6B355F82162034B006FC18C /* nor_bg_img.png in Resources */,
 				B6B355FF2162034C006FC18C /* btn_off.png in Resources */,
 				B6B356112162034C006FC18C /* util_open_menu.png in Resources */,
-				B6E6C3662197CF0400AC6A3C /* TagCollectonViewController.xib in Resources */,
 				B6B3561F2162034C006FC18C /* dot_line.png in Resources */,
-				B6E6C3592196D42A00AC6A3C /* BannerViewController.xib in Resources */,
-				B6C8B71D2184456D00D821C9 /* ProjectMakeController.xib in Resources */,
 				B643EC8A212FC01200963B98 /* Assets.xcassets in Resources */,
-				3061748922A02DC800CE1A8A /* FileUploadViewController.xib in Resources */,
+				B6F7AA9922B255F90043483F /* TagCollectonViewController.xib in Resources */,
 				B6B356172162034C006FC18C /* st_02_off.png in Resources */,
 				B6B3560B2162034C006FC18C /* muffin_logo_s_b.png in Resources */,
+				B6F7AAA622B255F90043483F /* ProjectMakeController.xib in Resources */,
 				B6F7AA3A22B10AAB0043483F /* airplane.aac in Resources */,
 				B645BFF4217C944E009DEFDD /* maskimg.png in Resources */,
 				B6B3560D2162034C006FC18C /* util_d_icon_login.png in Resources */,
@@ -1466,44 +1467,49 @@
 				B6E0E5992130102F0065E395 /* IMG_0690.png in Resources */,
 				B6B356132162034C006FC18C /* util_icon_login_b.png in Resources */,
 				B63AC0D8213E6CB200C45F83 /* face00.png in Resources */,
+				B6F7AAA922B255F90043483F /* ProjectViewController.xib in Resources */,
 				B6B356142162034C006FC18C /* icon_heart.png in Resources */,
 				B643ED2C212FC94400963B98 /* imageRight.png in Resources */,
 				B6B356042162034C006FC18C /* btn_l_close.png in Resources */,
 				B643ED2E212FC94400963B98 /* imageRoot.png in Resources */,
 				B6B355F22162034B006FC18C /* list_btn_del.png in Resources */,
+				B6F7AA9422B255F90043483F /* StartupPopupView.xib in Resources */,
+				B6F7AA9D22B255F90043483F /* UserViewController.xib in Resources */,
 				B6E0E5982130102F0065E395 /* IMG_0692.png in Resources */,
 				B6B356032162034C006FC18C /* banner_btn_01.png in Resources */,
+				B6F7AAA522B255F90043483F /* UserListViewController.xib in Resources */,
 				B6B356002162034C006FC18C /* st_03_on.png in Resources */,
 				B6B3561E2162034C006FC18C /* play_btn.png in Resources */,
 				B63AC0D6213E6C5700C45F83 /* face01.png in Resources */,
+				B6F7AA9522B255F90043483F /* BannerViewController.xib in Resources */,
+				B6F7AAB422B255F90043483F /* UserInfoViewController.xib in Resources */,
 				B6B3560F2162034C006FC18C /* list_btn_up.png in Resources */,
 				B6B356072162034C006FC18C /* m_bg.png in Resources */,
 				B6D61EFC217C368600613612 /* ico_tit_back_o.png in Resources */,
+				B6F7AAA822B255F90043483F /* SearchViewController.xib in Resources */,
+				B6F7AAA122B255F90043483F /* BannerTableViewCell.xib in Resources */,
 				B6B355F42162034B006FC18C /* list_btn_plu.png in Resources */,
 				B6B356082162034C006FC18C /* banner_icon_01.png in Resources */,
-				B6E0E57D212FF4BB0065E395 /* UserInfoViewController.xib in Resources */,
 				B6B356022162034C006FC18C /* util_d_icon_logout.png in Resources */,
 				B6B356182162034C006FC18C /* st_01_on.png in Resources */,
-				B63AC146213E7EDA00C45F83 /* AudioPlayerViewController.xib in Resources */,
 				B6B3561D2162034C006FC18C /* main_btn_02.png in Resources */,
+				B6F7AA9E22B255F90043483F /* FileUploadViewController.xib in Resources */,
+				B6F7AA9722B255F90043483F /* MainScreenViewController.xib in Resources */,
 				B6B356152162034C006FC18C /* icon_sh.png in Resources */,
 				B6B355F62162034B006FC18C /* icon_arr.png in Resources */,
 				B6E0E5962130102F0065E395 /* IMG_0693.png in Resources */,
+				B6F7AA9322B255F90043483F /* LoginViewController.xib in Resources */,
 				B643ED2D212FC94400963B98 /* imageLeft.png in Resources */,
 				B6E0E59A2130102F0065E395 /* IMG_0689.png in Resources */,
-				B6E6C3542196BB3600AC6A3C /* UserOtherViewController.xib in Resources */,
 				B643EC88212FC01000963B98 /* Main.storyboard in Resources */,
-				B6E0E5C52135270F0065E395 /* UserListViewController.xib in Resources */,
 				B6B356062162034C006FC18C /* icon_point.png in Resources */,
 				B6B355F92162034B006FC18C /* muffin_logo_m.png in Resources */,
-				B6E0E5AF213165380065E395 /* UserViewController.xib in Resources */,
 				B6B356052162034C006FC18C /* banner_smp_02.png in Resources */,
 				B6B355F02162034B006FC18C /* util_icon_back.png in Resources */,
+				B6F7AAAC22B255F90043483F /* AudioPlayerViewController.xib in Resources */,
 				B6B356202162034C006FC18C /* main_btn_01.png in Resources */,
 				B6B355FA2162034C006FC18C /* muffin_logo_s.png in Resources */,
 				B6B356192162034C006FC18C /* btn_s_play.png in Resources */,
-				B63AC0C8213ABDB600C45F83 /* ProjectViewController.xib in Resources */,
-				B6E0E586212FFECC0065E395 /* LoginViewController.xib in Resources */,
 				B6B356092162034C006FC18C /* user_pho_smp_01.png in Resources */,
 				B6E0E59B2130102F0065E395 /* IMG_0694.png in Resources */,
 				B6B355FC2162034C006FC18C /* m_open_use_smp.png in Resources */,
@@ -1533,82 +1539,75 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6F7AAB222B255F90043483F /* ViewController.m in Sources */,
 				B63AC0C3213AA81900C45F83 /* ProjectInfo.m in Sources */,
 				B643EDB2212FDF2900963B98 /* NSString+Format.m in Sources */,
 				B643EDA5212FDCE300963B98 /* SBJSON.m in Sources */,
 				B63AC0D1213E0FD300C45F83 /* BFPaperTabBarController.m in Sources */,
 				B63AC136213E7C5F00C45F83 /* STKAudioPlayer.m in Sources */,
 				B643ED13212FC8AE00963B98 /* AFImageRequestOperation.m in Sources */,
+				B6309C5B22B256FF007A2942 /* SampleQueueId.m in Sources */,
 				B6E0E5C02133D0F00065E395 /* EDHttpTransManager.m in Sources */,
 				B63AC138213E7C5F00C45F83 /* STKDataSource.m in Sources */,
+				B6F7AAA222B255F90043483F /* ProjectViewController.m in Sources */,
 				B643EDBA212FE2ED00963B98 /* ConfigUtil.m in Sources */,
-				B6F7AA0422B108600043483F /* ViewController.m in Sources */,
 				B636AA3F215E720400C755CB /* LikeSong.m in Sources */,
 				B6C8B72321858AC700D821C9 /* ZFTokenField.m in Sources */,
 				B643ED4A212FD06100963B98 /* SingleTon.m in Sources */,
 				B643ED41212FD03A00963B98 /* unzip.c in Sources */,
-				B6BDD3C8213A88600037CACF /* MainScreenViewController.m in Sources */,
 				B6BDD3CD213A88E40037CACF /* UserInfo.m in Sources */,
 				B636AA36215E711C00C755CB /* TimeLine.m in Sources */,
+				B6F7AABA22B255F90043483F /* EDBaseViewController.m in Sources */,
 				B643ED22212FC8AE00963B98 /* LGSideMenuGesturesHandler.m in Sources */,
 				B643ED12212FC8AE00963B98 /* AFHTTPRequestOperation+ResponseObject.m in Sources */,
 				B6F3023021CE0A5C0053E734 /* EDTextField.m in Sources */,
 				B643EDCD212FE6C200963B98 /* NSData+AES.m in Sources */,
-				B643ECE2212FC87500963B98 /* LeftViewCell.m in Sources */,
+				B6F7AAAB22B255F90043483F /* AudioPlayerViewController.m in Sources */,
 				B643EDA8212FDCE300963B98 /* NSString+SBJSON.m in Sources */,
 				B643ED7E212FD64A00963B98 /* UIView+Toast.m in Sources */,
 				B636AA30215E704F00C755CB /* SongInfo.m in Sources */,
 				B643ED1A212FC8AE00963B98 /* AFHTTPClient+Synchronous.m in Sources */,
-				B643ECE5212FC87500963B98 /* LeftViewController.m in Sources */,
 				B643ED1C212FC8AE00963B98 /* AFXMLRequestOperation.m in Sources */,
+				B6F7AAA022B255F90043483F /* UserOtherViewController.m in Sources */,
 				B643EDAC212FDE8D00963B98 /* SystemUtil.m in Sources */,
-				B6E6C3652197CF0400AC6A3C /* TagCollectonViewController.m in Sources */,
-				B6F7AA3722B10A340043483F /* SampleQueueId.m in Sources */,
 				B643ED18212FC8AE00963B98 /* AFURLConnectionOperation.m in Sources */,
+				B6F7AAAD22B255F90043483F /* UserViewController.m in Sources */,
+				B6F7AA9022B255F90043483F /* LoginViewController.m in Sources */,
 				B6F7AA2A22B109280043483F /* UIWindow+LGAlertView.m in Sources */,
 				B6C8B7202185844A00D821C9 /* EDTagListView.m in Sources */,
 				B63AC0CB213DFD6500C45F83 /* KeyboardManager.m in Sources */,
 				B63AC0C0213AA80600C45F83 /* GroupItem.m in Sources */,
-				3061748B22A02DC800CE1A8A /* FTPFileUploder.m in Sources */,
-				B6E0E581212FFEA50065E395 /* PopupViewController.m in Sources */,
 				B643ED75212FD40800963B98 /* SSZipArchive.m in Sources */,
 				B643ED27212FC8C500963B98 /* XMLReaderEx.m in Sources */,
+				B6F7AA9622B255F90043483F /* ProjectMakeController.m in Sources */,
+				B6F7AAB622B255F90043483F /* LeftViewController.m in Sources */,
 				B643EC90212FC01200963B98 /* main.m in Sources */,
 				B643ED1F212FC8AE00963B98 /* LGSideMenuView.m in Sources */,
 				B643ED21212FC8AE00963B98 /* LGSideMenuController.m in Sources */,
 				B636AA39215E718F00C755CB /* BookmarkUser.m in Sources */,
 				B6F7AA2122B109280043483F /* LGAlertViewWindowContainer.m in Sources */,
-				B63AC145213E7EDA00C45F83 /* AudioPlayerViewController.m in Sources */,
-				B643ECE4212FC87500963B98 /* OtherViewController.m in Sources */,
 				B6F7AA3122B1096A0043483F /* TOHeaderImageView.m in Sources */,
 				B643ED1B212FC8AE00963B98 /* UIImageView+AFNetworking.m in Sources */,
 				B6F7AA2422B109280043483F /* LGAlertViewWindowsObserver.m in Sources */,
-				B643ECE3212FC87500963B98 /* RightViewCell.m in Sources */,
-				B6E0E585212FFECC0065E395 /* LoginViewController.m in Sources */,
 				B643EDA7212FDCE300963B98 /* SBJsonWriter.m in Sources */,
 				B6F7AA2222B109280043483F /* LGAlertViewHelper.m in Sources */,
 				B643ED17212FC8AE00963B98 /* AFNetworkActivityIndicatorManager.m in Sources */,
-				B63AC0C7213ABDB600C45F83 /* ProjectViewController.m in Sources */,
 				B6F7AA2522B109280043483F /* LGAlertViewShadowView.m in Sources */,
 				B63AC131213E7C5F00C45F83 /* STKQueueEntry.m in Sources */,
 				B643ED15212FC8AE00963B98 /* AFNetworkConnect.m in Sources */,
-				B6E0E5C42135270F0065E395 /* UserListViewController.m in Sources */,
 				B6F7AA2822B109280043483F /* LGAlertViewButton.m in Sources */,
+				B6F7AAB922B255F90043483F /* TableViewController.m in Sources */,
 				B643EDAF212FDEC000963B98 /* LinkData.m in Sources */,
-				B6E0E5AE213165380065E395 /* UserViewController.m in Sources */,
 				B6F7AA2722B109280043483F /* LGAlertViewController.m in Sources */,
 				B636AA42215E722B00C755CB /* PartAskInfo.m in Sources */,
-				B6E6C3602196DB4600AC6A3C /* BannerTableViewCell.m in Sources */,
-				B6B356282163076B006FC18C /* StartupPopupView.m in Sources */,
 				B643ED23212FC8AE00963B98 /* UIViewController+LGSideMenuController.m in Sources */,
 				B63AC0CE213DFD9D00C45F83 /* UIView+FirstResponder.m in Sources */,
 				B643ED1D212FC8AE00963B98 /* AFJSONRequestOperation.m in Sources */,
 				B6E0E59E213152BB0065E395 /* EDRoundButton.m in Sources */,
-				B6C8B71C2184456D00D821C9 /* ProjectMakeController.m in Sources */,
 				B643ED92212FDCBE00963B98 /* NinePatchImageBlock.m in Sources */,
 				B643ED72212FD10500963B98 /* NSDate+TimeCheck.m in Sources */,
-				B6E6C3582196D42A00AC6A3C /* BannerViewController.m in Sources */,
 				B643ED42212FD03A00963B98 /* zip.c in Sources */,
+				B6F7AA9C22B255F90043483F /* BannerTableViewCell.m in Sources */,
 				B6F7AA2622B109280043483F /* LGAlertViewButtonProperties.m in Sources */,
 				B63AC132213E7C5F00C45F83 /* STKHTTPDataSource.m in Sources */,
 				B66DE0B9217DDCF500320F3D /* EDBottomButtonView.m in Sources */,
@@ -1618,56 +1617,63 @@
 				B6F7AA3022B1096A0043483F /* TONavigationBar.m in Sources */,
 				B63AC156213E9E5A00C45F83 /* AudioUtil.m in Sources */,
 				B643ED19212FC8AE00963B98 /* AFHTTPRequestOperation.m in Sources */,
+				B6F7AAB822B255F90043483F /* UserInfoViewController.m in Sources */,
+				B6F7AA9222B255F90043483F /* PopupViewController.m in Sources */,
+				B6F7AAA322B255F90043483F /* FileUploadViewController.m in Sources */,
 				B643EDA6212FDCE300963B98 /* SBJsonBase.m in Sources */,
+				B6F7AAAE22B255F90043483F /* ChooseNavigationController.m in Sources */,
+				B6F7AA9B22B255F90043483F /* BannerViewController.m in Sources */,
 				B643EC82212FC01000963B98 /* AppDelegate.m in Sources */,
+				B6F7AA9122B255F90043483F /* StartupPopupView.m in Sources */,
 				B6F7AA2322B109280043483F /* LGAlertViewCell.m in Sources */,
 				B6E0E58A213003470065E395 /* EDRoundView.m in Sources */,
 				B643ED71212FD10500963B98 /* NSData+Base64.m in Sources */,
 				B643ED20212FC8AE00963B98 /* LGSideMenuSegue.m in Sources */,
 				B643ED1E212FC8AE00963B98 /* LGSideMenuHelper.m in Sources */,
+				B6F7AAB322B255F90043483F /* RightViewCell.m in Sources */,
 				B63AC139213E7C5F00C45F83 /* NSMutableArray+STKAudioPlayer.m in Sources */,
-				B6E0E57C212FF4BB0065E395 /* UserInfoViewController.m in Sources */,
+				B6F7AAA722B255F90043483F /* UserListViewController.m in Sources */,
 				B6F3023321CE0A710053E734 /* EDTextView.m in Sources */,
 				B643ED16212FC8AE00963B98 /* AFHTTPClient.m in Sources */,
+				B6F7AA9F22B255F90043483F /* SearchViewController.m in Sources */,
 				B643ED70212FD10500963B98 /* NSData+toString.m in Sources */,
 				B636AA33215E70CC00C755CB /* SongItem.m in Sources */,
-				B63AC15C213F4D4700C45F83 /* SearchViewController.m in Sources */,
-				B643ECE7212FC87500963B98 /* TableViewController.m in Sources */,
 				B643EDB7212FE2B000963B98 /* KeychainItemWrapper.m in Sources */,
 				B643EDC1212FE48800963B98 /* ResourceManager.m in Sources */,
 				B6E0E58D213009810065E395 /* EDRoundTableView.m in Sources */,
-				B643ED31212FCA5B00963B98 /* RootViewController.m in Sources */,
 				B643EDC4212FE52900963B98 /* WebUtil.m in Sources */,
 				B643ED6D212FD10500963B98 /* NSData+GZIP.m in Sources */,
 				B63AC134213E7C5F00C45F83 /* STKCoreFoundationDataSource.m in Sources */,
-				B643ECDF212FC87500963B98 /* MainViewController.m in Sources */,
 				B6F7AA1F22B109280043483F /* LGAlertViewTextField.m in Sources */,
 				B63AC137213E7C5F00C45F83 /* STKDataSourceWrapper.m in Sources */,
+				B6F7AA9822B255F90043483F /* FTPFileUploder.m in Sources */,
 				B643ED8F212FDCBE00963B98 /* NinePatchImageInfo.m in Sources */,
 				B636AA3C215E71CA00C755CB /* LikeGroup.m in Sources */,
+				B6F7AA8F22B255F90043483F /* MainViewController.m in Sources */,
+				B6F7AAB722B255F90043483F /* NavigationController.m in Sources */,
 				B63AC133213E7C5F00C45F83 /* STKLocalFileDataSource.m in Sources */,
 				B643ED59212FD0A400963B98 /* OpenUDID.m in Sources */,
 				B643ED81212FDC0A00963B98 /* CommonUtil.m in Sources */,
-				3061748A22A02DC800CE1A8A /* FileUploadViewController.m in Sources */,
+				B6F7AAAF22B255F90043483F /* RightViewController.m in Sources */,
 				B63AC0D4213E199000C45F83 /* EDTabstyleView.m in Sources */,
 				B643ED91212FDCBE00963B98 /* NinePatchImageCache.m in Sources */,
 				B643ED43212FD03A00963B98 /* ioapi.c in Sources */,
+				B6F7AAB522B255F90043483F /* OtherViewController.m in Sources */,
 				B643EDA4212FDCE300963B98 /* SBJsonParser.m in Sources */,
-				B643ECE6212FC87500963B98 /* NavigationController.m in Sources */,
+				B6309C5A22B256FF007A2942 /* AudioPlayerView.m in Sources */,
 				B63AC135213E7C5F00C45F83 /* STKAutoRecoveringHTTPDataSource.m in Sources */,
 				B643EDBD212FE35E00963B98 /* NSDataAdditions.m in Sources */,
-				B643ECE0212FC87500963B98 /* ChooseNavigationController.m in Sources */,
+				B6F7AAB122B255F90043483F /* RootViewController.m in Sources */,
 				B6F7AA2922B109280043483F /* LGAlertView.m in Sources */,
 				B63AC0BD213AA7F200C45F83 /* GroupInfo.m in Sources */,
-				B6E0E5A22131632E0065E395 /* EDBaseViewController.m in Sources */,
+				B6F7AA9A22B255F90043483F /* TagCollectonViewController.m in Sources */,
 				B643ED24212FC8AE00963B98 /* LGSideMenuBorderView.m in Sources */,
 				B6F7AA2022B109280043483F /* LGAlertViewWindow.m in Sources */,
-				B643ECE1212FC87500963B98 /* RightViewController.m in Sources */,
 				B643EDA3212FDCE300963B98 /* NSObject+SBJSON.m in Sources */,
-				B6F7AA3622B10A340043483F /* AudioPlayerView.m in Sources */,
 				B6E6C35C2196D4F200AC6A3C /* BannerItem.m in Sources */,
-				B6E6C3532196BB3600AC6A3C /* UserOtherViewController.m in Sources */,
 				B643ED90212FDCBE00963B98 /* NinePatchImageRange.m in Sources */,
+				B6F7AAA422B255F90043483F /* MainScreenViewController.m in Sources */,
+				B6F7AAB022B255F90043483F /* LeftViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
