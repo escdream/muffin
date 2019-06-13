@@ -1,0 +1,55 @@
+//
+// Prefix header for all source files of the 'ItgenStdDev' target in the 'ItgenStdDev' project
+//
+
+#ifdef DEBUG
+#define LOGUSE
+#endif
+
+#ifdef __OBJC__
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
+
+#import "EDHttpTransManager.h"
+#import "ConstDef.h"
+#import "UserInfo.h"
+
+static void SmartLog(NSString *format, ...)
+{
+#ifdef LOGUSE
+	va_list argumentList;
+	va_start(argumentList, format);
+	
+	NSMutableString * message = [[NSMutableString alloc] initWithFormat:format arguments:argumentList];
+	[message insertString:@"[Muffin] " atIndex:0];
+	
+	NSLogv(message, argumentList); // Originally NSLog is a wrapper around NSLogv.
+	va_end(argumentList);
+#endif
+}
+
+#ifndef __OPTIMIZE__
+#define NSLog(...) SmartLog(__VA_ARGS__)
+#define ESLog(...) SmartLog(__VA_ARGS__)
+#else
+#define NSLog(...) {}
+#define ESLog(...) {}
+#endif
+
+#define NSLogEx(format, ...) CFShow([NSString stringWithFormat:format, ## __VA_ARGS__])
+
+#endif
+
+#define TEST_VERSION
+
+#ifdef TEST_VERSION
+#endif
+
+
+#ifdef _DISTRIBUTION
+
+#else
+    
+#endif
+
