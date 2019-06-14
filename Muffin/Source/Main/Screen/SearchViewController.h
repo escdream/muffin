@@ -17,9 +17,13 @@
     UITableView * tblResultNew;
     UITableView * tblResultAll;
     
+    UITableView * tblSearch;
+    
     NSMutableArray * arrHot;
     NSMutableArray * arrNew;
     NSMutableArray * arrAll;
+    
+    NSMutableArray * arrSearch;
     
     UIButton * mButton;
 }

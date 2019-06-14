@@ -107,6 +107,7 @@
 		B643EDCD212FE6C200963B98 /* NSData+AES.m in Sources */ = {isa = PBXBuildFile; fileRef = B643EDCB212FE6C000963B98 /* NSData+AES.m */; };
 		B643EDCF212FED5C00963B98 /* Main in Resources */ = {isa = PBXBuildFile; fileRef = B643EDCE212FED5C00963B98 /* Main */; };
 		B645BFF4217C944E009DEFDD /* maskimg.png in Resources */ = {isa = PBXBuildFile; fileRef = B645BFF3217C944E009DEFDD /* maskimg.png */; };
+		B64B480722B3B926001D4B6A /* HangulUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B64B480622B3B925001D4B6A /* HangulUtils.m */; };
 		B66DE0B9217DDCF500320F3D /* EDBottomButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = B66DE0B8217DDCF500320F3D /* EDBottomButtonView.m */; };
 		B675264B217D67360059B61D /* libAMSLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B643EDC8212FE64B00963B98 /* libAMSLibrary.a */; settings = {ATTRIBUTES = (Weak, ); }; };
 		B6B355F02162034B006FC18C /* util_icon_back.png in Resources */ = {isa = PBXBuildFile; fileRef = B6B355BB21620340006FC18C /* util_icon_back.png */; };
@@ -464,6 +465,8 @@
 		B643EDCC212FE6C200963B98 /* NSData+AES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+AES.h"; sourceTree = "<group>"; };
 		B643EDCE212FED5C00963B98 /* Main */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Main; sourceTree = "<group>"; };
 		B645BFF3217C944E009DEFDD /* maskimg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = maskimg.png; path = Muffin/Resource/img/maskimg.png; sourceTree = SOURCE_ROOT; };
+		B64B480522B3B925001D4B6A /* HangulUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HangulUtils.h; sourceTree = "<group>"; };
+		B64B480622B3B925001D4B6A /* HangulUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HangulUtils.m; sourceTree = "<group>"; };
 		B66DE0B7217DDCF500320F3D /* EDBottomButtonView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDBottomButtonView.h; sourceTree = "<group>"; };
 		B66DE0B8217DDCF500320F3D /* EDBottomButtonView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDBottomButtonView.m; sourceTree = "<group>"; };
 		B6B355BB21620340006FC18C /* util_icon_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = util_icon_back.png; path = Muffin/Resource/img/util_icon_back.png; sourceTree = SOURCE_ROOT; };
@@ -696,6 +699,8 @@
 		B6309C5522B256FF007A2942 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				B64B480522B3B925001D4B6A /* HangulUtils.h */,
+				B64B480622B3B925001D4B6A /* HangulUtils.m */,
 				B6309C5622B256FF007A2942 /* SampleQueueId.h */,
 				B6309C5722B256FF007A2942 /* AudioPlayerView.h */,
 				B6309C5822B256FF007A2942 /* AudioPlayerView.m */,
@@ -1555,6 +1560,7 @@
 				B6C8B72321858AC700D821C9 /* ZFTokenField.m in Sources */,
 				B643ED4A212FD06100963B98 /* SingleTon.m in Sources */,
 				B643ED41212FD03A00963B98 /* unzip.c in Sources */,
+				B64B480722B3B926001D4B6A /* HangulUtils.m in Sources */,
 				B6BDD3CD213A88E40037CACF /* UserInfo.m in Sources */,
 				B636AA36215E711C00C755CB /* TimeLine.m in Sources */,
 				B6F7AABA22B255F90043483F /* EDBaseViewController.m in Sources */,
