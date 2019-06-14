@@ -42,6 +42,7 @@ static void SmartLog(NSString *format, ...)
 #endif
 
 #define TEST_WORK
+#define TEST_WORK2
 
 #define TEST_VERSION
 
