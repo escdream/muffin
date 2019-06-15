@@ -18,6 +18,7 @@
 #import "BannerViewController.h"
 #import "NavigationController.h"
 #import "TONavigationBar.h"
+#import "MyMuffinViewController.h"
 #import "SystemUtil.h"
 #import "CommonUtil.h"
 
@@ -198,6 +199,16 @@
     [self openController:controler];
 }
 
+- (void) goMyMuffin
+{
+    [self hideMenus];
+    
+    
+    MyMuffinViewController * controler = [[MyMuffinViewController alloc] initWithNibName:@"MyMuffinViewController" bundle:nil];
+    
+    [self openController:controler];
+}
+
 - (IBAction)onMenuClick:(id)sender {
     
     UIButton * btn = sender;
@@ -218,7 +229,7 @@
         case 302: [self goProjectMake];
             break;
 
-        case 401:
+        case 401: [self goMyMuffin];
             break;
         case 402:
             break;

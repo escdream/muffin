@@ -108,6 +108,8 @@
 		B643EDCF212FED5C00963B98 /* Main in Resources */ = {isa = PBXBuildFile; fileRef = B643EDCE212FED5C00963B98 /* Main */; };
 		B645BFF4217C944E009DEFDD /* maskimg.png in Resources */ = {isa = PBXBuildFile; fileRef = B645BFF3217C944E009DEFDD /* maskimg.png */; };
 		B64B480722B3B926001D4B6A /* HangulUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B64B480622B3B925001D4B6A /* HangulUtils.m */; };
+		B656497222B55C1B001E0E26 /* MyMuffinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B656497022B55C1B001E0E26 /* MyMuffinViewController.m */; };
+		B656497322B55C1B001E0E26 /* MyMuffinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B656497122B55C1B001E0E26 /* MyMuffinViewController.xib */; };
 		B66DE0B9217DDCF500320F3D /* EDBottomButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = B66DE0B8217DDCF500320F3D /* EDBottomButtonView.m */; };
 		B675264B217D67360059B61D /* libAMSLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B643EDC8212FE64B00963B98 /* libAMSLibrary.a */; settings = {ATTRIBUTES = (Weak, ); }; };
 		B6B355F02162034B006FC18C /* util_icon_back.png in Resources */ = {isa = PBXBuildFile; fileRef = B6B355BB21620340006FC18C /* util_icon_back.png */; };
@@ -467,6 +469,9 @@
 		B645BFF3217C944E009DEFDD /* maskimg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = maskimg.png; path = Muffin/Resource/img/maskimg.png; sourceTree = SOURCE_ROOT; };
 		B64B480522B3B925001D4B6A /* HangulUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HangulUtils.h; sourceTree = "<group>"; };
 		B64B480622B3B925001D4B6A /* HangulUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HangulUtils.m; sourceTree = "<group>"; };
+		B656496F22B55C1B001E0E26 /* MyMuffinViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyMuffinViewController.h; sourceTree = "<group>"; };
+		B656497022B55C1B001E0E26 /* MyMuffinViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyMuffinViewController.m; sourceTree = "<group>"; };
+		B656497122B55C1B001E0E26 /* MyMuffinViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyMuffinViewController.xib; sourceTree = "<group>"; };
 		B66DE0B7217DDCF500320F3D /* EDBottomButtonView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDBottomButtonView.h; sourceTree = "<group>"; };
 		B66DE0B8217DDCF500320F3D /* EDBottomButtonView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDBottomButtonView.m; sourceTree = "<group>"; };
 		B6B355BB21620340006FC18C /* util_icon_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = util_icon_back.png; path = Muffin/Resource/img/util_icon_back.png; sourceTree = SOURCE_ROOT; };
@@ -1270,13 +1275,14 @@
 				B6F7AA5E22B255F90043483F /* UserViewController.h */,
 				B6F7AA5F22B255F90043483F /* BannerTableViewCell.xib */,
 				B6F7AA6022B255F90043483F /* ProjectViewController.m */,
+				B6F7AA7022B255F90043483F /* ProjectViewController.h */,
+				B6F7AA6822B255F90043483F /* ProjectViewController.xib */,
 				B6F7AA6122B255F90043483F /* ProjectMakeController.h */,
 				B6F7AA6222B255F90043483F /* FileUploadViewController.m */,
 				B6F7AA6422B255F90043483F /* UserListViewController.xib */,
 				B6F7AA6522B255F90043483F /* ProjectMakeController.xib */,
 				B6F7AA6622B255F90043483F /* UserListViewController.m */,
 				B6F7AA6722B255F90043483F /* SearchViewController.xib */,
-				B6F7AA6822B255F90043483F /* ProjectViewController.xib */,
 				B6F7AA6922B255F90043483F /* UserOtherViewController.xib */,
 				B6F7AA6A22B255F90043483F /* FTPFileUploder.h */,
 				B6F7AA6B22B255F90043483F /* AudioPlayerViewController.m */,
@@ -1284,10 +1290,12 @@
 				B6F7AA6D22B255F90043483F /* BannerViewController.h */,
 				B6F7AA6E22B255F90043483F /* TagCollectonViewController.h */,
 				B6F7AA6F22B255F90043483F /* AudioPlayerViewController.xib */,
-				B6F7AA7022B255F90043483F /* ProjectViewController.h */,
 				B6F7AA7122B255F90043483F /* UserViewController.m */,
 				B6F7AA7222B255F90043483F /* UserOtherViewController.h */,
 				B6F7AA7322B255F90043483F /* SearchViewController.h */,
+				B656496F22B55C1B001E0E26 /* MyMuffinViewController.h */,
+				B656497022B55C1B001E0E26 /* MyMuffinViewController.m */,
+				B656497122B55C1B001E0E26 /* MyMuffinViewController.xib */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -1461,6 +1469,7 @@
 				B6B3561F2162034C006FC18C /* dot_line.png in Resources */,
 				B643EC8A212FC01200963B98 /* Assets.xcassets in Resources */,
 				B6F7AA9922B255F90043483F /* TagCollectonViewController.xib in Resources */,
+				B656497322B55C1B001E0E26 /* MyMuffinViewController.xib in Resources */,
 				B6B356172162034C006FC18C /* st_02_off.png in Resources */,
 				B6B3560B2162034C006FC18C /* muffin_logo_s_b.png in Resources */,
 				B6F7AAA622B255F90043483F /* ProjectMakeController.xib in Resources */,
@@ -1546,6 +1555,7 @@
 			files = (
 				B6F7AAB222B255F90043483F /* ViewController.m in Sources */,
 				B63AC0C3213AA81900C45F83 /* ProjectInfo.m in Sources */,
+				B656497222B55C1B001E0E26 /* MyMuffinViewController.m in Sources */,
 				B643EDB2212FDF2900963B98 /* NSString+Format.m in Sources */,
 				B643EDA5212FDCE300963B98 /* SBJSON.m in Sources */,
 				B63AC0D1213E0FD300C45F83 /* BFPaperTabBarController.m in Sources */,

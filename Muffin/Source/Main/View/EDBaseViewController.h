@@ -16,6 +16,7 @@
 @property (nonatomic, assign) BOOL showTitleLogo;
 @property (nonatomic, assign) BOOL showPlayer;
 @property (nonatomic, assign) BOOL showBack;
+@property (nonatomic, assign) BOOL showMyMenu;
 
 
 

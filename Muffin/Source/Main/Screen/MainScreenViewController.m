@@ -213,7 +213,7 @@
     }
     else if (indexPath.section == 1)
     {
-        if (arrArtistsList.count != 0)
+        if (arrArtistsList.count != 0 && arrArtistsList.count > indexPath.row)
         {
             BookmarkUser * BMUser = arrArtistsList[indexPath.row];
             if (BMUser.BMUserId != nil)

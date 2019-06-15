@@ -9,11 +9,15 @@
 #import "EDBaseViewController.h"
 #import "SystemUtil.h"
 #import "CommonUtil.h"
+#import "MainViewController.h"
 
 @interface EDBaseViewController ()
 {
     UIButton * mainMenu;
     UIButton * goBack;
+    
+    UINavigationController * mainNavi;
+    MainViewController *mainViewController;
 }
 
 @end
@@ -81,18 +85,26 @@
     }
 }
 
-- (void) setShowPlayer:(BOOL)showPlayer
+- (void) gotoMyMuffin
 {
-    if (showPlayer)
+    [mainNavi  popToRootViewControllerAnimated:YES];
+}
+
+
+- (void) setShowMyMenu:(BOOL)showMyMenu
+{
+    if (showMyMenu)
     {
 
         UIButton * mainMenu = [UIButton buttonWithType:UIButtonTypeCustom];
         mainMenu.frame = CGRectMake(10, 0, 60, 40);
         mainMenu.imageEdgeInsets = UIEdgeInsetsMake(7.5, 40, 7.5, 00);
-        UIImage *backButtonImage = [UIImage imageNamed:@"play_btn.png"];
+        UIImage *backButtonImage = [UIImage imageNamed:@"util_icon_login.png"];
+        UIImage *backButtonImage_B = [UIImage imageNamed:@"util_icon_login_b.png"];
         [mainMenu setImage:backButtonImage forState:UIControlStateNormal];
-        
-        [mainMenu addTarget:self action:@selector(showLeftView) forControlEvents:UIControlEventTouchUpInside];//
+        [mainMenu setImage:backButtonImage_B forState:UIControlStateSelected];
+
+        [mainMenu addTarget:self action:@selector(gotoMyMuffin) forControlEvents:UIControlEventTouchUpInside];//
 
         mainMenu.imageView.contentMode = UIViewContentModeScaleAspectFit;
 
@@ -199,6 +211,10 @@
     self.navigationItem.titleView = btnLogo;
     
     
+    // escdream 2019.06.16 added
+    self.showMyMenu = YES;
+    mainViewController = (MainViewController *)self.sideMenuController;
+    mainNavi = (UINavigationController *)(mainViewController.rootViewController);
     
     self.title = @"";
 }
