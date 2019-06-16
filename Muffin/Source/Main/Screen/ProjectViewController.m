@@ -50,6 +50,7 @@
     NSMutableArray * arrFiles;
     FTPFileUploder * uploader;
     
+    UIButton * btnPrevPlay;
 }
 
 @end
@@ -72,6 +73,8 @@
 
 - (void) initData
 {
+    btnPrevPlay = nil;
+
     strStatus = @"전체PJT";
     
     NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
@@ -455,10 +458,18 @@
             
             UIImage *backButtonImage = [UIImage imageNamed:@"btn_on.png"];
             [btnPlay setImage:backButtonImage forState:UIControlStateNormal];
+            
+            if (btnPrevPlay != btnPlay)
+            {
+                UIImage *backButtonImage = [UIImage imageNamed:@"btn_s_play.png"];
+                [btnPrevPlay setImage:backButtonImage forState:UIControlStateNormal];
+            }
+            btnPrevPlay = sender;
         }
         else
         {
             [self stopMuffinList:btnPlay];
+            btnPrevPlay = nil;
         }
     }
 }
@@ -613,6 +624,31 @@
                                                      }
                                                      [self.tblJoinList reloadData];
                                                  }
+                                                 else
+                                                 {
+                                                     dic[@"Function"] = @"GroupItemAll_Select";
+                                                     dic[@"GroupId"] = self.project.projectID;
+                                                     [[EDHttpTransManager instance] callGroupItemInfo:dic withBlack:^(id result, NSError * error)
+                                                      {
+                                                          if (result != nil)
+                                                          {
+                                                              if (self->arrArtists != nil) [self->arrArtists removeAllObjects];
+                                                              
+                                                              self->arrArtists = [[NSMutableArray alloc] initWithArray:result];
+                                                              
+                                                              if (self->arrArtists.count != 0)
+                                                              {
+                                                                  [self.tblArtists reloadData];
+                                                                  
+                                                                  // 마지막 셀로 위치
+                                                                  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.tblArtists numberOfRowsInSection:0] - 1 inSection:0];
+                                                                  [self.tblArtists scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+                                                              }
+                                                          }
+                                                          
+                                                      }];
+                                                 }
+                                        
                                              }];
                                         }
                                     }
@@ -647,6 +683,10 @@
                                                      [self->arrPartAsk addObject:muffin];
                                                  }
                                                  [self.tblJoinList reloadData];
+                                             }
+                                             else
+                                             {
+                                                 
                                              }
                                          }];
                                     }

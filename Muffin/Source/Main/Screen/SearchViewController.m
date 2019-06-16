@@ -26,6 +26,10 @@
 
 
 @implementation SearchViewController
+{
+    UIButton * btnPrevPlay;
+}
+
 @synthesize viewType;
 
 - (void) initLayout
@@ -58,6 +62,7 @@
     tblResultHot.frame = [_tabResult getClientRect];
     tblResultNew.frame = [_tabResult getClientRect];
     tblResultAll.frame = [_tabResult getClientRect];
+    btnPrevPlay = nil;
 }
 
 - (void) initData
@@ -150,11 +155,19 @@
 
             UIImage *backButtonImage = [UIImage imageNamed:@"btn_on.png"];
             [btnPlay setImage:backButtonImage forState:UIControlStateNormal];
+            
+            if (btnPrevPlay != btnPlay)
+            {
+                UIImage *backButtonImage = [UIImage imageNamed:@"btn_s_play.png"];
+                [btnPrevPlay setImage:backButtonImage forState:UIControlStateNormal];
+            }
+            btnPrevPlay = sender;
         }
         else
         {
             muffinInfo.bIsSelected = false;
             [self stopMuffin:btnPlay];
+            btnPrevPlay = nil;
         }
     }
 }
