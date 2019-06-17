@@ -106,6 +106,7 @@
     NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
 
     // 아무거나....
+    // 아무거나 2222
     
     dic[@"Function"] = @"GroupInfo_SelectUser";
     dic[@"UserId"] = [UserInfo instance].userID;
