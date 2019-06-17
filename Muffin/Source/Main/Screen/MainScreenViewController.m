@@ -100,19 +100,8 @@
     // MakeList ------------------------------------
     arrMakeList = [[NSMutableArray alloc] init];
     
-    ProjectInfo * p;
-    p = [[ProjectInfo alloc] init];
-    p.projectName = @"Camila Cabello Featuring Young Thug";
-    [arrMakeList addObject:p];
-    
-    p = [[ProjectInfo alloc] init];
-    p.projectName = @"Ed Sheeran";
-    [arrMakeList addObject:p];
-
-    p = [[ProjectInfo alloc] init];
-    p.projectName = @"Post Malone Featuring 21 Savage";
-    [arrMakeList addObject:p];
-
+    // ArtistList ------------------------------------
+    arrArtistsList = [[NSMutableArray alloc] init];
     
     NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
 
@@ -136,9 +125,7 @@
          
      }];
     
-    
-    // ArtistList ------------------------------------
-    arrArtistsList = [[NSMutableArray alloc] init];
+
 
     dic[@"Function"] = @"BookMarkUser_Select";
     dic[@"UserId"] = [UserInfo instance].userID;
