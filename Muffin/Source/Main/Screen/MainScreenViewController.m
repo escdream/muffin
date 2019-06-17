@@ -105,6 +105,8 @@
     
     NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
 
+    // 아무거나....
+    
     dic[@"Function"] = @"GroupInfo_SelectUser";
     dic[@"UserId"] = [UserInfo instance].userID;
     [[EDHttpTransManager instance] callProjectInfo:dic withBlack:^(id result, NSError * error)
