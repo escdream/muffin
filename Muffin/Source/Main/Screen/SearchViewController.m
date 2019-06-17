@@ -460,7 +460,6 @@
             p = arrHot[indexPath.row];
         }
         else if (tableView == tblResultNew)
-        else if (tableView == tblResultHot)
         {
             p = arrNew[indexPath.row];
         }
