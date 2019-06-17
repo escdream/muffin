@@ -78,6 +78,8 @@
         [LoginViewController ShowLoginView:@"" animated:NO];
     }
     
+    self.showMyMenu = NO;
+    
 //    [self initUserData];
     
     
