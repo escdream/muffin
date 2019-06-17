@@ -64,8 +64,6 @@
 {
     activityIndicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
     [activityIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
-//    activityIndicator = [[UIActivityIndicatorView alloc]
-//                         initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
 
     [activityIndicator setCenter:self.view.center];
     [self.view addSubview : activityIndicator];
@@ -74,60 +72,18 @@
 - (void) initData
 {
     btnPrevPlay = nil;
-
     strStatus = @"전체PJT";
-    
     
     //그룹이미지 읽어오기
     [self doGroupImage];
-    
-    NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
-//    dic[@"Function"] = @"TimeLineAll_Select";
-    dic[@"Function"] = @"TimeLine_Select";
-    dic[@"GroupId"] = self.project.projectID;
-    [[EDHttpTransManager instance] callAllTimelineInfo:dic withBlack:^(id result, NSError * error)
-     {
-         if (result != nil)
-         {
-             if (self->arrTimeline != nil) [self->arrTimeline removeAllObjects];
-             
-             self->arrTimeline = [[NSMutableArray alloc] initWithArray:result];
-             
-             if (self->arrTimeline.count != 0)
-             {
-                 [self.tblTimeline reloadData];
-                 
-                 // 마지막 셀로 위치
-                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.tblTimeline numberOfRowsInSection:0] - 1 inSection:0];
-                 [self.tblTimeline scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-             }
-         }
-         
-     }];
-    
-    dic[@"Function"] = @"GroupItemAll_Select";
-    dic[@"GroupId"] = self.project.projectID;
-    [[EDHttpTransManager instance] callGroupItemInfo:dic withBlack:^(id result, NSError * error)
-     {
-         if (result != nil)
-         {
-             if (self->arrArtists != nil) [self->arrArtists removeAllObjects];
+    //타임라인 리스트 조회
+    [self doSearchTimeLineList];
+    //아티스트 리스트 조회
+    [self doSearchArtistList];
 
-             self->arrArtists = [[NSMutableArray alloc] initWithArray:result];
-
-             if (self->arrArtists.count != 0)
-             {
-                 [self.tblArtists reloadData];
-                 
-                 // 마지막 셀로 위치
-                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.tblArtists numberOfRowsInSection:0] - 1 inSection:0];
-                 [self.tblArtists scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-             }
-         }
-
-     }];
 
     // 프로젝트 그룹 소속 여부 얻어오기(프로젝트 그룹정보)
+    NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
     dic[@"Function"] = @"GroupItem_Select";
     dic[@"GroupId"] = self.project.projectID;
     dic[@"UserId"] = [UserInfo instance].userID;
@@ -336,27 +292,7 @@
                                       self->arrPartAsk = nil;
                                       self->arrPartAsk = [[NSMutableArray alloc] init];
                                       
-                                      NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
-                                      
-                                      dic[@"Function"] = @"SongInfo_SelectGroup";
-                                      dic[@"GroupId"] = self.project.projectID;
-                                      
-                                      [[EDHttpTransManager instance] callMuffinInfo:dic withBlack:^(id result, NSError * error)
-                                       {
-                                           if (result != nil)
-                                           {
-                                               NSArray * arr = result;
-                                               [self->arrPartAsk removeAllObjects];
-                                               
-                                               for (NSDictionary * dic in arr)
-                                               {
-                                                   SongInfo * muffin = [[SongInfo alloc] initWithData:dic];
-                                                   
-                                                   [self->arrPartAsk addObject:muffin];
-                                               }
-                                               [self.tblJoinList reloadData];
-                                           }
-                                       }];
+                                      [self doMuffinList];
                                   }
                                   //신청 거부 -> 화면전환? 메시지표시?
                                   else if ([strProgress isEqualToString:@"99"])
@@ -390,9 +326,69 @@
      }];
     
     // 그룹 대표음악 얻어오기
+    [self doGetGroupFirstMuffin];
+    
+    [self.viewTabList changeTab:@"Timeline" nIndex:0];
+}
+
+-(void) doSearchTimeLineList
+{
+    NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
+    dic[@"Function"] = @"TimeLine_Select";
+    dic[@"GroupId"] = self.project.projectID;
+    [[EDHttpTransManager instance] callAllTimelineInfo:dic withBlack:^(id result, NSError * error)
+     {
+         if (result != nil)
+         {
+             if (self->arrTimeline != nil) [self->arrTimeline removeAllObjects];
+             
+             self->arrTimeline = [[NSMutableArray alloc] initWithArray:result];
+             
+             if (self->arrTimeline.count != 0)
+             {
+                 [self.tblTimeline reloadData];
+                 
+                 // 마지막 셀로 위치
+                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.tblTimeline numberOfRowsInSection:0] - 1 inSection:0];
+                 [self.tblTimeline scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+             }
+         }
+         
+     }];
+}
+
+-(void) doSearchArtistList
+{
+    NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
+    dic[@"Function"] = @"GroupItemAll_Select";
+    dic[@"GroupId"] = self.project.projectID;
+    [[EDHttpTransManager instance] callGroupItemInfo:dic withBlack:^(id result, NSError * error)
+     {
+         if (result != nil)
+         {
+             if (self->arrArtists != nil) [self->arrArtists removeAllObjects];
+             
+             self->arrArtists = [[NSMutableArray alloc] initWithArray:result];
+             
+             if (self->arrArtists.count != 0)
+             {
+                 [self.tblArtists reloadData];
+                 
+                 // 마지막 셀로 위치
+                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.tblArtists numberOfRowsInSection:0] - 1 inSection:0];
+                 [self.tblArtists scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+             }
+         }
+         
+     }];
+}
+
+-(void) doGetGroupFirstMuffin
+{
+    NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
     dic[@"Function"] = @"SongInfo_SelectGroup";
     dic[@"GroupId"] = self.project.projectID;
-
+    
     [[EDHttpTransManager instance] callMuffinInfo:dic withBlack:^(id result, NSError * error)
      {
          if (result != nil)
@@ -404,40 +400,57 @@
              [self setShowPlayer:YES];
          }
      }];
+}
+
+-(void) doMuffinList
+{
+    NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
+    dic[@"Function"] = @"SongInfo_SelectGroup";
+    dic[@"GroupId"] = self.project.projectID;
     
-    [self.viewTabList changeTab:@"Timeline" nIndex:0];
+    [[EDHttpTransManager instance] callMuffinInfo:dic withBlack:^(id result, NSError * error)
+     {
+         if (result != nil)
+         {
+             NSArray * arr = result;
+             [self->arrPartAsk removeAllObjects];
+             
+             for (NSDictionary * dic in arr)
+             {
+                 SongInfo * muffin = [[SongInfo alloc] initWithData:dic];
+                 
+                 [self->arrPartAsk addObject:muffin];
+             }
+             [self.tblJoinList reloadData];
+         }
+     }];
 }
 
 -(void) doGroupImage
 {
     NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
     
-    dic[@"Function"] = @"GroupInfo_SelectUser";
-    dic[@"UserId"] = [UserInfo instance].userID;
+    dic[@"Function"] = @"GroupInfo_Select";
+    dic[@"GroupId"] = self.project.projectID;
+//    dic[@"UserId"] = [UserInfo instance].userID;
     [[EDHttpTransManager instance] callProjectInfo:dic withBlack:^(id result, NSError * error)
      {
          if (result != nil)
          {
-             if (self->arrGroupItem != nil) [self->arrGroupItem removeAllObjects];
-             
-             self->arrGroupItem = [[NSMutableArray alloc] initWithArray:result];
-             
-             if (self->arrGroupItem.count != 0)
+             NSArray * arr = result;
+             NSDictionary * dic = arr[0];
+             if (dic != nil)
              {
-                 NSDictionary * dic = self->arrGroupItem[0];
-                 if (dic != nil)
+                 // 이미지를 읽어올 주소
+                 NSString *imgPath = dic[@"ImagePath"];
+                 NSString *imgName = dic[@"ImageId"];
+                 
+                 NSURL *urlImage = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", imgPath, imgName]];
+                 NSData *dataImage = [NSData dataWithContentsOfURL:urlImage];
+                 // 데이터가 정상적으로 읽혔는지 확인한다. 네트워크가 연결되지 않았다면 nil이다.
+                 if(dataImage)
                  {
-                     // 이미지를 읽어올 주소
-                     NSString *imgPath = dic[@"ImagePath"];
-                     NSString *imgName = dic[@"ImageId"];
-                     
-                     NSURL *urlImage = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", imgPath, imgName]];
-                     NSData *dataImage = [NSData dataWithContentsOfURL:urlImage];
-                     // 데이터가 정상적으로 읽혔는지 확인한다. 네트워크가 연결되지 않았다면 nil이다.
-                     if(dataImage)
-                     {
-                         _imgProject.image = [UIImage imageWithData:dataImage];
-                     }
+                     self.imgProject.image = [UIImage imageWithData:dataImage];
                  }
              }
          }
@@ -1615,8 +1628,22 @@
 -(void) getData:(NSString *)data
 {
     _fldPartAskFileName.text = data;
+    
+    if(self.btnAddMuffin.selected == YES)
+    {
+        [self doFilesUpload: @"mp3"];
+    }
 }
 
+- (IBAction)onAddMuffin:(id)sender {
+    FileUploadViewController * controler = [[FileUploadViewController alloc] initWithNibName:@"FileUploadViewController" bundle:nil];
+    controler.delegate = self;
+    
+    controler.sBrowserType = @"mp3";
+    self.btnAddMuffin.selected = YES;
+    
+    [self presentViewController:controler animated:YES completion:nil];
+}
 
 - (IBAction)onBtnJoinClick:(id)sender {
     UIButton * btn = sender;
@@ -1679,7 +1706,7 @@
 - (void) UploadProcess:(FTPFileUploder *) FileUploader nState:(int)nState sMessage:(NSString *) sMessage;
 {
     NSLog(@"ftp log : %@[%d]", sMessage, nState);
-    
+    NSString * sMsg;
     if (nState < 0)
     {
         [activityIndicator stopAnimating];
@@ -1700,10 +1727,40 @@
         [activityIndicator stopAnimating];
         activityIndicator.hidden= TRUE;
         
-        [self doPartInsert];
+        if(self.btnAddMuffin.selected == YES)
+        {
+            self.btnAddMuffin.selected = NO;
+            sMsg = @"Muffin 등록이 완료되었습니다.";
 
+            //관리자 머핀등록 완료
+            NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
+            dic[@"Function"] = @"SongInfo_Insert";
+            dic[@"GroupId"] = self.project.projectID;
+            dic[@"SongName"] = [[UserInfo instance].userID stringByAppendingString: @" Song"]; //임시 입력
+            dic[@"MusicFileId"] = _fldPartAskFileName.text;
+            dic[@"PublicYN"] = @"Y";  //임시 입력
+            
+            [[EDHttpTransManager instance] callMuffinInfo:dic withBlack:^(id result, NSError * error)
+             {
+                 if (result != nil)
+                 {
+                 }
+                 else
+                 {
+                     //머핀등록 완료 후 머핀리스트 재조회
+                     [self doMuffinList];
+                 }
+             }
+             ];
+            
+        }
+        else
+        {
+            [self doPartInsert];
+            sMsg = @"참여신청이 완료되었습니다.";
+        }
         UIWindow *window = UIApplication.sharedApplication.delegate.window;
-        [window.rootViewController.view makeToast:@"참여신청이 완료되었습니다."];
+        [window.rootViewController.view makeToast:sMsg];
     }
 }
 

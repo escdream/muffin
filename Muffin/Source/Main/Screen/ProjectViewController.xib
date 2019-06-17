@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="btmViewArtist" destination="4kx-Rl-l4U" id="lzD-aD-Glh"/>
                 <outlet property="btmViewJoin" destination="bxa-bt-bCO" id="tOR-iy-Alc"/>
+                <outlet property="btnAddMuffin" destination="sEa-uZ-3Xg" id="waZ-tq-KXX"/>
                 <outlet property="btnJoin1" destination="2iW-5s-eWz" id="Gzh-0t-U6O"/>
                 <outlet property="btnJoin2" destination="Q6E-Bp-JQR" id="NNO-fg-bVH"/>
                 <outlet property="btnPlayMuffin" destination="2b2-yc-IPA" id="hxO-2H-N2N"/>
@@ -437,6 +438,14 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sEa-uZ-3Xg">
+                            <rect key="frame" x="297" y="8" width="30" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Muffin 등록" image="list_btn_plu.png"/>
+                            <connections>
+                                <action selector="onAddMuffin:" destination="-1" eventType="touchUpInside" id="J5c-td-RUJ"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
@@ -471,6 +480,7 @@
     </objects>
     <resources>
         <image name="btn_m_play.png" width="70" height="80"/>
+        <image name="list_btn_plu.png" width="40" height="40"/>
         <image name="user_pho_smp_01.png" width="250" height="250"/>
         <image name="user_pho_smp_02.png" width="90" height="90"/>
     </resources>

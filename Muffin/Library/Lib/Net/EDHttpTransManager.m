@@ -362,8 +362,10 @@ static EDHttpTransManager * global_httpManager;
     else
         httpHeader[@"Function"] = dicCmd[@"Function"];
     
-//    [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"GroupId" sValue:dicCmd[@"GroupId"]]];
-    [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"UserId" sValue:dicCmd[@"UserId"]]];
+    if( [dicCmd[@"Function"] isEqualToString: @"GroupInfo_Select"] )
+        [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"GroupId" sValue:dicCmd[@"GroupId"]]];
+    else
+        [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"UserId" sValue:dicCmd[@"UserId"]]];
 
     NSURL *URL = [NSURL URLWithString:@"http://ourworld3.cafe24.com/data/servlet/FrontService"];
     [AFNetworkConnect callAsyncHTTPWithHeader:URL.absoluteString param:Params headers:httpHeader withBlock:^(id result, NSError *error) {
