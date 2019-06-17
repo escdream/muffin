@@ -271,6 +271,7 @@
     
     [[AudioUtil player] stop];
     //[self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)onClose:(id)sender
@@ -459,6 +460,7 @@
             p = arrHot[indexPath.row];
         }
         else if (tableView == tblResultNew)
+        else if (tableView == tblResultHot)
         {
             p = arrNew[indexPath.row];
         }
@@ -469,8 +471,10 @@
         else
         {
             p = arrSearch[indexPath.row];
+            p = arrAll[indexPath.row];
         }
 
+        
         if(p != nil)
         {
             //make TextLabel
@@ -482,6 +486,7 @@
         }
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     return cell;
 }
 
