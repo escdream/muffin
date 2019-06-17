@@ -18,19 +18,106 @@
 #import <AVFoundation/AVFoundation.h>
 #import "AudioUtil.h"
 #import "SampleQueueId.h"
-
+#import "HangulUtils.h"
 
 @interface SearchViewController ()
 
 @end
 
 
+
+
+
 @implementation SearchViewController
 {
     UIButton * btnPrevPlay;
 }
-
 @synthesize viewType;
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField;        // return NO to disallow editing.
+{
+    return YES;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField;           // became first responder
+{
+    NSLog(@"become first");
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField;          // return YES to allow editing to stop and to resign first responder status. NO to disallow the editing session to end
+{
+    return YES;
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField;             // may be called if forced even if shouldEndEditing returns NO (e.g. view removed from window) or endEditing:YES called
+{
+}
+
+- (void)textChanged:(UITextField *)textField {
+    NSLog(@"%@", textField.text);
+    
+    NSString * parameterStr=textField.text ;
+    
+    if([parameterStr isEqualToString:@""])
+    {
+        tblSearch.hidden = YES;
+        [self->tblResultAll reloadData];
+        [self->tblResultHot reloadData];
+        [self->tblResultNew reloadData];
+        [tblSearch removeFromSuperview];
+    }
+    else
+    {
+        tblSearch.hidden = NO;
+        [_tabResult.superview addSubview:tblSearch];
+        [self filteredText:parameterStr];
+    }
+}
+
+- (void) filteredText:(NSString *) searchString
+{
+    [arrSearch removeAllObjects];
+    
+    NSInteger searchStringLen  = [searchString length];
+    NSString *choSearchStr=@"";
+    NSString *dupSearchBartext = [[HangulUtils GetInstance:NO] doubleChosungReplace:searchString];
+    
+    NSInteger dupSearchStringLen = [dupSearchBartext length];
+    NSString *dupChoSearchStr=@"";
+    
+    for (SongInfo * muffin in self->arrAll)
+    {
+        NSString *name = muffin.songName;
+        
+        NSString *group = muffin.groupName;
+
+        NSRange rangeName = [[name uppercaseString] rangeOfString:[searchString uppercaseString]];
+        NSRange rangeCode = [[group uppercaseString] rangeOfString:[searchString uppercaseString]];
+        
+        if ([name length] <= searchStringLen) {
+            choSearchStr = [NSString stringWithFormat:@"%@", name];
+        } else {
+            choSearchStr = [name substringToIndex:searchStringLen];
+        }
+        
+        // 쌍자음 초성검색.
+        if ([name length] <= dupSearchStringLen) {
+            dupChoSearchStr = [NSString stringWithFormat:@"%@", name];
+        } else {
+            dupChoSearchStr = [name substringToIndex:dupSearchStringLen];
+        }
+        
+        choSearchStr = [[HangulUtils GetInstance:NO] getChosungs:choSearchStr];
+        
+        if (rangeName.location != NSNotFound || rangeCode.location != NSNotFound ||
+            [[searchString uppercaseString] isEqualToString:choSearchStr]  )//|| [dupSearchBartext isEqualToString:[[HangulUtils GetInstance:NO] getChosungs:dupChoSearchStr]])
+        {
+            [arrSearch addObject:muffin];
+        }
+    }
+    
+    [tblSearch reloadData];
+    
+}
 
 - (void) initLayout
 {
@@ -59,6 +146,11 @@
     [_tabResult addTab:@"New" subView:tblResultNew];
     [_tabResult addTab:@"All" subView:tblResultAll];
     
+
+    
+    tblSearch.frame = _tabResult.frame;
+    [_txtSearch addTarget:self action:@selector(textChanged:) forControlEvents:UIControlEventEditingChanged];
+
     tblResultHot.frame = [_tabResult getClientRect];
     tblResultNew.frame = [_tabResult getClientRect];
     tblResultAll.frame = [_tabResult getClientRect];
@@ -178,7 +270,7 @@
     [sender setImage:backButtonImage forState:UIControlStateNormal];
     
     [[AudioUtil player] stop];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    //[self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)onClose:(id)sender
@@ -210,6 +302,12 @@
     arrNew = [[NSMutableArray alloc] init];
     arrAll = [[NSMutableArray alloc] init];
 
+    
+    arrSearch = [[NSMutableArray alloc] init];
+    tblSearch = [[UITableView alloc] init];
+
+    tblSearch.delegate = self;
+    tblSearch.dataSource = self;
     [self initLayout];
     [self initData];
 }
@@ -279,6 +377,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (tableView == tblSearch)
+        return arrSearch.count;
+    
 //    if (tableView == tblResultHot)
         return arrHot.count;
 //    else if (tableView == tblResultNew)
@@ -313,14 +414,16 @@
         {
             muffinInfo = arrHot[indexPath.row];
         }
-        else if (tableView == tblResultHot)
+        else if (tableView == tblResultNew)
         {
             muffinInfo = arrNew[indexPath.row];
         }
-        else
+        else if (tableView == tblResultAll)
         {
             muffinInfo = arrAll[indexPath.row];
         }
+        else
+            muffinInfo = arrSearch[indexPath.row];
 
         if (muffinInfo != nil)
         {
@@ -355,15 +458,19 @@
         {
             p = arrHot[indexPath.row];
         }
-        else if (tableView == tblResultHot)
+        else if (tableView == tblResultNew)
         {
             p = arrNew[indexPath.row];
         }
-        else
+        else if (tableView == tblResultAll)
         {
             p = arrAll[indexPath.row];
         }
-        
+        else
+        {
+            p = arrSearch[indexPath.row];
+        }
+
         if(p != nil)
         {
             //make TextLabel
