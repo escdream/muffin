@@ -77,6 +77,10 @@
 
     strStatus = @"전체PJT";
     
+    
+    //그룹이미지 읽어오기
+    [self doGroupImage];
+    
     NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
 //    dic[@"Function"] = @"TimeLineAll_Select";
     dic[@"Function"] = @"TimeLine_Select";
@@ -404,6 +408,42 @@
     [self.viewTabList changeTab:@"Timeline" nIndex:0];
 }
 
+-(void) doGroupImage
+{
+    NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
+    
+    dic[@"Function"] = @"GroupInfo_SelectUser";
+    dic[@"UserId"] = [UserInfo instance].userID;
+    [[EDHttpTransManager instance] callProjectInfo:dic withBlack:^(id result, NSError * error)
+     {
+         if (result != nil)
+         {
+             if (self->arrGroupItem != nil) [self->arrGroupItem removeAllObjects];
+             
+             self->arrGroupItem = [[NSMutableArray alloc] initWithArray:result];
+             
+             if (self->arrGroupItem.count != 0)
+             {
+                 NSDictionary * dic = self->arrGroupItem[0];
+                 if (dic != nil)
+                 {
+                     // 이미지를 읽어올 주소
+                     NSString *imgPath = dic[@"ImagePath"];
+                     NSString *imgName = dic[@"ImageId"];
+                     
+                     NSURL *urlImage = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", imgPath, imgName]];
+                     NSData *dataImage = [NSData dataWithContentsOfURL:urlImage];
+                     // 데이터가 정상적으로 읽혔는지 확인한다. 네트워크가 연결되지 않았다면 nil이다.
+                     if(dataImage)
+                     {
+                         _imgProject.image = [UIImage imageWithData:dataImage];
+                     }
+                 }
+             }
+         }
+     }];
+}
+
 - (void)playMuffin:(UIButton*)sender
 {
     if (self->arrSongInfo.count == 0)
@@ -469,6 +509,7 @@
         else
         {
             [self stopMuffinList:btnPlay];
+            
             btnPrevPlay = nil;
         }
     }
@@ -624,31 +665,6 @@
                                                      }
                                                      [self.tblJoinList reloadData];
                                                  }
-                                                 else
-                                                 {
-                                                     dic[@"Function"] = @"GroupItemAll_Select";
-                                                     dic[@"GroupId"] = self.project.projectID;
-                                                     [[EDHttpTransManager instance] callGroupItemInfo:dic withBlack:^(id result, NSError * error)
-                                                      {
-                                                          if (result != nil)
-                                                          {
-                                                              if (self->arrArtists != nil) [self->arrArtists removeAllObjects];
-                                                              
-                                                              self->arrArtists = [[NSMutableArray alloc] initWithArray:result];
-                                                              
-                                                              if (self->arrArtists.count != 0)
-                                                              {
-                                                                  [self.tblArtists reloadData];
-                                                                  
-                                                                  // 마지막 셀로 위치
-                                                                  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.tblArtists numberOfRowsInSection:0] - 1 inSection:0];
-                                                                  [self.tblArtists scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-                                                              }
-                                                          }
-                                                          
-                                                      }];
-                                                 }
-                                        
                                              }];
                                         }
                                     }
@@ -683,10 +699,6 @@
                                                      [self->arrPartAsk addObject:muffin];
                                                  }
                                                  [self.tblJoinList reloadData];
-                                             }
-                                             else
-                                             {
-                                                 
                                              }
                                          }];
                                     }
@@ -1202,7 +1214,7 @@
     
     maskPrjImage = [[UIImageView alloc] init];
     maskPrjImage.image = [UIImage imageNamed:@"maskimg.png"];
-    _imgProject.maskView = maskPrjImage;
+//    _imgProject.maskView = maskPrjImage;
 
     
     self.showTitleLogo = NO;
@@ -1349,8 +1361,14 @@
             [btnPlay addTarget:self action:@selector(playMuffinList:) forControlEvents:UIControlEventTouchUpInside];//
             btnPlay.imageView.contentMode = UIViewContentModeScaleAspectFit;
             btnPlay.tag = indexPath.row;
-
             cell.accessoryView = btnPlay;
+            
+//            UIButton *btnPlus = [UIButton buttonWithType:UIButtonTypeContactAdd];
+//            btnPlus.frame = CGRectMake(0, 0, 150, 30);
+//            [btnPlus addTarget:self action:@selector(addbuttonTapped) forControlEvents:UIControlEventTouchUpInside];
+//            btnPlus.backgroundColor = [UIColor clearColor];
+//            cell.accessoryView = btnPlus;
+            
             cell.textLabel.text = muffinInfo.groupName;
             cell.detailTextLabel.text = muffinInfo.songName;
         }
@@ -1370,6 +1388,12 @@
             lb.tag   = 102;
             
             [cell.contentView  addSubview:lb];
+            
+            UIButton *btnPlus = [UIButton buttonWithType:UIButtonTypeContactAdd];
+            btnPlus.frame = CGRectMake(0, 0, 30, 30);
+            [btnPlus addTarget:self action:@selector(addbuttonTapped) forControlEvents:UIControlEventTouchUpInside];
+            btnPlus.backgroundColor = [UIColor clearColor];
+            cell.accessoryView = btnPlus;
         }
         
 //        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -1529,6 +1553,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+}
+
+- (void)addbuttonTapped
+{
+    //
 }
 
 - (IBAction)onBtnPlayMuffinClick:(id)sender

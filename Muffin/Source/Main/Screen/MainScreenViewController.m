@@ -78,8 +78,6 @@
         [LoginViewController ShowLoginView:@"" animated:NO];
     }
     
-    self.showMyMenu = NO;
-    
 //    [self initUserData];
     
     
@@ -102,21 +100,18 @@
     // MakeList ------------------------------------
     arrMakeList = [[NSMutableArray alloc] init];
     
-    // ArtistList ------------------------------------
-    arrArtistsList = [[NSMutableArray alloc] init];
+    ProjectInfo * p;
+    p = [[ProjectInfo alloc] init];
+    p.projectName = @"Camila Cabello Featuring Young Thug";
+    [arrMakeList addObject:p];
     
-//    ProjectInfo * p;
-//    p = [[ProjectInfo alloc] init];
-//    p.projectName = @"Camila Cabello Featuring Young Thug";
-//    [arrMakeList addObject:p];
-//
-//    p = [[ProjectInfo alloc] init];
-//    p.projectName = @"Ed Sheeran";
-//    [arrMakeList addObject:p];
-//
-//    p = [[ProjectInfo alloc] init];
-//    p.projectName = @"Post Malone Featuring 21 Savage";
-//    [arrMakeList addObject:p];
+    p = [[ProjectInfo alloc] init];
+    p.projectName = @"Ed Sheeran";
+    [arrMakeList addObject:p];
+
+    p = [[ProjectInfo alloc] init];
+    p.projectName = @"Post Malone Featuring 21 Savage";
+    [arrMakeList addObject:p];
 
     
     NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
@@ -141,7 +136,9 @@
          
      }];
     
-
+    
+    // ArtistList ------------------------------------
+    arrArtistsList = [[NSMutableArray alloc] init];
 
     dic[@"Function"] = @"BookMarkUser_Select";
     dic[@"UserId"] = [UserInfo instance].userID;
@@ -216,7 +213,7 @@
     }
     else if (indexPath.section == 1)
     {
-        if (arrArtistsList.count != 0 && arrArtistsList.count > indexPath.row)
+        if (arrArtistsList.count != 0)
         {
             BookmarkUser * BMUser = arrArtistsList[indexPath.row];
             if (BMUser.BMUserId != nil)

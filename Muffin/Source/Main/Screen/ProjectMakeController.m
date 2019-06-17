@@ -290,6 +290,34 @@
     return @"01";
 }
 
+
+- (NSString*) getCurrentGanre:(NSMutableArray *) arrData
+{
+    for (int i=0; i<arrData.count; i++)
+    {
+        UIButton * btn = arrData[i];
+        if (btn.selected)
+        {
+            switch (btn.tag) {
+                case 201:
+                    return @"01";
+                case 202:
+                    return @"02";
+                case 203:
+                    return @"03";
+                case 204:
+                    return @"04";
+                case 205:
+                    return @"05";
+                case 206:
+                    return @"06";
+                default:
+                    break;
+            }
+        }
+    }
+    return @"01";
+}
 - (void) setCurrentGanre:(long) currentGanre arrData:(NSMutableArray *) arrData
 {
     for (int i=0; i<arrData.count; i++)
@@ -842,16 +870,15 @@
 {
     NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
     
-    //    dic[@"GroupId"] = @"g0004";
     dic[@"UserId"] = [UserInfo instance].userID;
     dic[@"GroupName"] = self.fldTitle.text;
-    dic[@"GroupKind"] =@"01";
-    dic[@"ImageId"] = @"image3";
+    dic[@"GroupKind"] = [self getCurrentGanre:self->arrGanre];//01:발라드 02:댄스 03:클래식 04:알앤비 05:락 06레개
+    dic[@"ImageId"] = @"";
     dic[@"SystemId"] = @"";
     dic[@"GroupDesc"] = self.txtContent.text;
-    dic[@"Tag1"] = @"롹";
-    dic[@"Tag2"] = @"가요";
-    dic[@"Tag3"] = @"POP";
+    dic[@"Tag1"] = @"";
+    dic[@"Tag2"] = @"";
+    dic[@"Tag3"] = @"";
     dic[@"Tag4"] = @"";
     dic[@"Tag5"] = @"";
     
