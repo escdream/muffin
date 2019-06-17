@@ -23,9 +23,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="m_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="jr7-Ux-dJB">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="m_bg.png" translatesAutoresizingMaskIntoConstraints="NO" id="jr7-Ux-dJB">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="707"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Music Creation?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kkP-L6-kOW">
                     <rect key="frame" x="16" y="148" width="343" height="40"/>
@@ -187,6 +186,12 @@
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.59648048899999995" green="0.79713979810000002" blue="0.1590666064" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <constraints>
+                <constraint firstItem="jr7-Ux-dJB" firstAttribute="bottom" secondItem="Q5M-cg-NOt" secondAttribute="bottom" constant="40" id="2jO-IM-ocu"/>
+                <constraint firstItem="jr7-Ux-dJB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="FKd-Fc-Gd1"/>
+                <constraint firstItem="jr7-Ux-dJB" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="M9A-FD-IyJ"/>
+                <constraint firstItem="jr7-Ux-dJB" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="US5-BW-XSQ"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <point key="canvasLocation" x="34.399999999999999" y="51.724137931034484"/>
         </view>

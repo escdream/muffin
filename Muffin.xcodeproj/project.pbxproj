@@ -185,6 +185,7 @@
 		B6E0E59E213152BB0065E395 /* EDRoundButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E0E59D213152BB0065E395 /* EDRoundButton.m */; };
 		B6E0E5C02133D0F00065E395 /* EDHttpTransManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E0E5BF2133D0F00065E395 /* EDHttpTransManager.m */; };
 		B6E6C35C2196D4F200AC6A3C /* BannerItem.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E6C35B2196D4F200AC6A3C /* BannerItem.m */; };
+		B6EB753922B7954E00BF2273 /* MuffinTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EB753822B7954E00BF2273 /* MuffinTableViewCell.m */; };
 		B6F3023021CE0A5C0053E734 /* EDTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F3022F21CE0A5C0053E734 /* EDTextField.m */; };
 		B6F3023321CE0A710053E734 /* EDTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F3023221CE0A710053E734 /* EDTextView.m */; };
 		B6F7AA1F22B109280043483F /* LGAlertViewTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F7AA0622B109280043483F /* LGAlertViewTextField.m */; };
@@ -556,6 +557,8 @@
 		B6E0E5BF2133D0F00065E395 /* EDHttpTransManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDHttpTransManager.m; sourceTree = "<group>"; };
 		B6E6C35A2196D4F200AC6A3C /* BannerItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BannerItem.h; sourceTree = "<group>"; };
 		B6E6C35B2196D4F200AC6A3C /* BannerItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BannerItem.m; sourceTree = "<group>"; };
+		B6EB753722B7954E00BF2273 /* MuffinTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MuffinTableViewCell.h; sourceTree = "<group>"; };
+		B6EB753822B7954E00BF2273 /* MuffinTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MuffinTableViewCell.m; sourceTree = "<group>"; };
 		B6F3022E21CE0A5C0053E734 /* EDTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDTextField.h; sourceTree = "<group>"; };
 		B6F3022F21CE0A5C0053E734 /* EDTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDTextField.m; sourceTree = "<group>"; };
 		B6F3023121CE0A710053E734 /* EDTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDTextView.h; sourceTree = "<group>"; };
@@ -1296,6 +1299,8 @@
 				B656496F22B55C1B001E0E26 /* MyMuffinViewController.h */,
 				B656497022B55C1B001E0E26 /* MyMuffinViewController.m */,
 				B656497122B55C1B001E0E26 /* MyMuffinViewController.xib */,
+				B6EB753722B7954E00BF2273 /* MuffinTableViewCell.h */,
+				B6EB753822B7954E00BF2273 /* MuffinTableViewCell.m */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -1611,6 +1616,7 @@
 				B6F7AA2522B109280043483F /* LGAlertViewShadowView.m in Sources */,
 				B63AC131213E7C5F00C45F83 /* STKQueueEntry.m in Sources */,
 				B643ED15212FC8AE00963B98 /* AFNetworkConnect.m in Sources */,
+				B6EB753922B7954E00BF2273 /* MuffinTableViewCell.m in Sources */,
 				B6F7AA2822B109280043483F /* LGAlertViewButton.m in Sources */,
 				B6F7AAB922B255F90043483F /* TableViewController.m in Sources */,
 				B643EDAF212FDEC000963B98 /* LinkData.m in Sources */,

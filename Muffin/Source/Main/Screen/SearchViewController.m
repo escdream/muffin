@@ -481,7 +481,7 @@
             cell.textLabel.text = p.projectName;
         }
     }
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 

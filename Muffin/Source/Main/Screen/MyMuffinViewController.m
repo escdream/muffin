@@ -15,6 +15,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "AudioUtil.h"
 
+
 @interface MyMuffinViewController ()
 {
     NSMutableArray * arrMuffin;
@@ -153,7 +154,7 @@
             cell.detailTextLabel.text = muffinInfo.songName;
         }
     }
-
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
