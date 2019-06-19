@@ -77,9 +77,9 @@
     //그룹이미지 읽어오기
     [self doGroupImage];
     //타임라인 리스트 조회
-    [self doSearchTimeLineList];
+    [self doTimeLineList];
     //아티스트 리스트 조회
-    [self doSearchArtistList];
+    [self doArtistList];
 
 
     // 프로젝트 그룹 소속 여부 얻어오기(프로젝트 그룹정보)
@@ -331,7 +331,7 @@
     [self.viewTabList changeTab:@"Timeline" nIndex:0];
 }
 
--(void) doSearchTimeLineList
+-(void) doTimeLineList
 {
     NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
     dic[@"Function"] = @"TimeLine_Select";
@@ -357,7 +357,7 @@
      }];
 }
 
--(void) doSearchArtistList
+-(void) doArtistList
 {
     NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
     dic[@"Function"] = @"GroupItemAll_Select";
@@ -404,6 +404,9 @@
 
 -(void) doMuffinList
 {
+    self->arrPartAsk = nil;
+    self->arrPartAsk = [[NSMutableArray alloc] init];
+    
     NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
     dic[@"Function"] = @"SongInfo_SelectGroup";
     dic[@"GroupId"] = self.project.projectID;
@@ -649,71 +652,30 @@
                                         }
                                         else
                                         {
-                                            //신청리스트가 없는 경우.. 머핀리스트 표시
+                                            //참여관리 '수락' 완료 -> 아티스트 리스트 탭전환 && 재조회
+                                            [self doArtistList];
+                                            [self.viewTabList tabChange:1];
+                                            
+                                            //신청리스트가 없는 경우.. 머핀리스트 재조회
+                                            [self doMuffinList];
                                             [self.viewTabList removeTab:2];
                                             [self.viewTabList addTab:@"List" subView:self.viewJoinList];
-                                            [self.viewTabList changeTab:@"List" nIndex:2];
-                                            
-                                            self->arrPartAsk = nil;
-                                            self->arrPartAsk = [[NSMutableArray alloc] init];
-                                            
-                                            
-                                            NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
-                                            
-                                            dic[@"Function"] = @"SongInfo_SelectGroup";
-                                            dic[@"GroupId"] = self.project.projectID;
-                                            
-                                            [[EDHttpTransManager instance] callMuffinInfo:dic withBlack:^(id result, NSError * error)
-                                             {
-                                                 if (result != nil)
-                                                 {
-                                                     NSArray * arr = result;
-                                                     [self->arrPartAsk removeAllObjects];
-                                                     
-                                                     for (NSDictionary * dic in arr)
-                                                     {
-                                                         SongInfo * muffin = [[SongInfo alloc] initWithData:dic];
-                                                         
-                                                         [self->arrPartAsk addObject:muffin];
-                                                     }
-                                                     [self.tblJoinList reloadData];
-                                                 }
-                                             }];
+//                                            [self.viewTabList tabChange:2];
+
                                         }
                                     }
                                     //신청리스트가 없으면 머핀리스트 표시
                                     else
                                     {
-                                        //신청리스트가 없는 경우.. 머핀리스트 표시
+                                        //참여관리 '수락' 완료 -> 아티스트 리스트 탭전환 && 재조회
+                                        [self doArtistList];
+                                        [self.viewTabList tabChange:1];
+                                        
+                                        //신청리스트가 없는 경우.. 머핀리스트 재조회
+                                        [self doMuffinList];
                                         [self.viewTabList removeTab:2];
                                         [self.viewTabList addTab:@"List" subView:self.viewJoinList];
-                                        [self.viewTabList changeTab:@"List" nIndex:2];
-                                        
-                                        self->arrPartAsk = nil;
-                                        self->arrPartAsk = [[NSMutableArray alloc] init];
-                                        
-                                        
-                                        NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
-                                        
-                                        dic[@"Function"] = @"SongInfo_SelectGroup";
-                                        dic[@"GroupId"] = self.project.projectID;
-                                        
-                                        [[EDHttpTransManager instance] callMuffinInfo:dic withBlack:^(id result, NSError * error)
-                                         {
-                                             if (result != nil)
-                                             {
-                                                 NSArray * arr = result;
-                                                 [self->arrPartAsk removeAllObjects];
-                                                 
-                                                 for (NSDictionary * dic in arr)
-                                                 {
-                                                     SongInfo * muffin = [[SongInfo alloc] initWithData:dic];
-                                                     
-                                                     [self->arrPartAsk addObject:muffin];
-                                                 }
-                                                 [self.tblJoinList reloadData];
-                                             }
-                                         }];
+//                                            [self.viewTabList tabChange:2];
                                     }
                                 }];
                            }

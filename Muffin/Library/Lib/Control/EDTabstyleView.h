@@ -46,8 +46,10 @@ IB_DESIGNABLE
 - (CGRect) getClientRect;
 - (void) addTab:(NSString *) sTitle;
 - (void) addTab:(NSString *) sTitle subView:(UIView *) subView;
+- (void) removeSubViewFromTab:(int) nIndex superView:(UIView *) superView;
 - (void) removeTab:(int) nIndex;
 - (void) changeTab:(NSString *) sTitle nIndex:(int) nIndex;
 - (void) calcTabLayouts;
 - (NSString*) currentTabTitle;
+- (void) tabChange:(int)nIndex;
 @end

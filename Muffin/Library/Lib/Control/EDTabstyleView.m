@@ -151,6 +151,7 @@
     [scrollClient addSubview:sv];
 
     [sv addSubview:subView];
+    [sv willRemoveSubview:subView];
     [self calcTabLayouts];
 
 }
@@ -158,6 +159,19 @@
 - (NSString*) currentTabTitle
 {
     return sTabTitle;
+}
+
+- (void) removeSubViewFromTab:(int) nIndex superView:(UIView *) superView;
+{
+    UIScrollView * sv = tabViewList[nIndex];
+
+    for (UIView * v in superView.subviews)
+    {
+        if (v == sv)
+        {
+            [sv removeFromSuperview];
+        }
+    }
 }
 
 - (void) removeTab:(int) nIndex
@@ -315,7 +329,11 @@
 //
 }
 
-
+-(void) tabChange:(int)nIndex;
+{
+    self.selectIndex = nIndex;
+    [self onTabClick:tabButtonList[self.selectIndex]];
+}
 
 
 - (void) setRadius:(CGFloat)radius
