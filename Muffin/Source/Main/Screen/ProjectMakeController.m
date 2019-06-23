@@ -31,7 +31,11 @@
     NSMutableArray * arrFiles;
     FTPFileUploder * uploader;
     
+    NSMutableArray * arrTags;
+
     NSString * sUploadType;
+    
+    int nSelTagCount;
 }
 
 @end
@@ -66,22 +70,22 @@
     _viewTags.delegate = self;
     _viewTags.dataSource = self;
     
-    [tokens addObject:@"#롹"];
+    [tokens addObject:@"#락"];
     [tokens addObject:@"#발라드"];
     [tokens addObject:@"#레게"];
     [tokens addObject:@"#아무거나"];
     [tokens addObject:@"#이런"];
-    [tokens addObject:@"#이건"];    [tokens addObject:@"#롹"];
-    [tokens addObject:@"#발라드"];
-    [tokens addObject:@"#레게"];
-    [tokens addObject:@"#아무거나"];
-    [tokens addObject:@"#이런"];
-    [tokens addObject:@"#이건"];    [tokens addObject:@"#롹"];
-    [tokens addObject:@"#발라드"];
-    [tokens addObject:@"#레게"];
-    [tokens addObject:@"#아무거나"];
-    [tokens addObject:@"#이런"];
-    [tokens addObject:@"#이건"];
+    [tokens addObject:@"#사랑"];    [tokens addObject:@"#소울"];
+    [tokens addObject:@"#트로트"];
+    [tokens addObject:@"#힙합"];
+    [tokens addObject:@"#보컬"];
+    [tokens addObject:@"#싱어송"];
+    [tokens addObject:@"#버스킹"];    [tokens addObject:@"#이별"];
+    [tokens addObject:@"#댄스"];
+    [tokens addObject:@"#외로움"];
+    [tokens addObject:@"#그리움"];
+    [tokens addObject:@"#첫사랑"];
+    [tokens addObject:@"#친구"];
 
     [_viewTags setViewOnly:YES];
     _viewTags.textField.hidden = YES;
@@ -156,7 +160,13 @@
     [arrRadio addObject:_btnRadio1];
     [arrRadio addObject:_btnRadio2];
 
-    
+    arrTags = [[NSMutableArray alloc] init];
+    [arrTags addObject: @""];
+    [arrTags addObject: @""];
+    [arrTags addObject: @""];
+    [arrTags addObject: @""];
+    [arrTags addObject: @""];
+
     CGSize sz = CGSizeMake(30, 30);
     
     
@@ -645,6 +655,7 @@
     UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.backgroundColor = [UIColor clearColor];
     btn.frame = view.frame;
+    btn.tag = index;
     [btn setTitleColor:RGB(0x3e, 0x3e, 0x3e) forState:UIControlStateNormal];
     [btn setTitleColor:RGB(255, 255, 255) forState:UIControlStateSelected];
     [btn setTitle:tokens[index] forState:UIControlStateNormal];
@@ -760,11 +771,27 @@
 - (void) btnTagClick:(UIButton *) btn
 {
     btn.selected = !btn.selected;
-    
-    if (btn.selected)
+    if (btn.selected) {
         btn.backgroundColor = RGB(0x3e, 0x3e, 0x3e);
-    else
+        [arrTags removeObject:@""];
+        [arrTags addObject: btn.titleLabel.text];
+        nSelTagCount++;
+    }
+    else {
         btn.backgroundColor = RGB(242, 242, 242);
+        [arrTags removeObject:btn.titleLabel.text];
+        [arrTags addObject:@""];
+        nSelTagCount--;
+    }
+
+    if (nSelTagCount > 5) {
+        UIWindow *window = UIApplication.sharedApplication.delegate.window;
+        [window.rootViewController.view makeToast:@"태그는 최대 5개까지만 선택가능합니다."];
+
+        btn.selected = !btn.selected;
+        btn.backgroundColor = RGB(242, 242, 242);
+        nSelTagCount--;
+    }
 }
 
 - (CGFloat)tokenMarginInTokenInField:(ZFTokenField *)tokenField
@@ -866,6 +893,10 @@
     }
 }
 
+-(void) setTagList{
+//    arrTags add
+}
+
 -(void) doGroupInsert
 {
     NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
@@ -876,11 +907,11 @@
     dic[@"ImageId"] = @"";
     dic[@"SystemId"] = @"";
     dic[@"GroupDesc"] = self.txtContent.text;
-    dic[@"Tag1"] = @"";
-    dic[@"Tag2"] = @"";
-    dic[@"Tag3"] = @"";
-    dic[@"Tag4"] = @"";
-    dic[@"Tag5"] = @"";
+    dic[@"Tag1"] = [arrTags objectAtIndex:0];
+    dic[@"Tag2"] = [arrTags objectAtIndex:1];
+    dic[@"Tag3"] = [arrTags objectAtIndex:2];
+    dic[@"Tag4"] = [arrTags objectAtIndex:3];
+    dic[@"Tag5"] = [arrTags objectAtIndex:4];
     
     
     dic[@"Function"] = @"GroupInfo_Insert";
