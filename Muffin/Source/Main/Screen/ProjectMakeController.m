@@ -773,15 +773,37 @@
     btn.selected = !btn.selected;
     if (btn.selected) {
         btn.backgroundColor = RGB(0x3e, 0x3e, 0x3e);
-        [arrTags removeObject:@""];
-        [arrTags addObject: btn.titleLabel.text];
-        nSelTagCount++;
+//        [arrTags removeObject:@""];
+        for (int i=0; i<arrTags.count; i++)
+        {
+            if ( [[arrTags objectAtIndex:i] isEqualToString:@""] )
+            {
+                [arrTags removeObjectAtIndex:i];
+                [arrTags addObject: btn.titleLabel.text];
+                nSelTagCount++;
+                return;
+            }
+            
+//            if ( [[arrTags objectAtIndex:i] isEqualToString:btn.titleLabel.text] )
+//            {
+//                UIWindow *window = UIApplication.sharedApplication.delegate.window;
+//                [window.rootViewController.view makeToast:@"이미 선택된 태그입니다."];
+//                return;
+//            }
+        }
     }
     else {
         btn.backgroundColor = RGB(242, 242, 242);
-        [arrTags removeObject:btn.titleLabel.text];
-        [arrTags addObject:@""];
-        nSelTagCount--;
+        
+        for (int i=0; i<arrTags.count; i++)
+        {
+            if ( [[arrTags objectAtIndex:i] isEqualToString:btn.titleLabel.text] )
+            {
+                [arrTags removeObjectAtIndex:i];
+                [arrTags addObject:@""];
+                nSelTagCount--;
+            }
+        }
     }
 
     if (nSelTagCount > 5) {
