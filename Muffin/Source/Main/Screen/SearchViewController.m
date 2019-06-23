@@ -242,18 +242,20 @@
             NSString* strMuffinURL = [strFilePath stringByAppendingString:strFileID];
             NSURL* url = [NSURL URLWithString:strMuffinURL];
 
-            STKDataSource* dataSource = [STKAudioPlayer dataSourceFromURL:url];
-            [[AudioUtil player] setDataSource:dataSource withQueueItemId:[[SampleQueueId alloc] initWithUrl:url andCount:0]];
+            if (url != nil) {
+                STKDataSource* dataSource = [STKAudioPlayer dataSourceFromURL:url];
+                [[AudioUtil player] setDataSource:dataSource withQueueItemId:[[SampleQueueId alloc] initWithUrl:url andCount:0]];
 
-            UIImage *backButtonImage = [UIImage imageNamed:@"btn_on.png"];
-            [btnPlay setImage:backButtonImage forState:UIControlStateNormal];
-            
-            if (btnPrevPlay != btnPlay)
-            {
-                UIImage *backButtonImage = [UIImage imageNamed:@"btn_s_play.png"];
-                [btnPrevPlay setImage:backButtonImage forState:UIControlStateNormal];
+                UIImage *backButtonImage = [UIImage imageNamed:@"btn_on.png"];
+                [btnPlay setImage:backButtonImage forState:UIControlStateNormal];
+                
+                if (btnPrevPlay != btnPlay)
+                {
+                    UIImage *backButtonImage = [UIImage imageNamed:@"btn_s_play.png"];
+                    [btnPrevPlay setImage:backButtonImage forState:UIControlStateNormal];
+                }
+                btnPrevPlay = sender;
             }
-            btnPrevPlay = sender;
         }
         else
         {

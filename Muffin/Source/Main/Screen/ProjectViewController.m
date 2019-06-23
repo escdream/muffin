@@ -480,11 +480,13 @@
             NSString* strMuffinURL = [strFilePath stringByAppendingString:strFileID];
             NSURL* url = [NSURL URLWithString:strMuffinURL];
             
-            STKDataSource* dataSource = [STKAudioPlayer dataSourceFromURL:url];
-            [[AudioUtil player] setDataSource:dataSource withQueueItemId:[[SampleQueueId alloc] initWithUrl:url andCount:0]];
-            
-            UIImage *backButtonImage = [UIImage imageNamed:@"btn_on.png"];
-            [btnPlay setImage:backButtonImage forState:UIControlStateNormal];
+            if (url != nil) {
+                STKDataSource* dataSource = [STKAudioPlayer dataSourceFromURL:url];
+                [[AudioUtil player] setDataSource:dataSource withQueueItemId:[[SampleQueueId alloc] initWithUrl:url andCount:0]];
+                
+                UIImage *backButtonImage = [UIImage imageNamed:@"btn_on.png"];
+                [btnPlay setImage:backButtonImage forState:UIControlStateNormal];
+            }
         }
         else
         {
@@ -509,18 +511,20 @@
             NSString* strMuffinURL = [strFilePath stringByAppendingString:strFileID];
             NSURL* url = [NSURL URLWithString:strMuffinURL];
 
-            STKDataSource* dataSource = [STKAudioPlayer dataSourceFromURL:url];
-            [[AudioUtil player] setDataSource:dataSource withQueueItemId:[[SampleQueueId alloc] initWithUrl:url andCount:0]];
-            
-            UIImage *backButtonImage = [UIImage imageNamed:@"btn_on.png"];
-            [btnPlay setImage:backButtonImage forState:UIControlStateNormal];
-            
-            if (btnPrevPlay != btnPlay)
-            {
-                UIImage *backButtonImage = [UIImage imageNamed:@"btn_s_play.png"];
-                [btnPrevPlay setImage:backButtonImage forState:UIControlStateNormal];
+            if (url != nil) {
+                STKDataSource* dataSource = [STKAudioPlayer dataSourceFromURL:url];
+                [[AudioUtil player] setDataSource:dataSource withQueueItemId:[[SampleQueueId alloc] initWithUrl:url andCount:0]];
+                
+                UIImage *backButtonImage = [UIImage imageNamed:@"btn_on.png"];
+                [btnPlay setImage:backButtonImage forState:UIControlStateNormal];
+                
+                if (btnPrevPlay != btnPlay)
+                {
+                    UIImage *backButtonImage = [UIImage imageNamed:@"btn_s_play.png"];
+                    [btnPrevPlay setImage:backButtonImage forState:UIControlStateNormal];
+                }
+                btnPrevPlay = sender;
             }
-            btnPrevPlay = sender;
         }
         else
         {
@@ -1320,7 +1324,7 @@
         if (muffinInfo != nil)
         {
             //make TextLabel
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.textLabel.font = [UIFont systemFontOfSize:10];
             cell.textLabel.textColor = [UIColor purpleColor]; //RGB(33, 33, 33);
             cell.detailTextLabel.font = [UIFont systemFontOfSize:12];
@@ -1328,7 +1332,7 @@
             
             //make PlayButton
             UIButton * btnPlay = [UIButton buttonWithType:UIButtonTypeCustom];
-            btnPlay.frame = CGRectMake(10, 0, 75, 30);
+            btnPlay.frame = CGRectMake(tableView.frame.size.width - 85, (TABLE_ROW_HEIGHT_ARTISTS / 2) - 15, 75, 30);
             btnPlay.imageEdgeInsets = UIEdgeInsetsMake(7.5, 40, 7.5, 00);
             
             UIImage *backButtonImage = [UIImage imageNamed:@"btn_s_play.png"];
@@ -1336,13 +1340,16 @@
             [btnPlay addTarget:self action:@selector(playMuffinList:) forControlEvents:UIControlEventTouchUpInside];//
             btnPlay.imageView.contentMode = UIViewContentModeScaleAspectFit;
             btnPlay.tag = indexPath.row;
-            cell.accessoryView = btnPlay;
-            
-//            UIButton *btnPlus = [UIButton buttonWithType:UIButtonTypeContactAdd];
-//            btnPlus.frame = CGRectMake(0, 0, 150, 30);
-//            [btnPlus addTarget:self action:@selector(addbuttonTapped) forControlEvents:UIControlEventTouchUpInside];
-//            btnPlus.backgroundColor = [UIColor clearColor];
-//            cell.accessoryView = btnPlus;
+//            cell.accessoryView = btnPlay;
+            [cell.contentView  addSubview:btnPlay];
+
+            //관심등록버튼
+            UIButton *btnPlus = [UIButton buttonWithType:UIButtonTypeContactAdd];
+            btnPlus.frame = CGRectMake(tableView.frame.size.width - btnPlay.frame.size.width - 3, (TABLE_ROW_HEIGHT_ARTISTS / 2) - 15 , 30, 30);
+            [btnPlus addTarget:self action:@selector(addbuttonTapped) forControlEvents:UIControlEventTouchUpInside];
+            btnPlus.backgroundColor = [UIColor clearColor];
+            //            cell.accessoryView = btnPlus;
+            [cell.contentView  addSubview:btnPlus];
             
             cell.textLabel.text = muffinInfo.groupName;
             cell.detailTextLabel.text = muffinInfo.songName;
@@ -1364,11 +1371,13 @@
             
             [cell.contentView  addSubview:lb];
             
+            //관심등록버튼
             UIButton *btnPlus = [UIButton buttonWithType:UIButtonTypeContactAdd];
-            btnPlus.frame = CGRectMake(0, 0, 30, 30);
+            btnPlus.frame = CGRectMake(tableView.frame.size.width - 45, (TABLE_ROW_HEIGHT_ARTISTS / 2) - 15 , 30, 30);
             [btnPlus addTarget:self action:@selector(addbuttonTapped) forControlEvents:UIControlEventTouchUpInside];
             btnPlus.backgroundColor = [UIColor clearColor];
-            cell.accessoryView = btnPlus;
+//            cell.accessoryView = btnPlus;
+            [cell.contentView  addSubview:btnPlus];
         }
         
 //        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -1532,7 +1541,8 @@
 
 - (void)addbuttonTapped
 {
-    //
+    UIWindow *window = UIApplication.sharedApplication.delegate.window;
+    [window.rootViewController.view makeToast:@"기능 구현중"];
 }
 
 - (IBAction)onBtnPlayMuffinClick:(id)sender
@@ -1561,8 +1571,10 @@
                         NSString* sMuffinURL = [sFilePath stringByAppendingString: sFileName];
                         NSURL* url = [NSURL URLWithString:sMuffinURL];
                         
-                        STKDataSource* dataSource = [STKAudioPlayer dataSourceFromURL:url];
-                        [[AudioUtil player] setDataSource:dataSource withQueueItemId:[[SampleQueueId alloc] initWithUrl:url andCount:0]];
+                        if (url != nil) {
+                            STKDataSource* dataSource = [STKAudioPlayer dataSourceFromURL:url];
+                            [[AudioUtil player] setDataSource:dataSource withQueueItemId:[[SampleQueueId alloc] initWithUrl:url andCount:0]];
+                        }
                     }
                     else
                     {
