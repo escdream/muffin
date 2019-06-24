@@ -1346,7 +1346,7 @@
             //관심등록버튼
             UIButton *btnPlus = [UIButton buttonWithType:UIButtonTypeContactAdd];
             btnPlus.frame = CGRectMake(tableView.frame.size.width - btnPlay.frame.size.width - 3, (TABLE_ROW_HEIGHT_ARTISTS / 2) - 15 , 30, 30);
-            [btnPlus addTarget:self action:@selector(addbuttonTapped) forControlEvents:UIControlEventTouchUpInside];
+            [btnPlus addTarget:self action:@selector(addMyMuffin) forControlEvents:UIControlEventTouchUpInside];
             btnPlus.backgroundColor = [UIColor clearColor];
             //            cell.accessoryView = btnPlus;
             [cell.contentView  addSubview:btnPlus];
@@ -1374,7 +1374,7 @@
             //관심등록버튼
             UIButton *btnPlus = [UIButton buttonWithType:UIButtonTypeContactAdd];
             btnPlus.frame = CGRectMake(tableView.frame.size.width - 45, (TABLE_ROW_HEIGHT_ARTISTS / 2) - 15 , 30, 30);
-            [btnPlus addTarget:self action:@selector(addbuttonTapped) forControlEvents:UIControlEventTouchUpInside];
+            [btnPlus addTarget:self action:@selector(addMyArtist) forControlEvents:UIControlEventTouchUpInside];
             btnPlus.backgroundColor = [UIColor clearColor];
 //            cell.accessoryView = btnPlus;
             [cell.contentView  addSubview:btnPlus];
@@ -1539,11 +1539,49 @@
 {
 }
 
-- (void)addbuttonTapped
-{
-    UIWindow *window = UIApplication.sharedApplication.delegate.window;
-    [window.rootViewController.view makeToast:@"기능 구현중"];
+- (void)addMyArtist {
+    
+//    NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
+//    
+//    dic[@"UserId"] = [UserInfo instance].userID;
+//    dic[@"GroupName"] = self.fldTitle.text;
+//    dic[@"GroupKind"] = [self getCurrentGanre:self->arrGanre];//01:발라드 02:댄스 03:클래식 04:알앤비 05:락 06레개
+//    dic[@"ImageId"] = @"";
+//    dic[@"SystemId"] = @"";
+//    dic[@"GroupDesc"] = self.txtContent.text;
+//    dic[@"Tag1"] = [arrTags objectAtIndex:0];
+//    dic[@"Tag2"] = [arrTags objectAtIndex:1];
+//    dic[@"Tag3"] = [arrTags objectAtIndex:2];
+//    
+//    NSString * strGroupId = [result[0][@"GroupId"] copy];
+//    
+//    //관리자 등록 - GroupItem_InsertAdmin(String sGroupId,String sUserId,String sPosition)
+//    dic[@"GroupId"] = strGroupId;
+//    dic[@"Position"] = [self getCurrentCommand:self->arrCommand]; //@"01"; //작사
+//    dic[@"Function"] = @"GroupItem_InsertAdmin";
+//    [[EDHttpTransManager instance] callGroupItemInfo:dic withBlack:^(id result, NSError * error)
+//     {
+//         if (result != nil)
+//         {
+//             
+//         }
+//         else
+//         {
+//             //관리자 등록 완료 후 화면전환
+//             ProjectInfo * projectInfo = [[ProjectInfo alloc] initWithData:dic];
+//             ProjectViewController * controler = [[ProjectViewController alloc] initWithProject:projectInfo];
+//             
+//             //네이게이션바 뒤로가기 버튼 숨기기 하면 좋을듯......
+//             [self.navigationController pushViewController:controler animated:YES];
+//         }
+//     }];
 }
+
+- (void)addMyMuffin {
+    UIWindow *window = UIApplication.sharedApplication.delegate.window;
+    [window.rootViewController.view makeToast:@"기능 구현중 - 관심머핀"];
+}
+
 
 - (IBAction)onBtnPlayMuffinClick:(id)sender
 {

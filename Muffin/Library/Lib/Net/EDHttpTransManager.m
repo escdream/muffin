@@ -742,7 +742,21 @@ static EDHttpTransManager * global_httpManager;
     httpHeader[@"Class"] = @"muffin.Service.BookMarkUserController";
     httpHeader[@"Function"] = dicCmd[@"Function"];
 
-    [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"UserId" sValue:dicCmd[@"UserId"]]];
+    if ( [dicCmd[@"Function"] isEqualToString: @"BookMarkUser_Insert"] )
+    {
+        [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"UserId" sValue:dicCmd[@"UserId"]]];
+        [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"BMUserId" sValue:dicCmd[@"BMUserId"]]];
+        [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"Username" sValue:dicCmd[@"Username"]]];
+        [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"BMSEQ" sValue:dicCmd[@"BMSEQ"]]];
+    }
+    else if ( [dicCmd[@"Function"] isEqualToString: @"BookMarkUser_Select"])
+    {
+        [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"UserId" sValue:dicCmd[@"UserId"]]];
+    }
+    else if ( [dicCmd[@"Function"] isEqualToString: @"SongItemAll_Select"])
+    {
+        
+    }
     
     NSURL *URL = [NSURL URLWithString:@"http://ourworld3.cafe24.com/data/servlet/FrontService"];
     [AFNetworkConnect callAsyncHTTPWithHeader:URL.absoluteString param:Params headers:httpHeader withBlock:^(id result, NSError *error) {
