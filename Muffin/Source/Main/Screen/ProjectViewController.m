@@ -1112,17 +1112,17 @@
     }
 }
 
-- (void) adjustSizeLayout
+- (void) adjustSizeLayoutEx
 {
-    [super adjustSizeLayout];
+    
     
     [CommonUtil  iosChangeScaleView:_viewTimeline  fontSizeFix:1.0];
     [CommonUtil  iosChangeScaleView:_viewArtists   fontSizeFix:1.0];
     [CommonUtil  iosChangeScaleView:_viewJoin      fontSizeFix:1.0];
+    [CommonUtil  iosChangeScaleView:_viewJoinList  fontSizeFix:1.0];
+
     
     [CommonUtil iosScaleRect:_viewJoin];
-    
-    
     
     CGRect r = viewTabList.getClientRect;
     
@@ -1132,6 +1132,7 @@
     _viewTimeline.frame = r;
     _viewArtists.frame  = r;
     _viewJoin.frame = r;
+    _viewJoinList.frame = r;
     
     
     CGRect br = r;
@@ -1181,6 +1182,8 @@
 //    [self.btmViewJoin addButtons:@"취소" obj:self withSelector:@selector(okClick) tag:1];
 
     [super viewDidLoad];
+    
+    
     // Do any additional setup after loading the view from its nib.
     self.title = self.project.projectName;
  
@@ -1195,22 +1198,22 @@
     maskPrjImage.image = [UIImage imageNamed:@"maskimg.png"];
 //    _imgProject.maskView = maskPrjImage;
 
-    
+    [self initLayout];
+
     self.showTitleLogo = NO;
     self.showPlayer    = NO;
     
     [self setTitleText:self.project.projectName];
     
-    [self initLayout];
 //    [self setShowPlayer:YES];
     
     [_lbPartAskMessage setNumberOfLines:0];
     
     [self initData];
     [self initIndicator];
-    [self adjustSizeLayout];
     [self setFTP];
-    
+
+    [self adjustSizeLayoutEx];
     self.showBack = YES;
     
 }

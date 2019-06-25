@@ -46,6 +46,7 @@
 #define SCREENHEIGHT [[UIScreen mainScreen] applicationFrame].size.height
 #define SCALE_X_VALUE (414/375.0f)
 #define SCALE_Y_VALUE (736/667.0f)
+#define SCALE_MAX_Y_VALUE (896/667.0f)
 
 
 // 폼에서 지원하는 가로/세로 모드

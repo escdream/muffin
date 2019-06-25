@@ -3185,7 +3185,10 @@ CGColorSpaceRef GetDeviceRGBColorSpace(BOOL isrelease)
     if((SCREENWIDTH == 375) || (SCREENWIDTH == 667))
         return 6;
     else if((SCREENWIDTH == 414) || (SCREENWIDTH == 736))
-        return 7;
+        if (SCREENHEIGHT > 800)
+            return 9;
+        else
+            return 7;
     else
         return 5;
 }
@@ -3194,6 +3197,9 @@ CGColorSpaceRef GetDeviceRGBColorSpace(BOOL isrelease)
 {
     switch ([CommonUtil checkPhoneType]) {
         case 7 :
+            return (x * SCALE_X_VALUE);
+            break;
+        case 9  :
             return (x * SCALE_X_VALUE);
             break;
         default:
@@ -3233,6 +3239,13 @@ CGColorSpaceRef GetDeviceRGBColorSpace(BOOL isrelease)
 //            if (y == 460 || y == 548) return 716;
 //            //            else return (y * 1.533334);
             return (y * SCALE_Y_VALUE);
+            //            else return (y * 1.2);
+            break;
+        case 9 :
+            //            if (y == 480 || y == 568) return 736;
+            //            if (y == 460 || y == 548) return 716;
+            //            //            else return (y * 1.533334);
+            return (y * SCALE_MAX_Y_VALUE);
             //            else return (y * 1.2);
             break;
         default:
