@@ -51,11 +51,10 @@
     }
     
     
-    if ([[SystemUtil instance] isIPhoneX] )
+    CGRect ar = [CommonUtil getWindowArea];
+    if ([[SystemUtil instance] isIPhoneX] || [[SystemUtil instance] isIPhoneXMax])
     {
-        CGRect ar = [CommonUtil getWindowArea];
-        
-        ar.size.height += ar.origin.y + 90 + 60;
+        ar.size.height += ar.origin.y + 90 + 60 + 60;
         ar.size.width = _imgBackground.frame.size.width;
         ar.origin.y = 0;
         _imgBackground.bounds = ar;

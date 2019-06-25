@@ -148,4 +148,5 @@
 + (NSString*)checkLBSServerList:(NSArray*)arrLBSList;
 
 - (BOOL) isIPhoneX;
+- (BOOL) isIPhoneXMax;
 @end

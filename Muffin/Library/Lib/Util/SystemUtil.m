@@ -208,6 +208,12 @@ static SystemUtil* instance;
     return ((UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) && MAX([[UIScreen mainScreen] bounds].size.height, [[UIScreen mainScreen] bounds].size.width) == 812.0);
 }
 
+- (BOOL) isIPhoneXMax
+{
+    return ((UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) && MAX([[UIScreen mainScreen] bounds].size.height, [[UIScreen mainScreen] bounds].size.width) == 896.0);
+}
+
+
 -(void) initSizeRateInfo
 {
     

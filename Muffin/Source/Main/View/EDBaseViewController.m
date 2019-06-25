@@ -217,7 +217,21 @@
     mainNavi = (UINavigationController *)(mainViewController.rootViewController);
     
     self.title = @"";
+    
+    
+    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onScreenTap:)];
+    tap.enabled = YES;
+    
+    [self.view addGestureRecognizer:tap];
+    
 }
+
+
+- (void) onScreenTap:(UITapGestureRecognizer *) gesture
+{
+    [self.view endEditing:YES];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
