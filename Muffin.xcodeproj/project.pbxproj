@@ -110,6 +110,9 @@
 		B64B480722B3B926001D4B6A /* HangulUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B64B480622B3B925001D4B6A /* HangulUtils.m */; };
 		B656497222B55C1B001E0E26 /* MyMuffinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B656497022B55C1B001E0E26 /* MyMuffinViewController.m */; };
 		B656497322B55C1B001E0E26 /* MyMuffinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B656497122B55C1B001E0E26 /* MyMuffinViewController.xib */; };
+		B65B562C22C3312400615BFE /* MainHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B65B562A22C3312400615BFE /* MainHomeViewController.m */; };
+		B65B562D22C3312400615BFE /* MainHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B65B562B22C3312400615BFE /* MainHomeViewController.xib */; };
+		B65D879822C35FFB0047676A /* SongTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B65D879722C35FFB0047676A /* SongTableViewCell.m */; };
 		B66DE0B9217DDCF500320F3D /* EDBottomButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = B66DE0B8217DDCF500320F3D /* EDBottomButtonView.m */; };
 		B675264B217D67360059B61D /* libAMSLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B643EDC8212FE64B00963B98 /* libAMSLibrary.a */; settings = {ATTRIBUTES = (Weak, ); }; };
 		B6B355F02162034B006FC18C /* util_icon_back.png in Resources */ = {isa = PBXBuildFile; fileRef = B6B355BB21620340006FC18C /* util_icon_back.png */; };
@@ -473,6 +476,11 @@
 		B656496F22B55C1B001E0E26 /* MyMuffinViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyMuffinViewController.h; sourceTree = "<group>"; };
 		B656497022B55C1B001E0E26 /* MyMuffinViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyMuffinViewController.m; sourceTree = "<group>"; };
 		B656497122B55C1B001E0E26 /* MyMuffinViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyMuffinViewController.xib; sourceTree = "<group>"; };
+		B65B562922C3312400615BFE /* MainHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainHomeViewController.h; sourceTree = "<group>"; };
+		B65B562A22C3312400615BFE /* MainHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainHomeViewController.m; sourceTree = "<group>"; };
+		B65B562B22C3312400615BFE /* MainHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainHomeViewController.xib; sourceTree = "<group>"; };
+		B65D879622C35FFB0047676A /* SongTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SongTableViewCell.h; sourceTree = "<group>"; };
+		B65D879722C35FFB0047676A /* SongTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SongTableViewCell.m; sourceTree = "<group>"; };
 		B66DE0B7217DDCF500320F3D /* EDBottomButtonView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDBottomButtonView.h; sourceTree = "<group>"; };
 		B66DE0B8217DDCF500320F3D /* EDBottomButtonView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDBottomButtonView.m; sourceTree = "<group>"; };
 		B6B355BB21620340006FC18C /* util_icon_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = util_icon_back.png; path = Muffin/Resource/img/util_icon_back.png; sourceTree = SOURCE_ROOT; };
@@ -1259,6 +1267,9 @@
 			isa = PBXGroup;
 			children = (
 				B6F7AA4E22B255F90043483F /* BannerViewController.xib */,
+				B65B562922C3312400615BFE /* MainHomeViewController.h */,
+				B65B562A22C3312400615BFE /* MainHomeViewController.m */,
+				B65B562B22C3312400615BFE /* MainHomeViewController.xib */,
 				B6F7AA4F22B255F90043483F /* UserListViewController.h */,
 				B6F7AA5022B255F90043483F /* MainScreenViewController.h */,
 				B6F7AA5122B255F90043483F /* FileUploadViewController.h */,
@@ -1301,6 +1312,8 @@
 				B656497122B55C1B001E0E26 /* MyMuffinViewController.xib */,
 				B6EB753722B7954E00BF2273 /* MuffinTableViewCell.h */,
 				B6EB753822B7954E00BF2273 /* MuffinTableViewCell.m */,
+				B65D879622C35FFB0047676A /* SongTableViewCell.h */,
+				B65D879722C35FFB0047676A /* SongTableViewCell.m */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -1447,6 +1460,7 @@
 				B6B355F52162034B006FC18C /* util_icon_login.png in Resources */,
 				B6B356232162034C006FC18C /* muffin_logo_l.png in Resources */,
 				B6E0E5952130102F0065E395 /* IMG_0697.png in Resources */,
+				B65B562D22C3312400615BFE /* MainHomeViewController.xib in Resources */,
 				B6F7AAAA22B255F90043483F /* UserOtherViewController.xib in Resources */,
 				B6F7AA3B22B10AAB0043483F /* sample.m4a in Resources */,
 				B6B355FE2162034C006FC18C /* btn_on.png in Resources */,
@@ -1601,6 +1615,7 @@
 				B643ED75212FD40800963B98 /* SSZipArchive.m in Sources */,
 				B643ED27212FC8C500963B98 /* XMLReaderEx.m in Sources */,
 				B6F7AA9622B255F90043483F /* ProjectMakeController.m in Sources */,
+				B65B562C22C3312400615BFE /* MainHomeViewController.m in Sources */,
 				B6F7AAB622B255F90043483F /* LeftViewController.m in Sources */,
 				B643EC90212FC01200963B98 /* main.m in Sources */,
 				B643ED1F212FC8AE00963B98 /* LGSideMenuView.m in Sources */,
@@ -1685,6 +1700,7 @@
 				B6309C5A22B256FF007A2942 /* AudioPlayerView.m in Sources */,
 				B63AC135213E7C5F00C45F83 /* STKAutoRecoveringHTTPDataSource.m in Sources */,
 				B643EDBD212FE35E00963B98 /* NSDataAdditions.m in Sources */,
+				B65D879822C35FFB0047676A /* SongTableViewCell.m in Sources */,
 				B6F7AAB122B255F90043483F /* RootViewController.m in Sources */,
 				B6F7AA2922B109280043483F /* LGAlertView.m in Sources */,
 				B63AC0BD213AA7F200C45F83 /* GroupInfo.m in Sources */,

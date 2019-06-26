@@ -22,6 +22,7 @@
 
 - (void) setTitleText:(NSString *) sTitle;
 
+- (void) onRefresh;
 
 
 @end

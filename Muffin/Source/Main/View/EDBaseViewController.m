@@ -10,6 +10,7 @@
 #import "SystemUtil.h"
 #import "CommonUtil.h"
 #import "MainViewController.h"
+#import "MainScreenViewController.h"
 
 @interface EDBaseViewController ()
 {
@@ -87,7 +88,11 @@
 
 - (void) gotoMyMuffin
 {
-    [mainNavi  popToRootViewControllerAnimated:YES];
+
+    
+    MainScreenViewController * viewController =  [[MainScreenViewController alloc] initWithNibName:@"MainScreenViewController" bundle:nil];
+    [self.navigationController pushViewController:viewController animated:YES];
+    
 }
 
 
@@ -216,12 +221,14 @@
     mainViewController = (MainViewController *)self.sideMenuController;
     mainNavi = (UINavigationController *)(mainViewController.rootViewController);
     
+    [btnLogo addTarget:self action:@selector(goHome:) forControlEvents:UIControlEventTouchUpInside];
+    
     self.title = @"";
     
     
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onScreenTap:)];
     tap.enabled = YES;
-    
+    tap.cancelsTouchesInView = FALSE;
     [self.view addGestureRecognizer:tap];
     
 }
@@ -304,6 +311,26 @@
 
 #pragma mark -
 
+- (UIViewController*)topViewController {
+    return [self topViewControllerWithRootViewController:[UIApplication sharedApplication].keyWindow.rootViewController];
+}
+
+- (UIViewController*)topViewControllerWithRootViewController:(UIViewController*)rootViewController {
+    if ([rootViewController isKindOfClass:[UITabBarController class]]) {
+        UITabBarController* tabBarController = (UITabBarController*)rootViewController;
+        return [self topViewControllerWithRootViewController:tabBarController.selectedViewController];
+    } else if ([rootViewController isKindOfClass:[UINavigationController class]]) {
+        UINavigationController* navigationController = (UINavigationController*)rootViewController;
+        return [self topViewControllerWithRootViewController:navigationController.visibleViewController];
+    } else if (rootViewController.presentedViewController) {
+        UIViewController* presentedViewController = rootViewController.presentedViewController;
+        return [self topViewControllerWithRootViewController:presentedViewController];
+    } else {
+        return rootViewController;
+    }
+}
+
+
 - (void)showLeftView {
     [self.sideMenuController showLeftViewAnimated:YES completionHandler:nil];
 }
@@ -316,4 +343,22 @@
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+- (void) goHome:(UIButton *) btn
+{
+    [mainNavi  popToRootViewControllerAnimated:YES];
+    
+    UIViewController * vc = mainNavi.topViewController;
+    
+    if ([vc isKindOfClass:[EDBaseViewController class]])
+    {
+        [(EDBaseViewController*)vc onRefresh];
+    }
+}
+
+- (void) onRefresh;
+{
+}
+
+
 @end
