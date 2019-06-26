@@ -813,6 +813,87 @@ static EDHttpTransManager * global_httpManager;
     }];
 }
 
+- (void) callBookmarkMuffinInfo:(NSMutableDictionary *) dicCmd  withBlack:(void(^)(id result, NSError * error))completion
+{
+    NSMutableDictionary * Params = [self getXnetBaseData];
+    NSMutableDictionary * httpHeader = [[NSMutableDictionary alloc] init];
+    
+    httpHeader[@"Class"] = @"muffin.Service.BookMarkMuffinController";
+    httpHeader[@"Function"] = dicCmd[@"Function"];
+    
+    if ( [dicCmd[@"Function"] isEqualToString: @"BookMarkMuffin_Insert"] )
+    {
+        [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"UserId" sValue:dicCmd[@"UserId"]]];
+        [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"BMSongId" sValue:dicCmd[@"BMSongId"]]];
+        [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"SongName" sValue:dicCmd[@"SongName"]]];
+        [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"MusicPath" sValue:dicCmd[@"MusicPath"]]];
+        [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"MusicFileId" sValue:dicCmd[@"MusicFileId"]]];
+        [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"BMSeq" sValue:dicCmd[@"BMSEQ"]]];
+    }
+    else if ( [dicCmd[@"Function"] isEqualToString: @"BookMarkMuffin_Select"])
+    {
+        [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"UserId" sValue:dicCmd[@"UserId"]]];
+    }
+    else
+    {
+        
+    }
+    
+    NSURL *URL = [NSURL URLWithString:@"http://ourworld3.cafe24.com/data/servlet/FrontService"];
+    [AFNetworkConnect callAsyncHTTPWithHeader:URL.absoluteString param:Params headers:httpHeader withBlock:^(id result, NSError *error) {
+        
+        if( result != nil )
+        {
+            
+            NSDictionary * returnDic = (NSDictionary *)result;
+            
+            NSArray * ads = returnDic[@"xnet"][@"ds"];
+            NSDictionary * ds = ads[0];
+            
+            
+            NSString * sMsg = returnDic[@"xnet"][@"tr"][@"message"][@"trmsg"];
+            
+            if (![sMsg isEqualToString:@""] && sMsg != nil)
+            {
+                UIWindow *window = UIApplication.sharedApplication.delegate.window;
+                [window.rootViewController.view makeToast:[sMsg decodeBase64String]];
+            }
+            NSLog(@"msg = %@", [sMsg decodeBase64String]);
+            
+            
+            NSArray * adata = ds[@"data"];
+            
+            
+            NSMutableArray * arrData = [[NSMutableArray alloc] init];
+            
+            NSArray * cols = ds[@"col"];
+            
+            for (int i=0; i<adata.count; i++)
+            {
+                NSString * encData = adata[i][0];
+                NSArray * dsData = [encData componentsSeparatedByString:@","];
+                
+                NSMutableDictionary * dataDic = [[NSMutableDictionary alloc] init];
+                
+                for (int j=0; j<cols.count; j++)
+                {
+                    dataDic[[cols[j][@"nm"] trim] ] = [dsData[j] decodeBase64String];
+                }
+                
+                [arrData addObject:dataDic];
+                
+            }
+            
+            completion(arrData, nil);
+        }
+        else
+        {
+            completion(nil, error);
+            NSLog(@"Token Error %@", error);
+        }
+    }];
+}
+
 - (void) callPartAskInfo:(NSMutableDictionary *) dicCmd  withBlack:(void(^)(id result, NSError * error))completion
 {
     

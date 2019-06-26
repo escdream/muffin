@@ -31,6 +31,7 @@
 - (void) callProjectCommand:(NSMutableDictionary *) dicCmd  withBlack:(void(^)(id result, NSError * error))completion;
 
 - (void) callBookmarkUserInfo:(NSMutableDictionary *) dicCmd  withBlack:(void(^)(id result, NSError * error))completion;
+- (void) callBookmarkMuffinInfo:(NSMutableDictionary *) dicCmd  withBlack:(void(^)(id result, NSError * error))completion;
 
 - (void) callPartAskInfo:(NSMutableDictionary *) dicCmd  withBlack:(void(^)(id result, NSError * error))completion;
 

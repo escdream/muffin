@@ -54,7 +54,7 @@
     btnPlay = [UIButton buttonWithType:UIButtonTypeCustom];
     
     CGRect r = self.bounds;
-    r.origin.x = r.size.width - 40;
+    r.origin.x = r.size.width - 50;
     r.origin.y = 2;
     r.size.width = 60;
     r.size.height = 40;
@@ -78,19 +78,20 @@
     
     
     //make PlayButton
-    btnFavorite = [UIButton buttonWithType:UIButtonTypeCustom];
+//    btnFavorite = [UIButton buttonWithType:UIButtonTypeCustom];
+    btnFavorite = [UIButton buttonWithType:UIButtonTypeContactAdd];
     
-    r.origin.x -= 70;
+    r.origin.x -= 60;
     r.origin.y = 2;
-    r.size.width = 60;
+    r.size.width = 70;
     r.size.height = 40;
     
     btnFavorite.frame = r;
     
     btnFavorite.imageEdgeInsets = UIEdgeInsetsMake(7.5, 40, 7.5, 00);
     
-    backButtonImage = [UIImage imageNamed:@"btn_s_play.png"];
-    [btnFavorite setImage:backButtonImage forState:UIControlStateNormal];
+//    backButtonImage = [UIImage imageNamed:@"btn_star_o.png"];
+//    [btnFavorite setImage:backButtonImage forState:UIControlStateNormal];
     [btnFavorite addTarget:self action:@selector(play) forControlEvents:UIControlEventTouchUpInside];//
     btnFavorite.imageView.contentMode = UIViewContentModeScaleAspectFit;
     btnFavorite.tag = 0;

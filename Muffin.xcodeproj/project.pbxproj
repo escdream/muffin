@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3007914422C38BE20030CCAC /* btn_star_n.png in Resources */ = {isa = PBXBuildFile; fileRef = 3007914222C38BE10030CCAC /* btn_star_n.png */; };
+		3007914522C38BE20030CCAC /* btn_star_o.png in Resources */ = {isa = PBXBuildFile; fileRef = 3007914322C38BE10030CCAC /* btn_star_o.png */; };
 		B6309C5A22B256FF007A2942 /* AudioPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6309C5822B256FF007A2942 /* AudioPlayerView.m */; };
 		B6309C5B22B256FF007A2942 /* SampleQueueId.m in Sources */ = {isa = PBXBuildFile; fileRef = B6309C5922B256FF007A2942 /* SampleQueueId.m */; };
 		B636AA30215E704F00C755CB /* SongInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B636AA2F215E704F00C755CB /* SongInfo.m */; };
@@ -271,6 +273,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3007914222C38BE10030CCAC /* btn_star_n.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_star_n.png; sourceTree = "<group>"; };
+		3007914322C38BE10030CCAC /* btn_star_o.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_star_o.png; sourceTree = "<group>"; };
 		B6309C5622B256FF007A2942 /* SampleQueueId.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleQueueId.h; sourceTree = "<group>"; };
 		B6309C5722B256FF007A2942 /* AudioPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayerView.h; sourceTree = "<group>"; };
 		B6309C5822B256FF007A2942 /* AudioPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayerView.m; sourceTree = "<group>"; };
@@ -1051,6 +1055,8 @@
 		B6B355BA2162032B006FC18C /* Img */ = {
 			isa = PBXGroup;
 			children = (
+				3007914222C38BE10030CCAC /* btn_star_n.png */,
+				3007914322C38BE10030CCAC /* btn_star_o.png */,
 				B645BFF3217C944E009DEFDD /* maskimg.png */,
 				B6D61EFB217C368600613612 /* ico_tit_back_n.png */,
 				B6D61EFA217C368600613612 /* ico_tit_back_o.png */,
@@ -1456,6 +1462,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3007914522C38BE20030CCAC /* btn_star_o.png in Resources */,
 				B643EDCF212FED5C00963B98 /* Main in Resources */,
 				B6B355F52162034B006FC18C /* util_icon_login.png in Resources */,
 				B6B356232162034C006FC18C /* muffin_logo_l.png in Resources */,
@@ -1463,6 +1470,7 @@
 				B65B562D22C3312400615BFE /* MainHomeViewController.xib in Resources */,
 				B6F7AAAA22B255F90043483F /* UserOtherViewController.xib in Resources */,
 				B6F7AA3B22B10AAB0043483F /* sample.m4a in Resources */,
+				3007914422C38BE20030CCAC /* btn_star_n.png in Resources */,
 				B6B355FE2162034C006FC18C /* btn_on.png in Resources */,
 				B63AC158213EA37F00C45F83 /* ManInTheMirror.mp3 in Resources */,
 				B6B356012162034C006FC18C /* banner_smp_03.png in Resources */,

@@ -1349,7 +1349,8 @@
             //관심등록버튼
             UIButton *btnPlus = [UIButton buttonWithType:UIButtonTypeContactAdd];
             btnPlus.frame = CGRectMake(tableView.frame.size.width - btnPlay.frame.size.width - 3, (TABLE_ROW_HEIGHT_ARTISTS / 2) - 15 , 30, 30);
-            [btnPlus addTarget:self action:@selector(addMyMuffin) forControlEvents:UIControlEventTouchUpInside];
+            [btnPlus addTarget:self action:@selector(addMyMuffin:) forControlEvents:UIControlEventTouchUpInside];
+            [btnPlus setTag:indexPath.row];
             btnPlus.backgroundColor = [UIColor clearColor];
             //            cell.accessoryView = btnPlus;
             [cell.contentView  addSubview:btnPlus];
@@ -1547,31 +1548,64 @@
     NSInteger nIndex = [sender tag];
     NSDictionary * dicArtists = arrArtists[nIndex];
     
-    NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
-    
-    dic[@"Function"] = @"BookMarkUser_Insert";
-    dic[@"UserId"] = [UserInfo instance].userID;
-    dic[@"BMUserId"] = dicArtists[@"UserId"];
-    dic[@"Username"] = dicArtists[@"Username"];
-    dic[@"BMSEQ"] = @"001";
+    if (dicArtists != nil) {
+        NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
+        dic[@"Function"] = @"BookMarkUser_Insert";
+        dic[@"UserId"] = [UserInfo instance].userID;
+        dic[@"BMUserId"] = dicArtists[@"UserId"];
+        dic[@"Username"] = dicArtists[@"Username"];
+        dic[@"BMSEQ"] = @"001";
 
-    [[EDHttpTransManager instance] callBookmarkUserInfo:dic withBlack:^(id result, NSError * error)
-     {
-         if (result != nil)
+        [[EDHttpTransManager instance] callBookmarkUserInfo:dic withBlack:^(id result, NSError * error)
          {
-    
-         }
-         else
-         {
-             UIWindow *window = UIApplication.sharedApplication.delegate.window;
-             [window.rootViewController.view makeToast:@"등록되었습니다."];
-         }
-     }];
+             if (result != nil)
+             {
+        
+             }
+             else
+             {
+                 UIWindow *window = UIApplication.sharedApplication.delegate.window;
+                 [window.rootViewController.view makeToast:@"등록되었습니다."];
+             }
+         }];
+    }
+    else {
+        UIWindow *window = UIApplication.sharedApplication.delegate.window;
+        [window.rootViewController.view makeToast:@"등록할 Artist가 존재하지 않습니다."];
+    }
 }
 
-- (void)addMyMuffin {
-    UIWindow *window = UIApplication.sharedApplication.delegate.window;
-    [window.rootViewController.view makeToast:@"기능 구현중 - 관심머핀"];
+- (void)addMyMuffin:(id)sender {
+    NSInteger nIndex = [sender tag];
+    SongInfo * muffinInfo = arrPartAsk[nIndex];
+    
+    if (muffinInfo != nil) {
+        NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
+        dic[@"Function"] = @"BookMarkMuffin_Insert";
+        dic[@"UserId"] = [UserInfo instance].userID;
+        dic[@"BMSongId"] = muffinInfo.songID;           //머핀ID
+        dic[@"SongName"] = muffinInfo.songName;         //머핀이름
+        dic[@"MusicPath"] = muffinInfo.musicPath;       //경로
+        dic[@"MusicFileId"] = muffinInfo.musicFileID;   //파일며
+        dic[@"BMSEQ"] = @"001";
+        
+        [[EDHttpTransManager instance] callBookmarkMuffinInfo:dic withBlack:^(id result, NSError * error)
+         {
+             if (result != nil)
+             {
+                 
+             }
+             else
+             {
+                 UIWindow *window = UIApplication.sharedApplication.delegate.window;
+                 [window.rootViewController.view makeToast:@"등록되었습니다."];
+             }
+         }];
+    }
+    else {
+        UIWindow *window = UIApplication.sharedApplication.delegate.window;
+        [window.rootViewController.view makeToast:@"등록할 Muffin이 존재하지 않습니다."];
+    }
 }
 
 

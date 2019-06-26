@@ -8,6 +8,7 @@
 
 #import "MyMuffinViewController.h"
 #import "SongInfo.h"
+#import "SongTableViewCell.h"
 #import "ResourceManager.h"
 #import "STKAudioPlayer.h"
 #import "AudioPlayerView.h"
@@ -20,6 +21,7 @@
 {
     NSMutableArray * arrMuffin;
     UIButton * mButton;
+    SongTableViewCell *playCell;
 }
 
 @end
@@ -46,26 +48,28 @@
 
 - (void) initData
 {
+    //북마크머핀 조회
     NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
-    dic = nil;
+    dic[@"Function"] = @"BookMarkMuffin_Select";
+    dic[@"UserId"] = [UserInfo instance].userID;
     
-    [[EDHttpTransManager instance] callMuffinInfo:dic withBlack:^(id result, NSError * error)
+    [[EDHttpTransManager instance] callBookmarkMuffinInfo:dic withBlack:^(id result, NSError * error)
+     {
+         if (result != nil)
          {
-             if (result != nil)
-             {
-                 NSArray * arr = result;
-                 [self->arrMuffin removeAllObjects];
+             NSArray * arr = result;
+             [self->arrMuffin removeAllObjects];
 
-                 for (NSDictionary * dic in arr)
-                 {
-                     SongInfo * muffin = [[SongInfo alloc] initWithData:dic];
-                     
-                     [self->arrMuffin addObject:muffin];
-                 }
+             for (NSDictionary * dic in arr)
+             {
+                 SongInfo * muffin = [[SongInfo alloc] initWithData:dic];
                  
-                 [_tblMuffin reloadData];
+                 [self->arrMuffin addObject:muffin];
              }
-         }];
+             
+             [_tblMuffin reloadData];
+         }
+     }];
 }
 
 
@@ -115,47 +119,46 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    SongTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"song_cell"];
     
     if (cell == nil)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+        cell = [[SongTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"song_cell"];
+        cell.delegate = (id)self;
     }
     
-    {
-        SongInfo * muffinInfo;
-        
+    SongInfo * muffinInfo;
+    muffinInfo = arrMuffin[indexPath.row];
+    
+    //북마크 버튼 숨기기
+    cell.showFavorite = NO;
+    
+    cell.songInfo = muffinInfo;
+    return cell;
+}
 
-        muffinInfo = arrMuffin[indexPath.row];
-        
-        if (muffinInfo != nil)
+- (void) onSongPlayInfo:(SongTableViewCell *)cell songInfo:(SongInfo *) songInfo isPlaying:(BOOL) isPlaying;
+{
+    if (isPlaying)
+    {
+        if (playCell != cell)
         {
-            //make TextLabel
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.textLabel.font = [UIFont systemFontOfSize:10];
-            cell.textLabel.textColor = [UIColor purpleColor]; //RGB(33, 33, 33);
-            cell.detailTextLabel.font = [UIFont systemFontOfSize:12];
-            cell.detailTextLabel.textColor = [UIColor blackColor]; //RGB(33, 33, 33);
+            if (playCell != nil)
+                [playCell stopSong];
             
-            //make PlayButton
-            UIButton * btnPlay = [UIButton buttonWithType:UIButtonTypeCustom];
-            btnPlay.frame = CGRectMake(10, 0, 60, 40);
-            btnPlay.imageEdgeInsets = UIEdgeInsetsMake(7.5, 40, 7.5, 00);
-            
-            UIImage *backButtonImage = [UIImage imageNamed:@"btn_s_play.png"];
-            [btnPlay setImage:backButtonImage forState:UIControlStateNormal];
-            [btnPlay addTarget:self action:@selector(playMuffin:) forControlEvents:UIControlEventTouchUpInside];//
-            btnPlay.imageView.contentMode = UIViewContentModeScaleAspectFit;
-            btnPlay.tag = [muffinInfo.songID intValue];
-            
-            mButton = btnPlay;
-            cell.accessoryView = btnPlay;
-            cell.textLabel.text = muffinInfo.groupName;
-            cell.detailTextLabel.text = muffinInfo.songName;
+            playCell = cell;
+            [playCell performSelector:@selector(playSong) withObject:nil afterDelay:0.3f];
+        }
+        else
+        {
+            [playCell playSong];
         }
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    return cell;
+    else
+    {
+        [playCell stopSong];
+        playCell = nil;
+    }
 }
 
 #pragma mark - UITableViewDelegate
