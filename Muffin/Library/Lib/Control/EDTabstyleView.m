@@ -199,7 +199,7 @@
 - (void) changeTab:(NSString *) sTitle nIndex:(int) nIndex
 {
     UIButton * btn = tabButtonList[nIndex];
-    sTabTitle = sTitle;
+//    sTabTitle = sTitle;
     [btn setTitle:sTitle forState:UIControlStateNormal];
 
     [self calcTabLayouts];

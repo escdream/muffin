@@ -824,10 +824,10 @@
 - (void) okClick
 {
 //    NSLog(@"okClick");
-    NSString * sTabTitle = [self.viewTabList currentTabTitle];
-    
-    if ( [sTabTitle isEqualToString:@"Timeline"] )
-    {
+//    NSString * sTabTitle = [self.viewTabList currentTabTitle];
+//
+//    if ( [sTabTitle isEqualToString:@"Timeline"] )
+//    {
         if ( [strStatus isEqualToString: @"전체PJT"] )
         {
             if (self->arrGroupItem.count == 0)
@@ -857,10 +857,10 @@
                              
                              self->arrTimeline = [[NSMutableArray alloc] initWithArray:result];
                              
-                             [self.tblTimeline reloadData];
-                             
                              if (self->arrTimeline.count > 0)
                              {
+                                 [self.tblTimeline reloadData];
+
                                  strStatus = @"내부PJT";
                                  // 마지막 셀로 위치
                                  NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.tblTimeline numberOfRowsInSection:0] - 1 inSection:0];
@@ -931,7 +931,7 @@
                  
              }];
         }
-    }
+//    }
 }
 
 - (void) onWriteTimelineClick
@@ -1374,7 +1374,8 @@
             //관심등록버튼
             UIButton *btnPlus = [UIButton buttonWithType:UIButtonTypeContactAdd];
             btnPlus.frame = CGRectMake(tableView.frame.size.width - 45, (TABLE_ROW_HEIGHT_ARTISTS / 2) - 15 , 30, 30);
-            [btnPlus addTarget:self action:@selector(addMyArtist) forControlEvents:UIControlEventTouchUpInside];
+            [btnPlus addTarget:self action:@selector(addMyArtist:) forControlEvents:UIControlEventTouchUpInside];
+            [btnPlus setTag:indexPath.row];
             btnPlus.backgroundColor = [UIColor clearColor];
 //            cell.accessoryView = btnPlus;
             [cell.contentView  addSubview:btnPlus];
@@ -1539,42 +1540,30 @@
 {
 }
 
-- (void)addMyArtist {
+- (void)addMyArtist:(id)sender {
+    NSInteger nIndex = [sender tag];
+    NSDictionary * dicArtists = arrArtists[nIndex];
     
-//    NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
-//    
-//    dic[@"UserId"] = [UserInfo instance].userID;
-//    dic[@"GroupName"] = self.fldTitle.text;
-//    dic[@"GroupKind"] = [self getCurrentGanre:self->arrGanre];//01:발라드 02:댄스 03:클래식 04:알앤비 05:락 06레개
-//    dic[@"ImageId"] = @"";
-//    dic[@"SystemId"] = @"";
-//    dic[@"GroupDesc"] = self.txtContent.text;
-//    dic[@"Tag1"] = [arrTags objectAtIndex:0];
-//    dic[@"Tag2"] = [arrTags objectAtIndex:1];
-//    dic[@"Tag3"] = [arrTags objectAtIndex:2];
-//    
-//    NSString * strGroupId = [result[0][@"GroupId"] copy];
-//    
-//    //관리자 등록 - GroupItem_InsertAdmin(String sGroupId,String sUserId,String sPosition)
-//    dic[@"GroupId"] = strGroupId;
-//    dic[@"Position"] = [self getCurrentCommand:self->arrCommand]; //@"01"; //작사
-//    dic[@"Function"] = @"GroupItem_InsertAdmin";
-//    [[EDHttpTransManager instance] callGroupItemInfo:dic withBlack:^(id result, NSError * error)
-//     {
-//         if (result != nil)
-//         {
-//             
-//         }
-//         else
-//         {
-//             //관리자 등록 완료 후 화면전환
-//             ProjectInfo * projectInfo = [[ProjectInfo alloc] initWithData:dic];
-//             ProjectViewController * controler = [[ProjectViewController alloc] initWithProject:projectInfo];
-//             
-//             //네이게이션바 뒤로가기 버튼 숨기기 하면 좋을듯......
-//             [self.navigationController pushViewController:controler animated:YES];
-//         }
-//     }];
+    NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
+    
+    dic[@"Function"] = @"BookMarkUser_Insert";
+    dic[@"UserId"] = [UserInfo instance].userID;
+    dic[@"BMUserId"] = dicArtists[@"UserId"];
+    dic[@"Username"] = dicArtists[@"Username"];
+    dic[@"BMSEQ"] = @"001";
+
+    [[EDHttpTransManager instance] callBookmarkUserInfo:dic withBlack:^(id result, NSError * error)
+     {
+         if (result != nil)
+         {
+    
+         }
+         else
+         {
+             UIWindow *window = UIApplication.sharedApplication.delegate.window;
+             [window.rootViewController.view makeToast:@"등록되었습니다."];
+         }
+     }];
 }
 
 - (void)addMyMuffin {

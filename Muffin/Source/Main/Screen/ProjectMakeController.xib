@@ -163,7 +163,7 @@
                             <rect key="frame" x="0.0" y="147" width="310" height="85"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text=" 나마의 자신을 위한 곡을 만들고자 합니다." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="r1h-s9-agH">
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text=" 나만의 자신을 위한 곡을 만들고자 합니다." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="r1h-s9-agH">
                                     <rect key="frame" x="0.0" y="0.0" width="310" height="85"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

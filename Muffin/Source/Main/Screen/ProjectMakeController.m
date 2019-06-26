@@ -34,6 +34,7 @@
     NSMutableArray * arrTags;
 
     NSString * sUploadType;
+    NSString * sImageId;
     
     int nSelTagCount;
 }
@@ -679,7 +680,7 @@
     //Create a folder inside Document Directory
     if (![[NSFileManager defaultManager] fileExistsAtPath:dataPath])
         [[NSFileManager defaultManager] createDirectoryAtPath:dataPath withIntermediateDirectories:NO attributes:nil error:&error]; //Create folder
-    
+    sImageId = [NSString stringWithFormat:@"img_%@.png", [self getRandomNumber]] ;
     NSString *imageName = [NSString stringWithFormat:@"%@/img_%@.png", dataPath, [self getRandomNumber]] ;
     // save the file
     if ([[NSFileManager defaultManager] fileExistsAtPath:imageName]) {
@@ -919,14 +920,71 @@
 //    arrTags add
 }
 
--(void) doGroupInsert
-{
+-(void) initControls {
+    self.fldTitle.text = @"";
+    self.fldPartAskFileName.text = @"";
+    self.txtContent.text = @" 나만의 자신을 위한 곡을 만들고자 합니다.";
+    self.imgAlbum.image = nil;
+    self.btnJoin1.selected = YES;
+    self.btnJoin2.selected = NO;
+    self.btnRadio1.selected = YES;
+    self.btnRadio2.selected = NO;
+    
+    [self->arrGanre removeAllObjects];
+    [self->arrGanre addObject:[_viewGanre viewWithTag:201]];
+    [self->arrGanre addObject:[_viewGanre viewWithTag:202]];
+    [self->arrGanre addObject:[_viewGanre viewWithTag:203]];
+    [self->arrGanre addObject:[_viewGanre viewWithTag:204]];
+    [self->arrGanre addObject:[_viewGanre viewWithTag:205]];
+    [self->arrGanre addObject:[_viewGanre viewWithTag:206]];
+    
+    [self->arrTags removeAllObjects];
+    [self->arrTags addObject: @""];
+    [self->arrTags addObject: @""];
+    [self->arrTags addObject: @""];
+    [self->arrTags addObject: @""];
+    [self->arrTags addObject: @""];
+}
+
+-(void) doSongInfoInsert:(NSString *) groupID {
+    //관리자 머핀등록 완료
+    NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
+    dic[@"Function"] = @"SongInfo_Insert";
+    dic[@"GroupId"] = groupID;
+    dic[@"SongName"] = [[UserInfo instance].userID stringByAppendingString: @" Song"]; //임시 입력
+    dic[@"MusicFileId"] = _fldPartAskFileName.text;
+    dic[@"PublicYN"] = @"Y";  //임시 입력
+    
+    [[EDHttpTransManager instance] callMuffinInfo:dic withBlack:^(id result, NSError * error)
+     {
+         if (result != nil)
+         {
+             
+         }
+         else
+         {
+             //초기화
+             [self initControls];
+             
+             //관리자 등록 완료 후 화면전환
+             ProjectInfo * projectInfo = [[ProjectInfo alloc] initWithData:dic];
+             ProjectViewController * controler = [[ProjectViewController alloc] initWithProject:projectInfo];
+             
+             //네이게이션바 뒤로가기 버튼 숨기기 하면 좋을듯......
+             [self.navigationController pushViewController:controler animated:YES];
+         }
+         
+     }
+     ];
+}
+
+-(void) doGroupInsert {
     NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
     
     dic[@"UserId"] = [UserInfo instance].userID;
     dic[@"GroupName"] = self.fldTitle.text;
     dic[@"GroupKind"] = [self getCurrentGanre:self->arrGanre];//01:발라드 02:댄스 03:클래식 04:알앤비 05:락 06레개
-    dic[@"ImageId"] = @"";
+    dic[@"ImageId"] = sImageId;
     dic[@"SystemId"] = @"";
     dic[@"GroupDesc"] = self.txtContent.text;
     dic[@"Tag1"] = [arrTags objectAtIndex:0];
@@ -944,7 +1002,7 @@
          {
              
          }
-         else //프로젝트 등록완료 -> 그룹ID조회 -> 관리지등록 -> 상세화면으로 전환..
+         else //프로젝트 등록완료 -> 그룹ID조회 -> 관리지등록 -> 머핀등록 -> 상세화면으로 전환..
          {
              //그룹ID조회 - GroupInfo_LastSelect( String GroupName ,String GroupKind ,String ImageId  )
              dic[@"Function"] = @"GroupInfo_LastSelect";
@@ -955,7 +1013,7 @@
                       NSArray * arrData = result;
                       if (arrData.count == 1)
                       {
-                          NSString * strGroupId = [result[0][@"GroupId"] copy];
+                          NSString * strGroupId = [ result[0][@"GroupId"] copy ];
                           
                           //관리자 등록 - GroupItem_InsertAdmin(String sGroupId,String sUserId,String sPosition)
                           dic[@"GroupId"] = strGroupId;
@@ -969,12 +1027,7 @@
                                }
                                else
                                {
-                                   //관리자 등록 완료 후 화면전환
-                                   ProjectInfo * projectInfo = [[ProjectInfo alloc] initWithData:dic];
-                                   ProjectViewController * controler = [[ProjectViewController alloc] initWithProject:projectInfo];
-                                   
-                                   //네이게이션바 뒤로가기 버튼 숨기기 하면 좋을듯......
-                                   [self.navigationController pushViewController:controler animated:YES];
+                                   [self doSongInfoInsert:strGroupId];
                                }
                            }];
                       }
