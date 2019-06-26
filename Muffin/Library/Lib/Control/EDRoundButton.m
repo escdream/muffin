@@ -102,9 +102,34 @@
 }
 
 
+- (UIViewController*)topViewController {
+    return [self topViewControllerWithRootViewController:[UIApplication sharedApplication].keyWindow.rootViewController];
+}
+
+- (UIViewController*)topViewControllerWithRootViewController:(UIViewController*)rootViewController {
+    if ([rootViewController isKindOfClass:[UITabBarController class]]) {
+        UITabBarController* tabBarController = (UITabBarController*)rootViewController;
+        return [self topViewControllerWithRootViewController:tabBarController.selectedViewController];
+    } else if ([rootViewController isKindOfClass:[UINavigationController class]]) {
+        UINavigationController* navigationController = (UINavigationController*)rootViewController;
+        return [self topViewControllerWithRootViewController:navigationController.visibleViewController];
+    } else if (rootViewController.presentedViewController) {
+        UIViewController* presentedViewController = rootViewController.presentedViewController;
+        return [self topViewControllerWithRootViewController:presentedViewController];
+    } else {
+        return rootViewController;
+    }
+}
+
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     
     [super touchesBegan:touches withEvent:event];
     
+    UIViewController * vc = [self topViewController];
+    if (vc != nil)
+    {
+        [vc.view endEditing:YES];
+    }
 }
+
 @end
