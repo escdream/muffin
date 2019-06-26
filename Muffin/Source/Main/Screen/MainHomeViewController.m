@@ -14,6 +14,9 @@
 #import "SongTableViewCell.h"
 
 @interface MainHomeViewController ()
+{
+    SongTableViewCell *playCell;
+}
 
 @end
 
@@ -169,6 +172,7 @@
     if (cell == nil)
     {
         cell = [[SongTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"song_cell"];
+        cell.delegate = (id)self;
     }
     
     SongInfo * muffinInfo;
@@ -186,6 +190,9 @@
         muffinInfo = arrAll[indexPath.row];
     }
 
+    cell.showFavorite = (indexPath.row % 2) == 0;
+
+    
     cell.songInfo = muffinInfo;
 
     
@@ -193,11 +200,33 @@
 }
 
 
+- (void) onSongPlayInfo:(SongTableViewCell *)cell songInfo:(SongInfo *) songInfo isPlaying:(BOOL) isPlaying;
+{
+    if (isPlaying)
+    {
+        if (playCell != cell)
+        {
+            if (playCell != nil)
+                [playCell stopSong];
+            
+            playCell = cell;
+            [playCell performSelector:@selector(playSong) withObject:nil afterDelay:0.3f];
+        }
+        else
+        {
+            [playCell playSong];
+        }
+    }
+    else
+    {
+        [playCell stopSong];
+        playCell = nil;
+    }
+}
+
 - (void) onRefresh;
 {
-    
     [self initData];
-    
 }
 
 @end
