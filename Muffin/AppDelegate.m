@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "RootViewController.h"
 #import "MainViewController.h"
+#import "MainHomeViewController.h"
 #import "NavigationController.h"
 
 #import "UserViewController.h"
@@ -37,8 +38,9 @@
 
     [self initMuffinData];
 
-    MainScreenViewController * viewController =  [[MainScreenViewController alloc] initWithNibName:@"MainScreenViewController" bundle:nil];
-    
+//    MainScreenViewController * viewController =  [[MainScreenViewController alloc] initWithNibName:@"MainScreenViewController" bundle:nil];
+    MainHomeViewController * viewController =  [[MainHomeViewController alloc] initWithNibName:@"MainHomeViewController" bundle:nil];
+
     NavigationController *navigationController = [[NavigationController alloc]  initWithNavigationBarClass:[TONavigationBar class] toolbarClass:nil];
     
     [navigationController pushViewController:viewController animated:NO];

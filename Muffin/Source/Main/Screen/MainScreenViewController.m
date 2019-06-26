@@ -78,6 +78,7 @@
         [LoginViewController ShowLoginView:@"" animated:NO];
     }
     
+    self.showMyMenu = FALSE;
 //    [self initUserData];
     
     
@@ -122,8 +123,8 @@
                  
                  [self->arrMakeList addObject:p];
                  
-                 [self.tblInfoList reloadData];
              }
+             [self.tblInfoList reloadData];
          }
          
      }];
@@ -144,8 +145,8 @@
 
                  [self->arrArtistsList addObject:BMUser];
 
-                 [self.tblInfoList reloadData];
              }
+             [self.tblInfoList reloadData];
          }
      }];
     
