@@ -106,7 +106,7 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
-                <imageView userInteractionEnabled="NO" tag="990000" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="user_pho_smp_01.png" translatesAutoresizingMaskIntoConstraints="NO" id="DdY-G0-lwj">
+                <imageView userInteractionEnabled="NO" tag="990000" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="user_pho_smp_01.png" translatesAutoresizingMaskIntoConstraints="NO" id="DdY-G0-lwj" customClass="EDImageView">
                     <rect key="frame" x="16" y="86" width="133" height="132"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>

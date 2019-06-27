@@ -138,6 +138,7 @@
 		B65D87C422C493780047676A /* Favorite.png in Resources */ = {isa = PBXBuildFile; fileRef = B65D87B122C493780047676A /* Favorite.png */; };
 		B65D87C622C496110047676A /* Stop.png in Resources */ = {isa = PBXBuildFile; fileRef = B65D87C522C496100047676A /* Stop.png */; };
 		B65D87C822C4CC580047676A /* JGProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B65D87C722C4CC580047676A /* JGProgressHUD.framework */; };
+		B65D87CF22C4D2C20047676A /* EDImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B65D87CE22C4D2C20047676A /* EDImageView.m */; };
 		B66DE0B9217DDCF500320F3D /* EDBottomButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = B66DE0B8217DDCF500320F3D /* EDBottomButtonView.m */; };
 		B675264B217D67360059B61D /* libAMSLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B643EDC8212FE64B00963B98 /* libAMSLibrary.a */; settings = {ATTRIBUTES = (Weak, ); }; };
 		B6B355F02162034B006FC18C /* util_icon_back.png in Resources */ = {isa = PBXBuildFile; fileRef = B6B355BB21620340006FC18C /* util_icon_back.png */; };
@@ -532,6 +533,8 @@
 		B65D87B122C493780047676A /* Favorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Favorite.png; sourceTree = "<group>"; };
 		B65D87C522C496100047676A /* Stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Stop.png; sourceTree = "<group>"; };
 		B65D87C722C4CC580047676A /* JGProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JGProgressHUD.framework; path = Muffin/Library/ExtLib/JGProgressHUD.framework; sourceTree = SOURCE_ROOT; };
+		B65D87CD22C4D2C20047676A /* EDImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDImageView.h; sourceTree = "<group>"; };
+		B65D87CE22C4D2C20047676A /* EDImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDImageView.m; sourceTree = "<group>"; };
 		B66DE0B7217DDCF500320F3D /* EDBottomButtonView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDBottomButtonView.h; sourceTree = "<group>"; };
 		B66DE0B8217DDCF500320F3D /* EDBottomButtonView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDBottomButtonView.m; sourceTree = "<group>"; };
 		B6B355BB21620340006FC18C /* util_icon_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = util_icon_back.png; path = Muffin/Resource/img/util_icon_back.png; sourceTree = SOURCE_ROOT; };
@@ -1252,6 +1255,8 @@
 				B6F3022F21CE0A5C0053E734 /* EDTextField.m */,
 				B6F3023121CE0A710053E734 /* EDTextView.h */,
 				B6F3023221CE0A710053E734 /* EDTextView.m */,
+				B65D87CD22C4D2C20047676A /* EDImageView.h */,
+				B65D87CE22C4D2C20047676A /* EDImageView.m */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -1766,6 +1771,7 @@
 				B643ED19212FC8AE00963B98 /* AFHTTPRequestOperation.m in Sources */,
 				B6F7AAB822B255F90043483F /* UserInfoViewController.m in Sources */,
 				B6F7AA9222B255F90043483F /* PopupViewController.m in Sources */,
+				B65D87CF22C4D2C20047676A /* EDImageView.m in Sources */,
 				B6F7AAA322B255F90043483F /* FileUploadViewController.m in Sources */,
 				B643EDA6212FDCE300963B98 /* SBJsonBase.m in Sources */,
 				B6F7AAAE22B255F90043483F /* ChooseNavigationController.m in Sources */,

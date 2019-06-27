@@ -3257,10 +3257,38 @@ CGColorSpaceRef GetDeviceRGBColorSpace(BOOL isrelease)
 
 + (void)iosScaleRect:(UIView *)target;
 {
-    CGRect r = CGRectMake([self iosScaleX:target.frame.origin.x],
-                          [self iosScaleY:target.frame.origin.y],
-                          [self iosScaleX:target.frame.size.width],
-                          [self iosScaleY:target.frame.size.height]);
+    CGRect r;
+    
+    if ([target isKindOfClass:NSClassFromString(@"EDImageView")] || target.tag == -500000)
+    {
+        
+        CGFloat sx = target.frame.origin.x;
+        CGFloat sy = target.frame.origin.y;
+        
+        r = CGRectMake([self iosScaleX:target.frame.origin.x],
+                              [self iosScaleY:target.frame.origin.y],
+                              [self iosScaleX:target.frame.size.width],
+                              [self iosScaleY:target.frame.size.height]);
+        
+        sx = sx + (r.origin.x - sx) / 2;
+        sy = sy + ((r.origin.y - sy) + (r.size.height - target.frame.size.height)) / 2;
+
+        r.origin.x = sx;
+        r.origin.y = sy;
+        r.size.width = [self iosScaleX:target.frame.size.width];
+        r.size.height = [self iosScaleX:target.frame.size.height];
+        
+        
+    }
+    else
+    {
+    
+         r = CGRectMake([self iosScaleX:target.frame.origin.x],
+                              [self iosScaleY:target.frame.origin.y],
+                              [self iosScaleX:target.frame.size.width],
+                              [self iosScaleY:target.frame.size.height]);
+    
+    }
     
     target.frame = r;
 }
