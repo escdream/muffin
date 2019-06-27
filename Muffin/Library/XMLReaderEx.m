@@ -7,6 +7,7 @@
 //
 
 #import "XMLReaderEx.h"
+@import JGProgressHUD;
 
 NSString *const kXMLReaderExTextNodeKey = @"text";
 

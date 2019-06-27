@@ -115,6 +115,29 @@
 		B65B562C22C3312400615BFE /* MainHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B65B562A22C3312400615BFE /* MainHomeViewController.m */; };
 		B65B562D22C3312400615BFE /* MainHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B65B562B22C3312400615BFE /* MainHomeViewController.xib */; };
 		B65D879822C35FFB0047676A /* SongTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B65D879722C35FFB0047676A /* SongTableViewCell.m */; };
+		B65D879C22C48F0C0047676A /* MFAudioPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = B65D879A22C48F0C0047676A /* MFAudioPlayerController.m */; };
+		B65D879D22C48F0C0047676A /* MFAudioPlayerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B65D879B22C48F0C0047676A /* MFAudioPlayerController.xib */; };
+		B65D87B222C493780047676A /* Podcast.png in Resources */ = {isa = PBXBuildFile; fileRef = B65D879F22C493780047676A /* Podcast.png */; };
+		B65D87B322C493780047676A /* Radio.png in Resources */ = {isa = PBXBuildFile; fileRef = B65D87A022C493780047676A /* Radio.png */; };
+		B65D87B422C493780047676A /* Download.png in Resources */ = {isa = PBXBuildFile; fileRef = B65D87A122C493780047676A /* Download.png */; };
+		B65D87B522C493780047676A /* Create Playlist.png in Resources */ = {isa = PBXBuildFile; fileRef = B65D87A222C493780047676A /* Create Playlist.png */; };
+		B65D87B622C493780047676A /* Library.png in Resources */ = {isa = PBXBuildFile; fileRef = B65D87A322C493780047676A /* Library.png */; };
+		B65D87B722C493780047676A /* Repeat.png in Resources */ = {isa = PBXBuildFile; fileRef = B65D87A422C493780047676A /* Repeat.png */; };
+		B65D87B822C493780047676A /* Queue.png in Resources */ = {isa = PBXBuildFile; fileRef = B65D87A522C493780047676A /* Queue.png */; };
+		B65D87B922C493780047676A /* Search.png in Resources */ = {isa = PBXBuildFile; fileRef = B65D87A622C493780047676A /* Search.png */; };
+		B65D87BA22C493780047676A /* Shuffle.png in Resources */ = {isa = PBXBuildFile; fileRef = B65D87A722C493780047676A /* Shuffle.png */; };
+		B65D87BB22C493780047676A /* Pause.png in Resources */ = {isa = PBXBuildFile; fileRef = B65D87A822C493780047676A /* Pause.png */; };
+		B65D87BC22C493780047676A /* Music App Screenshot.png in Resources */ = {isa = PBXBuildFile; fileRef = B65D87A922C493780047676A /* Music App Screenshot.png */; };
+		B65D87BD22C493780047676A /* Album.png in Resources */ = {isa = PBXBuildFile; fileRef = B65D87AA22C493780047676A /* Album.png */; };
+		B65D87BE22C493780047676A /* Delete.png in Resources */ = {isa = PBXBuildFile; fileRef = B65D87AB22C493780047676A /* Delete.png */; };
+		B65D87BF22C493780047676A /* Repeat One.png in Resources */ = {isa = PBXBuildFile; fileRef = B65D87AC22C493780047676A /* Repeat One.png */; };
+		B65D87C022C493780047676A /* Next.png in Resources */ = {isa = PBXBuildFile; fileRef = B65D87AD22C493780047676A /* Next.png */; };
+		B65D87C122C493780047676A /* Notification.png in Resources */ = {isa = PBXBuildFile; fileRef = B65D87AE22C493780047676A /* Notification.png */; };
+		B65D87C222C493780047676A /* Play.png in Resources */ = {isa = PBXBuildFile; fileRef = B65D87AF22C493780047676A /* Play.png */; };
+		B65D87C322C493780047676A /* Previous.png in Resources */ = {isa = PBXBuildFile; fileRef = B65D87B022C493780047676A /* Previous.png */; };
+		B65D87C422C493780047676A /* Favorite.png in Resources */ = {isa = PBXBuildFile; fileRef = B65D87B122C493780047676A /* Favorite.png */; };
+		B65D87C622C496110047676A /* Stop.png in Resources */ = {isa = PBXBuildFile; fileRef = B65D87C522C496100047676A /* Stop.png */; };
+		B65D87C822C4CC580047676A /* JGProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B65D87C722C4CC580047676A /* JGProgressHUD.framework */; };
 		B66DE0B9217DDCF500320F3D /* EDBottomButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = B66DE0B8217DDCF500320F3D /* EDBottomButtonView.m */; };
 		B675264B217D67360059B61D /* libAMSLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B643EDC8212FE64B00963B98 /* libAMSLibrary.a */; settings = {ATTRIBUTES = (Weak, ); }; };
 		B6B355F02162034B006FC18C /* util_icon_back.png in Resources */ = {isa = PBXBuildFile; fileRef = B6B355BB21620340006FC18C /* util_icon_back.png */; };
@@ -485,6 +508,30 @@
 		B65B562B22C3312400615BFE /* MainHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainHomeViewController.xib; sourceTree = "<group>"; };
 		B65D879622C35FFB0047676A /* SongTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SongTableViewCell.h; sourceTree = "<group>"; };
 		B65D879722C35FFB0047676A /* SongTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SongTableViewCell.m; sourceTree = "<group>"; };
+		B65D879922C48F0C0047676A /* MFAudioPlayerController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFAudioPlayerController.h; sourceTree = "<group>"; };
+		B65D879A22C48F0C0047676A /* MFAudioPlayerController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MFAudioPlayerController.m; sourceTree = "<group>"; };
+		B65D879B22C48F0C0047676A /* MFAudioPlayerController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MFAudioPlayerController.xib; sourceTree = "<group>"; };
+		B65D879F22C493780047676A /* Podcast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Podcast.png; sourceTree = "<group>"; };
+		B65D87A022C493780047676A /* Radio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Radio.png; sourceTree = "<group>"; };
+		B65D87A122C493780047676A /* Download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Download.png; sourceTree = "<group>"; };
+		B65D87A222C493780047676A /* Create Playlist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Create Playlist.png"; sourceTree = "<group>"; };
+		B65D87A322C493780047676A /* Library.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Library.png; sourceTree = "<group>"; };
+		B65D87A422C493780047676A /* Repeat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Repeat.png; sourceTree = "<group>"; };
+		B65D87A522C493780047676A /* Queue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Queue.png; sourceTree = "<group>"; };
+		B65D87A622C493780047676A /* Search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Search.png; sourceTree = "<group>"; };
+		B65D87A722C493780047676A /* Shuffle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Shuffle.png; sourceTree = "<group>"; };
+		B65D87A822C493780047676A /* Pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pause.png; sourceTree = "<group>"; };
+		B65D87A922C493780047676A /* Music App Screenshot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Music App Screenshot.png"; sourceTree = "<group>"; };
+		B65D87AA22C493780047676A /* Album.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Album.png; sourceTree = "<group>"; };
+		B65D87AB22C493780047676A /* Delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Delete.png; sourceTree = "<group>"; };
+		B65D87AC22C493780047676A /* Repeat One.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Repeat One.png"; sourceTree = "<group>"; };
+		B65D87AD22C493780047676A /* Next.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Next.png; sourceTree = "<group>"; };
+		B65D87AE22C493780047676A /* Notification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Notification.png; sourceTree = "<group>"; };
+		B65D87AF22C493780047676A /* Play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Play.png; sourceTree = "<group>"; };
+		B65D87B022C493780047676A /* Previous.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Previous.png; sourceTree = "<group>"; };
+		B65D87B122C493780047676A /* Favorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Favorite.png; sourceTree = "<group>"; };
+		B65D87C522C496100047676A /* Stop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Stop.png; sourceTree = "<group>"; };
+		B65D87C722C4CC580047676A /* JGProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JGProgressHUD.framework; path = Muffin/Library/ExtLib/JGProgressHUD.framework; sourceTree = SOURCE_ROOT; };
 		B66DE0B7217DDCF500320F3D /* EDBottomButtonView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDBottomButtonView.h; sourceTree = "<group>"; };
 		B66DE0B8217DDCF500320F3D /* EDBottomButtonView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDBottomButtonView.m; sourceTree = "<group>"; };
 		B6B355BB21620340006FC18C /* util_icon_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = util_icon_back.png; path = Muffin/Resource/img/util_icon_back.png; sourceTree = SOURCE_ROOT; };
@@ -690,6 +737,7 @@
 				B63AC153213E814800C45F83 /* CoreGraphics.framework in Frameworks */,
 				B63AC151213E813900C45F83 /* SystemConfiguration.framework in Frameworks */,
 				B6C60C5821424B140033B7B3 /* FBSDKLoginKit.framework in Frameworks */,
+				B65D87C822C4CC580047676A /* JGProgressHUD.framework in Frameworks */,
 				B63AC14F213E812F00C45F83 /* AudioToolbox.framework in Frameworks */,
 				B643EDC6212FE55600963B98 /* AVFoundation.framework in Frameworks */,
 				B643ED94212FDCC900963B98 /* QuartzCore.framework in Frameworks */,
@@ -816,6 +864,7 @@
 		B643ECE8212FC8AE00963B98 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				B65D87C722C4CC580047676A /* JGProgressHUD.framework */,
 				B6F7AA2B22B1096A0043483F /* TONavigationBar */,
 				B6F7AA0522B109280043483F /* LGAlertView */,
 				B63AC11D213E7C5F00C45F83 /* StreamingKit */,
@@ -893,6 +942,7 @@
 		B643ED28212FC94300963B98 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				B65D879E22C493780047676A /* Player */,
 				B6F7AA3822B10AAB0043483F /* airplane.aac */,
 				B6F7AA3922B10AAB0043483F /* sample.m4a */,
 				B6B355BA2162032B006FC18C /* Img */,
@@ -1050,6 +1100,33 @@
 				B643EDA2212FDCE300963B98 /* SBJSON.h */,
 			);
 			path = JSON;
+			sourceTree = "<group>";
+		};
+		B65D879E22C493780047676A /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				B65D87C522C496100047676A /* Stop.png */,
+				B65D879F22C493780047676A /* Podcast.png */,
+				B65D87A022C493780047676A /* Radio.png */,
+				B65D87A122C493780047676A /* Download.png */,
+				B65D87A222C493780047676A /* Create Playlist.png */,
+				B65D87A322C493780047676A /* Library.png */,
+				B65D87A422C493780047676A /* Repeat.png */,
+				B65D87A522C493780047676A /* Queue.png */,
+				B65D87A622C493780047676A /* Search.png */,
+				B65D87A722C493780047676A /* Shuffle.png */,
+				B65D87A822C493780047676A /* Pause.png */,
+				B65D87A922C493780047676A /* Music App Screenshot.png */,
+				B65D87AA22C493780047676A /* Album.png */,
+				B65D87AB22C493780047676A /* Delete.png */,
+				B65D87AC22C493780047676A /* Repeat One.png */,
+				B65D87AD22C493780047676A /* Next.png */,
+				B65D87AE22C493780047676A /* Notification.png */,
+				B65D87AF22C493780047676A /* Play.png */,
+				B65D87B022C493780047676A /* Previous.png */,
+				B65D87B122C493780047676A /* Favorite.png */,
+			);
+			path = Player;
 			sourceTree = "<group>";
 		};
 		B6B355BA2162032B006FC18C /* Img */ = {
@@ -1265,6 +1342,9 @@
 				B6F7AA4A22B255F90043483F /* LoginViewController.xib */,
 				B6F7AA4B22B255F90043483F /* LoginViewController.h */,
 				B6F7AA4C22B255F90043483F /* StartupPopupView.xib */,
+				B65D879922C48F0C0047676A /* MFAudioPlayerController.h */,
+				B65D879A22C48F0C0047676A /* MFAudioPlayerController.m */,
+				B65D879B22C48F0C0047676A /* MFAudioPlayerController.xib */,
 			);
 			path = Popup;
 			sourceTree = "<group>";
@@ -1472,11 +1552,14 @@
 				B6F7AA3B22B10AAB0043483F /* sample.m4a in Resources */,
 				3007914422C38BE20030CCAC /* btn_star_n.png in Resources */,
 				B6B355FE2162034C006FC18C /* btn_on.png in Resources */,
+				B65D87BF22C493780047676A /* Repeat One.png in Resources */,
 				B63AC158213EA37F00C45F83 /* ManInTheMirror.mp3 in Resources */,
+				B65D87B622C493780047676A /* Library.png in Resources */,
 				B6B356012162034C006FC18C /* banner_smp_03.png in Resources */,
 				B6B3560E2162034C006FC18C /* m_open_bg.png in Resources */,
 				B6B3561B2162034C006FC18C /* btn_m_play.png in Resources */,
 				B643EC8D212FC01200963B98 /* LaunchScreen.storyboard in Resources */,
+				B65D87B322C493780047676A /* Radio.png in Resources */,
 				B6B356162162034C006FC18C /* btn_fb_j_main.png in Resources */,
 				B6B355F12162034B006FC18C /* icon_sett.png in Resources */,
 				B6B355F72162034B006FC18C /* l_icon_03.png in Resources */,
@@ -1487,6 +1570,7 @@
 				B6B356122162034C006FC18C /* banner_smp_01.png in Resources */,
 				B6B3561A2162034C006FC18C /* muffin_logo_s_g.png in Resources */,
 				B6B356222162034C006FC18C /* list_btn_do.png in Resources */,
+				B65D87C122C493780047676A /* Notification.png in Resources */,
 				B6B355F32162034B006FC18C /* util_icon_sh.png in Resources */,
 				B6B3561C2162034C006FC18C /* l_icon_01.png in Resources */,
 				B6B3560A2162034C006FC18C /* st_02_on.png in Resources */,
@@ -1494,8 +1578,12 @@
 				B6B355FF2162034C006FC18C /* btn_off.png in Resources */,
 				B6B356112162034C006FC18C /* util_open_menu.png in Resources */,
 				B6B3561F2162034C006FC18C /* dot_line.png in Resources */,
+				B65D879D22C48F0C0047676A /* MFAudioPlayerController.xib in Resources */,
+				B65D87B522C493780047676A /* Create Playlist.png in Resources */,
 				B643EC8A212FC01200963B98 /* Assets.xcassets in Resources */,
+				B65D87C422C493780047676A /* Favorite.png in Resources */,
 				B6F7AA9922B255F90043483F /* TagCollectonViewController.xib in Resources */,
+				B65D87B922C493780047676A /* Search.png in Resources */,
 				B656497322B55C1B001E0E26 /* MyMuffinViewController.xib in Resources */,
 				B6B356172162034C006FC18C /* st_02_off.png in Resources */,
 				B6B3560B2162034C006FC18C /* muffin_logo_s_b.png in Resources */,
@@ -1505,6 +1593,7 @@
 				B6B3560D2162034C006FC18C /* util_d_icon_login.png in Resources */,
 				B6B3560C2162034C006FC18C /* l_icon_02.png in Resources */,
 				B6B356242162034C006FC18C /* st_03_off.png in Resources */,
+				B65D87B222C493780047676A /* Podcast.png in Resources */,
 				B6E0E5992130102F0065E395 /* IMG_0690.png in Resources */,
 				B6B356132162034C006FC18C /* util_icon_login_b.png in Resources */,
 				B63AC0D8213E6CB200C45F83 /* face00.png in Resources */,
@@ -1515,8 +1604,10 @@
 				B643ED2E212FC94400963B98 /* imageRoot.png in Resources */,
 				B6B355F22162034B006FC18C /* list_btn_del.png in Resources */,
 				B6F7AA9422B255F90043483F /* StartupPopupView.xib in Resources */,
+				B65D87BC22C493780047676A /* Music App Screenshot.png in Resources */,
 				B6F7AA9D22B255F90043483F /* UserViewController.xib in Resources */,
 				B6E0E5982130102F0065E395 /* IMG_0692.png in Resources */,
+				B65D87B722C493780047676A /* Repeat.png in Resources */,
 				B6B356032162034C006FC18C /* banner_btn_01.png in Resources */,
 				B6F7AAA522B255F90043483F /* UserListViewController.xib in Resources */,
 				B6B356002162034C006FC18C /* st_03_on.png in Resources */,
@@ -1524,6 +1615,7 @@
 				B63AC0D6213E6C5700C45F83 /* face01.png in Resources */,
 				B6F7AA9522B255F90043483F /* BannerViewController.xib in Resources */,
 				B6F7AAB422B255F90043483F /* UserInfoViewController.xib in Resources */,
+				B65D87BB22C493780047676A /* Pause.png in Resources */,
 				B6B3560F2162034C006FC18C /* list_btn_up.png in Resources */,
 				B6B356072162034C006FC18C /* m_bg.png in Resources */,
 				B6D61EFC217C368600613612 /* ico_tit_back_o.png in Resources */,
@@ -1532,11 +1624,15 @@
 				B6B355F42162034B006FC18C /* list_btn_plu.png in Resources */,
 				B6B356082162034C006FC18C /* banner_icon_01.png in Resources */,
 				B6B356022162034C006FC18C /* util_d_icon_logout.png in Resources */,
+				B65D87C222C493780047676A /* Play.png in Resources */,
 				B6B356182162034C006FC18C /* st_01_on.png in Resources */,
 				B6B3561D2162034C006FC18C /* main_btn_02.png in Resources */,
+				B65D87C022C493780047676A /* Next.png in Resources */,
 				B6F7AA9E22B255F90043483F /* FileUploadViewController.xib in Resources */,
+				B65D87C622C496110047676A /* Stop.png in Resources */,
 				B6F7AA9722B255F90043483F /* MainScreenViewController.xib in Resources */,
 				B6B356152162034C006FC18C /* icon_sh.png in Resources */,
+				B65D87BE22C493780047676A /* Delete.png in Resources */,
 				B6B355F62162034B006FC18C /* icon_arr.png in Resources */,
 				B6E0E5962130102F0065E395 /* IMG_0693.png in Resources */,
 				B6F7AA9322B255F90043483F /* LoginViewController.xib in Resources */,
@@ -1549,12 +1645,17 @@
 				B6B355F02162034B006FC18C /* util_icon_back.png in Resources */,
 				B6F7AAAC22B255F90043483F /* AudioPlayerViewController.xib in Resources */,
 				B6B356202162034C006FC18C /* main_btn_01.png in Resources */,
+				B65D87BD22C493780047676A /* Album.png in Resources */,
+				B65D87B822C493780047676A /* Queue.png in Resources */,
 				B6B355FA2162034C006FC18C /* muffin_logo_s.png in Resources */,
 				B6B356192162034C006FC18C /* btn_s_play.png in Resources */,
 				B6B356092162034C006FC18C /* user_pho_smp_01.png in Resources */,
 				B6E0E59B2130102F0065E395 /* IMG_0694.png in Resources */,
+				B65D87BA22C493780047676A /* Shuffle.png in Resources */,
 				B6B355FC2162034C006FC18C /* m_open_use_smp.png in Resources */,
+				B65D87B422C493780047676A /* Download.png in Resources */,
 				B6E0E5972130102F0065E395 /* IMG_0695.png in Resources */,
+				B65D87C322C493780047676A /* Previous.png in Resources */,
 				B6B356102162034C006FC18C /* user_pho_smp_02.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1645,6 +1746,7 @@
 				B643EDAF212FDEC000963B98 /* LinkData.m in Sources */,
 				B6F7AA2722B109280043483F /* LGAlertViewController.m in Sources */,
 				B636AA42215E722B00C755CB /* PartAskInfo.m in Sources */,
+				B65D879C22C48F0C0047676A /* MFAudioPlayerController.m in Sources */,
 				B643ED23212FC8AE00963B98 /* UIViewController+LGSideMenuController.m in Sources */,
 				B63AC0CE213DFD9D00C45F83 /* UIView+FirstResponder.m in Sources */,
 				B643ED1D212FC8AE00963B98 /* AFJSONRequestOperation.m in Sources */,
@@ -1896,6 +1998,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Muffin/Library/ExtLib/FacebookSDKs-iOS-4",
 					"$(PROJECT_DIR)/Muffin/Framework",
+					"$(PROJECT_DIR)/Muffin/Library/ExtLib",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/Muffin_Prefix.pch";
@@ -1926,6 +2029,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Muffin/Library/ExtLib/FacebookSDKs-iOS-4",
 					"$(PROJECT_DIR)/Muffin/Framework",
+					"$(PROJECT_DIR)/Muffin/Library/ExtLib",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/$(PROJECT_NAME)/Muffin_Prefix.pch";

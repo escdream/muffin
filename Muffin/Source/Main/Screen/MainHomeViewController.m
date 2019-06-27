@@ -12,6 +12,10 @@
 #import "ProjectInfo.h"
 #import "SongInfo.h"
 #import "SongTableViewCell.h"
+#import "STKAudioPlayer.h"
+#import "AudioUtil.h"
+#import "SampleQueueId.h"
+#import "MFAudioPlayerController.h"
 
 @interface MainHomeViewController ()
 {
@@ -52,9 +56,48 @@
         [LoginViewController ShowLoginView:@"" animated:NO];
     }
     
+    
+    [[AudioUtil player] setDelegate:self];
+    
     [self initLayout];
     [self initData];
 
+}
+
+
+/// Raised when the state of the player has changed
+-(void) audioPlayer:(STKAudioPlayer*)audioPlayer stateChanged:(STKAudioPlayerState)state previousState:(STKAudioPlayerState)previousState;
+{
+    NSLog(@"state = %d, previousState=%d ", state, previousState);
+}
+/// Raised when an item has started playing
+-(void) audioPlayer:(STKAudioPlayer*)audioPlayer didStartPlayingQueueItemId:(NSObject*)queueItemId;
+{
+    SampleQueueId* queueId = (SampleQueueId*)queueItemId;
+    
+    NSLog(@"Started: %@", [queueId.url description]);
+}
+/// Raised when an item has finished buffering (may or may not be the currently playing item)
+/// This event may be raised multiple times for the same item if seek is invoked on the player
+-(void) audioPlayer:(STKAudioPlayer*)audioPlayer didFinishBufferingSourceWithQueueItemId:(NSObject*)queueItemId;
+{
+    SampleQueueId* queueId = (SampleQueueId*)queueItemId;
+    NSLog(@"didFinishBufferingSourceWithQueueItemId: %@", [queueId.url description]);
+}
+/// Raised when an item has finished playing
+-(void) audioPlayer:(STKAudioPlayer*)audioPlayer didFinishPlayingQueueItemId:(NSObject*)queueItemId withReason:(STKAudioPlayerStopReason)stopReason andProgress:(double)progress andDuration:(double)duration;
+{
+    SampleQueueId* queueId = (SampleQueueId*)queueItemId;
+    NSLog(@"didFinishPlayingQueueItemId: %@", [queueId.url description]);
+}
+/// Raised when an unexpected and possibly unrecoverable error has occured (usually best to recreate the STKAudioPlauyer)
+-(void) audioPlayer:(STKAudioPlayer*)audioPlayer unexpectedError:(STKAudioPlayerErrorCode)errorCode;
+{
+}
+/// Raised when datasource read stream metadata
+-(void) audioPlayer:(STKAudioPlayer*)audioPlayer didReadStreamMetadata:(NSDictionary*)dictionary;
+{
+    NSLog(@"didReadStream : %@", dictionary);
 }
 
 
@@ -227,6 +270,12 @@
 - (void) onRefresh;
 {
     [self initData];
+}
+- (IBAction)onClickMuffin:(id)sender {
+    MFAudioPlayerController * player = [[MFAudioPlayerController alloc] initWithNibName:@"MFAudioPlayerController" bundle:nil];
+    
+    [self presentViewController:player animated:YES completion:nil];
+    
 }
 
 @end

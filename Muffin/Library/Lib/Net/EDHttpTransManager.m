@@ -8,11 +8,16 @@
 
 #import "EDHttpTransManager.h"
 #import "UIView+Toast.h"
+@import JGProgressHUD;
 
 static EDHttpTransManager * global_httpManager;
 
 
 @implementation EDHttpTransManager
+{
+    JGProgressHUD *progress;
+}
+
 + (EDHttpTransManager *) instance;
 {
     if (global_httpManager == nil)
