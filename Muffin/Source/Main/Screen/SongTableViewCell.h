@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SongInfo.h"
-
+#import "EDAlignableLabel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -27,6 +27,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) SongInfo * songInfo;
 @property (nonatomic, assign) BOOL isPlaying;
 @property (nonatomic, assign) BOOL showFavorite;
+
+@property (nonatomic, strong) EDAlignableLabel * groupName;
+@property (nonatomic, strong) EDAlignableLabel * songName;
 
 - (void) playSong;
 - (void) stopSong;

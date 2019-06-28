@@ -38,6 +38,11 @@
     tblResultNew = [[UITableView alloc] init];
     tblResultAll = [[UITableView alloc] init];
     
+    
+    [tblResultHot setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
+    [tblResultNew setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
+    [tblResultAll setSeparatorStyle:UITableViewCellSeparatorStyleSingleLine];
+
     tblResultHot.delegate = self;
     tblResultNew.delegate = self;
     tblResultAll.delegate = self;
@@ -153,7 +158,13 @@
                  [self->tblResultAll reloadData];
                  [self->tblResultHot reloadData];
                  [self->tblResultNew reloadData];
+                 
              }
+             
+             
+             
+//             ProjectInfo * p
+             
          }];
     }
 ////    else if ([viewType isEqualToString: @"MuffinProject"])
@@ -185,6 +196,7 @@
 //         }];
 //    }
 }
+
 
 
 #pragma mark - UITableViewDataSource

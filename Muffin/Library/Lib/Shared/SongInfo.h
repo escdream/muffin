@@ -20,6 +20,8 @@
 @property (nonatomic, strong) NSString * regDate;
 @property (nonatomic, strong) NSString * progress;
 @property (nonatomic, assign) BOOL bIsSelected;
+@property (nonatomic, strong) UIImage * groupImage;
+
 
 - (id) initWithData:(NSDictionary *) dicData;
 
