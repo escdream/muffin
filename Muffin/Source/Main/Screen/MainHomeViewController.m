@@ -16,6 +16,7 @@
 #import "AudioUtil.h"
 #import "SampleQueueId.h"
 #import "MFAudioPlayerController.h"
+#import "BannerViewController.h"
 
 @interface MainHomeViewController ()
 {
@@ -288,6 +289,10 @@
     
     [self presentViewController:player animated:YES completion:nil];
     
+}
+- (IBAction)onClickBanner:(id)sender {
+//    BannerViewController * banner = [[BannerViewController alloc] initWithNibName:@"BannerViewController" bundle:nil];
+//    [self presentViewController:banner animated:YES completion:nil];
 }
 
 @end
