@@ -743,6 +743,7 @@
 {
     FileUploadViewController * controler = [[FileUploadViewController alloc] initWithNibName:@"FileUploadViewController" bundle:nil];
     controler.delegate = self;
+    controler.showProjecInfo = NO;
     
     if (_btnJoin1.selected)
         controler.sBrowserType = @"mp3";

@@ -30,6 +30,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) NSString *sBrowserType;
 @property (strong, nonatomic) IBOutlet UIButton *btnAlbum;
+@property (strong, nonatomic) IBOutlet UILabel *lbProjectName;
+@property (strong, nonatomic) IBOutlet UILabel *lbProgress;
+@property (strong, nonatomic) IBOutlet UITextField *txtProjectName;
+@property (strong, nonatomic) IBOutlet UITextField *txtProgress;
+@property (nonatomic, assign) BOOL showProjecInfo;
 
 - (IBAction)onUpload:(id)sender;
 - (void)uploadFiles:(id)sender;
