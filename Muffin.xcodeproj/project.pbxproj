@@ -1353,6 +1353,7 @@
 				B65D879922C48F0C0047676A /* MFAudioPlayerController.h */,
 				B65D879A22C48F0C0047676A /* MFAudioPlayerController.m */,
 				B65D879B22C48F0C0047676A /* MFAudioPlayerController.xib */,
+				B6F7AA4E22B255F90043483F /* BannerViewController.xib */,
 			);
 			path = Popup;
 			sourceTree = "<group>";
@@ -1360,7 +1361,6 @@
 		B6F7AA4D22B255F90043483F /* Screen */ = {
 			isa = PBXGroup;
 			children = (
-				B6F7AA4E22B255F90043483F /* BannerViewController.xib */,
 				B65B562922C3312400615BFE /* MainHomeViewController.h */,
 				B65B562A22C3312400615BFE /* MainHomeViewController.m */,
 				B65B562B22C3312400615BFE /* MainHomeViewController.xib */,

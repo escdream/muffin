@@ -750,6 +750,7 @@
         controler.sBrowserType = @"txt";    
     
     [self presentViewController:controler animated:YES completion:nil];
+    controler.showProjecInfo = NO;
 }
 
 -(void) getData:(NSString *)data

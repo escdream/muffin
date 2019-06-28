@@ -1653,6 +1653,7 @@
     {
         FileUploadViewController * controler = [[FileUploadViewController alloc] initWithNibName:@"FileUploadViewController" bundle:nil];
         controler.delegate = self;
+        controler.showProjecInfo = NO;
 
         if (self.btnJoin1.selected)
             controler.sBrowserType = @"mp3";
@@ -1676,6 +1677,7 @@
 - (IBAction)onAddMuffin:(id)sender {
     FileUploadViewController * controler = [[FileUploadViewController alloc] initWithNibName:@"FileUploadViewController" bundle:nil];
     controler.delegate = self;
+    controler.showProjecInfo = YES;
     
     controler.sBrowserType = @"mp3";
     self.btnAddMuffin.selected = YES;
