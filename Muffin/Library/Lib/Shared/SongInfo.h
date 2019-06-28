@@ -19,6 +19,10 @@
 @property (nonatomic, assign) CGFloat MLIKE;
 @property (nonatomic, strong) NSString * regDate;
 @property (nonatomic, strong) NSString * progress;
+@property (nonatomic, strong) NSString * songKind;
+@property (nonatomic, strong) NSString * imageID;
+@property (nonatomic, strong) NSString * imagePath;
+
 @property (nonatomic, assign) BOOL bIsSelected;
 
 - (id) initWithData:(NSDictionary *) dicData;
