@@ -153,10 +153,41 @@
 //    else if ([sBrowserType isEqualToString:@"mp3"])
 //        dataPath = [documentsDirectory stringByAppendingPathComponent:@"/Music"];
 
-    NSArray *arrContents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:dataPath error:nil];
-    
+    NSArray *arr = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:dataPath error:nil];
+    NSMutableArray *arrMutable = [[NSMutableArray alloc]initWithArray:arr];
+    NSMutableArray *arrContents = [[NSMutableArray alloc]init];
+    int x = 0;
+    for (int i=0; i<arrMutable.count; i++)
+    {
+        NSString* ext = [arrMutable[i] pathExtension];
+        
+        if ([sBrowserType isEqualToString:@"mp3"]){
+            if ( [ext isEqualToString:@"mp3"] ){
+                NSString * tmp = [arrMutable objectAtIndex:i];
+                [arrContents insertObject:tmp atIndex:x];
+                x++;
+            }
+        }
+        else if ([sBrowserType isEqualToString:@"image"]){
+            if ( [ext isEqualToString:@"png"] || [ext isEqualToString:@"jpg"] || [ext isEqualToString:@"jpeg"] ){
+                NSString * tmp = [arrMutable objectAtIndex:i];
+                [arrContents insertObject:tmp atIndex:x];
+                x++;
+            }
+        }
+        else if ([sBrowserType isEqualToString:@"txt"]) {
+            if ( ![ext isEqualToString:@"mp3"] && ![ext isEqualToString:@"png"] && ![ext isEqualToString:@"jpg"] && ![ext isEqualToString:@"jpeg"]) {
+                NSString * tmp = [arrMutable objectAtIndex:i];
+                [arrContents insertObject:tmp atIndex:x];
+                x++;
+            }
+        }
+
+    }
+//    NSString* ext = [arrContents[0] pathExtension];
+//    NSLog(@”File extension : %@”, ext);
     [arrFiles removeAllObjects];
-    arrFiles = [[NSMutableArray alloc] initWithArray:arrContents];
+    arrFiles = arrContents;//[[NSMutableArray alloc] initWithArray:arrContents];
 }
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -381,5 +412,33 @@
     imagePickerController.delegate = self;
     [self presentViewController:imagePickerController animated:YES completion:nil];
     
+}
+
+- (void) setShowProjecInfo:(BOOL)showProjecInfo
+{
+    _showProjecInfo = showProjecInfo;
+    
+    if (showProjecInfo)
+    {
+        _lbProjectName.hidden = NO;
+        _lbProgress.hidden = NO;
+        _txtProjectName.hidden = NO;
+        _txtProgress.hidden = NO;
+//        _lbProjectName.hidden = NO;
+//        _lbProgress.hidden = NO;
+//        _txtProjectName.hidden = NO;
+//        _txtProgress.hidden = NO;
+    }
+    else
+    {
+        self.lbProjectName.hidden = YES;
+        self.lbProgress.hidden = YES;
+        self.txtProjectName.hidden = YES;
+        self.txtProgress.hidden = YES;
+//        _lbProjectName.hidden = YES;
+//        _lbProgress.hidden = YES;
+//        _txtProjectName.hidden = YES;
+//        _txtProgress.hidden = YES;
+    }
 }
 @end
