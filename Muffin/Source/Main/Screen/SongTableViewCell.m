@@ -14,6 +14,7 @@
 #import "SampleQueueId.h"
 #import "CommonFileUtil.h"
 #import "CommonUtil.h"
+#import "MFAudioPlayerController.h"
 
 @implementation SongTableViewCell
 {
@@ -282,6 +283,15 @@
 
 - (void) play
 {
+    MFAudioPlayerController * player = [[MFAudioPlayerController alloc] initWithNibName:@"MFAudioPlayerController" bundle:nil];
+    UIWindow *window = UIApplication.sharedApplication.delegate.window;
+    
+    [window.rootViewController presentViewController:player animated:YES completion:nil];
+    player.songInfo = _songInfo;
+
+    return;
+    
+    
     if (_isPlaying == NO)
     {
         SongInfo * muffinInfo = _songInfo;
