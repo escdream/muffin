@@ -12,6 +12,8 @@
 #import <AVFoundation/AVFoundation.h>
 #import "AudioUtil.h"
 #import "SampleQueueId.h"
+#import "CommonFileUtil.h"
+#import "CommonUtil.h"
 
 @implementation SongTableViewCell
 {
@@ -162,20 +164,37 @@
 }
 
 
+
 -(void) getGroupImage//:(UIImageView *) imageView groupID:(NSString *) groupID
 {
-    if (_songInfo.groupImage != nil)
+    
+    
+    NSString *sLocalPath =  [NSString stringWithFormat:@"%@/image/group/", [CommonFileUtil getDocumentPath]];
+    NSString *slocalName = [NSString stringWithFormat:@"%@%@", sLocalPath, _songInfo.imageID];
+    
+    
+    
+    if (_songInfo.imageID != nil && ![_songInfo.imageID isEqualToString:@""])
     {
-//        thumbImage.image = _songInfo.groupImage;
-
-        return;
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        
+        if (![fileManager fileExistsAtPath:sLocalPath])
+        {
+            BOOL bRet = [fileManager createDirectoryAtPath:sLocalPath withIntermediateDirectories:TRUE attributes:nil error:nil];
+        
+            NSLog(@"craete image_g = %d", bRet);
+        }
+        if ([[NSFileManager defaultManager]fileExistsAtPath:slocalName])
+        {
+            thumbImage.image = [UIImage imageWithContentsOfFile:slocalName];
+            return;
+        }
     }
     
     NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
     
     dic[@"Function"] = @"GroupInfo_Select";
     dic[@"GroupId"] = _songInfo.groupID;
-    //    dic[@"UserId"] = [UserInfo instance].userID;
     [[EDHttpTransManager instance] callProjectInfo:dic withBlack:^(id result, NSError * error)
      {
          if (result != nil)
@@ -190,15 +209,34 @@
                  
                  NSString * iName = [NSString stringWithFormat:@"%@%@", imgPath, imgName];
                  
-                     NSURL *urlImage = [NSURL URLWithString:iName];
-                     NSData *dataImage = [NSData dataWithContentsOfURL:urlImage];
-                     // 데이터가 정상적으로 읽혔는지 확인한다. 네트워크가 연결되지 않았다면 nil이다.
-                     if(dataImage)
-                     {
-                         thumbImage.image = [UIImage imageWithData:dataImage];
-                         _songInfo.groupImage = dataImage;
-                     }
+                 NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
+                 
+                 NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfig delegate:self delegateQueue:nil];
+                 
+                 NSURLSessionDownloadTask *getImageTask = [session downloadTaskWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:iName]] completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                     dispatch_async(dispatch_get_main_queue(), ^{
+                         
+                         UIImage *downloadedImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:location]];
+                         if(downloadedImage)
+                         {
+                             self->thumbImage.image = downloadedImage;// [UIImage imageWithData:dataImage];
 
+                             self.songInfo.groupImage = downloadedImage;
+                             
+                             self.songInfo.imageID = imgName;
+                             NSString *slocalName = [NSString stringWithFormat:@"%@%@", sLocalPath, self.songInfo.imageID];
+
+                             
+                             self->thumbImage.image = [CommonUtil resizeImage:self->thumbImage.image width:150 height:150];
+                             NSData * saveImage = [NSData dataWithData:UIImagePNGRepresentation(self->thumbImage.image)];
+                             [saveImage writeToFile:slocalName atomically:YES];
+                             
+                         }
+
+                     });
+                 }];
+                 
+                 [getImageTask resume];
              }
          }
      }];

@@ -25,6 +25,7 @@
 
 @property (nonatomic, assign) BOOL bIsSelected;
 @property (nonatomic, strong) UIImage * groupImage;
+@property (nonatomic, strong) NSString * sLocalPath;
 
 
 - (id) initWithData:(NSDictionary *) dicData;
