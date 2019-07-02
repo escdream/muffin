@@ -164,14 +164,18 @@
 }
 
 
+// group image 처리 샘플..
+// 파일 없을 경우만 다운로드 받아서 크기를 작게해서 저장 후 사용 함.
 
 -(void) getGroupImage//:(UIImageView *) imageView groupID:(NSString *) groupID
 {
-    
+
+    thumbImage.image = [UIImage imageNamed:@"user_pho_smp_01.png"];
+    return;
+
     
     NSString *sLocalPath =  [NSString stringWithFormat:@"%@/image/group/", [CommonFileUtil getDocumentPath]];
     NSString *slocalName = [NSString stringWithFormat:@"%@%@", sLocalPath, _songInfo.imageID];
-    
     
     
     if (_songInfo.imageID != nil && ![_songInfo.imageID isEqualToString:@""])
@@ -274,7 +278,6 @@
     
     [[AudioUtil player] stop];
     _isPlaying = NO;
-
 }
 
 - (void) play
