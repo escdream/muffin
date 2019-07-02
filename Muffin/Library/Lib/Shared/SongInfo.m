@@ -27,6 +27,8 @@
 //        self.MLIKE = dicData[@"MLIKE"]; // --> 확인필요
         self.regDate = dicData[@"RegDate"];
         self.progress = dicData[@"Progress"];
+        self.imageID = dicData[@"imageid"];
+        self.imagePath = dicData[@"imagePath"];
         
     }
     
