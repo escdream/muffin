@@ -159,69 +159,111 @@
 
 - (void) initData
 {
-    NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
-    dic = nil;
-    
+    /*
+     type 1:HOT 2:NEW 3:ALL
+     Kind  01:발라드 02:댄스 03:클래식 04:알앤비 05:락 06:레게 99:전체
+     */
     if ([viewType isEqualToString: @"SearchMuffin"])
     {
-        [[EDHttpTransManager instance] callMuffinInfo:dic withBlack:^(id result, NSError * error)
-         {
-             if (result != nil)
-             {
-                 NSArray * arr = result;
-                 [self->arrAll removeAllObjects];
-                 [self->arrHot removeAllObjects];
-                 [self->arrNew removeAllObjects];
+        [self doSearchMuffin:@"1" muffinKind:@"99"];//HOT
+        [self doSearchMuffin:@"2" muffinKind:@"99"];//NEW
+        [self doSearchMuffin:@"3" muffinKind:@"99"];//ALL
 
-                 for (NSDictionary * dic in arr)
-                 {
-                     SongInfo * muffin = [[SongInfo alloc] initWithData:dic];
-                     
-                     [self->arrAll addObject:muffin];
-                     [self->arrHot addObject:muffin];
-                     [self->arrNew addObject:muffin];
-                 }
-                 
-                 [self->tblResultAll reloadData];
-                 [self->tblResultHot reloadData];
-                 [self->tblResultNew reloadData];
-             }
-         }];
     }
     else if ([viewType isEqualToString: @"MuffinProject"])
     {
-        NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
-        dic = nil;
-        
-//        dic[@"Function"] = @"";
-//        dic[@"UserId"] = [UserInfo instance].userID;
-        
-//        [[EDHttpTransManager instance] callProjectInfo:@"" withBlack:^(id result, NSError * error)
-        [[EDHttpTransManager instance] callProjectInfo:dic withBlack:^(id result, NSError * error)
-         {
-             if (result != nil)
-             {
-                 NSArray * arr = result;
-                 [self->arrAll removeAllObjects];
-                 [self->arrHot removeAllObjects];
-                 [self->arrNew removeAllObjects];
-                 
-                 for (NSDictionary * dic in arr)
-                 {
-                     ProjectInfo * p = [[ProjectInfo alloc] initWithData:dic];
-                     
-                     [self->arrAll addObject:p];
-                     [self->arrHot addObject:p];
-                     [self->arrNew addObject:p];
-                 }
+        [self doSearchMuffinProject:@"1"];//HOT
+//        [self doSearchMuffinProject:@"2"];//NEW
+//        [self doSearchMuffinProject:@"3"];//ALL
+    }
 
-                 [self->tblResultAll reloadData];
-                 [self->tblResultHot reloadData];
-                 [self->tblResultNew reloadData];
+}
+
+- (void)doSearchMuffin:(NSString *)sType muffinKind:(NSString*)sKind{
+    NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
+    dic[@"Function"] = @"SongInfo_SelectWhere";
+    dic[@"Type"] = sType;
+    dic[@"Kind"] = sKind;
+ 
+    [[EDHttpTransManager instance] callMuffinInfo:dic withBlack:^(id result, NSError * error)
+     {
+         if (result != nil)
+         {
+             NSArray * arr = result;
+             
+             if ([sType isEqualToString:@"1"]) {
+                 [self->arrHot removeAllObjects];
+             }
+             else if ([sType isEqualToString:@"2"]) {
+                 [self->arrNew removeAllObjects];
+             }
+             else if ([sType isEqualToString:@"3"]) {
+                 [self->arrAll removeAllObjects];
+             }
+
+             for (NSDictionary * dic in arr)
+             {
+                 SongInfo * muffin = [[SongInfo alloc] initWithData:dic];
+                 
+                 if ([sType isEqualToString:@"1"]) {
+                     [self->arrHot addObject:muffin];
+                 }
+                 else if ([sType isEqualToString:@"2"]) {
+                     [self->arrNew addObject:muffin];
+                 }
+                 else if ([sType isEqualToString:@"3"]) {
+                     [self->arrAll addObject:muffin];
+                 }
              }
              
-         }];
-    }
+             [self->tblResultHot reloadData];
+             [self->tblResultNew reloadData];
+             [self->tblResultAll reloadData];
+         }
+     }];
+}
+
+- (void)doSearchMuffinProject:(NSString *)sType {
+    NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
+    dic = nil;
+//    dic[@"Type"] = sType;
+    
+    [[EDHttpTransManager instance] callProjectInfo:dic withBlack:^(id result, NSError * error)
+     {
+         if (result != nil)
+         {
+             NSArray * arr = result;
+//             if ([sType isEqualToString:@"1"]) {
+                 [self->arrHot removeAllObjects];
+//             }
+//             else if ([sType isEqualToString:@"2"]) {
+                 [self->arrNew removeAllObjects];
+//             }
+//             else if ([sType isEqualToString:@"3"]) {
+                 [self->arrAll removeAllObjects];
+//             }
+
+             for (NSDictionary * dic in arr)
+             {
+                 ProjectInfo * p = [[ProjectInfo alloc] initWithData:dic];
+                 
+                 if ([sType isEqualToString:@"1"]) {
+                     [self->arrHot addObject:p];
+                 }
+                 else if ([sType isEqualToString:@"2"]) {
+                     [self->arrNew addObject:p];
+                 }
+                 else if ([sType isEqualToString:@"3"]) {
+                     [self->arrAll addObject:p];
+                 }
+             }
+
+             [self->tblResultHot reloadData];
+             [self->tblResultNew reloadData];
+             [self->tblResultAll reloadData];
+         }
+         
+     }];
 }
 
 - (void)playMuffin:(UIButton*)sender
@@ -383,13 +425,13 @@
     if (tableView == tblSearch)
         return arrSearch.count;
     
-//    if (tableView == tblResultHot)
+    if (tableView == tblResultHot)
         return arrHot.count;
-//    else if (tableView == tblResultNew)
-//        return arrNew.count;
-//    else
-//        return arrAll.count;
-//
+    else if (tableView == tblResultNew)
+        return arrNew.count;
+    else
+        return arrAll.count;
+
 //    return arrHot.count;
 }
 

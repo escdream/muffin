@@ -284,6 +284,11 @@ static EDHttpTransManager * global_httpManager;
         [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"MusicFileId" sValue:dicCmd[@"MusicFileId"]]];
         [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"PublicYN" sValue:dicCmd[@"PublicYN"]]];
     }
+    else if ( [dicCmd[@"Function"] isEqualToString: @"SongInfo_SelectWhere"] )
+    {
+        [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"Type" sValue:dicCmd[@"Type"]]];
+        [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"SongKind" sValue:dicCmd[@"Kind"]]];
+    }
     else
     {
         [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"GroupId" sValue:dicCmd[@"GroupId"]]];
