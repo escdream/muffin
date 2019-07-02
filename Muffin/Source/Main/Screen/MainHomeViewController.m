@@ -246,8 +246,7 @@
         muffinInfo = arrAll[indexPath.row];
     }
 
-    cell.showFavorite = (indexPath.row % 2) == 0;
-
+    cell.showFavorite = NO;
     
     cell.songInfo = muffinInfo;
 
@@ -288,7 +287,6 @@
     MFAudioPlayerController * player = [[MFAudioPlayerController alloc] initWithNibName:@"MFAudioPlayerController" bundle:nil];
     
     [self presentViewController:player animated:YES completion:nil];
-    
 }
 - (IBAction)onClickBanner:(id)sender {
 //    BannerViewController * banner = [[BannerViewController alloc] initWithNibName:@"BannerViewController" bundle:nil];

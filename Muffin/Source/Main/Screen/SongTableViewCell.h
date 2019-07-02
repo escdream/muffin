@@ -27,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) SongInfo * songInfo;
 @property (nonatomic, assign) BOOL isPlaying;
 @property (nonatomic, assign) BOOL showFavorite;
+@property (nonatomic, strong) NSMutableArray * arrList;
 
 @property (nonatomic, strong) EDAlignableLabel * groupName;
 @property (nonatomic, strong) EDAlignableLabel * songName;

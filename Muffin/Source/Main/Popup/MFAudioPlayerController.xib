@@ -12,6 +12,18 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MFAudioPlayerController">
             <connections>
+                <outlet property="btnNext" destination="HPb-0c-OJs" id="6ee-kM-nRV"/>
+                <outlet property="btnPlay" destination="eku-I8-l2R" id="ztR-nH-AMY"/>
+                <outlet property="btnPlayList" destination="Qvk-Cl-bcu" id="Iib-gH-uXa"/>
+                <outlet property="btnPrev" destination="ALG-OD-KZM" id="JeX-ju-fsc"/>
+                <outlet property="btnStop" destination="vn5-I0-R6n" id="tvP-ai-nme"/>
+                <outlet property="imgGroup" destination="AZa-Is-jjP" id="tlL-9u-6dl"/>
+                <outlet property="lbGroup" destination="adE-n5-4ua" id="nu5-iH-6g2"/>
+                <outlet property="lbTimer" destination="nSL-Oy-l2q" id="n4i-Y0-8HZ"/>
+                <outlet property="lgSongName" destination="vQZ-xx-JBP" id="moR-fJ-5cJ"/>
+                <outlet property="progres1" destination="7bN-no-HY5" id="Tfs-M7-StF"/>
+                <outlet property="progres2" destination="7dc-B1-OuI" id="dgN-6I-hQj"/>
+                <outlet property="slider" destination="4UO-v4-BBc" id="VdT-hi-Loe"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -25,7 +37,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ec8-3S-fiN" customClass="EDRoundView">
-                    <rect key="frame" x="24" y="215" width="325" height="298"/>
+                    <rect key="frame" x="24" y="142" width="325" height="298"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ce7-vP-oDc" customClass="EDRoundView">
@@ -85,15 +97,9 @@
                             <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
                             <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
                             <state key="normal" image="Play.png"/>
-                        </button>
-                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nOs-Ft-SZf">
-                            <rect key="frame" x="70" y="8" width="54" height="43"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
-                            <inset key="imageEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
-                            <state key="normal" image="Pause.png">
-                                <color key="titleColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
-                            </state>
+                            <connections>
+                                <action selector="onPlayClick:" destination="-1" eventType="touchUpInside" id="Npw-Hf-aSG"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPb-0c-OJs">
                             <rect key="frame" x="194" y="8" width="54" height="43"/>
@@ -112,6 +118,9 @@
                             <state key="normal" image="Stop.png">
                                 <color key="titleColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                             </state>
+                            <connections>
+                                <action selector="onStopClick:" destination="-1" eventType="touchUpInside" id="h8o-SY-4zv"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qvk-Cl-bcu">
                             <rect key="frame" x="256" y="6" width="54" height="43"/>
@@ -123,7 +132,7 @@
                             </state>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="radius">
                             <real key="value" value="10"/>
@@ -132,26 +141,26 @@
                             <real key="value" value="1"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                            <color key="value" red="0.96620899439999997" green="0.048794420550000002" blue="0.83279380069999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="useShadow" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="csx-JE-cIK">
-                    <rect key="frame" x="25" y="80" width="325" height="88"/>
+                    <rect key="frame" x="26" y="29" width="325" height="88"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="adE-n5-4ua">
-                            <rect key="frame" x="19" y="18" width="42" height="21"/>
+                            <rect key="frame" x="19" y="18" width="306" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vQZ-xx-JBP">
-                            <rect key="frame" x="19" y="58" width="42" height="21"/>
+                            <rect key="frame" x="19" y="55" width="306" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="28"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </label>
@@ -168,9 +177,28 @@
                         <action selector="onCloseClick:" destination="-1" eventType="touchUpInside" id="1qj-HJ-lZ9"/>
                     </connections>
                 </button>
-                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lE7-qs-6Fg">
-                    <rect key="frame" x="25" y="560" width="324" height="2"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSL-Oy-l2q">
+                    <rect key="frame" x="25" y="487" width="323" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="4UO-v4-BBc">
+                    <rect key="frame" x="24" y="527" width="326" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <connections>
+                        <action selector="onSlideChange:" destination="-1" eventType="valueChanged" id="xtn-GQ-Xp1"/>
+                    </connections>
+                </slider>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7bN-no-HY5">
+                    <rect key="frame" x="198" y="460" width="150" height="2"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </progressView>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="7dc-B1-OuI">
+                    <rect key="frame" x="198" y="464" width="150" height="3"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="progressTintColor" red="0.96620899439999997" green="0.048794420550000002" blue="0.83279380069999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                 </progressView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -180,7 +208,6 @@
     </objects>
     <resources>
         <image name="Next.png" width="72" height="44"/>
-        <image name="Pause.png" width="42" height="72"/>
         <image name="Play.png" width="64" height="72"/>
         <image name="Previous.png" width="74" height="44"/>
         <image name="Queue.png" width="72" height="72"/>
