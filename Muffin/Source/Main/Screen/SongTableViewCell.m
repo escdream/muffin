@@ -283,14 +283,16 @@
 
 - (void) play
 {
-    MFAudioPlayerController * player = [[MFAudioPlayerController alloc] initWithNibName:@"MFAudioPlayerController" bundle:nil];
-    UIWindow *window = UIApplication.sharedApplication.delegate.window;
-    
-    [window.rootViewController presentViewController:player animated:YES completion:nil];
-    player.songInfo = _songInfo;
+    if (_showPlayer)
+    {
+        MFAudioPlayerController * player = [[MFAudioPlayerController alloc] initWithNibName:@"MFAudioPlayerController" bundle:nil];
+        UIWindow *window = UIApplication.sharedApplication.delegate.window;
+        
+        [window.rootViewController presentViewController:player animated:YES completion:nil];
+        player.songInfo = _songInfo;
 
-    return;
-    
+        return;
+    }
     
     if (_isPlaying == NO)
     {

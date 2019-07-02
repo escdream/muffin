@@ -31,6 +31,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) EDAlignableLabel * groupName;
 @property (nonatomic, strong) EDAlignableLabel * songName;
+@property (nonatomic, assign) BOOL showPlayer;
+
 
 - (void) playSong;
 - (void) stopSong;

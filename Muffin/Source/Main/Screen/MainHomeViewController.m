@@ -17,6 +17,8 @@
 #import "SampleQueueId.h"
 #import "MFAudioPlayerController.h"
 #import "BannerViewController.h"
+#import "ProjectMakeController.h"
+#import "BannerViewController.h"
 
 @interface MainHomeViewController ()
 {
@@ -247,6 +249,7 @@
     }
 
     cell.showFavorite = NO;
+    cell.showPlayer   = YES;
     
     cell.songInfo = muffinInfo;
 
@@ -284,13 +287,27 @@
     [self initData];
 }
 - (IBAction)onClickMuffin:(id)sender {
-    MFAudioPlayerController * player = [[MFAudioPlayerController alloc] initWithNibName:@"MFAudioPlayerController" bundle:nil];
     
-    [self presentViewController:player animated:YES completion:nil];
+    ProjectMakeController * viewController =  [[ProjectMakeController alloc] initWithNibName:@"ProjectMakeController" bundle:nil];
+    
+    //    NavigationController *navigationController = [[NavigationController alloc]  initWithNavigationBarClass:[TONavigationBar class] toolbarClass:nil];
+    //
+    //    [navigationController pushViewController:viewController animated:NO];
+    
+//    [self openController:viewController];
+
+    
+    
+    ///MFAudioPlayerController * player = [[MFAudioPlayerController alloc] initWithNibName:@"MFAudioPlayerController" bundle:nil];
+    
+    
+    [self.navigationController  pushViewController:viewController animated:YES];
+    
+//    [self presentViewController:viewController animated:YES completion:nil];
 }
 - (IBAction)onClickBanner:(id)sender {
-//    BannerViewController * banner = [[BannerViewController alloc] initWithNibName:@"BannerViewController" bundle:nil];
-//    [self presentViewController:banner animated:YES completion:nil];
+    BannerViewController * banner = [[BannerViewController alloc] initWithNibName:@"BannerViewController" bundle:nil];
+    [self.navigationController  pushViewController:banner animated:YES];
 }
 
 @end
