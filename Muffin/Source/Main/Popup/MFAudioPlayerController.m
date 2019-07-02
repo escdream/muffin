@@ -50,21 +50,22 @@
     _songInfo = songInfo;
     
     
-    _lbGroup.text = _songInfo.groupName;
-    _lgSongName.text = _songInfo.songName;
     
     _imgGroup.image = [UIImage imageNamed:@"user_pho_smp_01.png"];
     _slider.value = 0;
     _slider.minimumValue = 0;
     _slider.maximumValue = 0;
     
-    _lbTimer.text = @"";
-    _lbGroup.text = @"";
-    _lgSongName.text = @"";
+    _lbGroup.text = _songInfo.groupName;
+    _lgSongName.text = _songInfo.songName;
     
     
     _progres1.progress = 0.0;
     _progres2.progress = 0.0;
+    
+    _btnNext.enabled = NO;
+    _btnPrev.enabled = NO;
+    _btnPlayList.enabled = NO;
 }
 
 
