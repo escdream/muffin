@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3007914422C38BE20030CCAC /* btn_star_n.png in Resources */ = {isa = PBXBuildFile; fileRef = 3007914222C38BE10030CCAC /* btn_star_n.png */; };
 		3007914522C38BE20030CCAC /* btn_star_o.png in Resources */ = {isa = PBXBuildFile; fileRef = 3007914322C38BE10030CCAC /* btn_star_o.png */; };
+		B6204FDE22CC95C60004AAEE /* EDSpectrumView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6204FDD22CC95C60004AAEE /* EDSpectrumView.m */; };
 		B6309C5A22B256FF007A2942 /* AudioPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6309C5822B256FF007A2942 /* AudioPlayerView.m */; };
 		B6309C5B22B256FF007A2942 /* SampleQueueId.m in Sources */ = {isa = PBXBuildFile; fileRef = B6309C5922B256FF007A2942 /* SampleQueueId.m */; };
 		B636AA30215E704F00C755CB /* SongInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B636AA2F215E704F00C755CB /* SongInfo.m */; };
@@ -299,6 +300,8 @@
 /* Begin PBXFileReference section */
 		3007914222C38BE10030CCAC /* btn_star_n.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_star_n.png; sourceTree = "<group>"; };
 		3007914322C38BE10030CCAC /* btn_star_o.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_star_o.png; sourceTree = "<group>"; };
+		B6204FDC22CC95C60004AAEE /* EDSpectrumView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EDSpectrumView.h; path = Muffin/Library/Lib/Control/EDSpectrumView.h; sourceTree = SOURCE_ROOT; };
+		B6204FDD22CC95C60004AAEE /* EDSpectrumView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EDSpectrumView.m; path = Muffin/Library/Lib/Control/EDSpectrumView.m; sourceTree = SOURCE_ROOT; };
 		B6309C5622B256FF007A2942 /* SampleQueueId.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleQueueId.h; sourceTree = "<group>"; };
 		B6309C5722B256FF007A2942 /* AudioPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayerView.h; sourceTree = "<group>"; };
 		B6309C5822B256FF007A2942 /* AudioPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayerView.m; sourceTree = "<group>"; };
@@ -1072,6 +1075,8 @@
 		B643ED86212FDCA100963B98 /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				B6204FDC22CC95C60004AAEE /* EDSpectrumView.h */,
+				B6204FDD22CC95C60004AAEE /* EDSpectrumView.m */,
 				B643EDBF212FE48600963B98 /* ResourceManager.h */,
 				B643EDC0212FE48800963B98 /* ResourceManager.m */,
 				B643ED8B212FDCBA00963B98 /* NinePatchImageBlock.h */,
@@ -1707,6 +1712,7 @@
 				B6C8B72321858AC700D821C9 /* ZFTokenField.m in Sources */,
 				B643ED4A212FD06100963B98 /* SingleTon.m in Sources */,
 				B643ED41212FD03A00963B98 /* unzip.c in Sources */,
+				B6204FDE22CC95C60004AAEE /* EDSpectrumView.m in Sources */,
 				B64B480722B3B926001D4B6A /* HangulUtils.m in Sources */,
 				B6BDD3CD213A88E40037CACF /* UserInfo.m in Sources */,
 				B636AA36215E711C00C755CB /* TimeLine.m in Sources */,

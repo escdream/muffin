@@ -12,10 +12,12 @@
 #import <AVFoundation/AVFoundation.h>
 #import "AudioUtil.h"
 #import "SampleQueueId.h"
+#import "EDSpectrumView.h"
 
 @interface MFAudioPlayerController ()
 {
     NSTimer * tmrDuration;
+    EDSpectrumView * meterView;
 }
 
 @end
@@ -26,7 +28,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    meterView = [[EDSpectrumView alloc] initWithCount:25];
 
+    meterView.frame = _viewMeter.bounds;
+
+    [_viewMeter addSubview:meterView];
+    
     _progres1.transform = CGAffineTransformMakeScale(1.0, 2.5);
     _progres2.transform = CGAffineTransformMakeScale(1.0, 2.5);
 }
@@ -182,6 +189,8 @@
         _progres1.progress = (f0+60) / 60;
         _progres2.progress = (f1+60) / 60;
 
+        [meterView appendData:(f1+60) / 60];
+        
 //        _lbTimer.text = [NSString stringWithFormat:@"%@ - %@ (%f-%f)", [self formatTimeFromSeconds:[AudioUtil player].progress], [self formatTimeFromSeconds:[AudioUtil player].duration], f0+60, f1+60];
     }
     else
