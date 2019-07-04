@@ -91,6 +91,9 @@
                             <state key="normal" image="Previous.png">
                                 <color key="titleColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                             </state>
+                            <connections>
+                                <action selector="btnPrevClick:" destination="-1" eventType="touchUpInside" id="DVk-sw-TI3"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eku-I8-l2R">
                             <rect key="frame" x="70" y="7" width="54" height="43"/>
@@ -110,6 +113,9 @@
                             <state key="normal" image="Next.png">
                                 <color key="titleColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                             </state>
+                            <connections>
+                                <action selector="btnNextClick:" destination="-1" eventType="touchUpInside" id="OGA-Fz-yB0"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vn5-I0-R6n">
                             <rect key="frame" x="132" y="6" width="54" height="43"/>
@@ -131,6 +137,9 @@
                             <state key="normal" image="Queue.png">
                                 <color key="titleColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                             </state>
+                            <connections>
+                                <action selector="onPlaylistClick:" destination="-1" eventType="touchUpInside" id="BjB-dY-l3Y"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

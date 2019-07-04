@@ -272,6 +272,15 @@
     
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    
+    [self onLoginClick:nil];
+    
+    return YES;
+}
+
+
 -(void)dismissKeyboard:(id)sender
 {
      [self.view endEditing:YES];
