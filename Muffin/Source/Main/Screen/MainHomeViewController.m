@@ -19,6 +19,7 @@
 #import "BannerViewController.h"
 #import "ProjectMakeController.h"
 #import "BannerViewController.h"
+#import "Muffin-Swift.h"
 
 @interface MainHomeViewController ()
 {
@@ -70,6 +71,8 @@
     [self initLayout];
     [self initData];
 
+    
+    
 }
 
 
@@ -186,6 +189,7 @@
              [self->tblResultHot reloadData];
              [self->tblResultNew reloadData];
              [self->tblResultAll reloadData];
+             
          }
      }];
 }
@@ -234,13 +238,42 @@
     }
 
     cell.showFavorite = NO;
-    cell.showPlayer   = YES;
+    cell.showPlayer   = NO;
     
     cell.songInfo = muffinInfo;
 
     
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    SongInfo * songInfo = nil;
+
+    NSArray * arrList = nil;
+    
+    
+    if (tableView == tblResultHot)
+        arrList = arrHot;
+    else if (tableView == tblResultNew)
+        arrList = arrNew;
+    else
+        arrList = arrAll;
+
+    songInfo = arrList[indexPath.row];
+
+    
+    
+    MFAudioPlayerController * player = [[MFAudioPlayerController alloc] initWithNibName:@"MFAudioPlayerController" bundle:nil];
+    UIWindow *window = UIApplication.sharedApplication.delegate.window;
+
+    [window.rootViewController presentViewController:player animated:YES completion:nil];
+    player.songInfo = songInfo;
+    [player setPlayList:arrList];
+    
+}
+
 
 
 - (void) onSongPlayInfo:(SongTableViewCell *)cell songInfo:(SongInfo *) songInfo isPlaying:(BOOL) isPlaying;

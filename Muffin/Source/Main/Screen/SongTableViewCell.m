@@ -364,4 +364,10 @@
     }
 }
 
+- (void) setShowPlayButton:(BOOL)showPlayButton
+{
+    _showPlayButton = showPlayButton;
+    
+    btnPlay.hidden = !_showPlayButton;
+}
 @end

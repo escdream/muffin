@@ -13,11 +13,13 @@
 #import "AudioUtil.h"
 #import "SampleQueueId.h"
 #import "EDSpectrumView.h"
+#import "Muffin-Swift.h"
 
 @interface MFAudioPlayerController ()
 {
     NSTimer * tmrDuration;
     EDSpectrumView * meterView;
+    int songIndex;
 }
 
 @end
@@ -36,6 +38,7 @@
     
     _progres1.transform = CGAffineTransformMakeScale(1.0, 2.5);
     _progres2.transform = CGAffineTransformMakeScale(1.0, 2.5);
+    
 }
 
 /*
@@ -70,9 +73,10 @@
     _progres1.progress = 0.0;
     _progres2.progress = 0.0;
     
-    _btnNext.enabled = NO;
-    _btnPrev.enabled = NO;
-    _btnPlayList.enabled = NO;
+//    _btnNext.enabled = NO;
+//    _btnPrev.enabled = NO;
+//    _btnPlayList.enabled = NO;
+    [self updateButtonState];
 }
 
 
@@ -133,6 +137,7 @@
 
 
         }
+        [self updateButtonState];
     }
 }
 - (IBAction)onSlideChange:(id)sender {
@@ -166,6 +171,11 @@
 
         _lbTimer.text = @"";
         
+        
+        if (songIndex < arrPlayList.count-1)
+            [self btnNextClick:nil];
+        else
+            [self stopSong];
         return;
     }
     
@@ -226,6 +236,25 @@
     tmrDuration = nil;
 }
 
+- (int) updateSongIndex
+{
+    songIndex = -1;
+    int i = 0;
+    for (SongInfo * song in arrPlayList)
+    {
+        if (song == _songInfo)
+        {
+            songIndex = i;
+            break;
+        }
+    }
+    
+    return songIndex;
+}
+
+
+
+
 - (IBAction)onPlayClick:(id)sender {
     [self playSong];
 }
@@ -234,17 +263,67 @@
 }
 
 
+
 - (void) setPlayList:(id) object;
 {
-    if (arrPlayList != nil)
-    {
-        [arrPlayList removeAllObjects];
-        arrPlayList = nil;
-    }
+    arrPlayList =(NSMutableArray *)object;
+    
+    [self updateSongIndex];
+}
+
+- (IBAction)onPlaylistClick:(id)sender {
     
     
+    PlaylistView * sys = [[PlaylistView alloc] init];
+    
+    sys.delegate = (id)self;
+    sys.arrList = arrPlayList;
+    sys.currentSong = _songInfo;
+    [sys showList:self.view];
     
 }
 
+- (void) getPlaylstWithArrList:(NSArray *) arrList nIndex:(int)nIndex
+{
+    
+    [self stopSong];
+    SongInfo * song = arrList[nIndex];
+    
+    self.songInfo = song;
+    
+    [self performSelector:@selector(playSong) withObject:nil afterDelay:0.3f];
+
+}
+- (IBAction)btnPrevClick:(id)sender {
+    
+    [self stopSong];
+    
+    songIndex--;
+    if (songIndex < 0)
+        songIndex = 0;
+    
+    self.songInfo = arrPlayList[songIndex];
+    
+    [self performSelector:@selector(playSong) withObject:nil afterDelay:0.3f];
+    
+}
+
+- (IBAction)btnNextClick:(id)sender {
+    [self stopSong];
+    
+    songIndex++;
+    if (arrPlayList.count <= songIndex)
+        songIndex = arrPlayList.count-1;
+    self.songInfo = arrPlayList[songIndex];
+    [self performSelector:@selector(playSong) withObject:nil afterDelay:0.3f];
+
+}
+
+
+- (void) updateButtonState
+{
+    _btnPrev.enabled = (songIndex > 0) && (arrPlayList.count > 0);
+    _btnNext.enabled = (songIndex < arrPlayList.count-1) && (arrPlayList.count > 0);
+}
 
 @end
