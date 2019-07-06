@@ -48,6 +48,8 @@ IB_DESIGNABLE
 - (void) addTab:(NSString *) sTitle subView:(UIView *) subView;
 - (void) removeSubViewFromTab:(int) nIndex superView:(UIView *) superView;
 - (void) removeTab:(int) nIndex;
+- (void) doTabClick:(int) nIndex;
+- (NSString*) getTabTitle:(int) nIndex;
 - (void) changeTab:(NSString *) sTitle nIndex:(int) nIndex;
 - (void) calcTabLayouts;
 - (NSString*) currentTabTitle;

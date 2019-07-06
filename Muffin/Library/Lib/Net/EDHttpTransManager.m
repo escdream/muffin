@@ -287,7 +287,7 @@ static EDHttpTransManager * global_httpManager;
     else if ( [dicCmd[@"Function"] isEqualToString: @"SongInfo_SelectWhere"] )
     {
         [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"Type" sValue:dicCmd[@"Type"]]];
-        [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"SongKind" sValue:dicCmd[@"Kind"]]];
+        [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"Kind" sValue:dicCmd[@"Kind"]]];
     }
     else
     {

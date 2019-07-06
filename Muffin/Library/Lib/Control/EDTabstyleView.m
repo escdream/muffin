@@ -87,6 +87,7 @@
     self.underlineColor = [UIColor blackColor];
     self.indicatorColor = [UIColor blackColor];
     self.selectIndex    = 0;
+
     marginWidth = 8.0f;
     
     _borderColor = [UIColor blackColor];
@@ -135,7 +136,6 @@
 {
     UIButton * btn = [[UIButton alloc] init];
     
-//    sTabTitle = sTitle;
     [btn setTitle:sTitle forState:UIControlStateNormal];
     [btn setTitleColor:self.noramlTextColor forState:UIControlStateNormal];
     [btn setTitleColor:self.selectTextColor forState:UIControlStateSelected];
@@ -196,10 +196,18 @@
     [self calcTabLayouts];
 }
 
+- (void) doTabClick:(int) nIndex {
+    [self onTabClick:tabButtonList[nIndex]];
+}
+
+- (NSString*) getTabTitle:(int) nIndex {
+    UIButton * btn = tabButtonList[nIndex];
+    return btn.titleLabel.text;
+}
+
 - (void) changeTab:(NSString *) sTitle nIndex:(int) nIndex
 {
     UIButton * btn = tabButtonList[nIndex];
-//    sTabTitle = sTitle;
     [btn setTitle:sTitle forState:UIControlStateNormal];
 
     [self calcTabLayouts];
@@ -282,7 +290,7 @@
     [self addSubview:tabIndicator];
 }
 
--(void) onTabClick:(UIButton *) btn
+- (void) onTabClick:(UIButton *) btn
 {
     self.selectIndex = btn.tag;
     btn = tabButtonList[self.selectIndex];
