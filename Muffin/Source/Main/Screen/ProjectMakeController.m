@@ -548,11 +548,11 @@
 {
     if ( [self.fldPartAskFileName.text length] < 1 && [self.fldPartAskFileName.text isEqualToString:@""] )
     {
-        NSString *sMsg = @"음원 또는 가사 파일을 선택하십시오.";
-        UIWindow *window = UIApplication.sharedApplication.delegate.window;
-        [window.rootViewController.view makeToast:sMsg];
-        
-        return;
+//        NSString *sMsg = @"음원 또는 가사 파일을 선택하십시오.";
+//        UIWindow *window = UIApplication.sharedApplication.delegate.window;
+//        [window.rootViewController.view makeToast:sMsg];
+//
+//        return;
     }
     
     //이미지 업로드 -> 파일 업로드 수행..
@@ -563,12 +563,20 @@
     }
     else
     {
-        sUploadType = @"File";
-    
-        if (self.btnJoin1.selected)
-            [self doFilesUpload: @"mp3"];
-        else if (self.btnJoin2.selected)
-            [self doFilesUpload: @"txt"];
+        if ( [self.fldPartAskFileName.text length] >= 1 ) {
+            sUploadType = @"File";
+        
+            if (self.btnJoin1.selected)
+                [self doFilesUpload: @"mp3"];
+            else if (self.btnJoin2.selected)
+                [self doFilesUpload: @"txt"];
+        }
+        else {
+            [self doGroupInsert];
+            UIWindow *window = UIApplication.sharedApplication.delegate.window;
+            [window.rootViewController.view makeToast:@"프로젝트 등록이 완료되었습니다."];
+        }
+
     }
 }
 
@@ -902,11 +910,13 @@
         //이미지 업로드 완료되면 -> 파일업로드
         if ([sUploadType isEqualToString:@"Image"])
         {
-            sUploadType = @"File";
-            if (self.btnJoin1.selected)
-                [self doFilesUpload: @"mp3"];
-            else if (self.btnJoin2.selected)
-                [self doFilesUpload: @"txt"];
+            if ( [self.fldPartAskFileName.text length] >= 1 ) {
+                sUploadType = @"File";
+                if (self.btnJoin1.selected)
+                    [self doFilesUpload: @"mp3"];
+                else if (self.btnJoin2.selected)
+                    [self doFilesUpload: @"txt"];
+            }
         }
         else
         {
