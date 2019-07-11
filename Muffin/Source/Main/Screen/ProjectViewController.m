@@ -46,6 +46,7 @@
     UIImageView *maskPrjImage;
     
     NSString *strStatus;
+    NSString *sProgress;
     
     NSMutableArray * arrFiles;
     FTPFileUploder * uploader;
@@ -105,6 +106,15 @@
                      //관리자
                      if ([strAdmin isEqualToString: @"Y"])
                      {
+                         //프로젝트 진행률 완료이면
+                         if ([self->sProgress isEqualToString:@"100"]) {
+                             self.btnProjectComplete.hidden = YES;
+                             self.btnAddMuffin.hidden = YES;
+                         } else {
+                             self.btnProjectComplete.hidden = NO;
+                             self.btnAddMuffin.hidden = NO;
+                         }
+                         
                          //신청리스트 조회
                          NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
                          
@@ -455,6 +465,9 @@
                  {
                      self.imgProject.image = [UIImage imageWithData:dataImage];
                  }
+                 
+                 //프로젝트 진행상태
+                 self->sProgress = dic[@"Progress"];
              }
          }
      }];
@@ -932,6 +945,31 @@
              }];
         }
 //    }
+}
+
+//프로젝트 진행 완료
+- (IBAction)onProjectComplete:(id)sender {
+    NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
+    
+    dic[@"Function"] = @"GroupInfoProgress_Update";
+    dic[@"GroupId"] = self.project.projectID;
+    dic[@"Progress"] = @"100"; //완료: 100
+    
+    [[EDHttpTransManager instance] callProjectCommand:dic withBlack:^(id result, NSError * error)
+     {
+         if (result != nil)
+         {
+             
+         }
+         else
+         {
+             self.btnProjectComplete.hidden = YES;
+             self.btnAddMuffin.hidden = YES;
+             
+             UIWindow *window = UIApplication.sharedApplication.delegate.window;
+             [window.rootViewController.view makeToast:@"프로젝트가 완료되었습니다."];
+         }
+     }];
 }
 
 - (void) onWriteTimelineClick

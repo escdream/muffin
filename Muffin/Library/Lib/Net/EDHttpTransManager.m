@@ -671,6 +671,11 @@ static EDHttpTransManager * global_httpManager;
         [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"GroupKind" sValue:dicCmd[@"GroupKind"]]];
         [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"ImageId" sValue:dicCmd[@"ImageId"]]];
     }
+    else if ([dicCmd[@"Function"] isEqualToString: @"GroupInfoProgress_Update"])
+    {
+        [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"GroupId" sValue:dicCmd[@"GroupId"]]];
+        [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"Progress" sValue:dicCmd[@"Progress"]]];
+    }
     else
     {
         [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"GroupId" sValue:dicCmd[@"GroupId"]]];

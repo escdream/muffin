@@ -51,5 +51,6 @@
 @property (strong, nonatomic) IBOutlet EDRoundButton *btnJoin2;
 @property (strong, nonatomic) IBOutlet UIButton *btnPlayMuffin;
 @property (strong, nonatomic) IBOutlet UIButton *btnAddMuffin;
+@property (weak, nonatomic) IBOutlet EDRoundButton *btnProjectComplete;
 - (id) initWithProject:(ProjectInfo *) aProject;
 @end
