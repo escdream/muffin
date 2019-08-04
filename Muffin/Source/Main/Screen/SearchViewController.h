@@ -39,5 +39,7 @@
 @property (strong, nonatomic) IBOutlet EDRoundButton *btnSearchCase2;
 @property (strong, nonatomic) IBOutlet EDRoundButton *btnSearchCase3;
 @property (strong, nonatomic) IBOutlet EDRoundButton *btnSearchCase4;
+@property (strong, nonatomic) IBOutlet EDRoundButton *btnSearchCase5;
+@property (strong, nonatomic) IBOutlet EDRoundButton *btnSearchCase6;
 
 @end

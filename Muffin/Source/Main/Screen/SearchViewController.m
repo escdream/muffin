@@ -130,19 +130,19 @@
     CGRect sr = [CommonUtil getWindowArea];
     
     CGRect r = _viewGanre.frame;
-    r.origin.y = sr.size.height - r.size.height ;
+    r.origin.y = sr.size.height - r.size.height;
     _viewGanre.frame = r;
 
     r = _viewTabs.frame;
     
-    r.size.height = sr.size.height - (_viewGanre.frame.size.height) - r.origin.y - 40.0f;
+    r.size.height = sr.size.height - (_viewGanre.frame.size.height) - r.origin.y;// - 3.0f;
 
     _viewTabs.frame = r;
     
     
     r = _tabResult.frame;
     
-    r.size.height = _viewTabs.frame.size.height - _viewSearch.frame.size.height - 4.0f;
+    r.size.height = _viewTabs.frame.size.height - _viewSearch.frame.size.height - 12.0f;
     _tabResult.frame = r;
     
 //    [_tabResult addTab:@"Hot"];
@@ -164,6 +164,8 @@
     [_btnSearchCase2 setTitle:@"Dance" forState:UIControlStateNormal];
     [_btnSearchCase3 setTitle:@"Classic" forState:UIControlStateNormal];
     [_btnSearchCase4 setTitle:@"R&B" forState:UIControlStateNormal];
+    [_btnSearchCase5 setTitle:@"Rock" forState:UIControlStateNormal];
+    [_btnSearchCase6 setTitle:@"Reggae" forState:UIControlStateNormal];
 }
 
 - (IBAction)onClickSearchCase1:(id)sender {
@@ -175,7 +177,11 @@
         _btnSearchCase3.selected = NO;
     if(_btnSearchCase4.selected)
         _btnSearchCase4.selected = NO;
-    
+    if(_btnSearchCase5.selected)
+        _btnSearchCase5.selected = NO;
+    if(_btnSearchCase6.selected)
+        _btnSearchCase6.selected = NO;
+
     NSString *tabTitle = [_tabResult currentTabTitle];
     if(_btnSearchCase1.selected){
         if ([tabTitle isEqualToString:@"Hot"] )
@@ -204,6 +210,10 @@
         _btnSearchCase3.selected = NO;
     if(_btnSearchCase4.selected)
         _btnSearchCase4.selected = NO;
+    if(_btnSearchCase5.selected)
+        _btnSearchCase5.selected = NO;
+    if(_btnSearchCase6.selected)
+        _btnSearchCase6.selected = NO;
 
     NSString *tabTitle = [_tabResult currentTabTitle];
     if(_btnSearchCase2.selected){
@@ -234,6 +244,10 @@
         _btnSearchCase2.selected = NO;
     if(_btnSearchCase4.selected)
         _btnSearchCase4.selected = NO;
+    if(_btnSearchCase5.selected)
+        _btnSearchCase5.selected = NO;
+    if(_btnSearchCase6.selected)
+        _btnSearchCase6.selected = NO;
 
     NSString *tabTitle = [_tabResult currentTabTitle];
     if(_btnSearchCase3.selected){
@@ -262,6 +276,10 @@
         _btnSearchCase2.selected = NO;
     if(_btnSearchCase3.selected)
         _btnSearchCase3.selected = NO;
+    if(_btnSearchCase5.selected)
+        _btnSearchCase5.selected = NO;
+    if(_btnSearchCase6.selected)
+        _btnSearchCase6.selected = NO;
 
     NSString *tabTitle = [_tabResult currentTabTitle];
     if(_btnSearchCase4.selected){
@@ -282,6 +300,71 @@
     }
 }
 
+- (IBAction)onClickSearchCase5:(id)sender {
+    _btnSearchCase5.selected = !_btnSearchCase5.selected;
+    
+    if(_btnSearchCase1.selected)
+        _btnSearchCase1.selected = NO;
+    if(_btnSearchCase2.selected)
+        _btnSearchCase2.selected = NO;
+    if(_btnSearchCase3.selected)
+        _btnSearchCase3.selected = NO;
+    if(_btnSearchCase4.selected)
+        _btnSearchCase4.selected = NO;
+    if(_btnSearchCase6.selected)
+        _btnSearchCase6.selected = NO;
+
+    NSString *tabTitle = [_tabResult currentTabTitle];
+    if(_btnSearchCase5.selected){
+        if ([tabTitle isEqualToString:@"Hot"] )
+            [self doSearchMuffin:@"1" muffinKind:@"05"];//Hot, 락
+        else if ([tabTitle isEqualToString:@"New"] )
+            [self doSearchMuffin:@"2" muffinKind:@"05"];//New, 락
+        else
+            [self doSearchMuffin:@"3" muffinKind:@"05"];//All, 락
+    }
+    else {
+        if ([tabTitle isEqualToString:@"Hot"] )
+            [self doSearchMuffin:@"1" muffinKind:@"99"];//Hot,99:전체
+        else if ([tabTitle isEqualToString:@"New"] )
+            [self doSearchMuffin:@"2" muffinKind:@"99"];//New,99:전체
+        else
+            [self doSearchMuffin:@"3" muffinKind:@"99"];//All,99:전체
+    }
+}
+
+- (IBAction)onClickSearchCase6:(id)sender {
+    _btnSearchCase6.selected = !_btnSearchCase6.selected;
+    
+    if(_btnSearchCase1.selected)
+        _btnSearchCase1.selected = NO;
+    if(_btnSearchCase2.selected)
+        _btnSearchCase2.selected = NO;
+    if(_btnSearchCase3.selected)
+        _btnSearchCase3.selected = NO;
+    if(_btnSearchCase4.selected)
+        _btnSearchCase4.selected = NO;
+    if(_btnSearchCase5.selected)
+        _btnSearchCase5.selected = NO;
+
+    NSString *tabTitle = [_tabResult currentTabTitle];
+    if(_btnSearchCase6.selected){
+        if ([tabTitle isEqualToString:@"Hot"] )
+            [self doSearchMuffin:@"1" muffinKind:@"06"];//Hot, 레게
+        else if ([tabTitle isEqualToString:@"New"] )
+            [self doSearchMuffin:@"2" muffinKind:@"06"];//New, 레게
+        else
+            [self doSearchMuffin:@"3" muffinKind:@"06"];//All, 레게
+    }
+    else {
+        if ([tabTitle isEqualToString:@"Hot"] )
+            [self doSearchMuffin:@"1" muffinKind:@"99"];//Hot,99:전체
+        else if ([tabTitle isEqualToString:@"New"] )
+            [self doSearchMuffin:@"2" muffinKind:@"99"];//New,99:전체
+        else
+            [self doSearchMuffin:@"3" muffinKind:@"99"];//All,99:전체
+    }
+}
 - (void) initData
 {
     /*

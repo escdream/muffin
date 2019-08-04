@@ -12,10 +12,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController">
             <connections>
-                <outlet property="btnSearchCase1" destination="iet-Ja-ZGR" id="gQQ-we-hVD"/>
-                <outlet property="btnSearchCase2" destination="PPF-RE-c6i" id="Tum-ux-dtO"/>
-                <outlet property="btnSearchCase3" destination="Hgr-NY-CLz" id="fDz-ql-J9v"/>
-                <outlet property="btnSearchCase4" destination="Wsn-zU-Dnt" id="VzG-JR-n2Z"/>
+                <outlet property="btnSearchCase1" destination="iet-Ja-ZGR" id="M63-1Z-Mcw"/>
+                <outlet property="btnSearchCase2" destination="PPF-RE-c6i" id="OAc-wn-kSK"/>
+                <outlet property="btnSearchCase3" destination="Hgr-NY-CLz" id="7ay-M7-sbd"/>
+                <outlet property="btnSearchCase4" destination="Wsn-zU-Dnt" id="drH-xr-3Aq"/>
+                <outlet property="btnSearchCase5" destination="UHI-It-fbc" id="Zah-ST-MVT"/>
+                <outlet property="btnSearchCase6" destination="BVm-Ee-wR9" id="X0i-6v-xPL"/>
                 <outlet property="tabResult" destination="HvK-NP-Y0T" id="egM-xb-q1a"/>
                 <outlet property="txtSearch" destination="xPK-5e-vW7" id="3Lt-in-X9c"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -57,12 +59,12 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </view>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HvK-NP-Y0T" customClass="EDTabstyleView">
-                            <rect key="frame" x="8" y="46" width="327" height="513"/>
+                            <rect key="frame" x="8" y="54" width="327" height="513"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="color" keyPath="noramlTextColor">
-                                    <color key="value" red="0.53333333333333333" green="0.16862745098039217" blue="0.55686274509803924" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="value" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="color" keyPath="selectTextColor">
                                     <color key="value" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -105,7 +107,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view tag="99000" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gWz-zl-liE">
-                    <rect key="frame" x="16" y="493" width="343" height="154"/>
+                    <rect key="frame" x="16" y="443" width="343" height="193"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="음악 검색 조건" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eoq-T6-HYb">
@@ -140,7 +142,7 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                             <connections>
-                                <action selector="onClickSearchCase1:" destination="-1" eventType="touchUpInside" id="o63-Mm-Ebz"/>
+                                <action selector="onClickSearchCase1:" destination="-1" eventType="touchUpInside" id="Plm-pj-iEf"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PPF-RE-c6i" customClass="EDRoundButton">
@@ -165,7 +167,7 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                             <connections>
-                                <action selector="onClickSearchCase2:" destination="-1" eventType="touchUpInside" id="OEQ-KJ-IPQ"/>
+                                <action selector="onClickSearchCase2:" destination="-1" eventType="touchUpInside" id="K8p-PJ-WMw"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hgr-NY-CLz" customClass="EDRoundButton">
@@ -190,7 +192,7 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                             <connections>
-                                <action selector="onClickSearchCase3:" destination="-1" eventType="touchUpInside" id="A5u-Ic-Dat"/>
+                                <action selector="onClickSearchCase3:" destination="-1" eventType="touchUpInside" id="IH9-Om-NZj"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wsn-zU-Dnt" customClass="EDRoundButton">
@@ -215,7 +217,57 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                             <connections>
-                                <action selector="onClickSearchCase4:" destination="-1" eventType="touchUpInside" id="ucn-RC-ugH"/>
+                                <action selector="onClickSearchCase4:" destination="-1" eventType="touchUpInside" id="SAm-B1-CKH"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UHI-It-fbc" customClass="EDRoundButton">
+                            <rect key="frame" x="8" y="142" width="155" height="40"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Ballard">
+                                <color key="titleColor" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="selected">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                    <real key="value" value="20"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="onClickSearchCase5:" destination="-1" eventType="touchUpInside" id="XtA-0I-vHL"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BVm-Ee-wR9" customClass="EDRoundButton">
+                            <rect key="frame" x="180" y="142" width="155" height="40"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <state key="normal" title="Ballard">
+                                <color key="titleColor" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="selected">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                    <real key="value" value="20"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" red="0.57919406890000003" green="0.1280144453" blue="0.57268613580000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="onClickSearchCase6:" destination="-1" eventType="touchUpInside" id="ofg-hW-aNT"/>
                             </connections>
                         </button>
                     </subviews>
@@ -225,7 +277,7 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-            <point key="canvasLocation" x="34.5" y="-5.5"/>
+            <point key="canvasLocation" x="34.399999999999999" y="-5.8470764617691158"/>
         </view>
     </objects>
     <resources>
