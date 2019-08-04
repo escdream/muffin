@@ -8,7 +8,6 @@
 
 #import "EDBaseViewController.h"
 #import "EDTabstyleView.h"
-#import "STKAudioPlayer.h"
 #import "UserInfoViewController.h"
 #import "EDRoundButton.h"
 

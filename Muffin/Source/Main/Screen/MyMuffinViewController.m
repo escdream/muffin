@@ -15,7 +15,9 @@
 #import "STKAutoRecoveringHTTPDataSource.h"
 #import <AVFoundation/AVFoundation.h>
 #import "AudioUtil.h"
-
+#import "SampleQueueId.h"
+#import "MFAudioPlayerController.h"
+#import "Muffin-Swift.h"
 
 @interface MyMuffinViewController ()
 {
@@ -33,18 +35,11 @@
     // Do any additional setup after loading the view from its nib.
     
     arrMuffin = [[NSMutableArray alloc] init];
+    [[AudioUtil player] setDelegate:self];
+    
     [self initData];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (void) initData
 {
@@ -72,6 +67,31 @@
      }];
 }
 
+/// Raised when the state of the player has changed
+-(void) audioPlayer:(STKAudioPlayer*)audioPlayer stateChanged:(STKAudioPlayerState)state previousState:(STKAudioPlayerState)previousState;
+{
+    NSLog(@"state = %d, previousState=%d ", state, previousState);
+}
+/// Raised when an item has started playing
+-(void) audioPlayer:(STKAudioPlayer*)audioPlayer didStartPlayingQueueItemId:(NSObject*)queueItemId;
+{
+    SampleQueueId* queueId = (SampleQueueId*)queueItemId;
+    
+    NSLog(@"Started: %@", [queueId.url description]);
+}
+/// Raised when an item has finished buffering (may or may not be the currently playing item)
+/// This event may be raised multiple times for the same item if seek is invoked on the player
+-(void) audioPlayer:(STKAudioPlayer*)audioPlayer didFinishBufferingSourceWithQueueItemId:(NSObject*)queueItemId;
+{
+    SampleQueueId* queueId = (SampleQueueId*)queueItemId;
+    NSLog(@"didFinishBufferingSourceWithQueueItemId: %@", [queueId.url description]);
+}
+/// Raised when an item has finished playing
+-(void) audioPlayer:(STKAudioPlayer*)audioPlayer didFinishPlayingQueueItemId:(NSObject*)queueItemId withReason:(STKAudioPlayerStopReason)stopReason andProgress:(double)progress andDuration:(double)duration;
+{
+    SampleQueueId* queueId = (SampleQueueId*)queueItemId;
+    NSLog(@"didFinishPlayingQueueItemId: %@", [queueId.url description]);
+}
 
 #pragma mark - UITableViewDataSource
 
@@ -83,32 +103,31 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section;   // custom view for header. will be adjusted
 {
-
-        UIView * view = [[UIView  alloc] init];
-        
-        view.frame = CGRectMake(0, 0, tableView.frame.size.width, TABLE_HEADER_HEIGHT);
-        
-        view.backgroundColor = [UIColor whiteColor];
-        UILabel * lb = [[UILabel alloc] initWithFrame:view.bounds];
-        
-        lb.font = [[ResourceManager sharedManager] getFontBoldWithSize:18.f];
-        
-        CGRect r = lb.frame;
-        
-        r.origin.x = 10;
-        r.size.width -= 10;
-        
-        lb.frame = r;
-        lb.textColor = RGB(33, 33, 33);
-        
-        [view addSubview:lb];
-        
-        if (section == 0)
-        {
-            lb.text = @"Muffin List";
-        }
-        
-        return view;
+    UIView * view = [[UIView  alloc] init];
+    
+    view.frame = CGRectMake(0, 0, tableView.frame.size.width, TABLE_HEADER_HEIGHT);
+    
+    view.backgroundColor = [UIColor whiteColor];
+    UILabel * lb = [[UILabel alloc] initWithFrame:view.bounds];
+    
+    lb.font = [[ResourceManager sharedManager] getFontBoldWithSize:18.f];
+    
+    CGRect r = lb.frame;
+    
+    r.origin.x = 10;
+    r.size.width -= 10;
+    
+    lb.frame = r;
+    lb.textColor = RGB(33, 33, 33);
+    
+    [view addSubview:lb];
+    
+    if (section == 0)
+    {
+        lb.text = @"Muffin List";
+    }
+    
+    return view;
 
 }
 
@@ -132,9 +151,24 @@
     
     //북마크 버튼 숨기기
     cell.showFavorite = NO;
+    cell.showPlayer   = NO;
     
     cell.songInfo = muffinInfo;
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    SongInfo * songInfo = nil;
+    
+    songInfo = arrMuffin[indexPath.row];
+    
+    MFAudioPlayerController * player = [[MFAudioPlayerController alloc] initWithNibName:@"MFAudioPlayerController" bundle:nil];
+    UIWindow *window = UIApplication.sharedApplication.delegate.window;
+    
+    [window.rootViewController presentViewController:player animated:YES completion:nil];
+    player.songInfo = songInfo;
+    [player setPlayList:arrMuffin];
 }
 
 - (void) onSongPlayInfo:(SongTableViewCell *)cell songInfo:(SongInfo *) songInfo isPlaying:(BOOL) isPlaying;
