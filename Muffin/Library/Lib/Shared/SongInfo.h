@@ -19,7 +19,9 @@
 @property (nonatomic, assign) CGFloat MLIKE;
 @property (nonatomic, strong) NSString * regDate;
 @property (nonatomic, strong) NSString * progress;
+@property (nonatomic, strong) NSString * songType;
 @property (nonatomic, strong) NSString * songKind;
+@property (nonatomic, strong) NSString * songWord;
 @property (nonatomic, strong) NSString * imageID;
 @property (nonatomic, strong) NSString * imagePath;
 
