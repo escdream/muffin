@@ -977,12 +977,13 @@
              //초기화
              [self initControls];
              
-             //관리자 등록 완료 후 화면전환
-             ProjectInfo * projectInfo = [[ProjectInfo alloc] initWithData:dic];
-             ProjectViewController * controler = [[ProjectViewController alloc] initWithProject:projectInfo];
+             //관리자 등록 완료 후 이전 화면으로 전환
+//             ProjectInfo * projectInfo = [[ProjectInfo alloc] initWithData:dic];
+//             ProjectViewController * controler = [[ProjectViewController alloc] initWithProject:projectInfo];
              
              //네이게이션바 뒤로가기 버튼 숨기기 하면 좋을듯......
-             [self.navigationController pushViewController:controler animated:YES];
+//             [self.navigationController pushViewController:controler animated:YES];
+             [self.navigationController popViewControllerAnimated:YES];
          }
          
      }
