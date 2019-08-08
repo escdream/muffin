@@ -36,6 +36,8 @@
 @property (strong, nonatomic) IBOutlet UIView *viewGanre;
 @property (strong, nonatomic) IBOutlet ZFTokenField *viewTags;
 @property (strong, nonatomic) IBOutlet UIView *viewTitleName;
+@property (weak, nonatomic) IBOutlet UIView *viewJoin1;
+@property (weak, nonatomic) IBOutlet UIView *viewJoin2;
 
 @property (assign, nonatomic) int currentStep;
 

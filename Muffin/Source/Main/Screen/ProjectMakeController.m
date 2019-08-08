@@ -71,6 +71,9 @@
     _viewTags.delegate = self;
     _viewTags.dataSource = self;
     
+    _viewJoin1.hidden = NO;
+    _viewJoin2.hidden = YES;
+    
     [tokens addObject:@"#락"];
     [tokens addObject:@"#발라드"];
     [tokens addObject:@"#레게"];
@@ -765,6 +768,17 @@
 {
     _fldPartAskFileName.text = data;
 }
+
+- (IBAction)onBtnJoin1:(id)sender {
+    _viewJoin1.hidden = NO;
+    _viewJoin2.hidden = YES;
+}
+
+- (IBAction)onBtnJoin2:(id)sender {
+    _viewJoin1.hidden = YES;
+    _viewJoin2.hidden = NO;
+}
+
 #pragma mark
 #pragma mark == Generate Random Number
 -(NSString *)getRandomNumber{
