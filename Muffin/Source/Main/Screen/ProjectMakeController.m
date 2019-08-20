@@ -558,7 +558,7 @@
 //        return;
     }
     
-    //이미지 업로드 -> 파일 업로드 수행..
+    //이미지 업로드 -> 파일 업로드 or 가사등록 수행..
     if (_imgAlbum.image != nil)
     {
         sUploadType = @"Image";
@@ -566,19 +566,30 @@
     }
     else
     {
-        if ( [self.fldPartAskFileName.text length] >= 1 ) {
-            sUploadType = @"File";
-        
-            if (self.btnJoin1.selected)
+        if (self.btnJoin1.selected) {
+            if ( [self.fldPartAskFileName.text length] >= 1 ) {
+                sUploadType = @"File";
                 [self doFilesUpload: @"mp3"];
-            else if (self.btnJoin2.selected)
-                [self doFilesUpload: @"txt"];
+            }
         }
-        else {
+        else { //가사등록 경우 바로 그룹등록 수행
             [self doGroupInsert];
             UIWindow *window = UIApplication.sharedApplication.delegate.window;
             [window.rootViewController.view makeToast:@"프로젝트 등록이 완료되었습니다."];
         }
+//            if ( [self.fldPartAskFileName.text length] >= 1 ) {
+//            sUploadType = @"File";
+//
+//            if (self.btnJoin1.selected)
+//                [self doFilesUpload: @"mp3"];
+//            else if (self.btnJoin2.selected)
+//                [self doFilesUpload: @"txt"];
+//        }
+//        else {
+//            [self doGroupInsert];
+//            UIWindow *window = UIApplication.sharedApplication.delegate.window;
+//            [window.rootViewController.view makeToast:@"프로젝트 등록이 완료되었습니다."];
+//        }
 
     }
 }
@@ -921,16 +932,29 @@
         [activityIndicator stopAnimating];
         activityIndicator.hidden= TRUE;
         
-        //이미지 업로드 완료되면 -> 파일업로드
-        if ([sUploadType isEqualToString:@"Image"])
-        {
-            if ( [self.fldPartAskFileName.text length] >= 1 ) {
-                sUploadType = @"File";
-                if (self.btnJoin1.selected)
+        //이미지 업로드 완료되면 -> 파일업로드 or 가사등록
+        if ([sUploadType isEqualToString:@"Image"]){
+            //음원등록 - 파일업로드
+            if (self.btnJoin1.selected) {
+                if ( [self.fldPartAskFileName.text length] >= 1 ) {
+                    sUploadType = @"File";
                     [self doFilesUpload: @"mp3"];
-                else if (self.btnJoin2.selected)
-                    [self doFilesUpload: @"txt"];
+                }
             }
+//            //가사등록
+//            else {
+//                [self doGroupInsert];
+//                UIWindow *window = UIApplication.sharedApplication.delegate.window;
+//                [window.rootViewController.view makeToast:@"프로젝트 등록이 완료되었습니다."];
+//            }
+        
+//            if ( [self.fldPartAskFileName.text length] >= 1 ) {
+//                sUploadType = @"File";
+//                if (self.btnJoin1.selected)
+//                    [self doFilesUpload: @"mp3"];
+//                else if (self.btnJoin2.selected)
+//                    [self doFilesUpload: @"txt"];
+//            }
         }
         else
         {
@@ -1004,6 +1028,42 @@
      ];
 }
 
+-(void) doSongInfoInsertAll:(NSString *) groupID {
+    //관리자 머핀등록 완료
+    NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
+    dic[@"Function"] = @"SongInfo_InsertAll";
+    dic[@"SongType"] = (_btnJoin1.selected)? @"1" : @"2";//1:음원 2:가사
+    dic[@"GroupId"] = groupID;
+    dic[@"SongName"] = [[UserInfo instance].userID stringByAppendingString: @" Song"]; //임시 입력
+    dic[@"MusicFileId"] = _fldPartAskFileName.text;
+    dic[@"SongWords"] = _fldPartAskSongWord.text;  //가사
+    dic[@"PublicYN"] = @"Y";  //임시 입력
+    dic[@"SongKind"] = [self getCurrentGanre:self->arrGanre];   //01:발라드 02:댄스 03:클래식 04:알앤비 05:락 06레게
+    
+    [[EDHttpTransManager instance] callMuffinInfo:dic withBlack:^(id result, NSError * error)
+     {
+         if (result != nil)
+         {
+             
+         }
+         else
+         {
+             //초기화
+             [self initControls];
+             
+             //관리자 등록 완료 후 이전 화면으로 전환
+             //             ProjectInfo * projectInfo = [[ProjectInfo alloc] initWithData:dic];
+             //             ProjectViewController * controler = [[ProjectViewController alloc] initWithProject:projectInfo];
+             
+             //네이게이션바 뒤로가기 버튼 숨기기 하면 좋을듯......
+             //             [self.navigationController pushViewController:controler animated:YES];
+             [self.navigationController popViewControllerAnimated:YES];
+         }
+         
+     }
+     ];
+}
+
 -(void) doGroupInsert {
     NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
     
@@ -1053,7 +1113,8 @@
                                }
                                else
                                {
-                                   [self doSongInfoInsert:strGroupId];
+//                                   [self doSongInfoInsert:strGroupId];
+                                   [self doSongInfoInsertAll:strGroupId];
                                }
                            }];
                       }

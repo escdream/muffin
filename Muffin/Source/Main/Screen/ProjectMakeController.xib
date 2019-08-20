@@ -15,12 +15,15 @@
                 <outlet property="bottomView" destination="u8p-tl-erB" id="yG2-GF-iws"/>
                 <outlet property="btnJoin1" destination="8Pn-4I-tB4" id="M2f-js-Bko"/>
                 <outlet property="btnJoin2" destination="3OY-ss-2ij" id="q5F-Y2-wG6"/>
+                <outlet property="btnPlayMuffin" destination="ALp-1D-ljp" id="2qe-cC-jhE"/>
                 <outlet property="btnRadio1" destination="833-Qr-Kzj" id="KBB-Q5-AZa"/>
                 <outlet property="btnRadio2" destination="sCk-hn-UIe" id="dIv-wq-Eg6"/>
                 <outlet property="btnStep1" destination="Mcv-Li-Ilg" id="I2A-1q-OMJ"/>
                 <outlet property="btnStep2" destination="kIE-Z3-XJ6" id="ktw-f9-W5e"/>
                 <outlet property="btnStep3" destination="uhp-rk-GF9" id="3du-bP-LU8"/>
                 <outlet property="btnUpload" destination="l4J-ef-BLD" id="G88-so-JN2"/>
+                <outlet property="fldPartAskFileName" destination="NSl-Xi-nAX" id="5zS-fz-oqA"/>
+                <outlet property="fldPartAskSongWord" destination="WtI-k3-gAY" id="MZJ-9t-qnq"/>
                 <outlet property="fldTitle" destination="eWg-VC-tak" id="OvC-bA-zMR"/>
                 <outlet property="imgAlbum" destination="3dN-1F-ICx" id="VPk-8g-ivE"/>
                 <outlet property="txtContent" destination="r1h-s9-agH" id="h0t-lt-y35"/>
@@ -679,14 +682,35 @@
                     <rect key="frame" x="0.0" y="191" width="341" height="129"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0am-Ro-lVD">
-                            <rect key="frame" x="0.0" y="-12" width="341" height="141"/>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AmC-Dw-I6T" customClass="EDRoundView">
+                            <rect key="frame" x="15" y="8" width="310" height="113"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text=" 가사를 작성해 주세요." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="WtI-k3-gAY">
+                                    <rect key="frame" x="0.0" y="0.0" width="310" height="113"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="R81-Gs-Pee"/>
+                                    </connections>
+                                </textView>
+                            </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                        </textView>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                    <real key="value" value="10"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" red="0.86666666670000003" green="0.86666666670000003" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>

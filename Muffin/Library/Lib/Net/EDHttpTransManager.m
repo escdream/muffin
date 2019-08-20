@@ -286,6 +286,16 @@ static EDHttpTransManager * global_httpManager;
         [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"MusicFileId" sValue:dicCmd[@"MusicFileId"]]];
         [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"PublicYN" sValue:dicCmd[@"PublicYN"]]];
     }
+    else if ( [dicCmd[@"Function"] isEqualToString: @"SongInfo_InsertAll"] )
+    {
+        [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"GroupId" sValue:dicCmd[@"GroupId"]]];
+        [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"SongType" sValue:dicCmd[@"SongType"]]];
+        [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"SongName" sValue:dicCmd[@"SongName"]]];
+        [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"SongWords" sValue:dicCmd[@"SongWords"]]];
+        [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"MusicFileId" sValue:dicCmd[@"MusicFileId"]]];
+        [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"PublicYN" sValue:dicCmd[@"PublicYN"]]];
+        [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"SongKind" sValue:dicCmd[@"SongKind"]]];
+    }
     else if ( [dicCmd[@"Function"] isEqualToString: @"SongInfo_InsertWords"] )
     {
         [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"GroupId" sValue:dicCmd[@"GroupId"]]];

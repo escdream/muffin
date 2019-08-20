@@ -54,7 +54,8 @@
 @property (strong, nonatomic) IBOutlet EDRoundButton *btnJoin2;
 @property (strong, nonatomic) IBOutlet UIButton *btnPlayMuffin;
 
-@property (strong, nonatomic) IBOutlet UITextField *fldPartAskFileName;
+@property (strong, nonatomic) IBOutlet UITextField *fldPartAskFileName; //파일명
+@property (weak, nonatomic) IBOutlet UITextView *fldPartAskSongWord;    //가사
 
 @property (strong, nonatomic) IBOutlet UIImageView *imgAlbum;
 
