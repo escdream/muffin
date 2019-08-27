@@ -1176,10 +1176,10 @@
  
     arrTimeline = [[NSMutableArray alloc] init];
  
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Right"
-                                                                              style:UIBarButtonItemStyleDone
-                                                                             target:self
-                                                                             action:@selector(showRightView)];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@""
+//                                                                              style:UIBarButtonItemStyleDone
+//                                                                             target:self
+//                                                                             action:@selector(showRightView)];
     
     maskPrjImage = [[UIImageView alloc] init];
     maskPrjImage.image = [UIImage imageNamed:@"maskimg.png"];
