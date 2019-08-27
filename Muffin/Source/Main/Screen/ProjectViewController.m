@@ -18,14 +18,18 @@
 #import "UIView+FirstResponder.h"
 
 #import "SongInfo.h"
+#import "SongTableViewCell.h"
 #import "PartAskInfo.h"
 #import "STKAudioPlayer.h"
 #import "AudioPlayerView.h"
 #import <AVFoundation/AVFoundation.h>
 #import "AudioUtil.h"
+#import "MFAudioPlayerController.h"
 #import "SampleQueueId.h"
 #import "FTPFileUploder.h"
 #import "UIView+Toast.h"
+#import "Muffin-Swift.h"
+
 
 #define TABLE_ROW_HEIGHT_ARTISTS  45
 #define TABLE_ROW_HEIGHT_TIMELINE  60
@@ -52,6 +56,8 @@
     FTPFileUploder * uploader;
     
     UIButton * btnPrevPlay;
+    
+    SongTableViewCell *playCell;
 }
 
 @end
@@ -508,60 +514,11 @@
     }
 }
 
-- (void)playMuffinList:(UIButton*)sender
-{
-    if (self->arrPartAsk.count == 0)
-        return;
-    
-    SongInfo * muffinInfo = arrPartAsk[sender.tag];
-    if(muffinInfo != nil)
-    {
-        UIButton *btnPlay = (UIButton *)sender;
-        if ([btnPlay.currentImage isEqual:[UIImage imageNamed:@"btn_s_play.png"]])
-        {
-            NSString* strFilePath = muffinInfo.musicPath;
-            NSString* strFileID = muffinInfo.musicFileID;
-            NSString* strMuffinURL = [strFilePath stringByAppendingString:strFileID];
-            NSURL* url = [NSURL URLWithString:strMuffinURL];
-
-            if (url != nil) {
-                STKDataSource* dataSource = [STKAudioPlayer dataSourceFromURL:url];
-                [[AudioUtil player] setDataSource:dataSource withQueueItemId:[[SampleQueueId alloc] initWithUrl:url andCount:0]];
-                
-                UIImage *backButtonImage = [UIImage imageNamed:@"btn_on.png"];
-                [btnPlay setImage:backButtonImage forState:UIControlStateNormal];
-                
-                if (btnPrevPlay != btnPlay)
-                {
-                    UIImage *backButtonImage = [UIImage imageNamed:@"btn_s_play.png"];
-                    [btnPrevPlay setImage:backButtonImage forState:UIControlStateNormal];
-                }
-                btnPrevPlay = sender;
-            }
-        }
-        else
-        {
-            [self stopMuffinList:btnPlay];
-            
-            btnPrevPlay = nil;
-        }
-    }
-}
-
 - (void)stopMuffin:(UIButton*)sender
 {
     UIImage *backButtonImage = [UIImage imageNamed:@"play_btn.png"];
     [sender setImage:backButtonImage forState:UIControlStateNormal];
-    
-    [[AudioUtil player] stop];
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
 
-- (void)stopMuffinList:(UIButton*)sender
-{
-    UIImage *backButtonImage = [UIImage imageNamed:@"btn_s_play.png"];
-    [sender setImage:backButtonImage forState:UIControlStateNormal];
-    
     [[AudioUtil player] stop];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -1209,16 +1166,8 @@
 
 - (void)viewDidLoad {
     
-//    [self.btmViewArtist addButtons:@"확인" obj:self withSelector:@selector(okClick)];
-//    [self.btmViewArtist addButtons:@"취소" obj:self withSelector:@selector(okClick)];
-
     [self.btnViewTimeLine addButtons:@"내부PJT" obj:self withSelector:@selector(okClick) tag:0];
     [self.btnViewTimeLine addButtons:@"글쓰기" obj:self withSelector:@selector(onWriteTimelineClick) tag:2];
-//    [self.btnViewTimeLine addButtons:@"0" obj:self withSelector:nil];
-
-//    [self.btmViewJoin addButtons:@"신청" obj:self withSelector:@selector(okClick) tag:0];
-//    [self.btmViewJoin addButtons:@"취소" obj:self withSelector:@selector(okClick) tag:1];
-
     [super viewDidLoad];
     
     
@@ -1236,14 +1185,12 @@
     maskPrjImage.image = [UIImage imageNamed:@"maskimg.png"];
 //    _imgProject.maskView = maskPrjImage;
 
+    [[AudioUtil player] setDelegate:self];
+
     [self initLayout];
 
-    self.showTitleLogo = NO;
-    self.showPlayer    = NO;
     
     [self setTitleText:self.project.projectName];
-    
-//    [self setShowPlayer:YES];
     
     [_lbPartAskMessage setNumberOfLines:0];
     
@@ -1350,52 +1297,23 @@
     
     if (tableView == _tblJoinList)
     {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"cell_PartList"];
+        SongTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"song_cell"];
         
         if (cell == nil)
         {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell_PartList"];
+            cell = [[SongTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"song_cell"];
+            cell.delegate = (id)self;
         }
-//        ProjectInfo * p = arrPartAsk[indexPath.row] ;
-//        cell.textLabel.text = p.projectName;
 
         SongInfo * muffinInfo;
         muffinInfo = arrPartAsk[indexPath.row];
-        
-        if (muffinInfo != nil)
-        {
-            //make TextLabel
-//            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.textLabel.font = [UIFont systemFontOfSize:10];
-            cell.textLabel.textColor = [UIColor purpleColor]; //RGB(33, 33, 33);
-            cell.detailTextLabel.font = [UIFont systemFontOfSize:12];
-            cell.detailTextLabel.textColor = [UIColor blackColor]; //RGB(33, 33, 33);
-            
-            //make PlayButton
-            UIButton * btnPlay = [UIButton buttonWithType:UIButtonTypeCustom];
-            btnPlay.frame = CGRectMake(tableView.frame.size.width - 85, (TABLE_ROW_HEIGHT_ARTISTS / 2) - 15, 75, 30);
-            btnPlay.imageEdgeInsets = UIEdgeInsetsMake(7.5, 40, 7.5, 00);
-            
-            UIImage *backButtonImage = [UIImage imageNamed:@"btn_s_play.png"];
-            [btnPlay setImage:backButtonImage forState:UIControlStateNormal];
-            [btnPlay addTarget:self action:@selector(playMuffinList:) forControlEvents:UIControlEventTouchUpInside];//
-            btnPlay.imageView.contentMode = UIViewContentModeScaleAspectFit;
-            btnPlay.tag = indexPath.row;
-//            cell.accessoryView = btnPlay;
-            [cell.contentView  addSubview:btnPlay];
 
-            //관심등록버튼
-            UIButton *btnPlus = [UIButton buttonWithType:UIButtonTypeContactAdd];
-            btnPlus.frame = CGRectMake(tableView.frame.size.width - btnPlay.frame.size.width - 3, (TABLE_ROW_HEIGHT_ARTISTS / 2) - 15 , 30, 30);
-            [btnPlus addTarget:self action:@selector(addMyMuffin:) forControlEvents:UIControlEventTouchUpInside];
-            [btnPlus setTag:indexPath.row];
-            btnPlus.backgroundColor = [UIColor clearColor];
-            //            cell.accessoryView = btnPlus;
-            [cell.contentView  addSubview:btnPlus];
-            
-            cell.textLabel.text = muffinInfo.groupName;
-            cell.detailTextLabel.text = muffinInfo.songName;
-        }
+        cell.showFavorite = NO;
+        cell.showPlayer   = NO;
+        
+        cell.songInfo = muffinInfo;
+        
+        return cell;
     }
     else if (tableView == _tblArtists)
     {
@@ -1533,6 +1451,41 @@
     return cell;
 }
 
+/// Raised when the state of the player has changed
+-(void) audioPlayer:(STKAudioPlayer*)audioPlayer stateChanged:(STKAudioPlayerState)state previousState:(STKAudioPlayerState)previousState;
+{
+    NSLog(@"state = %d, previousState=%d ", state, previousState);
+}
+/// Raised when an item has started playing
+-(void) audioPlayer:(STKAudioPlayer*)audioPlayer didStartPlayingQueueItemId:(NSObject*)queueItemId;
+{
+    SampleQueueId* queueId = (SampleQueueId*)queueItemId;
+    
+    NSLog(@"Started: %@", [queueId.url description]);
+}
+/// Raised when an item has finished buffering (may or may not be the currently playing item)
+/// This event may be raised multiple times for the same item if seek is invoked on the player
+-(void) audioPlayer:(STKAudioPlayer*)audioPlayer didFinishBufferingSourceWithQueueItemId:(NSObject*)queueItemId;
+{
+    SampleQueueId* queueId = (SampleQueueId*)queueItemId;
+    NSLog(@"didFinishBufferingSourceWithQueueItemId: %@", [queueId.url description]);
+}
+/// Raised when an item has finished playing
+-(void) audioPlayer:(STKAudioPlayer*)audioPlayer didFinishPlayingQueueItemId:(NSObject*)queueItemId withReason:(STKAudioPlayerStopReason)stopReason andProgress:(double)progress andDuration:(double)duration;
+{
+    SampleQueueId* queueId = (SampleQueueId*)queueItemId;
+    NSLog(@"didFinishPlayingQueueItemId: %@", [queueId.url description]);
+}
+/// Raised when an unexpected and possibly unrecoverable error has occured (usually best to recreate the STKAudioPlauyer)
+-(void) audioPlayer:(STKAudioPlayer*)audioPlayer unexpectedError:(STKAudioPlayerErrorCode)errorCode;
+{
+}
+/// Raised when datasource read stream metadata
+-(void) audioPlayer:(STKAudioPlayer*)audioPlayer didReadStreamMetadata:(NSDictionary*)dictionary;
+{
+    NSLog(@"didReadStream : %@", dictionary);
+}
+
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section;
@@ -1580,6 +1533,45 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    SongInfo * songInfo = nil;
+    NSArray * arrList = nil;
+    
+    if (tableView == _tblJoinList){
+        arrList = arrPartAsk;
+    
+        songInfo = arrList[indexPath.row];
+        
+        MFAudioPlayerController * player = [[MFAudioPlayerController alloc] initWithNibName:@"MFAudioPlayerController" bundle:nil];
+        UIWindow *window = UIApplication.sharedApplication.delegate.window;
+        
+        [window.rootViewController presentViewController:player animated:YES completion:nil];
+        player.songInfo = songInfo;
+        [player setPlayList:arrList];
+    }
+}
+
+- (void) onSongPlayInfo:(SongTableViewCell *)cell songInfo:(SongInfo *) songInfo isPlaying:(BOOL) isPlaying;
+{
+    if (isPlaying)
+    {
+        if (playCell != cell)
+        {
+            if (playCell != nil)
+                [playCell stopSong];
+            
+            playCell = cell;
+            [playCell performSelector:@selector(playSong) withObject:nil afterDelay:0.3f];
+        }
+        else
+        {
+            [playCell playSong];
+        }
+    }
+    else
+    {
+        [playCell stopSong];
+        playCell = nil;
+    }
 }
 
 - (void)addMyArtist:(id)sender {
