@@ -20,6 +20,8 @@
 {
     UIButton * btnPlay;
     UIButton * btnFavorite;
+    UIButton * btnLyrics;
+    
     
     UIImageView * thumbImage;
     NSString * imageName;
@@ -100,6 +102,16 @@
     [self addSubview:btnPlay];
     
     
+    btnLyrics = [UIButton buttonWithType:UIButtonTypeCustom];
+    btnLyrics.frame = btnPlay.frame;
+    [btnLyrics setTitle:@"가사" forState:UIControlStateNormal];
+    btnLyrics.backgroundColor = [UIColor clearColor];
+    [btnLyrics addTarget:self action:@selector(play) forControlEvents:UIControlEventTouchUpInside];//
+    [btnLyrics setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    btnLyrics.tag = 100;
+    btnLyrics.hidden = YES;
+    
+    [self addSubview:btnLyrics];
     //make PlayButton
 //    btnFavorite = [UIButton buttonWithType:UIButtonTypeCustom];
     btnFavorite = [UIButton buttonWithType:UIButtonTypeContactAdd];
@@ -340,6 +352,18 @@
     
     _groupName.text = _songInfo.groupName;
     _songName.text = _songInfo.songName;
+    
+    
+    if (_songInfo.songType && [_songInfo.songType intValue] == 2)
+    {
+        btnPlay.hidden = YES;
+        btnLyrics.hidden = NO;
+    }
+    else
+    {
+        btnLyrics.hidden = YES;
+        btnPlay.hidden = NO ;
+    }
     
     [self getGroupImage];
 }

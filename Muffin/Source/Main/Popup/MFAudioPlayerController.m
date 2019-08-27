@@ -60,8 +60,14 @@
     _songInfo = songInfo;
     
     
+    _viewType = 1;
+    
+    if (_songInfo.songType != nil && ([_songInfo.songType intValue] == 2))
+        _viewType = 2;
     
     _imgGroup.image = [UIImage imageNamed:@"user_pho_smp_01.png"];
+    
+
     _slider.value = 0;
     _slider.minimumValue = 0;
     _slider.maximumValue = 0;
@@ -77,6 +83,51 @@
 //    _btnPrev.enabled = NO;
 //    _btnPlayList.enabled = NO;
     [self updateButtonState];
+    
+    _txtLyrics.editable = NO;
+    _txtLyrics.hidden = YES;
+    if (_songInfo.songWord != nil)
+        _txtLyrics.text = _songInfo.songWord;
+    else
+        _txtLyrics.text = @"";
+
+    if (_viewType == 2) // 가사모드
+    {
+        _slider.hidden = YES;
+        _btnNext.hidden = YES;
+        _btnPrev.hidden = YES;
+        _btnPlay.hidden = YES;
+        _btnPlayList.hidden = YES;
+        _btnStop.hidden = YES;
+        _progres1.hidden = YES;
+        _progres2.hidden = YES;
+        
+        
+        _txtLyrics.hidden = NO;
+        _txtLyrics.layer.shadowColor = [UIColor whiteColor].CGColor;
+        _txtLyrics.layer.shadowOffset = CGSizeMake(1.0f, 1.0f);
+        _txtLyrics.layer.shadowOpacity = 1.0f;
+        _txtLyrics.layer.shadowRadius = 1.0f;
+        
+        
+        CGRect r = _viewImgParent.frame;
+        
+        r.size.height = 490;
+        
+
+        _viewImgParent.frame = r;
+        _viewImgMain.frame = _viewImgParent.bounds;
+        _imgGroup.frame = _viewImgParent.bounds;
+
+        if (@available(iOS 10.0, *)) {
+            UIView * blurView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleRegular]];
+            blurView.frame = _imgGroup.bounds;
+            [_imgGroup addSubview:blurView];
+        } else {
+            // Fallback on earlier versions
+        }
+
+    }
 }
 
 

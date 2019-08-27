@@ -24,7 +24,11 @@
                 <outlet property="progres1" destination="7bN-no-HY5" id="Tfs-M7-StF"/>
                 <outlet property="progres2" destination="7dc-B1-OuI" id="dgN-6I-hQj"/>
                 <outlet property="slider" destination="4UO-v4-BBc" id="VdT-hi-Loe"/>
+                <outlet property="txtLyrics" destination="89d-C9-TNL" id="RSq-0v-C2y"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewControlParent" destination="RcA-Al-fGa" id="0ch-Vy-wnH"/>
+                <outlet property="viewImgMain" destination="ce7-vP-oDc" id="ezV-MX-dqe"/>
+                <outlet property="viewImgParent" destination="ec8-3S-fiN" id="lVy-GA-v9i"/>
                 <outlet property="viewMeter" destination="Xma-jk-FXx" id="sOK-Ej-4zL"/>
             </connections>
         </placeholder>
@@ -49,6 +53,14 @@
                                     <rect key="frame" x="0.0" y="0.0" width="325" height="298"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="89d-C9-TNL">
+                                    <rect key="frame" x="18" y="17" width="292" height="267"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                </textView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <userDefinedRuntimeAttributes>
@@ -199,7 +211,7 @@
                         <action selector="onCloseClick:" destination="-1" eventType="touchUpInside" id="1qj-HJ-lZ9"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSL-Oy-l2q">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSL-Oy-l2q">
                     <rect key="frame" x="25" y="487" width="323" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>

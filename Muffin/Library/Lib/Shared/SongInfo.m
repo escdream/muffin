@@ -29,7 +29,10 @@
         self.progress = dicData[@"Progress"];
         self.imageID = dicData[@"imageid"];
         self.imagePath = dicData[@"imagePath"];
-        
+        self.songKind = dicData[@"SongKind"];
+        self.songType = dicData[@"SongType"]; // 1:음악 2:가사
+        self.songWord = dicData[@"SongWords"];
+
     }
     
     return self;
