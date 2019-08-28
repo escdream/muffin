@@ -14,6 +14,7 @@
 #import "SampleQueueId.h"
 #import "EDSpectrumView.h"
 #import "Muffin-Swift.h"
+#import "UIView+Toast.h"
 
 @interface MFAudioPlayerController ()
 {
@@ -52,7 +53,10 @@
 */
 - (IBAction)onCloseClick:(id)sender {
     [self stopSong];
-    [self doSongInfoUpdateWords];
+    
+    if(![_songInfo.songWord isEqualToString:_txtLyrics.text])
+        [self doSongInfoUpdateWords];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -397,7 +401,8 @@
          }
          else
          {
-             //[self.navigationController popViewControllerAnimated:YES];
+             UIWindow *window = UIApplication.sharedApplication.delegate.window;
+             [window.rootViewController.view makeToast:@"가사가 저장되었습니다."];
          }
          
      }
