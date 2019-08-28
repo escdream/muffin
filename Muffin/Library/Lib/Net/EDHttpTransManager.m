@@ -334,11 +334,11 @@ static EDHttpTransManager * global_httpManager;
             
             NSString * sMsg = returnDic[@"xnet"][@"tr"][@"message"][@"trmsg"];
             
-            if (![sMsg isEqualToString:@""] && sMsg != nil)
-            {
-                UIWindow *window = UIApplication.sharedApplication.delegate.window;
-                [window.rootViewController.view makeToast:[sMsg decodeBase64String]];
-            }
+//            if (![sMsg isEqualToString:@""] && sMsg != nil)
+//            {
+//                UIWindow *window = UIApplication.sharedApplication.delegate.window;
+//                [window.rootViewController.view makeToast:[sMsg decodeBase64String]];
+//            }
             NSLog(@"msg = %@", [sMsg decodeBase64String]);
             
             
