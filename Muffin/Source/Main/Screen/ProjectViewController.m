@@ -37,6 +37,7 @@
 @interface ProjectViewController ()
 {
     int m_selectIndex;
+    BOOL m_bIsFirst;
     
     UITableView * tblList;
     
@@ -1165,6 +1166,7 @@
 }
 
 - (void)viewDidLoad {
+    m_bIsFirst = YES;
     
     [self.btnViewTimeLine addButtons:@"내부PJT" obj:self withSelector:@selector(okClick) tag:0];
     [self.btnViewTimeLine addButtons:@"글쓰기" obj:self withSelector:@selector(onWriteTimelineClick) tag:2];
@@ -1233,10 +1235,15 @@
 
 - (void)viewWillAppear:(BOOL)animated   {
     [super viewWillAppear:animated];
+    //머핀 플레이창 닫으면 머핀리스트 재조회
+    if(!m_bIsFirst){
+        [self doMuffinList];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated    {
     [[AudioUtil player] stop];
+    m_bIsFirst = NO;
     [super viewWillDisappear:animated];
 }
 

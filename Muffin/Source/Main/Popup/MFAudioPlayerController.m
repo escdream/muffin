@@ -52,6 +52,7 @@
 */
 - (IBAction)onCloseClick:(id)sender {
     [self stopSong];
+    [self doSongInfoUpdateWords];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -93,6 +94,8 @@
 
     if (_viewType == 2) // 가사모드
     {
+        _txtLyrics.editable = YES;
+        
         _slider.hidden = YES;
         _btnNext.hidden = YES;
         _btnPrev.hidden = YES;
@@ -118,6 +121,7 @@
         _viewImgParent.frame = r;
         _viewImgMain.frame = _viewImgParent.bounds;
         _imgGroup.frame = _viewImgParent.bounds;
+        _txtLyrics.frame = _viewImgParent.bounds;
 
         if (@available(iOS 10.0, *)) {
             UIView * blurView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleRegular]];
@@ -377,4 +381,26 @@
     _btnNext.enabled = (songIndex < arrPlayList.count-1) && (arrPlayList.count > 0);
 }
 
+-(void) doSongInfoUpdateWords
+{
+    //가사 저장(업데이트)
+    NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
+    dic[@"Function"] = @"SongInfo_UpdateWords";
+    dic[@"SongId"] = _songInfo.songID;
+    dic[@"SongWords"] = _txtLyrics.text;
+    
+    [[EDHttpTransManager instance] callMuffinInfo:dic withBlack:^(id result, NSError * error)
+     {
+         if (result != nil)
+         {
+             
+         }
+         else
+         {
+             //[self.navigationController popViewControllerAnimated:YES];
+         }
+         
+     }
+     ];
+}
 @end
