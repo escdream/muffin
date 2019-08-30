@@ -1878,8 +1878,36 @@
 #pragma TableCell Fav Button Click
 - (void) onFavButtonClick:(SongTableViewCell *)cell songInfo:(SongInfo *) songInfo;
 {
-    UIWindow *window = UIApplication.sharedApplication.delegate.window;
-    [window.rootViewController.view makeToast:@"관심추가"];
+    
+    SongInfo * muffinInfo = songInfo;
+    
+    if (muffinInfo != nil) {
+        NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
+        dic[@"Function"] = @"BookMarkMuffin_Insert";
+        dic[@"UserId"] = [UserInfo instance].userID;
+        dic[@"BMSongId"] = muffinInfo.songID;           //머핀ID
+        dic[@"SongName"] = muffinInfo.songName;         //머핀이름
+        dic[@"MusicPath"] = muffinInfo.musicPath;       //경로
+        dic[@"MusicFileId"] = muffinInfo.musicFileID;   //파일며
+        dic[@"BMSEQ"] = @"001";
+        
+        [[EDHttpTransManager instance] callBookmarkMuffinInfo:dic withBlack:^(id result, NSError * error)
+         {
+             if (result != nil)
+             {
+                 
+             }
+             else
+             {
+                 UIWindow *window = UIApplication.sharedApplication.delegate.window;
+                 [window.rootViewController.view makeToast:@"등록되었습니다."];
+             }
+         }];
+    }
+    else {
+        UIWindow *window = UIApplication.sharedApplication.delegate.window;
+        [window.rootViewController.view makeToast:@"등록할 Muffin이 존재하지 않습니다."];
+    }
 }
 
 @end
