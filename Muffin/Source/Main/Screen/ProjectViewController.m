@@ -1315,7 +1315,7 @@
         SongInfo * muffinInfo;
         muffinInfo = arrPartAsk[indexPath.row];
 
-        cell.showFavorite = NO;
+        cell.showFavorite = YES;
         cell.showPlayer   = NO;
         
         cell.songInfo = muffinInfo;
@@ -1873,6 +1873,13 @@
              [self.navigationController popViewControllerAnimated:YES];
          }
      }];
+}
+
+#pragma TableCell Fav Button Click
+- (void) onFavButtonClick:(SongTableViewCell *)cell songInfo:(SongInfo *) songInfo;
+{
+    UIWindow *window = UIApplication.sharedApplication.delegate.window;
+    [window.rootViewController.view makeToast:@"관심추가"];
 }
 
 @end

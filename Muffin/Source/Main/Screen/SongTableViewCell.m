@@ -127,7 +127,7 @@
     
 //    backButtonImage = [UIImage imageNamed:@"btn_star_o.png"];
 //    [btnFavorite setImage:backButtonImage forState:UIControlStateNormal];
-    [btnFavorite addTarget:self action:@selector(play) forControlEvents:UIControlEventTouchUpInside];//
+    [btnFavorite addTarget:self action:@selector(onFavClick:) forControlEvents:UIControlEventTouchUpInside];//
     btnFavorite.imageView.contentMode = UIViewContentModeScaleAspectFit;
     btnFavorite.tag = 0;
     
@@ -166,6 +166,7 @@
     r.size.height = 40;
     
     btnPlay.frame = r;
+    btnLyrics.frame = r;
     
     r.origin.x -= 60;
     r.origin.y = 2;
@@ -394,4 +395,16 @@
     
     btnPlay.hidden = !_showPlayButton;
 }
+
+- (void) onFavClick:(UIButton *) btn
+{
+    if (_delegate)
+    {
+        if ([_delegate respondsToSelector:@selector(onFavButtonClick:songInfo:)])
+        {
+            [_delegate onFavButtonClick:self songInfo:self.songInfo];
+        }
+    }
+}
+
 @end

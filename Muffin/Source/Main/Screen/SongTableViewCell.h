@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @optional
 - (void) onSongPlayInfo:(SongTableViewCell *)cell songInfo:(SongInfo *) songInfo isPlaying:(BOOL) isPlaying;
+- (void) onFavButtonClick:(SongTableViewCell *)cell songInfo:(SongInfo *) songInfo;
 
 @end
 
