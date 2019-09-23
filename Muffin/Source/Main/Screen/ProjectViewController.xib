@@ -19,6 +19,7 @@
                 <outlet property="btnJoin2" destination="Q6E-Bp-JQR" id="NNO-fg-bVH"/>
                 <outlet property="btnPlayMuffin" destination="2b2-yc-IPA" id="hxO-2H-N2N"/>
                 <outlet property="btnProjectComplete" destination="dsS-JW-SZG" id="wPF-Xk-N5O"/>
+                <outlet property="btnRegText" destination="5eI-JF-wUx" id="nH5-ca-ESg"/>
                 <outlet property="btnViewJoinList" destination="8wy-cE-gg5" id="Zaf-Ey-LBl"/>
                 <outlet property="btnViewTimeLine" destination="fUP-3Z-JVF" id="nAp-Dn-tgT"/>
                 <outlet property="fldPartAskContents" destination="mWU-DY-Z9Y" id="vPp-YM-m3S"/>
@@ -445,7 +446,7 @@
                         <outlet property="delegate" destination="-1" id="UjC-cn-Xg3"/>
                     </connections>
                 </tableView>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8wy-cE-gg5" userLabel="Btn View Join List" customClass="EDBottomButtonView">
+                <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8wy-cE-gg5" userLabel="Btn View Join List" customClass="EDBottomButtonView">
                     <rect key="frame" x="0.0" y="280" width="344" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -467,6 +468,28 @@
                             <state key="normal" title="Muffin 등록" image="list_btn_plu.png"/>
                             <connections>
                                 <action selector="onAddMuffin:" destination="-1" eventType="touchUpInside" id="J5c-td-RUJ"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5eI-JF-wUx" customClass="EDRoundButton">
+                            <rect key="frame" x="205" y="7" width="84" height="32"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="가사등록">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                    <real key="value" value="15"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="useShadow" value="NO"/>
+                                <userDefinedRuntimeAttribute type="color" keyPath="selectedBackgroundColor">
+                                    <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="onBtnRegTextClick:" destination="-1" eventType="touchUpInside" id="Mlj-TH-98r"/>
                             </connections>
                         </button>
                     </subviews>

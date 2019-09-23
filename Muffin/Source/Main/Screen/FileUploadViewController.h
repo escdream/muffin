@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @required
 
 -(void) getData:(NSString *)data;
+-(void) getDataInfo:(NSDictionary *)data;
 
 @end
 

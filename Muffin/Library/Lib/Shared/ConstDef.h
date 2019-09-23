@@ -22,5 +22,5 @@ typedef enum _MuffineUserLoginState{
     UserInfoStateAdmin  = 2,
 } MuffineUserLoginState;
 
-
 #endif /* ConstDef_h */
+

@@ -247,9 +247,32 @@
 {
 //    UIButton * btnUpload
     if (arrFiles != nil)
-        [self.delegate getData: [arrFiles objectAtIndex:indexPath.row]];
+    {
+        NSString * sTitle = [_txtProjectName.text trim];
+        
+        if (sTitle.length>0)
+        {
+            if ([self.delegate respondsToSelector:@selector(getDataInfo:)])
+            {
+                NSDictionary * ndic = @{@"filename":[arrFiles objectAtIndex:indexPath.row],
+                                        @"title":_txtProjectName.text};
+                [self.delegate getDataInfo:ndic];
+            }
+            else
+            {
+                [self.delegate getData: [arrFiles objectAtIndex:indexPath.row]];
+            }
 
-    [self dismissViewControllerAnimated:YES completion:nil];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+        else
+        {
+            [CommonUtil ShowAlertWithOk:@"안내" message:@"제목을 입력하세요" delegate:nil];
+            [_txtProjectName resignFirstResponder];
+        }
+    }
+    
+    
 }
 //
 //- (void) RequestHttpFile:(BOOL)bUp :(NSString*)sReqURL :(int)nType :(NSString*)sAddValue :(BOOL)bAddForce :(BOOL)bViewer

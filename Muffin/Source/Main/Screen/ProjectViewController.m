@@ -60,6 +60,12 @@
     UIButton * btnPrevPlay;
     
     SongTableViewCell *playCell;
+    
+    BOOL hasTextData;
+    
+    
+    NSString * uploadFileTitle;
+    NSString * uploadFileName;
 }
 
 @end
@@ -199,13 +205,17 @@
                                                NSArray * arr = result;
                                                [self->arrPartAsk removeAllObjects];
                                                
+                                               self->hasTextData = NO;
                                                for (NSDictionary * dic in arr)
                                                {
                                                    SongInfo * muffin = [[SongInfo alloc] initWithData:dic];
+                                                   if ([muffin.songType isEqualToString:@"2"])
+                                                       self->hasTextData = YES;
                                                    
                                                    [self->arrPartAsk addObject:muffin];
                                                }
                                                [self.tblJoinList reloadData];
+                                               _btnRegText.hidden = self->hasTextData;
                                            }
                                        }];
                                   }
@@ -435,14 +445,23 @@
          {
              NSArray * arr = result;
              [self->arrPartAsk removeAllObjects];
-             
+          
+             self->hasTextData = NO;
              for (NSDictionary * dic in arr)
              {
                  SongInfo * muffin = [[SongInfo alloc] initWithData:dic];
                  
+                 // 내부에 가사가 있을경우..
+                 if ([muffin.songType isEqualToString:@"2"])
+                 {
+                     self->hasTextData = YES;
+                 }
+                 
                  [self->arrPartAsk addObject:muffin];
              }
              [self.tblJoinList reloadData];
+             
+             _btnRegText.hidden = self->hasTextData;
          }
      }];
 }
@@ -1204,6 +1223,8 @@
     [self adjustSizeLayoutEx];
     self.showBack = YES;
     
+    
+    _btnRegText.hidden = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -1713,6 +1734,23 @@
 }
 
 
+-(void) getDataInfo:(NSDictionary *)data
+{
+    
+    if(self.btnAddMuffin.selected == YES)
+    {
+        _fldPartAskFileName.text = data[@"filename"];
+
+
+        uploadFileName  = data[@"filename"];
+        uploadFileTitle = data[@"title"];
+        
+        [self doFilesUpload: @"mp3"];
+    }
+}
+
+
+
 -(void) getLocalData:(NSString *)data sFileType:(nonnull NSString *)fileType
 {
     _fldPartAskFileName.text = data;
@@ -1725,8 +1763,8 @@
 
 
 - (IBAction)onAddMuffin:(id)sender {
-    MusicUploadViewController * controler = [[MusicUploadViewController alloc] initWithNibName:@"MusicUploadViewController" bundle:nil];
-//    FileUploadViewController * controler = [[FileUploadViewController alloc] initWithNibName:@"FileUploadViewController" bundle:nil];
+//    MusicUploadViewController * controler = [[MusicUploadViewController alloc] initWithNibName:@"MusicUploadViewController" bundle:nil];
+    FileUploadViewController * controler = [[FileUploadViewController alloc] initWithNibName:@"FileUploadViewController" bundle:nil];
     controler.delegate = self;
     controler.showProjecInfo = YES;
     
@@ -1827,7 +1865,14 @@
             NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
             dic[@"Function"] = @"SongInfo_Insert";
             dic[@"GroupId"] = self.project.projectID;
-            dic[@"SongName"] = [[UserInfo instance].userID stringByAppendingString: @" Song"]; //임시 입력
+//            dic[@"SongName"] = [[UserInfo instance].userID stringByAppendingString: @" Song"]; //임시 입력
+            
+            if (uploadFileTitle == nil || uploadFileTitle.length ==0)
+            {
+                uploadFileTitle = [NSString stringWithFormat:@"%@ %@", [UserInfo instance].userID,
+                                                                       [CommonUtil stringFromDateWithFormat:[NSDate date] format:@"HHmmss" ] ];
+            }
+            dic[@"SongName"] =  uploadFileTitle;//임시 입력
             dic[@"MusicFileId"] = _fldPartAskFileName.text;
             dic[@"PublicYN"] = @"Y";  //임시 입력
             
@@ -1923,6 +1968,58 @@
         [window.rootViewController.view makeToast:@"등록할 Muffin이 존재하지 않습니다."];
     }
 }
+
+
+- (void) EmptyTextInsert
+{
+    //관리자 머핀등록 완료
+    NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
+    dic[@"Function"] = @"SongInfo_InsertWords";
+    dic[@"GroupId"] = self.project.projectID;
+    dic[@"SongName"] = [[UserInfo instance].userID stringByAppendingString: @" Text"]; //임시 입력
+    dic[@"SongWords"] = @" ";
+    dic[@"SongType"] = @"2"; // 가사
+    dic[@"PublicYN"] = @"Y";  //임시 입력
+    
+    [[EDHttpTransManager instance] callMuffinInfo:dic withBlack:^(id result, NSError * error)
+     {
+         if (result != nil)
+         {
+         }
+         else
+         {
+             
+             
+             
+             
+             //머핀등록 완료 후 머핀리스트 재조회
+             [self doMuffinList];
+             
+//             SongInfo * songInfo = nil;
+//             NSArray * arrList = nil;
+//
+//             arrList = arrPartAsk;
+//
+//             songInfo = arrList[0];
+//
+//             MFAudioPlayerController * player = [[MFAudioPlayerController alloc] initWithNibName:@"MFAudioPlayerController" bundle:nil];
+//             UIWindow *window = UIApplication.sharedApplication.delegate.window;
+//
+//             [window.rootViewController presentViewController:player animated:YES completion:nil];
+//             player.songInfo = songInfo;
+//             [player setPlayList:arrList];
+         }
+     }
+     ];
+
+}
+
+- (IBAction)onBtnRegTextClick:(id)sender {
+    
+    [self EmptyTextInsert];
+
+}
+
 
 @end
 
