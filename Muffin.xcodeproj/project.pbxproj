@@ -141,6 +141,8 @@
 		B65D87C622C496110047676A /* Stop.png in Resources */ = {isa = PBXBuildFile; fileRef = B65D87C522C496100047676A /* Stop.png */; };
 		B65D87CF22C4D2C20047676A /* EDImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = B65D87CE22C4D2C20047676A /* EDImageView.m */; };
 		B65D87D522C604750047676A /* EDAlignableLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B65D87D422C604750047676A /* EDAlignableLabel.m */; };
+		B6612A942335F91700010161 /* MusicUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6612A912335F91700010161 /* MusicUploadViewController.m */; };
+		B6612A952335F91700010161 /* MusicUploadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6612A922335F91700010161 /* MusicUploadViewController.xib */; };
 		B66DE0B9217DDCF500320F3D /* EDBottomButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = B66DE0B8217DDCF500320F3D /* EDBottomButtonView.m */; };
 		B675264B217D67360059B61D /* libAMSLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B643EDC8212FE64B00963B98 /* libAMSLibrary.a */; settings = {ATTRIBUTES = (Weak, ); }; };
 		B6B355F02162034B006FC18C /* util_icon_back.png in Resources */ = {isa = PBXBuildFile; fileRef = B6B355BB21620340006FC18C /* util_icon_back.png */; };
@@ -543,6 +545,9 @@
 		B65D87CE22C4D2C20047676A /* EDImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDImageView.m; sourceTree = "<group>"; };
 		B65D87D322C604750047676A /* EDAlignableLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EDAlignableLabel.h; sourceTree = "<group>"; };
 		B65D87D422C604750047676A /* EDAlignableLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EDAlignableLabel.m; sourceTree = "<group>"; };
+		B6612A912335F91700010161 /* MusicUploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicUploadViewController.m; sourceTree = "<group>"; };
+		B6612A922335F91700010161 /* MusicUploadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MusicUploadViewController.xib; sourceTree = "<group>"; };
+		B6612A932335F91700010161 /* MusicUploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicUploadViewController.h; sourceTree = "<group>"; };
 		B66DE0B7217DDCF500320F3D /* EDBottomButtonView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDBottomButtonView.h; sourceTree = "<group>"; };
 		B66DE0B8217DDCF500320F3D /* EDBottomButtonView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDBottomButtonView.m; sourceTree = "<group>"; };
 		B6B355BB21620340006FC18C /* util_icon_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = util_icon_back.png; path = Muffin/Resource/img/util_icon_back.png; sourceTree = SOURCE_ROOT; };
@@ -1369,6 +1374,9 @@
 		B6F7AA4D22B255F90043483F /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				B6612A932335F91700010161 /* MusicUploadViewController.h */,
+				B6612A912335F91700010161 /* MusicUploadViewController.m */,
+				B6612A922335F91700010161 /* MusicUploadViewController.xib */,
 				B6F7AA8E22B255F90043483F /* MainViewController.h */,
 				B6F7AA4222B255F90043483F /* MainViewController.m */,
 				B65B562922C3312400615BFE /* MainHomeViewController.h */,
@@ -1656,6 +1664,7 @@
 				B6E0E5962130102F0065E395 /* IMG_0693.png in Resources */,
 				B6F7AA9322B255F90043483F /* LoginViewController.xib in Resources */,
 				B643ED2D212FC94400963B98 /* imageLeft.png in Resources */,
+				B6612A952335F91700010161 /* MusicUploadViewController.xib in Resources */,
 				B6E0E59A2130102F0065E395 /* IMG_0689.png in Resources */,
 				B643EC88212FC01000963B98 /* Main.storyboard in Resources */,
 				B6B356062162034C006FC18C /* icon_point.png in Resources */,
@@ -1701,6 +1710,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6F7AAB222B255F90043483F /* ViewController.m in Sources */,
+				B6612A942335F91700010161 /* MusicUploadViewController.m in Sources */,
 				B65D87D522C604750047676A /* EDAlignableLabel.m in Sources */,
 				B63AC0C3213AA81900C45F83 /* ProjectInfo.m in Sources */,
 				B656497222B55C1B001E0E26 /* MyMuffinViewController.m in Sources */,

@@ -14,6 +14,7 @@
 #import "SystemUtil.h"
 #import "EDBottomButtonView.h"
 #import "FileUploadViewController.h"
+#import "MusicUploadViewController.h"
 
 #import "UIView+FirstResponder.h"
 
@@ -1711,8 +1712,21 @@
     }
 }
 
+
+-(void) getLocalData:(NSString *)data sFileType:(nonnull NSString *)fileType
+{
+    _fldPartAskFileName.text = data;
+    
+    if(self.btnAddMuffin.selected == YES)
+    {
+        [self doFilesUpload:fileType];
+    }
+}
+
+
 - (IBAction)onAddMuffin:(id)sender {
-    FileUploadViewController * controler = [[FileUploadViewController alloc] initWithNibName:@"FileUploadViewController" bundle:nil];
+    MusicUploadViewController * controler = [[MusicUploadViewController alloc] initWithNibName:@"MusicUploadViewController" bundle:nil];
+//    FileUploadViewController * controler = [[FileUploadViewController alloc] initWithNibName:@"FileUploadViewController" bundle:nil];
     controler.delegate = self;
     controler.showProjecInfo = YES;
     

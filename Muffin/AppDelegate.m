@@ -58,6 +58,10 @@
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
     
+    
+    NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString* documentDir = [paths objectAtIndex:0];
+    NSLog(@"DocumentDir = %@", documentDir);
     return YES;
 }
 
