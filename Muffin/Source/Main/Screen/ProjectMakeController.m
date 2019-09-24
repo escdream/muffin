@@ -773,6 +773,8 @@
     
     [self presentViewController:controler animated:YES completion:nil];
     controler.showProjecInfo = NO;
+    [controler setFileTitle:_fldTitle.text];
+
 }
 
 -(void) getData:(NSString *)data

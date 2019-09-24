@@ -39,6 +39,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (IBAction)onUpload:(id)sender;
 - (void)uploadFiles:(id)sender;
+- (void) setFileTitle:(NSString *) sTtile;
+
 @end
 
 NS_ASSUME_NONNULL_END

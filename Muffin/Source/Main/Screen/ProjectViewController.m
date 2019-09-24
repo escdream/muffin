@@ -1772,6 +1772,14 @@
     self.btnAddMuffin.selected = YES;
     
     [self presentViewController:controler animated:YES completion:nil];
+    
+    
+    NSString * sNameData = [NSString stringWithFormat:@"%@ %03d", [UserInfo instance].userID,
+                            self->arrPartAsk.count];
+                      // [CommonUtil stringFromDateWithFormat:[NSDate date] format:@"HH.mmss" ] ];
+
+    
+    [controler setFileTitle: sNameData];
 }
 
 - (IBAction)onBtnJoinClick:(id)sender {

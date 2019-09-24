@@ -454,9 +454,9 @@
     }
     else
     {
-        self.lbProjectName.hidden = YES;
+//        self.lbProjectName.hidden = YES;
         self.lbProgress.hidden = YES;
-        self.txtProjectName.hidden = YES;
+//        self.txtProjectName.hidden = YES;
         self.txtProgress.hidden = YES;
 //        _lbProjectName.hidden = YES;
 //        _lbProgress.hidden = YES;
@@ -464,4 +464,14 @@
 //        _txtProgress.hidden = YES;
     }
 }
+
+- (void) setFileTitle:(NSString *) sTitle;
+{
+    _txtProjectName.text = sTitle;
+    [_txtProjectName selectAll:self];
+    
+    [_txtProjectName becomeFirstResponder];
+}
+
+
 @end
