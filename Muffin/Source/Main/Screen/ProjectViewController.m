@@ -472,6 +472,9 @@
     
     dic[@"Function"] = @"GroupInfo_Select";
     dic[@"GroupId"] = self.project.projectID;
+    
+    
+    
 //    dic[@"UserId"] = [UserInfo instance].userID;
     [[EDHttpTransManager instance] callProjectInfo:dic withBlack:^(id result, NSError * error)
      {
@@ -484,15 +487,26 @@
                  // 이미지를 읽어올 주소
                  NSString *imgPath = dic[@"ImagePath"];
                  NSString *imgName = dic[@"ImageId"];
+
+
+                 NSString * sProjectImage = [NSString stringWithFormat:@"project_%@",  imgName];
+                 UIImage * img = [self loadFormProjectImage:sProjectImage];
                  
-                 NSURL *urlImage = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", imgPath, imgName]];
-                 NSData *dataImage = [NSData dataWithContentsOfURL:urlImage];
-                 // 데이터가 정상적으로 읽혔는지 확인한다. 네트워크가 연결되지 않았다면 nil이다.
-                 if(dataImage)
+                 if (img != nil)
+                     self.imgProject.image = img;
+                 else
                  {
-                     self.imgProject.image = [UIImage imageWithData:dataImage];
+                     NSURL *urlImage = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", imgPath, imgName]];
+                     NSData *dataImage = [NSData dataWithContentsOfURL:urlImage];
+                     // 데이터가 정상적으로 읽혔는지 확인한다. 네트워크가 연결되지 않았다면 nil이다.
+                     if(dataImage)
+                     {
+                         self.imgProject.image = [UIImage imageWithData:dataImage];
+                         
+                         
+                         [self saveToProjectImage:sProjectImage prjImage:self.imgProject.image];
+                     }
                  }
-                 
                  //프로젝트 진행상태
                  self->sProgress = dic[@"Progress"];
              }
@@ -1720,6 +1734,9 @@
             controler.sBrowserType = @"txt";
 
         [self presentViewController:controler animated:YES completion:nil];
+        
+        NSString * sNameData = [NSString stringWithFormat:@"%@ Song", [UserInfo instance]];
+        [controler setFileTitle: sNameData];
     }
 }
 
@@ -1736,12 +1753,10 @@
 
 -(void) getDataInfo:(NSDictionary *)data
 {
-    
+    _fldPartAskFileName.text = data[@"filename"];
+
     if(self.btnAddMuffin.selected == YES)
     {
-        _fldPartAskFileName.text = data[@"filename"];
-
-
         uploadFileName  = data[@"filename"];
         uploadFileTitle = data[@"title"];
         
@@ -2028,6 +2043,50 @@
 
 }
 
+
+
+- (void)createDefaultFolder:(NSString *)folderName{
+    NSError *error;
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0]; // Get documents folder
+    NSString *dataPath = [documentsDirectory stringByAppendingPathComponent:folderName];
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:dataPath])
+        [[NSFileManager defaultManager] createDirectoryAtPath:dataPath withIntermediateDirectories:NO attributes:nil error:&error]; //Create folder
+}
+
+
+- (UIImage *) loadFormProjectImage:(NSString *) projectImageName
+{
+    
+    NSString * folderName = @"image";
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0]; // Get documents folder
+    NSString *dataPath = [documentsDirectory stringByAppendingPathComponent:folderName];
+    
+    dataPath = [dataPath stringByAppendingFormat:@"/%@", projectImageName];
+    
+    return [UIImage imageWithContentsOfFile:dataPath];
+    
+}
+
+- (void) saveToProjectImage:(NSString *) projectImageName prjImage:(UIImage *) prjImage
+{
+    NSString * folderName = @"image";
+    NSError *error;
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0]; // Get documents folder
+    NSString *dataPath = [documentsDirectory stringByAppendingPathComponent:folderName];
+    
+    if (![[NSFileManager defaultManager] fileExistsAtPath:dataPath])
+        [[NSFileManager defaultManager] createDirectoryAtPath:dataPath withIntermediateDirectories:NO attributes:nil error:&error]; //Create folder
+    
+
+    dataPath = [dataPath stringByAppendingFormat:@"/%@", projectImageName];
+    NSData *pngData = UIImagePNGRepresentation(prjImage);
+    [pngData writeToFile:dataPath atomically:YES];
+    
+}
 
 @end
 

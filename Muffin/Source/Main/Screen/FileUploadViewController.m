@@ -153,36 +153,49 @@
 //    else if ([sBrowserType isEqualToString:@"mp3"])
 //        dataPath = [documentsDirectory stringByAppendingPathComponent:@"/Music"];
 
+    
     NSArray *arr = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:dataPath error:nil];
     NSMutableArray *arrMutable = [[NSMutableArray alloc]initWithArray:arr];
     NSMutableArray *arrContents = [[NSMutableArray alloc]init];
     int x = 0;
+    BOOL isDirectory;
+
     for (int i=0; i<arrMutable.count; i++)
     {
-        NSString* ext = [arrMutable[i] pathExtension];
-        
-        if ([sBrowserType isEqualToString:@"mp3"]){
-            if ( [ext isEqualToString:@"mp3"] ){
-                NSString * tmp = [arrMutable objectAtIndex:i];
-                [arrContents insertObject:tmp atIndex:x];
-                x++;
+        NSString * sFilePath = [NSString stringWithFormat:@"%@/%@", dataPath, arrMutable[i]];
+        BOOL fileExistsAtPath = [[NSFileManager defaultManager] fileExistsAtPath:sFilePath isDirectory:&isDirectory];
+        if (fileExistsAtPath) {
+            if (isDirectory)
+            {
+                //It's a Directory.
+            }
+            else
+            {
+                NSString* ext = [arrMutable[i] pathExtension];
+                
+                if ([sBrowserType isEqualToString:@"mp3"]){
+                    if ( [ext isEqualToString:@"mp3"] ){
+                        NSString * tmp = [arrMutable objectAtIndex:i];
+                        [arrContents insertObject:tmp atIndex:x];
+                        x++;
+                    }
+                }
+                else if ([sBrowserType isEqualToString:@"image"]){
+                    if ( [ext isEqualToString:@"png"] || [ext isEqualToString:@"jpg"] || [ext isEqualToString:@"jpeg"] ){
+                        NSString * tmp = [arrMutable objectAtIndex:i];
+                        [arrContents insertObject:tmp atIndex:x];
+                        x++;
+                    }
+                }
+                else if ([sBrowserType isEqualToString:@"txt"]) {
+                    if ( ![ext isEqualToString:@"mp3"] && ![ext isEqualToString:@"png"] && ![ext isEqualToString:@"jpg"] && ![ext isEqualToString:@"jpeg"]) {
+                        NSString * tmp = [arrMutable objectAtIndex:i];
+                        [arrContents insertObject:tmp atIndex:x];
+                        x++;
+                    }
+                }
             }
         }
-        else if ([sBrowserType isEqualToString:@"image"]){
-            if ( [ext isEqualToString:@"png"] || [ext isEqualToString:@"jpg"] || [ext isEqualToString:@"jpeg"] ){
-                NSString * tmp = [arrMutable objectAtIndex:i];
-                [arrContents insertObject:tmp atIndex:x];
-                x++;
-            }
-        }
-        else if ([sBrowserType isEqualToString:@"txt"]) {
-            if ( ![ext isEqualToString:@"mp3"] && ![ext isEqualToString:@"png"] && ![ext isEqualToString:@"jpg"] && ![ext isEqualToString:@"jpeg"]) {
-                NSString * tmp = [arrMutable objectAtIndex:i];
-                [arrContents insertObject:tmp atIndex:x];
-                x++;
-            }
-        }
-
     }
 //    NSString* ext = [arrContents[0] pathExtension];
 //    NSLog(@”File extension : %@”, ext);
