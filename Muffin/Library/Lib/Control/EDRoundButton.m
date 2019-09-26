@@ -62,25 +62,48 @@
 }
 
 
+- (void) setEnabled:(BOOL)enabled
+{
+    [super setEnabled:enabled];
+    
+    if (!enabled)
+    {
+        self.alpha = 0.3;
+    }
+    else
+    {
+        self.alpha = 1.0;
+    }
+}
+
 - (void) setSelected:(BOOL)selected
 {
     [super setSelected:selected];
     
     @try {
-
-        if (selected)
+        if (!self.enabled)
         {
-            saveBackground = self.backgroundColor;
-            self.backgroundColor = self.selectedBackgroundColor;
-            self.layer.borderColor = self.selectedBorderColor.CGColor;
+            self.alpha = 0.3;
         }
         else
         {
-            self.backgroundColor = saveBackground;
-            //self.layer.borderColor = self.borderColor.CGColor;
-            
+            self.alpha = 1.0;
+            if (selected)
+            {
+                
+                if (self.enabled)
+                {
+                    saveBackground = self.backgroundColor;
+                    self.backgroundColor = self.selectedBackgroundColor;
+                    self.layer.borderColor = self.selectedBorderColor.CGColor;
+                }
+            }
+            else
+            {
+                self.backgroundColor = saveBackground;
+                //self.layer.borderColor = self.borderColor.CGColor;
+            }
         }
-
     } @catch (NSException *exception) {
     } @finally {
     }

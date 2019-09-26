@@ -1183,6 +1183,12 @@
     [_btmViewJoin buildLayout];
 //    [_btmViewArtist buildLayout];
     [_btnViewTimeLine buildLayout];
+    
+    
+//    r.size.height -= 40;
+    _viewJoinMsg.frame = r;
+    
+    
 }
 
 
@@ -1237,6 +1243,7 @@
     [self adjustSizeLayoutEx];
     self.showBack = YES;
     
+    _btnJoin2.enabled = NO;
     
     _btnRegText.hidden = NO;
 }
@@ -1735,7 +1742,7 @@
 
         [self presentViewController:controler animated:YES completion:nil];
         
-        NSString * sNameData = [NSString stringWithFormat:@"%@ Song", [UserInfo instance]];
+        NSString * sNameData = [NSString stringWithFormat:@"%@ Song", [UserInfo instance].userID];
         [controler setFileTitle: sNameData];
     }
 }
