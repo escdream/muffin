@@ -53,11 +53,16 @@
 */
 - (IBAction)onCloseClick:(id)sender {
     [self stopSong];
-    
+  
     if(![_songInfo.songWord isEqualToString:_txtLyrics.text])
         [self doSongInfoUpdateWords];
+
     
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (IBAction)onSaveLyricsClick:(id)sender {
+    if(![_songInfo.songWord isEqualToString:_txtLyrics.text])
+        [self doSongInfoUpdateWords];
 }
 
 - (void) setSongInfo:(SongInfo *)songInfo

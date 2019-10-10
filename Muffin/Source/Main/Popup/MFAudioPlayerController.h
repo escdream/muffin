@@ -38,6 +38,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet EDRoundView *viewImgParent;
 @property (weak, nonatomic) IBOutlet EDRoundView *viewImgMain;
 @property (weak, nonatomic) IBOutlet EDRoundView *viewControlParent;
+@property (nonatomic, assign) BOOL isEditable;
+@property (weak, nonatomic) IBOutlet UIButton *btnSaveLyrics;
 
 - (void) setPlayList:(id) object;
 

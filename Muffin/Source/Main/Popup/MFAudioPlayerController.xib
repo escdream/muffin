@@ -16,6 +16,7 @@
                 <outlet property="btnPlay" destination="eku-I8-l2R" id="ztR-nH-AMY"/>
                 <outlet property="btnPlayList" destination="Qvk-Cl-bcu" id="Iib-gH-uXa"/>
                 <outlet property="btnPrev" destination="ALG-OD-KZM" id="JeX-ju-fsc"/>
+                <outlet property="btnSaveLyrics" destination="iuN-mp-YP0" id="jzo-hl-wig"/>
                 <outlet property="btnStop" destination="vn5-I0-R6n" id="tvP-ai-nme"/>
                 <outlet property="imgGroup" destination="AZa-Is-jjP" id="tlL-9u-6dl"/>
                 <outlet property="lbGroup" destination="adE-n5-4ua" id="nu5-iH-6g2"/>
@@ -180,12 +181,23 @@
                             <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vQZ-xx-JBP">
-                            <rect key="frame" x="19" y="55" width="306" height="33"/>
+                            <rect key="frame" x="19" y="55" width="219" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="28"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iuN-mp-YP0">
+                            <rect key="frame" x="235" y="55" width="82" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                            <state key="normal" title="Save">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="onSaveLyricsClick:" destination="-1" eventType="touchUpInside" id="4HK-Zh-rlj"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <userDefinedRuntimeAttributes>

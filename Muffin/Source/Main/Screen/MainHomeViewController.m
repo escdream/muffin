@@ -272,6 +272,10 @@
     player.songInfo = songInfo;
     [player setPlayList:arrList];
     
+    // escdream 2019.10.10 - 편집안되도록 수정
+    player.txtLyrics.editable = NO;
+    player.btnSaveLyrics.hidden = YES;
+    
 }
 
 

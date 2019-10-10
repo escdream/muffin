@@ -256,14 +256,22 @@
                              if (result != nil)
                              {
                                  NSArray * arr = result;
+                                 self->hasTextData = NO;
                                  [self->arrPartAsk removeAllObjects];
                               
                                  for (NSDictionary * dic in arr)
                                  {
                                      SongInfo * muffin = [[SongInfo alloc] initWithData:dic];
-                                      
+                                     
+                                     // 내부에 가사가 있을경우..
+                                     if ([muffin.songType isEqualToString:@"2"])
+                                     {
+                                         self->hasTextData = YES;
+                                     }
+
                                      [self->arrPartAsk addObject:muffin];
                                  }
+                                 self.btnRegText.hidden = self->hasTextData;
                                 [self.tblJoinList reloadData];
                              }
                          }];

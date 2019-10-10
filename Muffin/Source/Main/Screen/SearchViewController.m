@@ -686,7 +686,15 @@
             cell.textLabel.font = [UIFont systemFontOfSize:12];
             cell.textLabel.textColor = RGB(33, 33, 33);
 
-            cell.textLabel.text = p.projectName;
+            
+            if ([p isKindOfClass:[ProjectInfo class]])
+                cell.textLabel.text = p.projectName;
+            else if ([p isKindOfClass:[SongInfo class]])
+            {
+                SongInfo * s = p;
+                cell.textLabel.text = s.groupName;
+            }
+                
         }
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -753,6 +761,10 @@
         [window.rootViewController presentViewController:player animated:YES completion:nil];
         player.songInfo = songInfo;
         [player setPlayList:arrList];
+        
+        // escdream 2019.10.10 - 편집안되도록 수정
+        player.txtLyrics.editable = NO;
+        player.btnSaveLyrics.hidden = YES;
     }
 }
 
