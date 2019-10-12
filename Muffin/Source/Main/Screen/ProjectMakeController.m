@@ -567,9 +567,19 @@
     else
     {
         if (self.btnJoin1.selected) {
+            
+            
+            
             if ( [self.fldPartAskFileName.text length] >= 1 ) {
                 sUploadType = @"File";
                 [self doFilesUpload: @"mp3"];
+            }
+            else // 음원없이 프로젝트 등록
+            {
+                [self doGroupInsert];
+                UIWindow *window = UIApplication.sharedApplication.delegate.window;
+                [window.rootViewController.view makeToast:@"프로젝트 등록이 완료되었습니다."];
+
             }
         }
         else { //가사등록 경우 바로 그룹등록 수행

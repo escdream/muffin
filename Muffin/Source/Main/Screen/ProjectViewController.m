@@ -870,7 +870,7 @@
                              
                              self->arrTimeline = [[NSMutableArray alloc] initWithArray:result];
                              
-                             if (self->arrTimeline.count > 0)
+                             //if (self->arrTimeline.count > 0)
                              {
                                  [self.tblTimeline reloadData];
 
@@ -881,15 +881,15 @@
 
                                  [self.btnViewTimeLine setChangeButtonTitle:0 sTitle: @"전체PJT" tag:0];
                              }
-                             else
-                             {
-                                 NSString *sMsg = @"조회 데이터가 없습니다.";
-                                 if (![sMsg isEqualToString:@""] && sMsg != nil)
-                                 {
-                                     UIWindow *window = UIApplication.sharedApplication.delegate.window;
-                                     [window.rootViewController.view makeToast:sMsg];
-                                 }
-                             }
+//                             else
+//                             {
+//                                 NSString *sMsg = @"조회 데이터가 없습니다.";
+//                                 if (![sMsg isEqualToString:@""] && sMsg != nil)
+//                                 {
+//                                     UIWindow *window = UIApplication.sharedApplication.delegate.window;
+//                                     [window.rootViewController.view makeToast:sMsg];
+//                                 }
+//                             }
                          }
                      }];
                 }
@@ -936,8 +936,8 @@
                          NSString *sMsg = @"조회 데이터가 없습니다.";
                          if (![sMsg isEqualToString:@""] && sMsg != nil)
                          {
-                             UIWindow *window = UIApplication.sharedApplication.delegate.window;
-                             [window.rootViewController.view makeToast:sMsg];
+//                             UIWindow *window = UIApplication.sharedApplication.delegate.window;
+//                             [window.rootViewController.view makeToast:sMsg];
                          }
                      }
                  }

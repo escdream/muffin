@@ -504,7 +504,7 @@
     [[AudioUtil player] setDelegate:self];
     
     [self initLayout];
-    [self initData];
+//    [self initData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -513,6 +513,14 @@
 
 - (void)viewWillDisappear:(BOOL)animated    {
     [super viewWillDisappear:animated];
+}
+
+- (void)viewWillAppear:(BOOL)animated   {
+    [super viewWillAppear:animated];
+    //머핀 플레이창 닫으면 머핀리스트 재조회
+//    if(!m_bIsFirst){
+        [self initData];
+//    }
 }
 
 /// Raised when the state of the player has changed
@@ -639,7 +647,11 @@
             {
                 muffinInfo = arrAll[indexPath.row];
             }
-            
+            else if (tableView == tblSearch)
+            {
+                muffinInfo = arrSearch[indexPath.row];
+            }
+
             cell.showFavorite = NO;
             cell.showPlayer   = NO;
             

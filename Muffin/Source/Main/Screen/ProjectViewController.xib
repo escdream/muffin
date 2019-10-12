@@ -462,16 +462,8 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sEa-uZ-3Xg">
-                            <rect key="frame" x="297" y="8" width="30" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Muffin 등록" image="list_btn_plu.png"/>
-                            <connections>
-                                <action selector="onAddMuffin:" destination="-1" eventType="touchUpInside" id="J5c-td-RUJ"/>
-                            </connections>
-                        </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5eI-JF-wUx" customClass="EDRoundButton">
-                            <rect key="frame" x="205" y="7" width="84" height="32"/>
+                            <rect key="frame" x="165" y="8" width="74" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="가사등록">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -490,6 +482,28 @@
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="onBtnRegTextClick:" destination="-1" eventType="touchUpInside" id="Mlj-TH-98r"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sEa-uZ-3Xg" customClass="EDRoundButton">
+                            <rect key="frame" x="244" y="8" width="74" height="32"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <state key="normal" title="음원등록">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                    <real key="value" value="16"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="onAddMuffin:" destination="-1" eventType="touchUpInside" id="J5c-td-RUJ"/>
                             </connections>
                         </button>
                     </subviews>
@@ -526,7 +540,6 @@
     </objects>
     <resources>
         <image name="btn_m_play.png" width="70" height="80"/>
-        <image name="list_btn_plu.png" width="40" height="40"/>
         <image name="user_pho_smp_01.png" width="250" height="250"/>
         <image name="user_pho_smp_02.png" width="90" height="90"/>
     </resources>
