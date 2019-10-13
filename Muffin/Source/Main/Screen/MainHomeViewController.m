@@ -16,6 +16,7 @@
 #import "AudioUtil.h"
 #import "SampleQueueId.h"
 #import "MFAudioPlayerController.h"
+#import "MFAudioPlayerController.h"
 #import "BannerViewController.h"
 #import "ProjectMakeController.h"
 #import "BannerViewController.h"

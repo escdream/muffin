@@ -145,6 +145,8 @@
 		B6612A952335F91700010161 /* MusicUploadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6612A922335F91700010161 /* MusicUploadViewController.xib */; };
 		B66DE0B9217DDCF500320F3D /* EDBottomButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = B66DE0B8217DDCF500320F3D /* EDBottomButtonView.m */; };
 		B675264B217D67360059B61D /* libAMSLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B643EDC8212FE64B00963B98 /* libAMSLibrary.a */; settings = {ATTRIBUTES = (Weak, ); }; };
+		B68D6D99235249FB002F820E /* LyricsEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B68D6D97235249FB002F820E /* LyricsEditViewController.m */; };
+		B68D6D9A235249FB002F820E /* LyricsEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B68D6D98235249FB002F820E /* LyricsEditViewController.xib */; };
 		B6B355F02162034B006FC18C /* util_icon_back.png in Resources */ = {isa = PBXBuildFile; fileRef = B6B355BB21620340006FC18C /* util_icon_back.png */; };
 		B6B355F12162034B006FC18C /* icon_sett.png in Resources */ = {isa = PBXBuildFile; fileRef = B6B355BC21620340006FC18C /* icon_sett.png */; };
 		B6B355F22162034B006FC18C /* list_btn_del.png in Resources */ = {isa = PBXBuildFile; fileRef = B6B355BD21620340006FC18C /* list_btn_del.png */; };
@@ -550,6 +552,9 @@
 		B6612A932335F91700010161 /* MusicUploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicUploadViewController.h; sourceTree = "<group>"; };
 		B66DE0B7217DDCF500320F3D /* EDBottomButtonView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDBottomButtonView.h; sourceTree = "<group>"; };
 		B66DE0B8217DDCF500320F3D /* EDBottomButtonView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDBottomButtonView.m; sourceTree = "<group>"; };
+		B68D6D96235249FB002F820E /* LyricsEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LyricsEditViewController.h; sourceTree = "<group>"; };
+		B68D6D97235249FB002F820E /* LyricsEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LyricsEditViewController.m; sourceTree = "<group>"; };
+		B68D6D98235249FB002F820E /* LyricsEditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LyricsEditViewController.xib; sourceTree = "<group>"; };
 		B6B355BB21620340006FC18C /* util_icon_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = util_icon_back.png; path = Muffin/Resource/img/util_icon_back.png; sourceTree = SOURCE_ROOT; };
 		B6B355BC21620340006FC18C /* icon_sett.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_sett.png; path = Muffin/Resource/img/icon_sett.png; sourceTree = SOURCE_ROOT; };
 		B6B355BD21620340006FC18C /* list_btn_del.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = list_btn_del.png; path = Muffin/Resource/img/list_btn_del.png; sourceTree = SOURCE_ROOT; };
@@ -1367,6 +1372,9 @@
 				B6F7AA6D22B255F90043483F /* BannerViewController.h */,
 				B6F7AA5822B255F90043483F /* BannerViewController.m */,
 				B6F7AA4E22B255F90043483F /* BannerViewController.xib */,
+				B68D6D96235249FB002F820E /* LyricsEditViewController.h */,
+				B68D6D97235249FB002F820E /* LyricsEditViewController.m */,
+				B68D6D98235249FB002F820E /* LyricsEditViewController.xib */,
 			);
 			path = Popup;
 			sourceTree = "<group>";
@@ -1530,7 +1538,7 @@
 					B643EC7C212FC01000963B98 = {
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 1010;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					B643EC94212FC01200963B98 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -1671,6 +1679,7 @@
 				B6B355F92162034B006FC18C /* muffin_logo_m.png in Resources */,
 				B6B356052162034C006FC18C /* banner_smp_02.png in Resources */,
 				B6B355F02162034B006FC18C /* util_icon_back.png in Resources */,
+				B68D6D9A235249FB002F820E /* LyricsEditViewController.xib in Resources */,
 				B6F7AAAC22B255F90043483F /* AudioPlayerViewController.xib in Resources */,
 				B6B356202162034C006FC18C /* main_btn_01.png in Resources */,
 				B65D87BD22C493780047676A /* Album.png in Resources */,
@@ -1711,6 +1720,7 @@
 			files = (
 				B6F7AAB222B255F90043483F /* ViewController.m in Sources */,
 				B6612A942335F91700010161 /* MusicUploadViewController.m in Sources */,
+				B68D6D99235249FB002F820E /* LyricsEditViewController.m in Sources */,
 				B65D87D522C604750047676A /* EDAlignableLabel.m in Sources */,
 				B63AC0C3213AA81900C45F83 /* ProjectInfo.m in Sources */,
 				B656497222B55C1B001E0E26 /* MyMuffinViewController.m in Sources */,
@@ -2025,7 +2035,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = UXWU24W42T;
 				ENABLE_BITCODE = NO;
@@ -2047,7 +2057,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kbsec.ableAppTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "ableAppTest Dev";
 				SWIFT_OBJC_BRIDGING_HEADER = "Muffin/Source/Main/Screen/Muffin-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
@@ -2060,8 +2070,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = UXWU24W42T;
 				ENABLE_BITCODE = NO;
@@ -2083,7 +2093,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kbsec.ableAppTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "ableAppTest Inhouse";
 				SWIFT_OBJC_BRIDGING_HEADER = "Muffin/Source/Main/Screen/Muffin-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;

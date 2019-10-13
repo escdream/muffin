@@ -28,6 +28,8 @@
         self.Tag3 = dicData[@"TAG3"];
         self.Tag4 = dicData[@"TAG4"];
         self.Tag5 = dicData[@"TAG5"];
+        if (dicData[@"UseYN"] != nil)
+            self.UseYN = dicData[@"UseYN"];
 
     }
     

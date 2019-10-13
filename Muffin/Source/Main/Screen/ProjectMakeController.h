@@ -57,6 +57,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *fldPartAskFileName; //파일명
 @property (weak, nonatomic) IBOutlet UITextView *fldPartAskSongWord;    //가사
 
+
 @property (strong, nonatomic) IBOutlet UIImageView *imgAlbum;
 
 @property (strong, nonatomic) IBOutlet UIButton *btnUpload;

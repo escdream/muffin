@@ -265,8 +265,10 @@
     {
         [btn addTarget:self action:@selector(clickButtonWork:) forControlEvents:UIControlEventTouchUpInside];
         
-        [btn setTitleColor:RGB(0x36, 0x1f, 0x69) forState:UIControlStateNormal];
-        [btn setTitleColor:RGB(255, 255, 255) forState:UIControlStateSelected];
+        [btn setTitleColor:RGB(0x36, 0x1f, 0x69) forState:UIControlStateSelected];
+        [btn setTitleColor:RGB(75, 75, 75) forState:UIControlStateNormal];
+//        [btn setTitleColor:RGB(0x36, 0x1f, 0x69) forState:UIControlStateNormal];
+//        [btn setTitleColor:RGB(255, 255, 255) forState:UIControlStateSelected];
     }
 
 }
@@ -1075,6 +1077,7 @@
      }
      ];
 }
+
 
 -(void) doGroupInsert {
     NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];

@@ -65,6 +65,24 @@ static EDHttpTransManager * global_httpManager;
 }
 
 
+- (BOOL) checkMessageProcess:(NSString *) sMsg // 정상 조회 체크
+{
+    BOOL ret = ([sMsg rangeOfString:@"조회"].location != NSNotFound); // 정상조회
+    
+    NSLog(@"msg = %@", sMsg );
+
+    
+    if (!ret) // 정상조회
+    {
+        UIWindow *window = UIApplication.sharedApplication.delegate.window;
+        [window.rootViewController.view makeToast:[sMsg decodeBase64String]];
+    }
+    
+    return ret;
+}
+
+
+
 - (void) processUserInfo:(NSString *)sCmd dicParam:(NSMutableDictionary *)dicParams  withBlack:(void(^)(id result, NSError * error))completion;
 {
     NSMutableDictionary * Params = [self getXnetBaseData];
@@ -99,10 +117,8 @@ static EDHttpTransManager * global_httpManager;
             
             if (![sMsg isEqualToString:@""] && sMsg != nil)
             {
-                UIWindow *window = UIApplication.sharedApplication.delegate.window;
-                [window.rootViewController.view makeToast:[sMsg decodeBase64String]];
+                [self checkMessageProcess:[sMsg decodeBase64String]];
             }
-            NSLog(@"msg = %@", [sMsg decodeBase64String]);
             
             NSDictionary * ds = nil;
             if (ads.count > 0)
@@ -178,10 +194,9 @@ static EDHttpTransManager * global_httpManager;
             
             if (![sMsg isEqualToString:@""] && sMsg != nil)
             {
-                UIWindow *window = UIApplication.sharedApplication.delegate.window;
-                [window.rootViewController.view makeToast:[sMsg decodeBase64String]];
+                [self checkMessageProcess:[sMsg decodeBase64String]];
+
             }
-            NSLog(@"msg = %@", [sMsg decodeBase64String]);
             
             
             NSArray * adata = ds[@"data"];
@@ -334,12 +349,10 @@ static EDHttpTransManager * global_httpManager;
             
             NSString * sMsg = returnDic[@"xnet"][@"tr"][@"message"][@"trmsg"];
             
-//            if (![sMsg isEqualToString:@""] && sMsg != nil)
-//            {
-//                UIWindow *window = UIApplication.sharedApplication.delegate.window;
-//                [window.rootViewController.view makeToast:[sMsg decodeBase64String]];
-//            }
-            NSLog(@"msg = %@", [sMsg decodeBase64String]);
+            if (![sMsg isEqualToString:@""] && sMsg != nil)
+            {
+                [self checkMessageProcess:[sMsg decodeBase64String]];
+            }
             
             
             NSArray * adata = ds[@"data"];
@@ -419,11 +432,8 @@ static EDHttpTransManager * global_httpManager;
             
             if (![sMsg isEqualToString:@""] && sMsg != nil)
             {
-                UIWindow *window = UIApplication.sharedApplication.delegate.window;
-                [window.rootViewController.view makeToast:[sMsg decodeBase64String]];
+                [self checkMessageProcess:[sMsg decodeBase64String]];
             }
-            NSLog(@"msg = %@", [sMsg decodeBase64String]);
-            
             
             NSArray * adata = ds[@"data"];
             
@@ -499,10 +509,8 @@ static EDHttpTransManager * global_httpManager;
             
             if (![sMsg isEqualToString:@""] && sMsg != nil)
             {
-                UIWindow *window = UIApplication.sharedApplication.delegate.window;
-                [window.rootViewController.view makeToast:[sMsg decodeBase64String]];
+                [self checkMessageProcess:[sMsg decodeBase64String]];
             }
-            NSLog(@"msg = %@", [sMsg decodeBase64String]);
             
             
             NSArray * adata = ds[@"data"];
@@ -571,10 +579,8 @@ static EDHttpTransManager * global_httpManager;
             
             if (![sMsg isEqualToString:@""] && sMsg != nil)
             {
-                UIWindow *window = UIApplication.sharedApplication.delegate.window;
-                [window.rootViewController.view makeToast:[sMsg decodeBase64String]];
+                [self checkMessageProcess:[sMsg decodeBase64String]];
             }
-            NSLog(@"msg = %@", [sMsg decodeBase64String]);
             
             
             NSArray * adata = ds[@"data"];
@@ -643,10 +649,8 @@ static EDHttpTransManager * global_httpManager;
             
             if (![sMsg isEqualToString:@""] && sMsg != nil)
             {
-                UIWindow *window = UIApplication.sharedApplication.delegate.window;
-                [window.rootViewController.view makeToast:[sMsg decodeBase64String]];
+                [self checkMessageProcess:[sMsg decodeBase64String]];
             }
-            NSLog(@"msg = %@", [sMsg decodeBase64String]);
             
             
             NSArray * adata = ds[@"data"];
@@ -735,10 +739,8 @@ static EDHttpTransManager * global_httpManager;
             
             if (![sMsg isEqualToString:@""] && sMsg != nil)
             {
-                UIWindow *window = UIApplication.sharedApplication.delegate.window;
-                [window.rootViewController.view makeToast:[sMsg decodeBase64String]];
+                [self checkMessageProcess:[sMsg decodeBase64String]];
             }
-            NSLog(@"msg = %@", [sMsg decodeBase64String]);
             
             
             NSArray * adata = ds[@"data"];
@@ -815,10 +817,8 @@ static EDHttpTransManager * global_httpManager;
             
             if (![sMsg isEqualToString:@""] && sMsg != nil)
             {
-                UIWindow *window = UIApplication.sharedApplication.delegate.window;
-                [window.rootViewController.view makeToast:[sMsg decodeBase64String]];
+                [self checkMessageProcess:[sMsg decodeBase64String]];
             }
-            NSLog(@"msg = %@", [sMsg decodeBase64String]);
             
             
             NSArray * adata = ds[@"data"];
@@ -896,10 +896,8 @@ static EDHttpTransManager * global_httpManager;
             
             if (![sMsg isEqualToString:@""] && sMsg != nil)
             {
-                UIWindow *window = UIApplication.sharedApplication.delegate.window;
-                [window.rootViewController.view makeToast:[sMsg decodeBase64String]];
+                [self checkMessageProcess:[sMsg decodeBase64String]];
             }
-            NSLog(@"msg = %@", [sMsg decodeBase64String]);
             
             
             NSArray * adata = ds[@"data"];
@@ -998,11 +996,8 @@ static EDHttpTransManager * global_httpManager;
             
             if (![sMsg isEqualToString:@""] && sMsg != nil)
             {
-                UIWindow *window = UIApplication.sharedApplication.delegate.window;
-                [window.rootViewController.view makeToast:[sMsg decodeBase64String]];
+                [self checkMessageProcess:[sMsg decodeBase64String]];
             }
-            NSLog(@"msg = %@", [sMsg decodeBase64String]);
-            
             
             NSArray * adata = ds[@"data"];
             
@@ -1036,5 +1031,8 @@ static EDHttpTransManager * global_httpManager;
         }
     }];
 }
+
+
+
 
 @end

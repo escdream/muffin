@@ -61,8 +61,23 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)onSaveLyricsClick:(id)sender {
-    if(![_songInfo.songWord isEqualToString:_txtLyrics.text])
-        [self doSongInfoUpdateWords];
+    
+    
+    if (_txtLyrics.editable)
+    {
+        if(![_songInfo.songWord isEqualToString:_txtLyrics.text])
+        {
+            
+            [self doSongInfoUpdateWords];
+            _txtLyrics.editable = NO;
+            [_btnSaveLyrics setTitle:@"편집" forState:UIControlStateNormal];
+        }
+    }
+    else
+    {
+        _txtLyrics.editable = YES;
+        [_btnSaveLyrics setTitle:@"저장" forState:UIControlStateNormal];
+    }
 }
 
 - (void) setSongInfo:(SongInfo *)songInfo
@@ -114,7 +129,7 @@
         _progres1.hidden = YES;
         _progres2.hidden = YES;
         
-        
+        _txtLyrics.editable = NO;
         _txtLyrics.hidden = NO;
         _txtLyrics.layer.shadowColor = [UIColor whiteColor].CGColor;
         _txtLyrics.layer.shadowOffset = CGSizeMake(1.0f, 1.0f);
