@@ -122,7 +122,8 @@
                      {
                          //프로젝트 진행률 완료이면
                          if ([self->sProgress isEqualToString:@"100"]) {
-                             self.btnProjectComplete.hidden = YES;
+                             [self.btnProjectComplete setTitle:@"프로젝트다시하기" forState:UIControlStateNormal];
+                             //self.btnProjectComplete.hidden = YES;
                              self.btnAddMuffin.hidden = YES;
                          } else {
                              self.btnProjectComplete.hidden = NO;
@@ -949,11 +950,23 @@
 
 //프로젝트 진행 완료
 - (IBAction)onProjectComplete:(id)sender {
+    
+
+    NSString * sPercent = @"100";
+    if([_btnProjectComplete.titleLabel.text isEqualToString:@"프로젝트 완료"])
+    {
+        sPercent = @"100";
+    }
+    else
+    {
+        sPercent = @"90";
+    }
+        
     NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
     
     dic[@"Function"] = @"GroupInfoProgress_Update";
     dic[@"GroupId"] = self.project.projectID;
-    dic[@"Progress"] = @"100"; //완료: 100
+    dic[@"Progress"] = sPercent; //완료: 100
     
     [[EDHttpTransManager instance] callProjectCommand:dic withBlack:^(id result, NSError * error)
      {
@@ -963,11 +976,22 @@
          }
          else
          {
-             self.btnProjectComplete.hidden = YES;
+//             self.btnProjectComplete.hidden = YES;
              self.btnAddMuffin.hidden = YES;
+             NSString *sMessage = @"프로젝트가 완료되었습니다.";
+             if (![sPercent isEqualToString:@"100"])
+             {
+                 [self.btnProjectComplete setTitle:@"프로젝트 완료" forState:UIControlStateNormal];
+                 self.btnAddMuffin.hidden = NO;
+                 sMessage = @"프로젝트가 진행중으로 변경되었습니다.";
+             }
+             else
+             {
+                 [self.btnProjectComplete setTitle:@"프로젝트다시하기" forState:UIControlStateNormal];
+             }
              
              UIWindow *window = UIApplication.sharedApplication.delegate.window;
-             [window.rootViewController.view makeToast:@"프로젝트가 완료되었습니다."];
+             [window.rootViewController.view makeToast:sMessage];
          }
      }];
 }

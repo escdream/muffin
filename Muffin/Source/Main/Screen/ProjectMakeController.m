@@ -1016,7 +1016,7 @@
     dic[@"GroupId"] = groupID;
     dic[@"SongName"] = [[UserInfo instance].userID stringByAppendingString: @" Song"]; //임시 입력
     dic[@"MusicFileId"] = _fldPartAskFileName.text;
-    dic[@"PublicYN"] = @"Y";  //임시 입력
+    dic[@"PublicYN"] = [self getPublicYN];  //임시 입력
     
     [[EDHttpTransManager instance] callMuffinInfo:dic withBlack:^(id result, NSError * error)
      {
@@ -1051,7 +1051,7 @@
     dic[@"SongName"] = [[UserInfo instance].userID stringByAppendingString: @" Song"]; //임시 입력
     dic[@"MusicFileId"] = _fldPartAskFileName.text;
     dic[@"SongWords"] = _fldPartAskSongWord.text;  //가사
-    dic[@"PublicYN"] = @"Y";  //임시 입력
+    dic[@"PublicYN"] = [self getPublicYN];;  //임시 입력
     dic[@"SongKind"] = [self getCurrentGanre:self->arrGanre];   //01:발라드 02:댄스 03:클래식 04:알앤비 05:락 06레게
     
     [[EDHttpTransManager instance] callMuffinInfo:dic withBlack:^(id result, NSError * error)
@@ -1079,6 +1079,18 @@
 }
 
 
+- (NSString *) getPublicYN
+{
+    UIButton * btn = [_viewStep_3 viewWithTag:3601];
+    if (btn)
+    {
+        if (btn.selected) return @"Y";
+    }
+    
+    return @"N";
+}
+
+
 -(void) doGroupInsert {
     NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
     
@@ -1093,7 +1105,8 @@
     dic[@"Tag3"] = [arrTags objectAtIndex:2];
     dic[@"Tag4"] = [arrTags objectAtIndex:3];
     dic[@"Tag5"] = [arrTags objectAtIndex:4];
-    
+    dic[@"UseYN"] = [self getPublicYN];
+
     
     dic[@"Function"] = @"GroupInfo_Insert";
     

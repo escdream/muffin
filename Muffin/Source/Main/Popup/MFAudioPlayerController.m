@@ -115,7 +115,8 @@
         _txtLyrics.text = _songInfo.songWord;
     else
         _txtLyrics.text = @"";
-
+    _btnSaveLyrics.hidden = NO;
+    
     if (_viewType == 2) // 가사모드
     {
         _txtLyrics.editable = YES;
