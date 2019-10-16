@@ -22,7 +22,7 @@
 #import "HangulUtils.h"
 #import "MFAudioPlayerController.h"
 #import "Muffin-Swift.h"
-
+#import "UIView+Toast.h"
 
 @interface SearchViewController ()
 {
@@ -389,11 +389,12 @@
 
 - (void)doSearchMuffin:(NSString *)sType muffinKind:(NSString*)sKind{
     NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
-    dic[@"Function"] = @"SongInfo_SelectWhere";
+    dic[@"Function"] = @"GroupInfo_SelectWhere";
     dic[@"Type"] = sType;
     dic[@"Kind"] = sKind;
  
-    [[EDHttpTransManager instance] callMuffinInfo:dic withBlack:^(id result, NSError * error)
+    [[EDHttpTransManager instance] callProjectInfo:dic withBlack:^(id result, NSError * error)
+//    [[EDHttpTransManager instance] callMuffinInfo:dic withBlack:^(id result, NSError * error)
      {
          if (result != nil)
          {
@@ -427,6 +428,15 @@
              [self->tblResultHot reloadData];
              [self->tblResultNew reloadData];
              [self->tblResultAll reloadData];
+         }
+         else
+         {
+             [self->tblResultHot reloadData];
+             [self->tblResultNew reloadData];
+             [self->tblResultAll reloadData];
+             
+             UIWindow *window = UIApplication.sharedApplication.delegate.window;
+             [window.rootViewController.view makeToast:@"자료가 존재하지 않습니다."];
          }
      }];
 }

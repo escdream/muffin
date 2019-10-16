@@ -197,6 +197,9 @@
     [self setCurrentGanre:1];
     [self setCurrentCommand:1 arrData:arrSelect];
     [self setCurrentGanre:1 arrData:arrCommand2];
+    [self setCurrentGanre:1 arrData:arrGanre];
+    [self setCurrentCommand:1 arrData:arrCommand];
+
     
     [self initIndicator];
     [self setFTP];
@@ -280,6 +283,23 @@
         UIButton * btn = arrData[i];
         btn.selected = ((currentCommand-1) == i);
     }
+    
+    
+    // 가사 선택시 최종에 가사로 선택되기 바램
+    if (currentCommand == 1)
+    {
+        [self onBtnJoin2:_btnJoin2];
+        [self onBtnJoinClick:_btnJoin2];
+        [self setCurrentGanre:2 arrData:arrCommand2];
+
+    }
+    else
+    {
+        [self onBtnJoin1:_btnJoin1];
+        [self onBtnJoinClick:_btnJoin1];
+        [self setCurrentGanre:1 arrData:arrCommand2];
+    }
+    
 }
 
 - (NSString*) getCurrentCommand:(NSMutableArray *) arrData
