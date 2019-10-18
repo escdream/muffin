@@ -1293,7 +1293,6 @@
     if (self)
     {
         self.project = aProject;
-
     }
     
     return self;

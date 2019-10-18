@@ -389,12 +389,13 @@
 
 - (void)doSearchMuffin:(NSString *)sType muffinKind:(NSString*)sKind{
     NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
-    dic[@"Function"] = @"GroupInfo_SelectWhere";
+    dic[@"Function"] = @"SongInfo_SelectWhere";
+//    dic[@"Function"] = @"GroupInfo_SelectWhere";
     dic[@"Type"] = sType;
     dic[@"Kind"] = sKind;
  
-    [[EDHttpTransManager instance] callProjectInfo:dic withBlack:^(id result, NSError * error)
-//    [[EDHttpTransManager instance] callMuffinInfo:dic withBlack:^(id result, NSError * error)
+//    [[EDHttpTransManager instance] callProjectInfo:dic withBlack:^(id result, NSError * error)
+    [[EDHttpTransManager instance] callMuffinInfo:dic withBlack:^(id result, NSError * error)
      {
          if (result != nil)
          {
@@ -748,20 +749,56 @@
     {
         ProjectViewController * project;
         
+        ProjectInfo * info = nil;
+
+        
         if (tableView == tblResultHot)
         {
-            project = [[ProjectViewController alloc] initWithProject:arrHot[indexPath.row]];
+            info = arrHot[indexPath.row];
         }
         else if (tableView == tblResultNew)
         {
-            project = [[ProjectViewController alloc] initWithProject:arrNew[indexPath.row]];
+            info = arrNew[indexPath.row];
         }
         else
         {
-            project = [[ProjectViewController alloc] initWithProject:arrAll[indexPath.row]];
+            info = arrAll[indexPath.row];
         }
 
-        [self.navigationController pushViewController:project animated:YES];
+        
+        if ([info isKindOfClass:[SongInfo class]])
+        {
+            
+            SongInfo * song_info = (SongInfo *) info;
+            
+            NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
+            
+            dic[@"Function"] = @"GroupInfo_Select";
+            dic[@"GroupId"] = song_info.groupID;
+
+            [[EDHttpTransManager instance] callProjectInfo:dic withBlack:^(id result, NSError * error)
+             {
+                 if (result != nil)
+                 {
+                     NSArray * arr = result;
+                     NSDictionary * dic = arr[0];
+                     if (dic != nil)
+                     {
+                         ProjectInfo * p = [[ProjectInfo alloc] initWithData:dic];
+                         ProjectViewController * project;
+                         project = [[ProjectViewController alloc] initWithProject:p];
+                         [self.navigationController pushViewController:project animated:YES];
+
+                     }
+                 }
+             }];
+            
+        }
+        else
+        {
+            project = [[ProjectViewController alloc] initWithProject:info];
+            [self.navigationController pushViewController:project animated:YES];
+        }
     }
     else
     {

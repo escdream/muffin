@@ -417,6 +417,8 @@ static EDHttpTransManager * global_httpManager;
     }
     else if ( [dicCmd[@"Function"] isEqualToString: @"GroupInfo_SelectWhere"] )
     {
+//        httpHeader[@"Function"] = @"GroupInfoAll_Select";
+
         [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"Type" sValue:dicCmd[@"Type"]]];
         [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"Kind" sValue:dicCmd[@"Kind"]]];
     }
