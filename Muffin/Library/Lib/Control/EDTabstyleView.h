@@ -9,6 +9,17 @@
 #import <UIKit/UIKit.h>
 IB_DESIGNABLE
 
+@class EDTabstyleView;
+@protocol EDTabstyleViewDelegate  <NSObject>
+
+@optional
+-(void) onTabChange:(EDTabstyleView *)tabStyle nIndex:(NSInteger)nIndex;
+-(void) onTabChanged:(EDTabstyleView *)tabStyle nIndex:(NSInteger)nIndex;
+
+@end
+
+
+
 @interface EDTabstyleView : UIView
 {
     NSMutableArray * tabButtonList;
@@ -24,6 +35,7 @@ IB_DESIGNABLE
     CGFloat overContentView;
 }
 
+@property (nonatomic, strong) id<EDTabstyleViewDelegate> delegate;
 @property (nonatomic, assign) NSInteger selectIndex;
 @property (nonatomic, strong) NSMutableArray * tabViewList;
 

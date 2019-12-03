@@ -123,6 +123,9 @@
     
 }
 
+
+
+
 - (void) initLayout
 {
     self.title = @"Search";
@@ -150,6 +153,7 @@
     [_tabResult addTab:@"New" subView:tblResultNew];
     [_tabResult addTab:@"All" subView:tblResultAll];
     [_tabResult doTabClick: 0];
+    _tabResult.delegate = (id)self;
 
     
     tblSearch.frame = _tabResult.frame;
@@ -381,8 +385,8 @@
     else if ([viewType isEqualToString: @"MuffinProject"])
     {
         [self doSearchMuffinProject:@"1"];//HOT
-//        [self doSearchMuffinProject:@"2"];//NEW
-//        [self doSearchMuffinProject:@"3"];//ALL
+        [self doSearchMuffinProject:@"2"];//NEW
+        [self doSearchMuffinProject:@"3"];//ALL
     }
 
 }
@@ -393,7 +397,8 @@
 //    dic[@"Function"] = @"GroupInfo_SelectWhere";
     dic[@"Type"] = sType;
     dic[@"Kind"] = sKind;
- 
+    dic[@"GroupKind"] = sKind;
+
 //    [[EDHttpTransManager instance] callProjectInfo:dic withBlack:^(id result, NSError * error)
     [[EDHttpTransManager instance] callMuffinInfo:dic withBlack:^(id result, NSError * error)
      {
@@ -445,22 +450,22 @@
 - (void)doSearchMuffinProject:(NSString *)sType {
     NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
     dic = nil;
-//    dic[@"Type"] = sType;
+    dic[@"Type"] = sType;
     
     [[EDHttpTransManager instance] callProjectInfo:dic withBlack:^(id result, NSError * error)
      {
          if (result != nil)
          {
              NSArray * arr = result;
-//             if ([sType isEqualToString:@"1"]) {
+             if ([sType isEqualToString:@"1"]) {
                  [self->arrHot removeAllObjects];
-//             }
-//             else if ([sType isEqualToString:@"2"]) {
+             }
+             else if ([sType isEqualToString:@"2"]) {
                  [self->arrNew removeAllObjects];
-//             }
-//             else if ([sType isEqualToString:@"3"]) {
+             }
+             else if ([sType isEqualToString:@"3"]) {
                  [self->arrAll removeAllObjects];
-//             }
+             }
 
              for (NSDictionary * dic in arr)
              {
@@ -850,4 +855,15 @@
         playCell = nil;
     }
 }
+
+
+
+-(void) onTabChange:(EDTabstyleView *)tabStyle nIndex:(NSInteger)nIndex;
+{
+    NSString * sOp = [NSString stringWithFormat:@"%d", nIndex + 1];
+    
+    
+    [self doSearchMuffinProject:sOp];//HOT
+}
+
 @end

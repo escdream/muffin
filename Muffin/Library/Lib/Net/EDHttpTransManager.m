@@ -420,7 +420,7 @@ static EDHttpTransManager * global_httpManager;
 //        httpHeader[@"Function"] = @"GroupInfoAll_Select";
 
         [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"Type" sValue:dicCmd[@"Type"]]];
-        [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"Kind" sValue:dicCmd[@"Kind"]]];
+        [Params[@"xnet"][@"tr"][@"data"] addObject:[self makeParamData:@"GroupKind" sValue:dicCmd[@"GroupKind"]]];
     }
     else
     {

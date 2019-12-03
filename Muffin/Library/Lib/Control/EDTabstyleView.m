@@ -11,6 +11,9 @@
 @interface EDTabstyleView ()
 {
     NSString* sTabTitle;
+    
+    BOOL isNotScrollEventClick;
+    
 }
 @end
 
@@ -292,9 +295,17 @@
 
 - (void) onTabClick:(UIButton *) btn
 {
+    
+    
     self.selectIndex = btn.tag;
     btn = tabButtonList[self.selectIndex];
     sTabTitle = btn.titleLabel.text;
+    
+    if (_delegate)
+    {
+        if ([_delegate respondsToSelector:@selector(onTabChange:nIndex:)])
+            [_delegate onTabChange:self nIndex:self.selectIndex];
+    }
     
     [self.superview endEditing:YES];
     [UIView animateWithDuration:0.3f animations:^(void)
@@ -306,6 +317,13 @@
          self->scrollClient.contentOffset = CGPointMake(self.selectIndex * self->frameWidth, 0);
          
          self->tabIndicator.frame = r;
+         
+         if (self.delegate)
+         {
+             if ([self.delegate respondsToSelector:@selector(onTabChanged:nIndex:)])
+                 [self.delegate onTabChanged:self nIndex:self.selectIndex];
+         }
+
      }];
 }
 
@@ -321,11 +339,17 @@
 //    float h = size.height;
 //
 //
-    NSLog(@"x = %f Index = %d", offset.x, self.selectIndex);
-    self.selectIndex = (currentOffset / nWidth);
-    if (currentOffset % nWidth  == 0)
+    
+    
+    NSInteger sel = (currentOffset / nWidth);
+    
+    if (self.selectIndex != sel)
     {
-        [self onTabClick:tabButtonList[self.selectIndex]];
+        self.selectIndex = sel;
+        if (currentOffset % nWidth  == 0)
+        {
+            [self onTabClick:tabButtonList[self.selectIndex]];
+        }
     }
 
 //
