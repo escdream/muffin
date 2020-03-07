@@ -210,7 +210,7 @@
 {
     arrFiles = [[NSMutableArray alloc] init];
     uploader = [[FTPFileUploder alloc] init];
-    uploader.ftpUrl = @"ftp://ourworld3.cafe24.com//tomcat/webapps/dataM/attach/image_g";
+    uploader.ftpUrl = @"ftp://ourworld3.cafe24.com/tomcat/webapps/dataM/attach/image_g";
     uploader.ftpUserName = @"ourworld3";
     uploader.ftpUserPassword = @"ourworld6249!";
     uploader.delegate = self;
@@ -762,7 +762,7 @@
     UIImage * image = self.imgAlbum.image;
     NSString * fullPath = [self saveImageToDocumentDirectoryWithImage:image];
     
-    uploader.ftpUrl = @"ftp://ourworld3.cafe24.com//tomcat/webapps/dataM/attach/image_g";
+    uploader.ftpUrl = @"ftp://ourworld3.cafe24.com/tomcat/webapps/dataM/attach/image_g";
     
     [uploader upload:fullPath];
 }
@@ -772,9 +772,9 @@
     NSString * fullPath = [self getFileToDocumentDirectoryWithFiles:fileName];
     
     if ([sFileType isEqualToString: @"mp3"])
-        uploader.ftpUrl = @"ftp://ourworld3.cafe24.com//tomcat/webapps/dataM/attach/muffin";
+        uploader.ftpUrl = @"ftp://ourworld3.cafe24.com/tomcat/webapps/dataM/attach/muffin";
     else if ([sFileType isEqualToString: @"txt"])
-        uploader.ftpUrl = @"ftp://ourworld3.cafe24.com//tomcat/webapps/dataM/attach/muffin";
+        uploader.ftpUrl = @"ftp://ourworld3.cafe24.com/tomcat/webapps/dataM/attach/muffin";
     
     [uploader upload:fullPath];
 }

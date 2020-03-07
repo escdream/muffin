@@ -42,7 +42,7 @@
     arrFiles = [[NSMutableArray alloc] init];
 
     uploader = [[FTPFileUploder alloc] init];
-    uploader.ftpUrl = @"ftp://ourworld3.cafe24.com//tomcat/webapps/dataM/attach/image";
+    uploader.ftpUrl = @"ftp://ourworld3.cafe24.com/tomcat/webapps/dataM/attach/image";
     uploader.ftpUserName = @"ourworld3";
     uploader.ftpUserPassword = @"ourworld6249!";
     uploader.delegate = self;

@@ -36,6 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @property (nonatomic, strong) NSString * ftpUrl;
+@property (nonatomic, strong) NSString * ftpPath;
 @property (nonatomic, strong) NSString * ftpUserName;
 @property (nonatomic, strong) NSString * ftpUserPassword;
 

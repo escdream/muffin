@@ -251,5 +251,19 @@
         
     }
 }
+- (IBAction)onLogout:(id)sender {
+    
+    [[UserInfo instance] userLogout];
+    
+    [self hideMenus];
+    
+    [self goHome];
+    
+    // not login info
+    if (![[UserInfo instance] isUserLogin])
+    {
+        [LoginViewController ShowLoginView:@"" animated:NO];
+    }
+}
 
 @end

@@ -60,12 +60,8 @@
     arrNew = [[NSMutableArray alloc] init];
     arrAll = [[NSMutableArray alloc] init];
     
-    // not login info
-    if (![[UserInfo instance] isUserLogin])
-    {
-        [LoginViewController ShowLoginView:@"" animated:NO];
-    }
-    
+
+    [self showLoginView];
     
     [[AudioUtil player] setDelegate:self];
     
@@ -76,6 +72,15 @@
     
 }
 
+- (void) showLoginView;
+{
+    // not login info
+    if (![[UserInfo instance] isUserLogin])
+    {
+        [LoginViewController ShowLoginView:@"" animated:NO];
+    }
+    
+}
 
 /// Raised when the state of the player has changed
 -(void) audioPlayer:(STKAudioPlayer*)audioPlayer stateChanged:(STKAudioPlayerState)state previousState:(STKAudioPlayerState)previousState;

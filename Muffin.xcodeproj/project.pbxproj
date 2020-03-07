@@ -11,6 +11,8 @@
 		3007914522C38BE20030CCAC /* btn_star_o.png in Resources */ = {isa = PBXBuildFile; fileRef = 3007914322C38BE10030CCAC /* btn_star_o.png */; };
 		B6204FDE22CC95C60004AAEE /* EDSpectrumView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6204FDD22CC95C60004AAEE /* EDSpectrumView.m */; };
 		B6204FE922CD7BE60004AAEE /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6204FE822CD7BE60004AAEE /* PlayerView.swift */; };
+		B624DCBA24143AB5006E0EFB /* icon_login2.png in Resources */ = {isa = PBXBuildFile; fileRef = B624DCB824143AB5006E0EFB /* icon_login2.png */; };
+		B624DCBB24143AB5006E0EFB /* icon_login.png in Resources */ = {isa = PBXBuildFile; fileRef = B624DCB924143AB5006E0EFB /* icon_login.png */; };
 		B6309C5A22B256FF007A2942 /* AudioPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6309C5822B256FF007A2942 /* AudioPlayerView.m */; };
 		B6309C5B22B256FF007A2942 /* SampleQueueId.m in Sources */ = {isa = PBXBuildFile; fileRef = B6309C5922B256FF007A2942 /* SampleQueueId.m */; };
 		B636AA30215E704F00C755CB /* SongInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = B636AA2F215E704F00C755CB /* SongInfo.m */; };
@@ -309,6 +311,8 @@
 		B6204FDD22CC95C60004AAEE /* EDSpectrumView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EDSpectrumView.m; path = Muffin/Library/Lib/Control/EDSpectrumView.m; sourceTree = SOURCE_ROOT; };
 		B6204FE722CD7BE50004AAEE /* Muffin-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Muffin-Bridging-Header.h"; sourceTree = "<group>"; };
 		B6204FE822CD7BE60004AAEE /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		B624DCB824143AB5006E0EFB /* icon_login2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_login2.png; path = Muffin/Resource/img/icon_login2.png; sourceTree = SOURCE_ROOT; };
+		B624DCB924143AB5006E0EFB /* icon_login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_login.png; path = Muffin/Resource/img/icon_login.png; sourceTree = SOURCE_ROOT; };
 		B6309C5622B256FF007A2942 /* SampleQueueId.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleQueueId.h; sourceTree = "<group>"; };
 		B6309C5722B256FF007A2942 /* AudioPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayerView.h; sourceTree = "<group>"; };
 		B6309C5822B256FF007A2942 /* AudioPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayerView.m; sourceTree = "<group>"; };
@@ -1154,6 +1158,8 @@
 		B6B355BA2162032B006FC18C /* Img */ = {
 			isa = PBXGroup;
 			children = (
+				B624DCB924143AB5006E0EFB /* icon_login.png */,
+				B624DCB824143AB5006E0EFB /* icon_login2.png */,
 				3007914222C38BE10030CCAC /* btn_star_n.png */,
 				3007914322C38BE10030CCAC /* btn_star_o.png */,
 				B645BFF3217C944E009DEFDD /* maskimg.png */,
@@ -1625,6 +1631,7 @@
 				B6F7AAA622B255F90043483F /* ProjectMakeController.xib in Resources */,
 				B6F7AA3A22B10AAB0043483F /* airplane.aac in Resources */,
 				B645BFF4217C944E009DEFDD /* maskimg.png in Resources */,
+				B624DCBB24143AB5006E0EFB /* icon_login.png in Resources */,
 				B6B3560D2162034C006FC18C /* util_d_icon_login.png in Resources */,
 				B6B3560C2162034C006FC18C /* l_icon_02.png in Resources */,
 				B6B356242162034C006FC18C /* st_03_off.png in Resources */,
@@ -1668,6 +1675,7 @@
 				B6F7AA9722B255F90043483F /* MainScreenViewController.xib in Resources */,
 				B6B356152162034C006FC18C /* icon_sh.png in Resources */,
 				B65D87BE22C493780047676A /* Delete.png in Resources */,
+				B624DCBA24143AB5006E0EFB /* icon_login2.png in Resources */,
 				B6B355F62162034B006FC18C /* icon_arr.png in Resources */,
 				B6E0E5962130102F0065E395 /* IMG_0693.png in Resources */,
 				B6F7AA9322B255F90043483F /* LoginViewController.xib in Resources */,
@@ -2036,6 +2044,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 3;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = U24W4S42CS;
 				ENABLE_BITCODE = NO;
@@ -2070,10 +2079,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 3;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = U24W4S42CS;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2093,7 +2103,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = kr.co.muppn.muppnapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = Muppn_Adhoc;
 				SWIFT_OBJC_BRIDGING_HEADER = "Muffin/Source/Main/Screen/Muffin-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;

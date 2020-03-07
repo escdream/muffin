@@ -122,10 +122,11 @@
                      {
                          //프로젝트 진행률 완료이면
                          if ([self->sProgress isEqualToString:@"100"]) {
-                             [self.btnProjectComplete setTitle:@"프로젝트다시하기" forState:UIControlStateNormal];
+                             [self.btnProjectComplete setTitle:@"프로젝트 재진행" forState:UIControlStateNormal];
                              //self.btnProjectComplete.hidden = YES;
                              self.btnAddMuffin.hidden = YES;
                          } else {
+                             [self.btnProjectComplete setTitle:@"프로젝트 완료" forState:UIControlStateNormal];
                              self.btnProjectComplete.hidden = NO;
                              self.btnAddMuffin.hidden = NO;
                          }
@@ -987,7 +988,7 @@
              }
              else
              {
-                 [self.btnProjectComplete setTitle:@"프로젝트다시하기" forState:UIControlStateNormal];
+                 [self.btnProjectComplete setTitle:@"프로젝트 재진행" forState:UIControlStateNormal];
              }
              
              UIWindow *window = UIApplication.sharedApplication.delegate.window;

@@ -90,10 +90,26 @@
     
     for (SongInfo * muffin in self->arrAll)
     {
-        NSString *name = muffin.songName;
-        
-        NSString *group = muffin.groupName;
+        NSString *name = @"";
+        NSString *group = @"";
 
+        
+        if ([muffin isKindOfClass:[ProjectInfo class]])
+        {
+            ProjectInfo * pinfo = (ProjectInfo *)muffin;
+            
+            name = pinfo.songMusicName;
+            group = pinfo.groupID;
+
+        }
+        else
+        {
+            name = muffin.songName;
+            group = muffin.groupName;
+        }
+        
+        
+        
         NSRange rangeName = [[name uppercaseString] rangeOfString:[searchString uppercaseString]];
         NSRange rangeCode = [[group uppercaseString] rangeOfString:[searchString uppercaseString]];
         
@@ -860,10 +876,13 @@
 
 -(void) onTabChange:(EDTabstyleView *)tabStyle nIndex:(NSInteger)nIndex;
 {
-    NSString * sOp = [NSString stringWithFormat:@"%d", nIndex + 1];
+    NSString * sOp = [NSString stringWithFormat:@"%ld", nIndex + 1];
     
     
-    [self doSearchMuffinProject:sOp];//HOT
+    if ([viewType isEqualToString: @"SearchMuffin"])
+        [self doSearchMuffin:sOp muffinKind:@"99"];//ALL
+    else if ([viewType isEqualToString: @"MuffinProject"])
+        [self doSearchMuffinProject:sOp];//HOT
 }
 
 @end

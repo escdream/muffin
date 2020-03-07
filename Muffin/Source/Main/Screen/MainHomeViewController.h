@@ -24,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak, nonatomic) IBOutlet EDTabstyleView *tabResult;
 
+- (void) showLoginView;
+
 @end
 
 NS_ASSUME_NONNULL_END
