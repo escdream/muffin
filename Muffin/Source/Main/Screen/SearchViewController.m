@@ -869,6 +869,7 @@
         MFAudioPlayerController * player = [[MFAudioPlayerController alloc] initWithNibName:@"MFAudioPlayerController" bundle:nil];
         UIWindow *window = UIApplication.sharedApplication.delegate.window;
         
+        player.modalPresentationStyle = UIModalPresentationFullScreen;
         [window.rootViewController presentViewController:player animated:YES completion:nil];
         player.songInfo = songInfo;
         [player setPlayList:arrList];

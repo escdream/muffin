@@ -190,6 +190,8 @@
 - (IBAction)OnSignUp:(id)sender {
     
     UserViewController * controler = [[UserViewController alloc] initWithNibName:@"UserViewController" bundle:nil];
+    controler.modalPresentationStyle = UIModalPresentationFullScreen;// modalPresentationStyle
+
     [self presentViewController:controler animated:YES  completion:nil];
 //    [self.navigationController pushViewController:controler animated:YES];
 //    [self dismissViewControllerAnimated:YES completion:nil];
@@ -226,7 +228,8 @@
 + (void) ShowLoginView:(NSString *) sData animated:(BOOL) animated
 {
     LoginViewController * loginView = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
-    
+    loginView.modalPresentationStyle = UIModalPresentationFullScreen;// modalPresentationStyle
+
     [UIApplication.sharedApplication.keyWindow.rootViewController presentViewController:loginView animated:animated completion:nil];
 }
 

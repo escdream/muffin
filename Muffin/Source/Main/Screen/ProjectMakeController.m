@@ -851,6 +851,7 @@
     else if (_btnJoin2.selected)
         controler.sBrowserType = @"txt";    
     
+    controler.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:controler animated:YES completion:nil];
     controler.showProjecInfo = NO;
     [controler setFileTitle:_fldTitle.text];

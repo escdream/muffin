@@ -294,6 +294,7 @@
      
     AudioPlayerViewController * controler = [[AudioPlayerViewController alloc] initWithNibName:@"AudioPlayerViewController" bundle:nil];
     
+    controler.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:controler animated:YES completion:nil];
 }
 

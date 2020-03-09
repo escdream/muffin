@@ -1825,6 +1825,7 @@
     controler.sBrowserType = @"mp3";
     self.btnAddMuffin.selected = YES;
     
+    controler.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:controler animated:YES completion:nil];
     
     
