@@ -3314,6 +3314,73 @@ CGColorSpaceRef GetDeviceRGBColorSpace(BOOL isrelease)
     }
 }
 
++(NSString *)getRandomNumber{
+    NSTimeInterval time = ([[NSDate date] timeIntervalSince1970]); // returned as a double
+    long digits = (long)time; // this is the first 10 digits
+    int decimalDigits = (int)(fmod(time, 1) * 1000); // this will get the 3 missing digits
+    //long timestamp = (digits * 1000) + decimalDigits;
+    NSString *timestampString = [NSString stringWithFormat:@"%ld%d",digits ,decimalDigits];
+    return timestampString;
+}
+
++ (NSString *) saveJpegImage:(UIImage *) image sFileName:(NSString *)sFileName nMaxSize:(CGFloat)nMaxSize
+{
+    NSError *error;
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0]; // Get documents folder
+    NSString *dataPath = documentsDirectory;//[documentsDirectory stringByAppendingPathComponent:@"/images"];
+    
+    CGFloat scale = 1.0;
+    CGFloat iw = image.size.width;
+    CGFloat ih = image.size.height;
+    CGFloat maxSize = nMaxSize;
+    
+    if (iw > ih)
+    {
+        if (iw > maxSize)
+        {
+            scale = maxSize/iw;
+            iw = maxSize;
+            ih = ih * scale;
+        }
+    }
+    else
+    {
+        if (ih > maxSize)
+        {
+            scale = maxSize/ih;
+            ih = maxSize;
+            iw = iw * scale;
+        }
+    }
+    
+    if (image.imageOrientation != UIImageOrientationUp)
+    {
+        UIGraphicsBeginImageContextWithOptions(image.size, NO, image.scale);
+        [image drawInRect:(CGRect){0, 0, image.size}];
+        image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+    }
+    
+    image = [CommonUtil resizeImage:image width:iw height:ih];
+    
+    //Create a folder inside Document Directory
+    if (![[NSFileManager defaultManager] fileExistsAtPath:dataPath])
+        [[NSFileManager defaultManager] createDirectoryAtPath:dataPath withIntermediateDirectories:NO attributes:nil error:&error]; //Create folder
+    NSString *imageName = [NSString stringWithFormat:@"%@/%@_%@.jpg", dataPath, sFileName, [CommonUtil getRandomNumber]] ;
+    // save the file
+    if ([[NSFileManager defaultManager] fileExistsAtPath:imageName]) {
+        // delete if exist
+        [[NSFileManager defaultManager] removeItemAtPath:imageName error:nil];
+    }
+    
+    //    NSData *imageDate = [NSData dataWithData:UIImagePNGRepresentation(capturedImage)];
+    NSData *imageDate = [NSData dataWithData:UIImageJPEGRepresentation(image, 0.6)];
+    [imageDate writeToFile: imageName atomically: YES];
+    
+    return imageName;
+
+}
 
 @end
 

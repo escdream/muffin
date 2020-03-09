@@ -67,6 +67,9 @@
 
 
 -(NSString *)saveImageToDocumentDirectoryWithImage: (UIImage *)capturedImage {
+    
+    return [CommonUtil saveJpegImage:capturedImage sFileName:@"img" nMaxSize:1280];
+/*
     NSError *error;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0]; // Get documents folder
@@ -88,6 +91,7 @@
     [imageDate writeToFile: imageName atomically: YES];
     
     return imageName;
+*/
 }
 
 #pragma mark
@@ -108,13 +112,7 @@
 {
     //You can retrieve the actual UIImage
     UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
-    //Or you can get the image url from AssetsLibrary
-    NSURL *path = [info valueForKey:UIImagePickerControllerReferenceURL];
-    
-    NSString * fileName = [path lastPathComponent];
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *docPath = paths[0];
-    
+   
     NSString * fullPath = [self saveImageToDocumentDirectoryWithImage:image];
     
     uploader.ftpUrl = @"ftp://ourworld3.cafe24.com/tomcat/webapps/dataM/attach/image_g";

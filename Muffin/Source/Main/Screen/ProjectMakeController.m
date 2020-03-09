@@ -234,6 +234,10 @@
     arrFiles = [[NSMutableArray alloc] initWithArray:arrContents];
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
 
 - (void) setCommendTarget;
 {
@@ -726,26 +730,70 @@
 }
 
 -(NSString *)saveImageToDocumentDirectoryWithImage: (UIImage *)capturedImage {
+    
+    NSString * imageName = [CommonUtil saveJpegImage:capturedImage sFileName:@"img" nMaxSize:1280];
+    
+    sImageId = [imageName lastPathComponent];
+    
+    return imageName;
+    
+/*
     NSError *error;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0]; // Get documents folder
     NSString *dataPath = documentsDirectory;//[documentsDirectory stringByAppendingPathComponent:@"/images"];
+  
+    CGFloat scale = 1.0;
+    CGFloat iw = capturedImage.size.width;
+    CGFloat ih = capturedImage.size.height;
+    CGFloat maxSize = 1280;
+    
+    if (iw > ih)
+    {
+        if (iw > maxSize)
+        {
+            scale = maxSize/iw;
+            iw = maxSize;
+            ih = ih * scale;
+        }
+    }
+    else
+    {
+        if (ih > maxSize)
+        {
+            scale = maxSize/ih;
+            ih = maxSize;
+            iw = iw * scale;
+        }
+    }
+
+    if (capturedImage.imageOrientation != UIImageOrientationUp)
+    {
+        UIGraphicsBeginImageContextWithOptions(capturedImage.size, NO, capturedImage.scale);
+        [capturedImage drawInRect:(CGRect){0, 0, capturedImage.size}];
+        capturedImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+    }
+    
+    capturedImage = [CommonUtil resizeImage:capturedImage width:iw height:ih];
     
     //Create a folder inside Document Directory
     if (![[NSFileManager defaultManager] fileExistsAtPath:dataPath])
         [[NSFileManager defaultManager] createDirectoryAtPath:dataPath withIntermediateDirectories:NO attributes:nil error:&error]; //Create folder
-    sImageId = [NSString stringWithFormat:@"img_%@.png", [self getRandomNumber]] ;
-    NSString *imageName = [NSString stringWithFormat:@"%@/img_%@.png", dataPath, [self getRandomNumber]] ;
+    sImageId = [NSString stringWithFormat:@"img_%@.jpg", [self getRandomNumber]] ;
+    NSString *imageName = [NSString stringWithFormat:@"%@/img_%@.jpg", dataPath, [self getRandomNumber]] ;
     // save the file
     if ([[NSFileManager defaultManager] fileExistsAtPath:imageName]) {
         // delete if exist
         [[NSFileManager defaultManager] removeItemAtPath:imageName error:nil];
     }
     
-    NSData *imageDate = [NSData dataWithData:UIImagePNGRepresentation(capturedImage)];
+//    NSData *imageDate = [NSData dataWithData:UIImagePNGRepresentation(capturedImage)];
+    NSData *imageDate = [NSData dataWithData:UIImageJPEGRepresentation(capturedImage, 0.6)];
     [imageDate writeToFile: imageName atomically: YES];
     
     return imageName;
+*/
 }
 
 -(NSString *)getFileToDocumentDirectoryWithFiles: (NSString *)fileName{
@@ -908,10 +956,7 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    //You can retrieve the actual UIImage
     UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
-    //Or you can get the image url from AssetsLibrary
-    NSURL *path = [info valueForKey:UIImagePickerControllerReferenceURL];
 
     _imgAlbum.image = image;
     [_imgAlbum setNeedsLayout];
@@ -921,10 +966,8 @@
 
 
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    UITouch *touch = [[event allTouches] anyObject];
-    
-    CGPoint location = [touch locationInView:self.view];
-    
+//    UITouch *touch = [[event allTouches] anyObject];
+//    CGPoint location = [touch locationInView:self.view];
     [self.view endEditing:YES];
     
 }
@@ -974,6 +1017,12 @@
                     sUploadType = @"File";
                     [self doFilesUpload: @"mp3"];
                 }
+            }
+            else // escdream 2020.03.09 - 프로젝트 등록처리 오류 수정
+            {
+                [self doGroupInsert];
+                UIWindow *window = UIApplication.sharedApplication.delegate.window;
+                [window.rootViewController.view makeToast:@"프로젝트 등록이 완료되었습니다."];
             }
 //            //가사등록
 //            else {

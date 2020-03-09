@@ -38,6 +38,11 @@
 }
 @synthesize viewType;
 
+- (BOOL) isSearchMuffin;
+{
+    return [viewType isEqualToString: @"SearchMuffin"];
+}
+
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField;        // return NO to disallow editing.
 {
     return YES;
@@ -88,58 +93,94 @@
     NSInteger dupSearchStringLen = [dupSearchBartext length];
     NSString *dupChoSearchStr=@"";
     
-    for (SongInfo * muffin in self->arrAll)
+    if ([self isSearchMuffin])
     {
-        NSString *name = @"";
-        NSString *group = @"";
-
-        
-        if ([muffin isKindOfClass:[ProjectInfo class]])
+        for (SongInfo * muffin in self->arrAll)
         {
-            ProjectInfo * pinfo = (ProjectInfo *)muffin;
+            NSString *name = @"";
+            NSString *group = @"";
             
-            name = pinfo.songMusicName;
-            group = pinfo.groupID;
-
-        }
-        else
-        {
-            name = muffin.songName;
-            group = muffin.groupName;
-        }
-        
-        
-        
-        NSRange rangeName = [[name uppercaseString] rangeOfString:[searchString uppercaseString]];
-        NSRange rangeCode = [[group uppercaseString] rangeOfString:[searchString uppercaseString]];
-        
-        if ([name length] <= searchStringLen) {
-            choSearchStr = [NSString stringWithFormat:@"%@", name];
-        } else {
-            choSearchStr = [name substringToIndex:searchStringLen];
-        }
-        
-        // 쌍자음 초성검색.
-        if ([name length] <= dupSearchStringLen) {
-            dupChoSearchStr = [NSString stringWithFormat:@"%@", name];
-        } else {
-            dupChoSearchStr = [name substringToIndex:dupSearchStringLen];
-        }
-        
-        choSearchStr = [[HangulUtils GetInstance:NO] getChosungs:choSearchStr];
-        
-        if (rangeName.location != NSNotFound || rangeCode.location != NSNotFound ||
-            [[searchString uppercaseString] isEqualToString:choSearchStr]  )//|| [dupSearchBartext isEqualToString:[[HangulUtils GetInstance:NO] getChosungs:dupChoSearchStr]])
-        {
-            [arrSearch addObject:muffin];
+            
+            if ([muffin isKindOfClass:[ProjectInfo class]])
+            {
+            }
+            else
+            {
+                name = muffin.songName;
+                group = muffin.groupName;
+            }
+            
+            NSRange rangeName = [[name uppercaseString] rangeOfString:[searchString uppercaseString]];
+            NSRange rangeCode = [[group uppercaseString] rangeOfString:[searchString uppercaseString]];
+            
+            if ([name length] <= searchStringLen) {
+                choSearchStr = [NSString stringWithFormat:@"%@", name];
+            } else {
+                choSearchStr = [name substringToIndex:searchStringLen];
+            }
+            
+            // 쌍자음 초성검색.
+            if ([name length] <= dupSearchStringLen) {
+                dupChoSearchStr = [NSString stringWithFormat:@"%@", name];
+            } else {
+                dupChoSearchStr = [name substringToIndex:dupSearchStringLen];
+            }
+            
+            choSearchStr = [[HangulUtils GetInstance:NO] getChosungs:choSearchStr];
+            
+            if (rangeName.location != NSNotFound || rangeCode.location != NSNotFound ||
+                [[searchString uppercaseString] isEqualToString:choSearchStr]  )//|| [dupSearchBartext isEqualToString:[[HangulUtils GetInstance:NO] getChosungs:dupChoSearchStr]])
+            {
+                [arrSearch addObject:muffin];
+            }
         }
     }
-    
+    else
+    {
+        for (ProjectInfo * muffin in self->arrAll)
+        {
+            NSString *name = @"";
+            NSString *group = @"";
+
+            
+            if ([muffin isKindOfClass:[ProjectInfo class]])
+            {
+                ProjectInfo * pinfo = (ProjectInfo *)muffin;
+                
+                name = pinfo.projectName;
+                group = pinfo.groupID;
+
+            }
+            
+            NSRange rangeName = [[name uppercaseString] rangeOfString:[searchString uppercaseString]];
+            
+            if (rangeName.location != NSNotFound)
+            {
+                if ([name length] <= searchStringLen) {
+                    choSearchStr = [NSString stringWithFormat:@"%@", name];
+                } else {
+                    choSearchStr = [name substringToIndex:searchStringLen];
+                }
+                // 쌍자음 초성검색.
+                if ([name length] <= dupSearchStringLen) {
+                    dupChoSearchStr = [NSString stringWithFormat:@"%@", name];
+                } else {
+                    dupChoSearchStr = [name substringToIndex:dupSearchStringLen];
+                }
+                
+                choSearchStr = [[HangulUtils GetInstance:NO] getChosungs:choSearchStr];
+            }
+            
+            
+            if (rangeName.location != NSNotFound ||
+                [[searchString uppercaseString] isEqualToString:choSearchStr]  )
+            {
+                [arrSearch addObject:muffin];
+            }
+        }
+    }
     [tblSearch reloadData];
-    
 }
-
-
 
 
 - (void) initLayout
@@ -391,23 +432,24 @@
      type 1:HOT 2:NEW 3:ALL
      Kind  01:발라드 02:댄스 03:클래식 04:알앤비 05:락 06:레게 99:전체
      */
-    if ([viewType isEqualToString: @"SearchMuffin"])
-    {
-        [self doSearchMuffin:@"1" muffinKind:@"99"];//HOT
-        [self doSearchMuffin:@"2" muffinKind:@"99"];//NEW
-        [self doSearchMuffin:@"3" muffinKind:@"99"];//ALL
-
-    }
-    else if ([viewType isEqualToString: @"MuffinProject"])
-    {
-        [self doSearchMuffinProject:@"1"];//HOT
-        [self doSearchMuffinProject:@"2"];//NEW
-        [self doSearchMuffinProject:@"3"];//ALL
-    }
+    [self doSearchMuffin:@"1" muffinKind:@"99"];//HOT
+    [self doSearchMuffin:@"2" muffinKind:@"99"];//NEW
+    [self doSearchMuffin:@"3" muffinKind:@"99"];//ALL
 
 }
 
 - (void)doSearchMuffin:(NSString *)sType muffinKind:(NSString*)sKind{
+    
+    
+    if (![self isSearchMuffin])
+    {
+        [self doSearchMuffinProject:sType muffinKind:sKind];
+        return;
+    }
+    
+    
+    
+    
     NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
     dic[@"Function"] = @"SongInfo_SelectWhere";
 //    dic[@"Function"] = @"GroupInfo_SelectWhere";
@@ -463,10 +505,11 @@
      }];
 }
 
-- (void)doSearchMuffinProject:(NSString *)sType {
+- (void)doSearchMuffinProject:(NSString *)sType  muffinKind:(NSString*)sKind{
     NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
     dic = nil;
     dic[@"Type"] = sType;
+    dic[@"GroupKind"] = sKind;
     
     [[EDHttpTransManager instance] callProjectInfo:dic withBlack:^(id result, NSError * error)
      {
@@ -655,7 +698,7 @@
     
     if (cell == nil)
     {
-        if ([viewType isEqualToString: @"SearchMuffin"])
+        if ([self isSearchMuffin])
         {
             SongTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"song_cell"];
             
@@ -698,10 +741,7 @@
         }
     }
     
-    if ([viewType isEqualToString: @"SearchMuffin"])
-    {
-    }
-    else
+    if (![self isSearchMuffin])
     {
         ProjectInfo * p;
         if (tableView == tblResultHot)
@@ -719,7 +759,7 @@
         else
         {
             p = arrSearch[indexPath.row];
-            p = arrAll[indexPath.row];
+//            p = arrAll[indexPath.row];
         }
 
         
@@ -729,16 +769,7 @@
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             cell.textLabel.font = [UIFont systemFontOfSize:12];
             cell.textLabel.textColor = RGB(33, 33, 33);
-
-            
-            if ([p isKindOfClass:[ProjectInfo class]])
-                cell.textLabel.text = p.projectName;
-            else if ([p isKindOfClass:[SongInfo class]])
-            {
-                SongInfo * s = p;
-                cell.textLabel.text = s.groupName;
-            }
-                
+            cell.textLabel.text = p.projectName;
         }
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -877,12 +908,7 @@
 -(void) onTabChange:(EDTabstyleView *)tabStyle nIndex:(NSInteger)nIndex;
 {
     NSString * sOp = [NSString stringWithFormat:@"%ld", nIndex + 1];
-    
-    
-    if ([viewType isEqualToString: @"SearchMuffin"])
-        [self doSearchMuffin:sOp muffinKind:@"99"];//ALL
-    else if ([viewType isEqualToString: @"MuffinProject"])
-        [self doSearchMuffinProject:sOp];//HOT
+    [self doSearchMuffin:sOp muffinKind:@"99"];//ALL
 }
 
 @end

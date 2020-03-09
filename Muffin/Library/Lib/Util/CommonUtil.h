@@ -544,5 +544,9 @@ CGColorSpaceRef GetDeviceRGBColorSpace(BOOL isrelease);
 + (CGFloat)iosScaleY : (CGFloat) y;
 + (void)iosScaleRect:(UIView *)target;
 + (void) iosChangeScaleView:(UIView *)targetView fontSizeFix:(float)percent;
+
+
++ (NSString *) saveJpegImage:(UIImage *) image sFileName:(NSString *)sFileName nMaxSize:(CGFloat)nMaxSize;
++(NSString *)getRandomNumber;
 @end
 

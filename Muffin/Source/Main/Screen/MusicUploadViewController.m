@@ -92,6 +92,10 @@
 
 
 -(NSString *)saveImageToDocumentDirectoryWithImage: (UIImage *)capturedImage {
+    
+    return [CommonUtil saveJpegImage:capturedImage sFileName:@"img" nMaxSize:1280];
+
+/*
     NSError *error;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0]; // Get documents folder
@@ -115,6 +119,7 @@
     
     
     return imageName;
+*/
 }
 
 #pragma mark
