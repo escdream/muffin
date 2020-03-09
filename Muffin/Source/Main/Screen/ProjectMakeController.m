@@ -605,7 +605,9 @@
                 [self doGroupInsert];
                 UIWindow *window = UIApplication.sharedApplication.delegate.window;
                 [window.rootViewController.view makeToast:@"프로젝트 등록이 완료되었습니다."];
-
+                 
+                 
+                
             }
         }
         else { //가사등록 경우 바로 그룹등록 수행
@@ -1022,8 +1024,6 @@
             else // escdream 2020.03.09 - 프로젝트 등록처리 오류 수정
             {
                 [self doGroupInsert];
-                UIWindow *window = UIApplication.sharedApplication.delegate.window;
-                [window.rootViewController.view makeToast:@"프로젝트 등록이 완료되었습니다."];
             }
 //            //가사등록
 //            else {
@@ -1043,8 +1043,7 @@
         else
         {
             [self doGroupInsert];
-            UIWindow *window = UIApplication.sharedApplication.delegate.window;
-            [window.rootViewController.view makeToast:@"프로젝트 등록이 완료되었습니다."];
+
         }
     }
 }
@@ -1106,6 +1105,10 @@
              //네이게이션바 뒤로가기 버튼 숨기기 하면 좋을듯......
 //             [self.navigationController pushViewController:controler animated:YES];
              [self.navigationController popViewControllerAnimated:YES];
+
+             [[NSNotificationCenter defaultCenter] postNotificationName:@"muffinProjectInserted" object:nil];
+             UIWindow *window = UIApplication.sharedApplication.delegate.window;
+             [window.rootViewController.view makeToast:@"프로젝트 등록이 완료되었습니다."];
          }
          
      }
@@ -1142,6 +1145,11 @@
              //네이게이션바 뒤로가기 버튼 숨기기 하면 좋을듯......
              //             [self.navigationController pushViewController:controler animated:YES];
              [self.navigationController popViewControllerAnimated:YES];
+             
+             [[NSNotificationCenter defaultCenter] postNotificationName:@"muffinProjectInserted" object:nil];
+             UIWindow *window = UIApplication.sharedApplication.delegate.window;
+             [window.rootViewController.view makeToast:@"프로젝트 등록이 완료되었습니다."];
+
          }
          
      }

@@ -12,7 +12,7 @@
 #import "ProjectInfo.h"
 #import "SongInfo.h"
 #import "SongTableViewCell.h"
-#import "STKAudioPlayer.h"
+
 #import "AudioUtil.h"
 #import "SampleQueueId.h"
 #import "MFAudioPlayerController.h"
@@ -61,6 +61,10 @@
     arrAll = [[NSMutableArray alloc] init];
     
 
+    //muffinProjectInserted
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(muffinProjectInserted:) name:@"muffinProjectInserted" object:nil];
+    
     [self showLoginView];
     
     [[AudioUtil player] setDelegate:self];
@@ -68,9 +72,19 @@
     [self initLayout];
     [self initData];
 
-    
-    
 }
+
+- (void)dealloc
+{
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc removeObserver:self name:@"muffinProjectInserted" object:nil];
+}
+
+- (void)muffinProjectInserted:(NSNotification *) noti
+{
+    [self initData];
+}
+
 
 - (void) showLoginView;
 {

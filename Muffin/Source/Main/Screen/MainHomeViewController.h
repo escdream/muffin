@@ -8,10 +8,11 @@
 
 #import "EDBaseViewController.h"
 #import "EDTabstyleView.h"
+#import "STKAudioPlayer.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MainHomeViewController : EDBaseViewController
+@interface MainHomeViewController : EDBaseViewController<UITableViewDelegate, UITableViewDataSource, STKAudioPlayerDelegate>
 {
     UITableView * tblResultHot;
     UITableView * tblResultNew;

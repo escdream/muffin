@@ -579,8 +579,25 @@
     [[AudioUtil player] setDelegate:self];
     
     [self initLayout];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(muffinProjectInserted:) name:@"muffinProjectInserted" object:nil];
 //    [self initData];
 }
+
+
+- (void)dealloc
+{
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc removeObserver:self name:@"muffinProjectInserted" object:nil];
+}
+
+// data reload
+- (void)muffinProjectInserted:(NSNotification *) noti
+{
+    [self initData];
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
