@@ -30,12 +30,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     arrProject = [[NSMutableArray alloc] init];
-
+    
     
     _viewRound1.radius = _viewRound1.frame.size.height / 2;
     _viewRound2.radius = _viewRound1.frame.size.height / 2;
     _viewRound3.radius = _viewRound1.frame.size.height / 2;
     
+    [self initTopData];
     [self initData];
     [self initUserData];
 }
@@ -68,6 +69,38 @@
     return self;
 }
 
+- (void) initTopData
+{
+    NSMutableDictionary * dic = [[NSMutableDictionary alloc] init];
+    
+    dic[@"Function"] = @"GroupInfo_SelectSum";
+    dic[@"UserId"] = self.BMUser.BMUserId;
+    dic[@"Total"] = @"";
+    dic[@"PIng"] = @"";
+    dic[@"PEnd"] = @"";
+    
+    [[EDHttpTransManager instance] callProjectInfo:dic withBlack:^(id result, NSError * error)
+     {
+         if (result != nil)
+         {
+             NSArray * arr = result;
+             if (arr.count >= 1)
+             {
+                 self.lbTotal.text = arr[0][@"TOTAL"];
+                 self.lbWorking.text = arr[0][@"PING"];
+                 self.lbComplete.text = arr[0][@"PEND"];
+             }
+             else
+             {
+                 self.lbTotal.text = @"0";
+                 self.lbWorking.text = @"0";
+                 self.lbComplete.text = @"0";
+             }
+         }
+     }];
+}
+
+
 - (void) initData
 {
     
@@ -75,7 +108,7 @@
     
     dic[@"Function"] = @"GroupInfo_SelectUser";
     dic[@"UserId"] = self.BMUser.BMUserId;
-
+    
     [[EDHttpTransManager instance] callProjectInfo:dic withBlack:^(id result, NSError * error)
      {
          if (result != nil)
@@ -90,7 +123,7 @@
                  
                  [self.self.tblProjectList reloadData];
              }
-
+             
          }
          
      }];
@@ -98,17 +131,18 @@
 
 - (void) initUserData
 {
-    _lbUserId.text = self.BMUser.BMUserId;//[UserInfo instance].userID;
+    _lbUserId.text = self.BMUser.BMUserId;
+    //    _lbUserId.text = [UserInfo instance].userID;
 }
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 #pragma mark - UITableViewDataSource
 
@@ -147,7 +181,7 @@
     
     ProjectInfo * p = arrProject[indexPath.row] ;
     cell.textLabel.text = p.projectName;
-
+    
     return cell;
 }
 
@@ -155,7 +189,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ProjectViewController * project = [[ProjectViewController alloc] initWithProject:arrProject[indexPath.row]];
-        
+    
     [self.navigationController pushViewController:project animated:YES];
 }
 

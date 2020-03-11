@@ -115,8 +115,13 @@
         _txtLyrics.text = _songInfo.songWord;
     else
         _txtLyrics.text = @"";
-    _btnSaveLyrics.hidden = NO;
     
+    
+    if (_viewType == 2)
+        _btnSaveLyrics.hidden = NO;
+    else
+        _btnSaveLyrics.hidden = YES;
+
     if (_viewType == 2) // 가사모드
     {
         _txtLyrics.editable = YES;
@@ -189,7 +194,8 @@
             NSString* strFilePath = muffinInfo.musicPath;
             NSString* strFileID = muffinInfo.musicFileID;
             NSString* strMuffinURL = [strFilePath stringByAppendingString:strFileID];
-            NSURL* url = [NSURL URLWithString:strMuffinURL];
+            NSString *escaped = [strMuffinURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            NSURL* url = [NSURL URLWithString:escaped];
             
             if (url != nil) {
                 UIImage *backButtonImage = [UIImage imageNamed:@"Pause.png"];

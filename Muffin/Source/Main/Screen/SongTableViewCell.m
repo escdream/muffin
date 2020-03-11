@@ -37,7 +37,6 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if(self)
     {
-        
         [self initLayout];
 
     }
@@ -153,15 +152,33 @@
     _songName.frame = lr;
     
     
+    if ([[_groupName.text trim] isEqualToString:@""])
+    {
+        CGRect rect = self.bounds;
+        
+        CGRect lr = rect;
+        
+        lr.origin.x = rect.size.height + 20;
+        lr.size.width -= 10;
+        _groupName.frame = lr;
+        
+        //        lr.origin.y = lr.size.height;
+        _songName.frame = lr;
+        _songName.contentMode = UIViewContentModeCenter;
+    }
+    
+    
     lr = self.bounds;
     lr.origin.x = 10;
     lr.size.width = lr.size.height;
+    
+    lr = CGRectInset(lr, 3, 3);
     
     thumbImage.frame = lr;
     
     CGRect r = self.bounds;
     r.origin.x = r.size.width - 60;
-    r.origin.y = 2;
+    r.origin.y = (lr.size.height - 40) / 2;
     r.size.width = 60;
     r.size.height = 40;
     
@@ -169,7 +186,7 @@
     btnLyrics.frame = r;
     
     r.origin.x -= 60;
-    r.origin.y = 2;
+    r.origin.y = (lr.size.height - 40) / 2;
     r.size.width = 60;
     r.size.height = 40;
     
@@ -270,7 +287,8 @@
         NSString* strFilePath = muffinInfo.musicPath;
         NSString* strFileID = muffinInfo.musicFileID;
         NSString* strMuffinURL = [strFilePath stringByAppendingString:strFileID];
-        NSURL* url = [NSURL URLWithString:strMuffinURL];
+        NSString *escaped = [strMuffinURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSURL* url = [NSURL URLWithString:escaped];
         
         if (url != nil) {
             UIImage *backButtonImage = [UIImage imageNamed:@"btn_on.png"];
@@ -316,7 +334,8 @@
             NSString* strFilePath = muffinInfo.musicPath;
             NSString* strFileID = muffinInfo.musicFileID;
             NSString* strMuffinURL = [strFilePath stringByAppendingString:strFileID];
-            NSURL* url = [NSURL URLWithString:strMuffinURL];
+            NSString *escaped = [strMuffinURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            NSURL* url = [NSURL URLWithString:escaped];
             
             if (url != nil) {
                 UIImage *backButtonImage = [UIImage imageNamed:@"btn_on.png"];

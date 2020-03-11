@@ -35,8 +35,9 @@
     // Do any additional setup after loading the view from its nib.
     
     arrMuffin = [[NSMutableArray alloc] init];
-    [[AudioUtil player] setDelegate:self];
-    
+    [[AudioUtil player] setDelegate:(id)self];
+ 
+    _tblMuffin.separatorColor = [UIColor clearColor];
     [self initData];
 }
 
@@ -62,7 +63,7 @@
                  [self->arrMuffin addObject:muffin];
              }
              
-             [_tblMuffin reloadData];
+             [self.tblMuffin reloadData];
          }
      }];
 }
@@ -203,7 +204,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return TABLE_ROW_HEIGHT;
+    return TABLE_ROW_HEIGHT + 20;
 }
 
 - (void)playMuffin:(UIButton*)sender
