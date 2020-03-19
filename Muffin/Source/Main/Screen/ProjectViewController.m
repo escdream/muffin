@@ -542,7 +542,8 @@
             NSString* strFilePath = muffinInfo.musicPath;
             NSString* strFileID = muffinInfo.musicFileID;
             NSString* strMuffinURL = [strFilePath stringByAppendingString:strFileID];
-            NSURL* url = [NSURL URLWithString:strMuffinURL];
+            NSString *escaped = [strMuffinURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+            NSURL* url = [NSURL URLWithString:escaped];
             
             if (url != nil) {
                 STKDataSource* dataSource = [STKAudioPlayer dataSourceFromURL:url];
@@ -1167,7 +1168,8 @@
         
         UIBarButtonItem * customItem = [[UIBarButtonItem alloc] initWithCustomView:btnPlay];
         
-        self.navigationItem.rightBarButtonItem = customItem;
+
+//        self.navigationItem.rightBarButtonItem = customItem;
     }
     else
     {
