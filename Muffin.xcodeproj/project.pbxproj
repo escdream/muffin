@@ -559,6 +559,7 @@
 		B68D6D96235249FB002F820E /* LyricsEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LyricsEditViewController.h; sourceTree = "<group>"; };
 		B68D6D97235249FB002F820E /* LyricsEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LyricsEditViewController.m; sourceTree = "<group>"; };
 		B68D6D98235249FB002F820E /* LyricsEditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LyricsEditViewController.xib; sourceTree = "<group>"; };
+		B6A529362423465D00C63CEA /* Muffin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Muffin.entitlements; sourceTree = "<group>"; };
 		B6B355BB21620340006FC18C /* util_icon_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = util_icon_back.png; path = Muffin/Resource/img/util_icon_back.png; sourceTree = SOURCE_ROOT; };
 		B6B355BC21620340006FC18C /* icon_sett.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_sett.png; path = Muffin/Resource/img/icon_sett.png; sourceTree = SOURCE_ROOT; };
 		B6B355BD21620340006FC18C /* list_btn_del.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = list_btn_del.png; path = Muffin/Resource/img/list_btn_del.png; sourceTree = SOURCE_ROOT; };
@@ -851,6 +852,7 @@
 		B643EC7F212FC01000963B98 /* Muffin */ = {
 			isa = PBXGroup;
 			children = (
+				B6A529362423465D00C63CEA /* Muffin.entitlements */,
 				B6F7AA4122B255F90043483F /* Source */,
 				B643ED82212FDC2800963B98 /* Framework */,
 				B643ED28212FC94300963B98 /* Resource */,
@@ -1545,6 +1547,11 @@
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 1010;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					B643EC94212FC01200963B98 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -1978,7 +1985,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -2030,7 +2037,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -2042,6 +2049,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Muffin/Muffin.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 20200319;
@@ -2080,6 +2088,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Muffin/Muffin.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 20200319;
@@ -2105,7 +2114,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = kr.co.muppn.muppnapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = muon_adhoc_11;
+				PROVISIONING_PROFILE_SPECIFIER = Muppn_Store;
 				SWIFT_OBJC_BRIDGING_HEADER = "Muffin/Source/Main/Screen/Muffin-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
