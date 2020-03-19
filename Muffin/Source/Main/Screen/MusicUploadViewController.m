@@ -191,7 +191,7 @@
     int x = 0;
     for (int i=0; i<arrMutable.count; i++)
     {
-        NSString* ext = [arrMutable[i] pathExtension];
+        NSString* ext = [[arrMutable[i] pathExtension] lowercaseString];
         
         if ([sBrowserType isEqualToString:@"mp3"]){
             if ( [ext isEqualToString:@"mp3"] ){

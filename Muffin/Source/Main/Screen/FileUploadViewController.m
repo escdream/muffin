@@ -169,7 +169,7 @@
             }
             else
             {
-                NSString* ext = [arrMutable[i] pathExtension];
+                NSString* ext = [[arrMutable[i] pathExtension] lowercaseString];
                 
                 if ([sBrowserType isEqualToString:@"mp3"]){
                     if ( [ext isEqualToString:@"mp3"] ){
