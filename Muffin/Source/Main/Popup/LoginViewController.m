@@ -14,6 +14,8 @@
 #import "StartupPopupView.h"
 #import "UserViewController.h"
 
+
+
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import "CommonUtil.h"
@@ -158,6 +160,9 @@
                      user.userEmail = [result[0][@"Email"] copy];
                      user.userLevel = 0;
                      user.userLoginState = UserInfoStateNormal;
+                     
+                     
+                     [[NSNotificationCenter defaultCenter] postNotificationName:@"muffinMainVisible" object:nil];
                      
                      [self dismissViewControllerAnimated:YES completion:nil];
                  }
