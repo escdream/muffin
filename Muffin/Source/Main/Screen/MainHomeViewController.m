@@ -26,6 +26,9 @@
 @interface MainHomeViewController ()
 {
     SongTableViewCell *playCell;
+    
+    UIImageView * imgTemp;
+    
 }
 
 @end
@@ -74,8 +77,12 @@
     [self initLayout];
     [self initData];
     
-    self.view.hidden = YES;
-
+    imgTemp = [[UIImageView alloc] init];
+    CGRect r = [[UIScreen mainScreen] bounds];
+    r.origin.y -= 50;
+    r.size.height += 50;
+    imgTemp.frame = r;
+    [self.view addSubview:imgTemp];
 }
 
 - (void)dealloc
@@ -86,7 +93,7 @@
 
 - (void)muffinMainVisible:(NSNotification *) noti
 {
-    self.view.hidden  = NO;
+    imgTemp.hidden = YES;
 }
 
 - (void)muffinProjectInserted:(NSNotification *) noti

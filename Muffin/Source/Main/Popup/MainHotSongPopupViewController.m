@@ -15,13 +15,48 @@
 #define MAX_IMAGE  3
 
 
+@interface UIImgView : UIView
+@property (nonatomic, strong) UIImageView * imageView;
+@end
+
+@implementation UIImgView
+
+- (id) init
+{
+    self = [super init];
+    if (self)
+    {
+        _imageView = [[UIImageView alloc] init];
+        _imageView.contentMode = UIViewContentModeScaleAspectFill;
+        _imageView.clipsToBounds = TRUE;
+        
+        [self addSubview:_imageView];
+    }
+    return self;
+}
+
+- (void) setFrame:(CGRect)frame
+{
+    [super setFrame:frame];
+    CGRect r = frame;
+    r.size.height += 10;
+    _imageView.frame =  self.bounds;
+}
+
+@end
+
+
 @interface MainHotSongPopupViewController ()
 {
     NSMutableArray * arrData;
-    UIImageView * bgImageView[MAX_IMAGE];
+    
+    UIImgView * bgImageView[MAX_IMAGE];
     
     int timerIndex;
     NSTimer *timer;
+    
+    UILabel * lbUser;
+    UILabel * lbPoint;
 }
 
 
@@ -40,6 +75,16 @@
     [self doSearchMuffinProject:@"3" muffinKind:@"99"];
 }
 
+
+- (void) updateUserInfo:(NSMutableDictionary *) dic
+{
+    self->lbUser.text = dic[@"user"];
+    NSString * str = [NSString stringWithFormat:@"Muffin Point : %@", dic[@"point"]];
+    NSMutableAttributedString *labelText = [[NSMutableAttributedString alloc] initWithString: str ];
+    [labelText addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:16] range:NSMakeRange(15,  str.length - 15)];
+    self->lbPoint.attributedText = labelText;
+    
+}
 
 - (void) updateMethod:(NSTimer *)incomingTimer {
     NSLog(@"Inside update method");
@@ -64,16 +109,36 @@
                 self->bgImageView[i].hidden = NO;
 
             self->bgImageView[i].frame = r;
+            
+            
+            self->lbUser.alpha = 0;
+            self->lbPoint.alpha = 0;
+            
         }
         self->timerIndex ++;
         if (self->timerIndex >= MAX_IMAGE)
             self->timerIndex = 0;
         }
+     
         completion:^(BOOL finished) {
+            
+            [self updateUserInfo:self->arrData[self->timerIndex]];
+        
+            [UIView animateWithDuration:0.3 animations:^(void) {
+                self->lbUser.alpha = 1.0f;
+                self->lbPoint.alpha = 1.0f;
+            } completion:^(BOOL finished) {
+            }];
     }];
 }
 
-
+- (void) setShadowView:(UIView *) view
+{
+    view.layer.shadowColor = [UIColor blackColor].CGColor;
+    view.layer.shadowRadius = 3.0f;
+    view.layer.shadowOffset = CGSizeMake(2, 2);
+    view.layer.shadowOpacity = 0.6;
+}
 
 - (void) InitLayout {
     
@@ -85,7 +150,7 @@
 
     for (int i=0; i<MAX_IMAGE; i++)
     {
-        bgImageView[i] = [[UIImageView alloc] init];
+        bgImageView[i] = [[UIImgView alloc] init];
         [self.view addSubview:bgImageView[i]];
         
         r.origin.x = (r.size.width * i);
@@ -93,12 +158,14 @@
     }
     
     
+    CGFloat sy = [[UIScreen mainScreen] bounds].size.height - (180 + 40 + 60); //(or.size.height / 3) * 2
+    
     UIImageView * imgLogo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"img_copy_01"]];
-    r = CGRectMake(or.size.width - 200, (or.size.height / 3) * 2, 170, 46);
+    r = CGRectMake(or.size.width - 200, sy, 170, 46);
     imgLogo.frame = r;
-    
+
+
     [self.view addSubview:imgLogo];
-    
     
     UILabel * lbTitle = [[UILabel alloc] init];
     r.origin.y += r.size.height + 10;
@@ -112,10 +179,11 @@
     lbTitle.font = [UIFont boldSystemFontOfSize:20];
     [lbTitle setTextColor:[UIColor whiteColor]];
     
+
     [self.view addSubview:lbTitle];
     
-    UILabel * lbUser = [[UILabel alloc] init];
-    r.origin.y += (25 + 5);
+    lbUser = [[UILabel alloc] init];
+    r.origin.y += (25 + 5 + 10);
     r.size.height = 20;
     lbUser.frame = r;
 
@@ -126,28 +194,41 @@
     
     [self.view addSubview:lbUser];
 
-    UILabel * lbPoint = [[UILabel alloc] init];
-    r.origin.y += (20 + 5);
+    lbPoint = [[UILabel alloc] init];
+    r.origin.y += (20);
     r.size.height = 20;
     lbPoint.frame = r;
 
     lbPoint.textAlignment = NSTextAlignmentRight;
-    lbPoint.text = @"Muffin Point : 1,985";
+    lbPoint.text = @"Muffin Point : 1,237";
     lbPoint.font = [UIFont systemFontOfSize:10];
     [lbPoint setTextColor:[UIColor whiteColor]];
     
-    [self.view addSubview:lbPoint];
 
+    NSMutableAttributedString *labelText = [[NSMutableAttributedString alloc] initWithString : @"Muffin Point : 1,237"];
+    [labelText addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:16] range:NSMakeRange(15,5)];
+    
+    
+    lbPoint.attributedText = labelText;
+    
+    [self.view addSubview:lbPoint];
 
     
     UIButton * btnHome = [UIButton buttonWithType:UIButtonTypeCustom];
-    r = CGRectMake([[UIScreen mainScreen] bounds].size.width - 42, [[UIScreen mainScreen] bounds].size.height - 160, 42, 100);
+    r = CGRectMake([[UIScreen mainScreen] bounds].size.width - 42, [[UIScreen mainScreen] bounds].size.height - 120, 42, 100);
     btnHome.frame = r;
     
     [btnHome setBackgroundImage:[UIImage imageNamed:@"home_btn"] forState:UIControlStateNormal];
     [btnHome addTarget:self action:@selector(OnLoginClick) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:btnHome];
+    
+    
+    [self setShadowView:imgLogo];
+    [self setShadowView:lbTitle];
+    [self setShadowView:lbUser];
+    [self setShadowView:lbPoint];
+    
 }
 
 - (void) OnLoginClick
@@ -180,15 +261,19 @@
                  sDic[@"bg_name"] = [NSString stringWithFormat:@"sam_bg_0%d", i+1];
                  sDic[@"song"] = p;
                  sDic[@"image"] = [UIImage imageNamed:[NSString stringWithFormat:@"sam_bg_0%d", i+1]];
+                 sDic[@"user"] =  p.songName;
+                 sDic[@"point"] = @"8,246";
                  [self->arrData addObject:sDic];
-                 self->bgImageView[i].image = sDic[@"image"];
+                 self->bgImageView[i].imageView.image = sDic[@"image"];
                  i++;
                  if (i>=MAX_IMAGE) break;
+                 
              }
 
              if (arr != nil && arr.count > 0)
              {
-                 timer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(updateMethod:) userInfo:nil repeats:YES];
+                 [self updateUserInfo:self->arrData[0]];
+                 self->timer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(updateMethod:) userInfo:nil repeats:YES];
              }
          }
      }];

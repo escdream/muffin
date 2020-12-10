@@ -227,6 +227,7 @@
 }
 
 - (IBAction)onCloseClick:(id)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"muffinMainVisible" object:nil];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

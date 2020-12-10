@@ -30,6 +30,7 @@
 @property (nonatomic, strong) NSString * sLocalPath;
 
 
+
 - (id) initWithData:(NSDictionary *) dicData;
 
 @end
