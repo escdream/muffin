@@ -174,7 +174,7 @@
     goBack = [UIButton buttonWithType:UIButtonTypeCustom];
     goBack.frame = CGRectMake(40, 0, 35, 35);
 //    goBack.imageEdgeInsets = UIEdgeInsetsMake(7.5, 0, 7.5, 40);
-    UIImage *backImage = [UIImage imageNamed:@"ico_tit_back_n.png"];
+    UIImage *backImage = [UIImage imageNamed:@"ico_arrow_left.png"];
     [goBack setImage:backImage forState:UIControlStateNormal];
     
     [goBack addTarget:self action:@selector(goBackClick:) forControlEvents:UIControlEventTouchUpInside];//

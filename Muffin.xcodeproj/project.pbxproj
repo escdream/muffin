@@ -45,6 +45,7 @@
 		B63AC153213E814800C45F83 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B63AC152213E814700C45F83 /* CoreGraphics.framework */; };
 		B63AC156213E9E5A00C45F83 /* AudioUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = B63AC155213E9E5A00C45F83 /* AudioUtil.m */; };
 		B63AC158213EA37F00C45F83 /* ManInTheMirror.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B63AC157213EA37E00C45F83 /* ManInTheMirror.mp3 */; };
+		B63D138C241A7FF8008282B3 /* ico_arrow_left.png in Resources */ = {isa = PBXBuildFile; fileRef = B63D138B241A7FF8008282B3 /* ico_arrow_left.png */; };
 		B643EC82212FC01000963B98 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B643EC81212FC01000963B98 /* AppDelegate.m */; };
 		B643EC88212FC01000963B98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B643EC86212FC01000963B98 /* Main.storyboard */; };
 		B643EC8A212FC01200963B98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B643EC89212FC01200963B98 /* Assets.xcassets */; };
@@ -372,6 +373,7 @@
 		B63AC154213E9E5A00C45F83 /* AudioUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioUtil.h; sourceTree = "<group>"; };
 		B63AC155213E9E5A00C45F83 /* AudioUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioUtil.m; sourceTree = "<group>"; };
 		B63AC157213EA37E00C45F83 /* ManInTheMirror.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ManInTheMirror.mp3; sourceTree = "<group>"; };
+		B63D138B241A7FF8008282B3 /* ico_arrow_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ico_arrow_left.png; path = Muffin/Resource/img/ico_arrow_left.png; sourceTree = SOURCE_ROOT; };
 		B643EC7D212FC01000963B98 /* Muffin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Muffin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B643EC80212FC01000963B98 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B643EC81212FC01000963B98 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -1158,6 +1160,7 @@
 		B6B355BA2162032B006FC18C /* Img */ = {
 			isa = PBXGroup;
 			children = (
+				B63D138B241A7FF8008282B3 /* ico_arrow_left.png */,
 				B624DCB924143AB5006E0EFB /* icon_login.png */,
 				B624DCB824143AB5006E0EFB /* icon_login2.png */,
 				3007914222C38BE10030CCAC /* btn_star_n.png */,
@@ -1659,6 +1662,7 @@
 				B6F7AAB422B255F90043483F /* UserInfoViewController.xib in Resources */,
 				B65D87BB22C493780047676A /* Pause.png in Resources */,
 				B6B3560F2162034C006FC18C /* list_btn_up.png in Resources */,
+				B63D138C241A7FF8008282B3 /* ico_arrow_left.png in Resources */,
 				B6B356072162034C006FC18C /* m_bg.png in Resources */,
 				B6D61EFC217C368600613612 /* ico_tit_back_o.png in Resources */,
 				B6F7AAA822B255F90043483F /* SearchViewController.xib in Resources */,

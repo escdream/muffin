@@ -30,6 +30,7 @@
 @property (strong, nonatomic) IBOutlet UIView *viewJoinMsg;
 @property (weak, nonatomic) IBOutlet UITableView *tblArtists;
 @property (strong, nonatomic) IBOutlet UIImageView *imgProject;
+@property (strong, nonatomic) IBOutlet UIImageView *imgUser;
 @property (strong, nonatomic) IBOutlet UIView *viewTimelineBottom;
 @property (strong, nonatomic) IBOutlet UITableView *tblTimeline;
 @property (weak, nonatomic) IBOutlet UITableView *tblJoinList;

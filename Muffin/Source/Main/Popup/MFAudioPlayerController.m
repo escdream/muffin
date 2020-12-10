@@ -428,6 +428,9 @@
          }
          else
          {
+             
+             self.songInfo.songWord = self.txtLyrics.text;
+             
              UIWindow *window = UIApplication.sharedApplication.delegate.window;
              [window.rootViewController.view makeToast:@"가사가 저장되었습니다."];
          }

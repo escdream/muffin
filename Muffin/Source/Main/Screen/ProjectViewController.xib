@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,6 +24,7 @@
                 <outlet property="fldPartAskFileName" destination="fZl-me-P7r" id="5zH-QQ-13Y"/>
                 <outlet property="fldTimelineContents" destination="bxZ-7n-syC" id="JKF-8X-IMZ"/>
                 <outlet property="imgProject" destination="DdY-G0-lwj" id="Gs7-Fq-lYl"/>
+                <outlet property="imgUser" destination="oMq-CA-bR6" id="FPF-t1-MSo"/>
                 <outlet property="lbPartAskMessage" destination="Gyw-wR-wUC" id="YdN-C9-3cU"/>
                 <outlet property="lbProjectContents" destination="WfR-um-7d6" id="5sG-k7-0gw"/>
                 <outlet property="lbProjectTitle" destination="EaV-ma-25A" id="g3W-9q-Icw"/>
@@ -280,7 +279,6 @@
                                 <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fZl-me-P7r">
                                     <rect key="frame" x="8" y="4" width="272" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <connections>

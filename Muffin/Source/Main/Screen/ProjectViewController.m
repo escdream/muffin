@@ -530,7 +530,20 @@
         return;
     
     // 대표음악 재생
-    NSDictionary * dic = self->arrSongInfo[0];
+    NSDictionary * dic = nil; //self->arrSongInfo[0];
+    
+    
+    for (int i=0; i<self->arrSongInfo.count; i++)
+    {
+        dic = self->arrSongInfo[i];
+        if ([dic[@"SongType"] isEqualToString:@"1"]) // 노래인경우먼저 확인
+        {
+            break;
+        }
+    }
+    if (dic == nil) return;
+    
+    
     SongInfo * muffinInfo = [[SongInfo alloc] initWithData:dic];
 
     if(muffinInfo != nil)
@@ -1025,10 +1038,20 @@
     
     [self.btnViewTimeLine clearLayout];
     [self.btnViewTimeLine addButtons:@"글올리기" obj:self withSelector:@selector(onTimelineUpload) tag:0];
-    [self.btnViewTimeLine addButtons:@"취소" obj:self withSelector:@selector(onWriteCancelClick) tag:1];
-    [self.btnViewTimeLine addButtons:@"" obj:self withSelector:nil tag:2];
+    [self.btnViewTimeLine addButtons:@"취소" obj:self withSelector:@selector(onWriteCancelClick) tag:2];
+//    [self.btnViewTimeLine addButtons:@"" obj:self withSelector:nil tag:2];
 
     self.lbTimelineID.text = [UserInfo instance].userID;
+    
+    // User 이미지를 읽어올 주소
+    NSURL *urlImage = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",
+                                                                    [UserInfo instance].userImagePath,
+                                                                    [UserInfo instance].userImageID]];
+    NSData *dataImage = [NSData dataWithContentsOfURL:urlImage];
+    if(dataImage)
+    {
+        self.imgUser.image = [UIImage imageWithData:dataImage];
+    }
 }
 
 - (void) onTimelineUpload
@@ -1143,7 +1166,7 @@
         [self.btnViewTimeLine addButtons:@"전체PJT" obj:self withSelector:@selector(okClick) tag:1];
     
     [self.btnViewTimeLine addButtons:@"글쓰기" obj:self withSelector:@selector(onWriteTimelineClick) tag:2];
-    [self.btnViewTimeLine addButtons:@"0" obj:self withSelector:nil tag:3];
+//    [self.btnViewTimeLine addButtons:@"0" obj:self withSelector:nil tag:3];
 }
 
 
@@ -1169,7 +1192,7 @@
         UIBarButtonItem * customItem = [[UIBarButtonItem alloc] initWithCustomView:btnPlay];
         
 
-//        self.navigationItem.rightBarButtonItem = customItem;
+        self.navigationItem.rightBarButtonItem = customItem;
     }
     else
     {
@@ -1253,10 +1276,10 @@
  
     arrTimeline = [[NSMutableArray alloc] init];
  
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@""
-//                                                                              style:UIBarButtonItemStyleDone
-//                                                                             target:self
-//                                                                             action:@selector(showRightView)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@""
+                                                                              style:UIBarButtonItemStyleDone
+                                                                             target:self
+                                                                             action:@selector(showRightView)];
     
     maskPrjImage = [[UIImageView alloc] init];
     maskPrjImage.image = [UIImage imageNamed:@"maskimg.png"];
@@ -1266,7 +1289,9 @@
 
     [self initLayout];
 
-    
+    self.showTitleLogo = NO;
+    self.showPlayer    = NO;
+
     [self setTitleText:self.project.projectName];
     
     [_lbPartAskMessage setNumberOfLines:0];
@@ -1627,6 +1652,7 @@
         
         MFAudioPlayerController * player = [[MFAudioPlayerController alloc] initWithNibName:@"MFAudioPlayerController" bundle:nil];
         UIWindow *window = UIApplication.sharedApplication.delegate.window;
+        player.modalPresentationStyle = UIModalPresentationFullScreen;
         
         [window.rootViewController presentViewController:player animated:YES completion:nil];
         player.songInfo = songInfo;
@@ -1773,7 +1799,7 @@
             controler.sBrowserType = @"mp3";
         else if (self.btnJoin2.selected)
             controler.sBrowserType = @"txt";
-
+        controler.modalPresentationStyle = UIModalPresentationFullScreen;
         [self presentViewController:controler animated:YES completion:nil];
         
         NSString * sNameData = [NSString stringWithFormat:@"%@ Song", [UserInfo instance].userID];
