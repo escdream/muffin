@@ -21,10 +21,14 @@
 #import "ProjectMakeController.h"
 #import "BannerViewController.h"
 #import "Muffin-Swift.h"
+#import "MainHotSongPopupViewController.h"
 
 @interface MainHomeViewController ()
 {
     SongTableViewCell *playCell;
+    
+    UIImageView * imgTemp;
+    
 }
 
 @end
@@ -64,20 +68,32 @@
     //muffinProjectInserted
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(muffinProjectInserted:) name:@"muffinProjectInserted" object:nil];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(muffinMainVisible:) name:@"muffinMainVisible" object:nil];
+
     [self showLoginView];
     
     [[AudioUtil player] setDelegate:self];
     
     [self initLayout];
     [self initData];
-
+    
+    imgTemp = [[UIImageView alloc] init];
+    CGRect r = [[UIScreen mainScreen] bounds];
+    r.origin.y -= 50;
+    r.size.height += 50;
+    imgTemp.frame = r;
+    [self.view addSubview:imgTemp];
 }
 
 - (void)dealloc
 {
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     [nc removeObserver:self name:@"muffinProjectInserted" object:nil];
+}
+
+- (void)muffinMainVisible:(NSNotification *) noti
+{
+    imgTemp.hidden = YES;
 }
 
 - (void)muffinProjectInserted:(NSNotification *) noti
@@ -88,11 +104,15 @@
 
 - (void) showLoginView;
 {
-    // not login info
-    if (![[UserInfo instance] isUserLogin])
-    {
-        [LoginViewController ShowLoginView:@"" animated:NO];
-    }
+    
+    
+    [MainHotSongPopupViewController ShowHotSongView:@"" animated:NO];
+    
+//    // not login info
+//    if (![[UserInfo instance] isUserLogin])
+//    {
+//        [LoginViewController ShowLoginView:@"" animated:NO];
+//    }
     
 }
 

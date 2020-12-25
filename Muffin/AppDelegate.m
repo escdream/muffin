@@ -62,6 +62,12 @@
     NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString* documentDir = [paths objectAtIndex:0];
     NSLog(@"DocumentDir = %@", documentDir);
+    
+    // dark mode not use
+    if (@available(iOS 13, *)) {
+        self.window.overrideUserInterfaceStyle = UIUserInterfaceStyleLight;
+    }
+    
     return YES;
 }
 

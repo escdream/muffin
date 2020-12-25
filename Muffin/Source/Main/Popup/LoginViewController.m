@@ -14,6 +14,8 @@
 #import "StartupPopupView.h"
 #import "UserViewController.h"
 
+
+
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import "CommonUtil.h"
@@ -159,6 +161,9 @@
                      user.userLevel = 0;
                      user.userLoginState = UserInfoStateNormal;
                      
+                     
+                     [[NSNotificationCenter defaultCenter] postNotificationName:@"muffinMainVisible" object:nil];
+                     
                      [self dismissViewControllerAnimated:YES completion:nil];
                  }
                  else{
@@ -222,6 +227,7 @@
 }
 
 - (IBAction)onCloseClick:(id)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"muffinMainVisible" object:nil];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

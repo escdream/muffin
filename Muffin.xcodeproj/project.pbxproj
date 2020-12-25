@@ -147,7 +147,6 @@
 		B6612A942335F91700010161 /* MusicUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6612A912335F91700010161 /* MusicUploadViewController.m */; };
 		B6612A952335F91700010161 /* MusicUploadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6612A922335F91700010161 /* MusicUploadViewController.xib */; };
 		B66DE0B9217DDCF500320F3D /* EDBottomButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = B66DE0B8217DDCF500320F3D /* EDBottomButtonView.m */; };
-		B675264B217D67360059B61D /* libAMSLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B643EDC8212FE64B00963B98 /* libAMSLibrary.a */; settings = {ATTRIBUTES = (Weak, ); }; };
 		B68D6D99235249FB002F820E /* LyricsEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B68D6D97235249FB002F820E /* LyricsEditViewController.m */; };
 		B68D6D9A235249FB002F820E /* LyricsEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B68D6D98235249FB002F820E /* LyricsEditViewController.xib */; };
 		B6B355F02162034B006FC18C /* util_icon_back.png in Resources */ = {isa = PBXBuildFile; fileRef = B6B355BB21620340006FC18C /* util_icon_back.png */; };
@@ -209,6 +208,16 @@
 		B6C60C5821424B140033B7B3 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6C60C5521424B140033B7B3 /* FBSDKLoginKit.framework */; };
 		B6C8B7202185844A00D821C9 /* EDTagListView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C8B71F2185844A00D821C9 /* EDTagListView.m */; };
 		B6C8B72321858AC700D821C9 /* ZFTokenField.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C8B72121858AC600D821C9 /* ZFTokenField.m */; };
+		B6C9EF1F25805B2B000CB7DE /* img_copy_01.png in Resources */ = {isa = PBXBuildFile; fileRef = B6C9EF1725805B2B000CB7DE /* img_copy_01.png */; };
+		B6C9EF2025805B2B000CB7DE /* sam_bg_01.png in Resources */ = {isa = PBXBuildFile; fileRef = B6C9EF1825805B2B000CB7DE /* sam_bg_01.png */; };
+		B6C9EF2125805B2B000CB7DE /* sam_bg_03.png in Resources */ = {isa = PBXBuildFile; fileRef = B6C9EF1925805B2B000CB7DE /* sam_bg_03.png */; };
+		B6C9EF2225805B2B000CB7DE /* sam_bg_02.png in Resources */ = {isa = PBXBuildFile; fileRef = B6C9EF1A25805B2B000CB7DE /* sam_bg_02.png */; };
+		B6C9EF2325805B2B000CB7DE /* pj_ion_03.png in Resources */ = {isa = PBXBuildFile; fileRef = B6C9EF1B25805B2B000CB7DE /* pj_ion_03.png */; };
+		B6C9EF2425805B2B000CB7DE /* pj_ion_02.png in Resources */ = {isa = PBXBuildFile; fileRef = B6C9EF1C25805B2B000CB7DE /* pj_ion_02.png */; };
+		B6C9EF2525805B2B000CB7DE /* pj_ion_01.png in Resources */ = {isa = PBXBuildFile; fileRef = B6C9EF1D25805B2B000CB7DE /* pj_ion_01.png */; };
+		B6C9EF2625805B2B000CB7DE /* home_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = B6C9EF1E25805B2B000CB7DE /* home_btn.png */; };
+		B6C9EF3325805C8F000CB7DE /* MainHotSongPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C9EF3125805C8F000CB7DE /* MainHotSongPopupViewController.m */; };
+		B6C9EF3425805C8F000CB7DE /* MainHotSongPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6C9EF3225805C8F000CB7DE /* MainHotSongPopupViewController.xib */; };
 		B6D61EFC217C368600613612 /* ico_tit_back_o.png in Resources */ = {isa = PBXBuildFile; fileRef = B6D61EFA217C368600613612 /* ico_tit_back_o.png */; };
 		B6D61EFD217C368600613612 /* ico_tit_back_n.png in Resources */ = {isa = PBXBuildFile; fileRef = B6D61EFB217C368600613612 /* ico_tit_back_n.png */; };
 		B6E0E58A213003470065E395 /* EDRoundView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E0E589213003470065E395 /* EDRoundView.m */; };
@@ -561,6 +570,7 @@
 		B68D6D96235249FB002F820E /* LyricsEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LyricsEditViewController.h; sourceTree = "<group>"; };
 		B68D6D97235249FB002F820E /* LyricsEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LyricsEditViewController.m; sourceTree = "<group>"; };
 		B68D6D98235249FB002F820E /* LyricsEditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LyricsEditViewController.xib; sourceTree = "<group>"; };
+		B6A529362423465D00C63CEA /* Muffin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Muffin.entitlements; sourceTree = "<group>"; };
 		B6B355BB21620340006FC18C /* util_icon_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = util_icon_back.png; path = Muffin/Resource/img/util_icon_back.png; sourceTree = SOURCE_ROOT; };
 		B6B355BC21620340006FC18C /* icon_sett.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_sett.png; path = Muffin/Resource/img/icon_sett.png; sourceTree = SOURCE_ROOT; };
 		B6B355BD21620340006FC18C /* list_btn_del.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = list_btn_del.png; path = Muffin/Resource/img/list_btn_del.png; sourceTree = SOURCE_ROOT; };
@@ -624,6 +634,17 @@
 		B6C8B71F2185844A00D821C9 /* EDTagListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDTagListView.m; sourceTree = "<group>"; };
 		B6C8B72121858AC600D821C9 /* ZFTokenField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFTokenField.m; sourceTree = "<group>"; };
 		B6C8B72221858AC600D821C9 /* ZFTokenField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFTokenField.h; sourceTree = "<group>"; };
+		B6C9EF1725805B2B000CB7DE /* img_copy_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img_copy_01.png; sourceTree = "<group>"; };
+		B6C9EF1825805B2B000CB7DE /* sam_bg_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sam_bg_01.png; sourceTree = "<group>"; };
+		B6C9EF1925805B2B000CB7DE /* sam_bg_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sam_bg_03.png; sourceTree = "<group>"; };
+		B6C9EF1A25805B2B000CB7DE /* sam_bg_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sam_bg_02.png; sourceTree = "<group>"; };
+		B6C9EF1B25805B2B000CB7DE /* pj_ion_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pj_ion_03.png; sourceTree = "<group>"; };
+		B6C9EF1C25805B2B000CB7DE /* pj_ion_02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pj_ion_02.png; sourceTree = "<group>"; };
+		B6C9EF1D25805B2B000CB7DE /* pj_ion_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pj_ion_01.png; sourceTree = "<group>"; };
+		B6C9EF1E25805B2B000CB7DE /* home_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_btn.png; sourceTree = "<group>"; };
+		B6C9EF3025805C8F000CB7DE /* MainHotSongPopupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainHotSongPopupViewController.h; sourceTree = "<group>"; };
+		B6C9EF3125805C8F000CB7DE /* MainHotSongPopupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainHotSongPopupViewController.m; sourceTree = "<group>"; };
+		B6C9EF3225805C8F000CB7DE /* MainHotSongPopupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainHotSongPopupViewController.xib; sourceTree = "<group>"; };
 		B6D61EFA217C368600613612 /* ico_tit_back_o.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ico_tit_back_o.png; path = Muffin/Resource/img/ico_tit_back_o.png; sourceTree = SOURCE_ROOT; };
 		B6D61EFB217C368600613612 /* ico_tit_back_n.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ico_tit_back_n.png; path = Muffin/Resource/img/ico_tit_back_n.png; sourceTree = SOURCE_ROOT; };
 		B6E0E588213003470065E395 /* EDRoundView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDRoundView.h; sourceTree = "<group>"; };
@@ -760,7 +781,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B675264B217D67360059B61D /* libAMSLibrary.a in Frameworks */,
 				B63AC153213E814800C45F83 /* CoreGraphics.framework in Frameworks */,
 				B63AC151213E813900C45F83 /* SystemConfiguration.framework in Frameworks */,
 				B6C60C5821424B140033B7B3 /* FBSDKLoginKit.framework in Frameworks */,
@@ -853,6 +873,7 @@
 		B643EC7F212FC01000963B98 /* Muffin */ = {
 			isa = PBXGroup;
 			children = (
+				B6A529362423465D00C63CEA /* Muffin.entitlements */,
 				B6F7AA4122B255F90043483F /* Source */,
 				B643ED82212FDC2800963B98 /* Framework */,
 				B643ED28212FC94300963B98 /* Resource */,
@@ -968,6 +989,7 @@
 		B643ED28212FC94300963B98 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				B6C9EF1625805B2B000CB7DE /* MainAd */,
 				B65D879E22C493780047676A /* Player */,
 				B6F7AA3822B10AAB0043483F /* airplane.aac */,
 				B6F7AA3922B10AAB0043483F /* sample.m4a */,
@@ -1260,6 +1282,21 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
+		B6C9EF1625805B2B000CB7DE /* MainAd */ = {
+			isa = PBXGroup;
+			children = (
+				B6C9EF1725805B2B000CB7DE /* img_copy_01.png */,
+				B6C9EF1825805B2B000CB7DE /* sam_bg_01.png */,
+				B6C9EF1925805B2B000CB7DE /* sam_bg_03.png */,
+				B6C9EF1A25805B2B000CB7DE /* sam_bg_02.png */,
+				B6C9EF1B25805B2B000CB7DE /* pj_ion_03.png */,
+				B6C9EF1C25805B2B000CB7DE /* pj_ion_02.png */,
+				B6C9EF1D25805B2B000CB7DE /* pj_ion_01.png */,
+				B6C9EF1E25805B2B000CB7DE /* home_btn.png */,
+			);
+			path = MainAd;
+			sourceTree = "<group>";
+		};
 		B6E0E587213003260065E395 /* Control */ = {
 			isa = PBXGroup;
 			children = (
@@ -1384,6 +1421,9 @@
 				B68D6D96235249FB002F820E /* LyricsEditViewController.h */,
 				B68D6D97235249FB002F820E /* LyricsEditViewController.m */,
 				B68D6D98235249FB002F820E /* LyricsEditViewController.xib */,
+				B6C9EF3025805C8F000CB7DE /* MainHotSongPopupViewController.h */,
+				B6C9EF3125805C8F000CB7DE /* MainHotSongPopupViewController.m */,
+				B6C9EF3225805C8F000CB7DE /* MainHotSongPopupViewController.xib */,
 			);
 			path = Popup;
 			sourceTree = "<group>";
@@ -1548,6 +1588,11 @@
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 1010;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					B643EC94212FC01200963B98 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -1595,6 +1640,7 @@
 				B6F7AAAA22B255F90043483F /* UserOtherViewController.xib in Resources */,
 				B6F7AA3B22B10AAB0043483F /* sample.m4a in Resources */,
 				3007914422C38BE20030CCAC /* btn_star_n.png in Resources */,
+				B6C9EF1F25805B2B000CB7DE /* img_copy_01.png in Resources */,
 				B6B355FE2162034C006FC18C /* btn_on.png in Resources */,
 				B65D87BF22C493780047676A /* Repeat One.png in Resources */,
 				B63AC158213EA37F00C45F83 /* ManInTheMirror.mp3 in Resources */,
@@ -1610,6 +1656,7 @@
 				B6B355FD2162034C006FC18C /* st_01_off.png in Resources */,
 				B6D61EFD217C368600613612 /* ico_tit_back_n.png in Resources */,
 				B6B356212162034C006FC18C /* btn_fb_main.png in Resources */,
+				B6C9EF2425805B2B000CB7DE /* pj_ion_02.png in Resources */,
 				B6B355FB2162034C006FC18C /* util_open_menu_b.png in Resources */,
 				B6B356122162034C006FC18C /* banner_smp_01.png in Resources */,
 				B6B3561A2162034C006FC18C /* muffin_logo_s_g.png in Resources */,
@@ -1626,6 +1673,7 @@
 				B65D87B522C493780047676A /* Create Playlist.png in Resources */,
 				B643EC8A212FC01200963B98 /* Assets.xcassets in Resources */,
 				B65D87C422C493780047676A /* Favorite.png in Resources */,
+				B6C9EF2325805B2B000CB7DE /* pj_ion_03.png in Resources */,
 				B6F7AA9922B255F90043483F /* TagCollectonViewController.xib in Resources */,
 				B65D87B922C493780047676A /* Search.png in Resources */,
 				B656497322B55C1B001E0E26 /* MyMuffinViewController.xib in Resources */,
@@ -1644,6 +1692,7 @@
 				B63AC0D8213E6CB200C45F83 /* face00.png in Resources */,
 				B6F7AAA922B255F90043483F /* ProjectViewController.xib in Resources */,
 				B6B356142162034C006FC18C /* icon_heart.png in Resources */,
+				B6C9EF2525805B2B000CB7DE /* pj_ion_01.png in Resources */,
 				B643ED2C212FC94400963B98 /* imageRight.png in Resources */,
 				B6B356042162034C006FC18C /* btn_l_close.png in Resources */,
 				B643ED2E212FC94400963B98 /* imageRoot.png in Resources */,
@@ -1669,15 +1718,19 @@
 				B6F7AAA122B255F90043483F /* BannerTableViewCell.xib in Resources */,
 				B6B355F42162034B006FC18C /* list_btn_plu.png in Resources */,
 				B6B356082162034C006FC18C /* banner_icon_01.png in Resources */,
+				B6C9EF2625805B2B000CB7DE /* home_btn.png in Resources */,
 				B6B356022162034C006FC18C /* util_d_icon_logout.png in Resources */,
 				B65D87C222C493780047676A /* Play.png in Resources */,
 				B6B356182162034C006FC18C /* st_01_on.png in Resources */,
 				B6B3561D2162034C006FC18C /* main_btn_02.png in Resources */,
 				B65D87C022C493780047676A /* Next.png in Resources */,
 				B6F7AA9E22B255F90043483F /* FileUploadViewController.xib in Resources */,
+				B6C9EF2125805B2B000CB7DE /* sam_bg_03.png in Resources */,
 				B65D87C622C496110047676A /* Stop.png in Resources */,
 				B6F7AA9722B255F90043483F /* MainScreenViewController.xib in Resources */,
 				B6B356152162034C006FC18C /* icon_sh.png in Resources */,
+				B6C9EF3425805C8F000CB7DE /* MainHotSongPopupViewController.xib in Resources */,
+				B6C9EF2225805B2B000CB7DE /* sam_bg_02.png in Resources */,
 				B65D87BE22C493780047676A /* Delete.png in Resources */,
 				B624DCBA24143AB5006E0EFB /* icon_login2.png in Resources */,
 				B6B355F62162034B006FC18C /* icon_arr.png in Resources */,
@@ -1701,6 +1754,7 @@
 				B6B356092162034C006FC18C /* user_pho_smp_01.png in Resources */,
 				B6E0E59B2130102F0065E395 /* IMG_0694.png in Resources */,
 				B65D87BA22C493780047676A /* Shuffle.png in Resources */,
+				B6C9EF2025805B2B000CB7DE /* sam_bg_01.png in Resources */,
 				B6B355FC2162034C006FC18C /* m_open_use_smp.png in Resources */,
 				B65D87B422C493780047676A /* Download.png in Resources */,
 				B6E0E5972130102F0065E395 /* IMG_0695.png in Resources */,
@@ -1744,6 +1798,7 @@
 				B6309C5B22B256FF007A2942 /* SampleQueueId.m in Sources */,
 				B6E0E5C02133D0F00065E395 /* EDHttpTransManager.m in Sources */,
 				B63AC138213E7C5F00C45F83 /* STKDataSource.m in Sources */,
+				B6C9EF3325805C8F000CB7DE /* MainHotSongPopupViewController.m in Sources */,
 				B6F7AAA222B255F90043483F /* ProjectViewController.m in Sources */,
 				B643EDBA212FE2ED00963B98 /* ConfigUtil.m in Sources */,
 				B636AA3F215E720400C755CB /* LikeSong.m in Sources */,
@@ -1982,7 +2037,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -2034,7 +2089,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -2046,9 +2101,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Muffin/Muffin.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 20200319;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = U24W4S42CS;
 				ENABLE_BITCODE = NO;
@@ -2067,6 +2123,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Muffin/Library/Lib",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = kr.co.muppn.muppnapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -2083,9 +2140,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Muffin/Muffin.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 20200319;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = U24W4S42CS;
 				ENABLE_BITCODE = NO;
@@ -2104,10 +2162,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Muffin/Library/Lib",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = kr.co.muppn.muppnapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = muon_adhoc_11;
+				PROVISIONING_PROFILE_SPECIFIER = Muppn_Adhoc;
 				SWIFT_OBJC_BRIDGING_HEADER = "Muffin/Source/Main/Screen/Muffin-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;

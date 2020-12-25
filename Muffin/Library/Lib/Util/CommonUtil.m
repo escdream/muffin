@@ -2676,45 +2676,6 @@ CGColorSpaceRef GetDeviceRGBColorSpace(BOOL isrelease)
 	return returnString;
 }
 
-//jailbreak 탈옥체크
-+ (BOOL)isJailBreakPhone
-{
-	NSLog(@"탈옥폰 체크!!!");
-    
-#if TARGET_IPHONE_SIMULATOR
-    
-	// -> other Sources/AhnLab/ 에서 .h파일은 냅두고 .a 라이브러리 파일은 프로젝트에서 빼면~ 시뮬레이터는 정상 작동합니다...- -;
-	return FALSE;	// -> 시뮬레이터일 경우 무조건 통과!!
-	
-#else //TARGET_IPHONE_DEVICE
-	
-    NSTimeInterval interval = [[NSDate date] timeIntervalSince1970];
-    NSInteger roundedValue = round(interval);
-    
-    /* 탈옥폰 사용  (시작) */
-    // 탈옥폰 사용금지 (시뮬레이터에서는 실행안됨)
-    amsLibrary *ams = [[amsLibrary alloc] init];
-    NSInteger  isJB = [ams a3142:@"AHN_3379024345_TK"];
-    
-    
-    
-    NSLog(@"Jailbreak Result : %ld" , (long)isJB);
-    NSLog(@"Time Interval : %ld" , (long)roundedValue);
-    
-    long checking = (long)(isJB - roundedValue);
-    
-    NSLog(@"Checking Result : %ld" , checking);
-    
-    if (!(checking >= JS_NORMAL - 2 && checking <= JS_NORMAL + 2)) {
-        return TRUE;
-    }
-	else {
-		NSLog(@"순정 폰입니다.");
-		return FALSE;
-    }
-#endif
-    
-}
 
 + (NSString *) getLocale
 {
