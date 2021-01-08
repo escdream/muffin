@@ -57,6 +57,11 @@
     
     UILabel * lbUser;
     UILabel * lbPoint;
+    UIImage *imgPj[MAX_IMAGE];
+
+    UIImageView *imgPjIcon;
+    UILabel * lbPrjUser;
+    UILabel * lbPrjName;
 }
 
 
@@ -114,6 +119,11 @@
             self->lbUser.alpha = 0;
             self->lbPoint.alpha = 0;
             
+            self->imgPjIcon.alpha = 0;
+            self->lbPrjName.alpha = 0;
+            self->lbPrjUser.alpha = 0;
+            
+            
         }
         self->timerIndex ++;
         if (self->timerIndex >= MAX_IMAGE)
@@ -127,6 +137,11 @@
             [UIView animateWithDuration:0.3 animations:^(void) {
                 self->lbUser.alpha = 1.0f;
                 self->lbPoint.alpha = 1.0f;
+                
+                self->imgPjIcon.alpha = 1.0;
+                self->lbPrjName.alpha = 1.0;
+                self->lbPrjUser.alpha = 1.0;
+
             } completion:^(BOOL finished) {
             }];
     }];
@@ -152,6 +167,8 @@
     {
         bgImageView[i] = [[UIImgView alloc] init];
         [self.view addSubview:bgImageView[i]];
+        
+        imgPj[i] = [UIImage imageNamed: [NSString stringWithFormat:@"pj_ion_0%d", i+1]];
         
         r.origin.x = (r.size.width * i);
         bgImageView[i].frame = r;
@@ -213,7 +230,6 @@
     
     [self.view addSubview:lbPoint];
 
-    
     UIButton * btnHome = [UIButton buttonWithType:UIButtonTypeCustom];
     r = CGRectMake([[UIScreen mainScreen] bounds].size.width - 42, [[UIScreen mainScreen] bounds].size.height - 120, 42, 100);
     btnHome.frame = r;
@@ -222,13 +238,73 @@
     [btnHome addTarget:self action:@selector(OnLoginClick) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:btnHome];
+
     
+    imgPjIcon = [[UIImageView alloc] init];
+    
+
+    imgPjIcon.frame = CGRectMake(20, r.origin.y + ((r.size.height - 27) / 2),  27, 27);
+    imgPjIcon.image = imgPj[0];
+
+    [self.view addSubview:imgPjIcon];
+    
+    
+    lbPrjUser = [[UILabel alloc] init];
+    
+    lbPrjUser.text = @"Bruno Mas";
+    lbPrjUser.font = [UIFont boldSystemFontOfSize:16];
+    [lbPrjUser sizeToFit];
+    
+    CGRect tr = lbPrjUser.frame;
+    
+    r = imgPjIcon.frame;
+    r.origin.x += r.size.width + 3;
+//    r.origin.y += (r.size.height - tr.size.height) / 2;
+    r.size.width = tr.size.width;
+    
+    lbPrjUser.frame = r;
+    [lbPrjUser setTextColor:[UIColor whiteColor]];
+
+    [self.view addSubview:lbPrjUser];
+    
+    
+    
+    lbPrjName = [[UILabel alloc] init];
+    lbPrjName.text = @"nunnunanna";
+    lbPrjName.textColor = [UIColor whiteColor];
+    lbPrjName.font = [UIFont systemFontOfSize:11];
+    [lbPrjName sizeToFit];
+    
+    tr = lbPrjName.frame;
+    r = lbPrjUser.frame;
+    
+    r.origin.x += r.size.width + 3;
+//    r.origin.y += (r.size.height - tr.size.height) / 2;
+    r.size.width = tr.size.width;
+    lbPrjName.frame = r;
+    [self.view addSubview:lbPrjName];
+    
+    
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    NSString * build = [[NSBundle mainBundle] objectForInfoDictionaryKey: (NSString *)kCFBundleVersionKey];
+    UILabel *lbVersion = [[UILabel alloc] init];
+    lbVersion.text = [NSString stringWithFormat:@"%@ (%@)", version, build];
+    lbVersion.textAlignment = NSTextAlignmentRight;
+    lbVersion.font = [UIFont systemFontOfSize:10];
+    lbVersion.frame = CGRectMake(0, [[UIScreen mainScreen] bounds].origin.y + 50, [[UIScreen mainScreen] bounds].size.width- 20, 25);
+    lbVersion.textColor = [UIColor whiteColor];
+
+    [self.view addSubview:lbVersion];
     
     [self setShadowView:imgLogo];
     [self setShadowView:lbTitle];
     [self setShadowView:lbUser];
     [self setShadowView:lbPoint];
-    
+    [self setShadowView:imgPjIcon];
+    [self setShadowView:lbPrjName];
+    [self setShadowView:lbPrjUser];
+    [self setShadowView:lbVersion];
+
 }
 
 - (void) OnLoginClick
